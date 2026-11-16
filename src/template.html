@@ -444,7 +444,7 @@ h1.brand{cursor:pointer;user-select:none}h1.brand:hover .logo{transform:rotate(-
 .ty1{background:#fde7dc;color:#b4501e}.ty2{background:#e3ecfb;color:#2f5aa8}.ty3{background:#e3f3e6;color:#1f7a3a}
 .nm small.tyb{display:table;margin-top:3px}
 .rar{display:inline-block;font-size:11px;font-weight:800;padding:1px 6px;border-radius:5px;margin-left:6px;color:#fff;background:#8a8a8a}
-.rar.rSSR{background:linear-gradient(90deg,#d4932a,#c0582a)}.rar.rSR{background:#8b5cc4}.rar.rR{background:#4a86c5}
+.rar.rSSR{background:linear-gradient(90deg,#b0700f,#a3431b)}.rar.rSR{background:#8b5cc4}.rar.rR{background:#4a86c5}
 .tier{font-weight:800;text-align:center}.tier.tSS{color:#c0392b}.tier.tS{color:#d4720f}.tier.tA{color:#2f8a4a}.tier.tB{color:#2f5aa8}.tier.tC{color:#888}
 .tcard h3{font-size:19px}.tcard ol{padding-left:20px;margin:8px 0}.tcard li{margin:6px 0}
 .tsum{margin-top:auto;padding:10px 12px;border-radius:10px;background:#fff3ea;color:var(--accent);font-weight:700;font-size:14px}
@@ -850,6 +850,15 @@ body{padding-bottom:72px}
 
 :root[data-theme="dark"] nav.tabs button.tab[aria-pressed="true"],:root[data-theme="dark"] nav.subnav button[aria-pressed="true"]{color:var(--gold2)!important}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.tabs button.tab[aria-pressed="true"],:root:not([data-theme="light"]) nav.subnav button[aria-pressed="true"]{color:var(--gold2)!important}}
+/* 등급 배지 글씨는 항상 흰색 */
+small.rar,.rar{color:#fff!important;text-shadow:0 1px 1px rgba(0,0,0,.35)}
+/* 밝은 화면: 탭 묶음 이름은 진한 금색 */
+nav.tabs .tgl,nav.subnav .sgl{color:#86601a!important}
+:root[data-theme="dark"] nav.tabs .tgl,:root[data-theme="dark"] nav.subnav .sgl{color:var(--gold)!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.tabs .tgl,:root:not([data-theme="light"]) nav.subnav .sgl{color:var(--gold)!important}}
+/* 다크: 선택된 필터 칩 글씨(가죽 배경 위 금색) */
+:root[data-theme="dark"] .chip[aria-pressed="true"],:root[data-theme="dark"] .chips button[aria-pressed="true"]{color:var(--gold2)!important}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"],:root:not([data-theme="light"]) .chips button[aria-pressed="true"]{color:var(--gold2)!important}}
 
 .kakao{display:inline-flex;align-items:center;gap:10px;padding:9px 16px 9px 12px;border-radius:12px;text-decoration:none;background:#fee500;color:#191600;border:2px solid var(--gold);box-shadow:0 3px 10px rgba(0,0,0,.25);white-space:nowrap}
 .kakao:hover{filter:brightness(1.05);transform:translateY(-1px)}
@@ -1312,7 +1321,7 @@ function renderArt(){
     return `<section class="box cxcard"${el?` style="--c:var(${EL[el]})"`:''}><h3><span class="sbig">${esc(r[0])}</span><small>${L.length}종 · ${esc(r[3])}</small></h3><div class="cxe"><span><i>${L.length===1?'1장':'2장'}</i>${esc(r[1])}</span><span><i>${L.length===1?'2장':'4장'}</i>${esc(r[2])}</span></div>${grp}</section>`;}).join('');
   document.getElementById('grid').insertAdjacentHTML('beforeend',`<h2 class="sec">세트별 도감 <small>세트마다 붙을 수 있는 몬스터 · 전설 기준 · "또는"은 다른 세트로 뜰 수도 있다는 뜻</small></h2>
   <div class="c3 eq cxg">${codex}</div>`);
-  document.getElementById('n').textContent=`추천 조합 ${A.builds.length+A.herob.length}개 · 삽화 ${ARTLIST.length}종`;
+  document.getElementById('n').textContent=q?`검색 결과: 추천 조합 ${A.builds.filter(fb).length+A.herob.filter(fb).length}개 · 세트 ${A.sets.filter(r=>r[0].includes(q)||(SETS[r[0]]||[]).some(x=>x[0].includes(q))).length}개`:`추천 조합 ${A.builds.length+A.herob.length}개 · 삽화 ${ARTLIST.length}종`;
 }
 function matCard(m){
   return `<section class="box"><div class="mh"><span class="mic">${ic(m.n)}</span><h3>${esc(m.n)} <span class="cat">필요 ${esc(m.need)}</span></h3></div>
@@ -1544,7 +1553,9 @@ function renderGift(){
   <section class="box"><h3>인연 레벨 보상</h3><div class="tw"><table><tbody>${Gf.reward.map(r=>`<tr><td class="part">${r[0]}</td><td>${r[0]==='Lv10'?IC['공명의 결정']+' ':''}${esc(r[1])}</td></tr>`).join('')}</tbody></table></div><div class="cat" style="white-space:normal">Lv10 공명의 결정 말고는 꾸미기 보상이라 전투력엔 영향 없어요.</div></section></div>`;
   const bpc=()=>{const n=Math.max(0,+document.getElementById('bpNeed').value||0),g=+document.getElementById('bpGift').value;const c=Math.ceil(n/g),dd=Math.ceil(c/5);document.getElementById('bpOut').innerHTML=`<b>${c.toLocaleString()}개</b> 필요 · 하루 5개씩 <b>${dd.toLocaleString()}일</b>`;};
   ['bpNeed','bpGift'].forEach(id=>document.getElementById(id).addEventListener('input',bpc)); bpc();
-  document.getElementById('n').textContent=`모험가 ${Object.keys(Gf.like).length}명`;
+  const hit=Object.entries(Gf.like).filter(([c,l])=>!q||c.includes(q)||l.some(n=>n.includes(q))).length;
+  document.getElementById('n').textContent=q?`검색 결과 모험가 ${hit}명`:`모험가 ${Object.keys(Gf.like).length}명`;
+  if(q&&!hit)document.querySelector('#grid .gtab tbody').innerHTML='<tr><td colspan="2" class="empty">검색에 맞는 모험가·선물이 없어요.</td></tr>';
 }
 function renderItems(){
   document.getElementById('lt').textContent='분류'; document.getElementById('le').textContent=''; document.getElementById('e').innerHTML='';
@@ -1562,6 +1573,8 @@ function renderGather(){
   const G=D.gather, C=D.cook;
   const M=['고추','헤븐 베리','섬 진품쌀'].map(n=>D.mats.find(m=>m.n===n));
   const maps=D.facilities.filter(f=>lf.m==='전체'||f.map===lf.m);
+  const shotOK=s=>(lf.m==='전체'||s.map===lf.m)&&(lf.k==='전체'||(s.k||'식물')===lf.k)&&(!q||[s.map,s.t,s.y].join(' ').toLowerCase().includes(q));
+  const SH=D.shots.filter(shotOK);
   let cnt=0;
   const fac=maps.map(f=>{
     const rows=f.rows.filter(r=>(lf.k==='전체'||r[0]===lf.k)&&(!q||r.join(' ').toLowerCase().includes(q)));
@@ -1569,7 +1582,7 @@ function renderGather(){
     return `<section class="world"><h3>${f.map}<small>${f.sub}</small></h3><div class="tw"><table>
     <thead><tr><th>시설</th><th>설치 위치</th><th>1회 수령량</th></tr></thead><tbody>
     ${rows.map(r=>`<tr class="${r[3]?'star':''}"><td class="kind">${ic(r[0])} ${r[0]}</td><td class="kr">${esc(r[1])}</td><td class="items">${itemIc(r[2])}</td></tr>`).join('')}
-    </tbody></table></div><div style="padding:12px 14px;font-size:14.5px;border-top:1px solid var(--line)">💡 ${esc(f.tip)}</div>${D.shots.some(s=>s.map===f.map)?`<div class="shots in">${D.shots.filter(s=>s.map===f.map).map(shotFig).join('')}</div>`:''}<div class="maplink">📷 설치 자리 사진·지도: <a href="https://gamewith.jp/mhoutlanders/587282" target="_blank" rel="noopener">GameWith 시설 추천 위치 (자리별 스크린샷)</a><a href="https://gamewith.ai/monster-hunter-outlanders/ko/interactive/map" target="_blank" rel="noopener">GameWith 한국어 인터랙티브 지도</a></div></section>`;}).join('');
+    </tbody></table></div><div style="padding:12px 14px;font-size:14.5px;border-top:1px solid var(--line)">💡 ${esc(f.tip)}</div>${SH.some(s=>s.map===f.map)?`<div class="shots in">${SH.filter(s=>s.map===f.map).map(shotFig).join('')}</div>`:''}<div class="maplink">📷 설치 자리 사진·지도: <a href="https://gamewith.jp/mhoutlanders/587282" target="_blank" rel="noopener">GameWith 시설 추천 위치 (자리별 스크린샷)</a><a href="https://gamewith.ai/monster-hunter-outlanders/ko/interactive/map" target="_blank" rel="noopener">GameWith 한국어 인터랙티브 지도</a></div></section>`;}).join('');
   const rows=G.armor.map(a=>`<tr><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px;align-items:flex-start">${PHT(a[1],'ar')}<span>${esc(a[1])}<div class="route" style="color:var(--muted)">${esc(a[2])}</div></span></span></td></tr>`).join('');
   const sk=G.skills.map(s=>`<span class="s core" title="${esc(s[2])}">${esc(s[0])}<b>Lv${s[1]}</b></span>`).join('');
   document.getElementById('grid').innerHTML=`
@@ -1578,7 +1591,7 @@ function renderGather(){
    <div>${esc(C.effect)}</div>
    <div><b>마라두부 공장 배치 (디시)</b>: 부패의 심연 휘광의 호숫가 2곳 → 헤븐 베리 8 · 찬란한 군도 버섯바위섬 2곳 → 섬 진품쌀 7 · 거목의 벌판 구름안개의 숲 → 고추 20. 한 번 수령하면 진품쌀 기준 마라두부 약 7개 분량이에요.</div><div class="maplink" style="padding:4px 0 0;border:0">📷 실제 시설 배치 스크린샷: <a href="https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12017" target="_blank" rel="noopener">디시 「마라두부 공장 건설 완료」</a><a href="https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=4931" target="_blank" rel="noopener">디시 「헤븐 베리 채집 시설 추천 위치」</a><a href="https://gall.dcinside.com/mgallery/board/view/?id=capcommh&no=1533029" target="_blank" rel="noopener">디시 「헤븐 베리 채집 포인트 14곳」</a></div></section>
   <h2 class="sec">마라두부 공장 실제 배치 <small>디시 「마라두부 공장 건설 완료」 스샷 · 누르면 크게 보여요</small></h2>
-  <div class="shots">${D.shots.map(shotFig).join('')}</div>
+  ${SH.length?`<div class="shots">${SH.map(shotFig).join('')}</div>`:`<p class="empty">고른 맵·시설에 해당하는 배치 사진이 없어요. 사진은 식물 시설(부패의 심연·찬란한 군도·거목의 벌판)만 있어요.</p>`}
   <h2 class="sec">마라두부 재료 최대 채집 위치</h2>
   <div class="c3">${M.map(matCard).join('')}</div>
   <h2 class="sec">마라두부 해금·요리 순서</h2>
