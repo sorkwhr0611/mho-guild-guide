@@ -1179,9 +1179,8 @@ function joinPopup(){document.getElementById('jpop')?.remove();const d=document.
   document.body.appendChild(d);const close=()=>{d.remove();document.removeEventListener('keydown',esc_);};const esc_=e=>{if(e.key==='Escape')close();};
   d.onclick=e=>{if(e.target===d)close();};document.getElementById('jpopx').onclick=close;document.getElementById('jpopgo').addEventListener('click',()=>setTimeout(close,300));document.addEventListener('keydown',esc_);document.getElementById('jpopgo').focus();}
 function renderJoin(){
-  clearBar(); const GA=D.guild.arena;
+  clearBar();
   document.getElementById('grid').innerHTML=`
-  <section class="gbanner"><div class="gbt">📝</div><div class="gbx"><div class="gbs">직장인수렵단 · 모험단원 모집 중</div><div class="gbm" style="font-size:20px;font-weight:800">같이 사냥할 헌터 구해요</div><div class="gbs">지난주 ${esc(GA.title)} ${GA.rank}위 · 토요일엔 모험단 콘텐츠를 같이 해요</div><div class="gbb"><a class="gbj gbk" href="${D.guild.kakao}" target="_blank" rel="noopener">💬 오픈카톡방 들어가기 ›</a></div></div></section>
   <div class="jwrap jnote">
   <section class="box"><h3>📢 모험단 안내 <small class="cat">${esc(D.guild.notice.date)} 길마 공지</small></h3><ul>${D.guild.notice.lines.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
   <div class="jhow"><b>가입은 이렇게 해요</b><ol><li>아래 <b>가입 신청서</b>를 남겨요.</li><li><b>오픈카톡방</b>에 들어와서 대기해요.</li><li>자리가 나면 길마가 게임 닉네임으로 안내해 드려요.</li></ol>
