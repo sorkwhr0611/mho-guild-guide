@@ -850,6 +850,13 @@ body{padding-bottom:72px}
 
 :root[data-theme="dark"] nav.tabs button.tab[aria-pressed="true"],:root[data-theme="dark"] nav.subnav button[aria-pressed="true"]{color:var(--gold2)!important}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.tabs button.tab[aria-pressed="true"],:root:not([data-theme="light"]) nav.subnav button[aria-pressed="true"]{color:var(--gold2)!important}}
+.hcard.hot{border-color:var(--accent)!important;box-shadow:inset 0 0 0 2px var(--accent)!important}
+@media (max-width:380px){nav.subnav{margin-left:-10px!important;margin-right:-10px!important;padding-left:10px!important;padding-right:10px!important}}
+/* 큰 모니터: 화면 폭에 맞춰 전체를 키우고 본문 폭도 넓혀요 */
+@media (min-width:1680px){html{zoom:1.12}.wrap{max-width:1440px}}
+@media (min-width:2000px){html{zoom:1.25}.wrap{max-width:1520px}}
+@media (min-width:2400px){html{zoom:1.38}.wrap{max-width:1560px}}
+@media (min-width:3000px){html{zoom:1.7}}
 /* 등급 배지 글씨는 항상 흰색 */
 small.rar,.rar{color:#fff!important;text-shadow:0 1px 1px rgba(0,0,0,.35)}
 /* 밝은 화면: 탭 묶음 이름은 진한 금색 */
@@ -1496,6 +1503,9 @@ function renderTips(){
   document.querySelectorAll('.cpy').forEach(b=>b.onclick=()=>{const v=b.dataset.c;const ok=()=>{b.textContent='복사됨';setTimeout(()=>b.textContent='복사',1200);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(ok,()=>{prompt('코드',v)});else prompt('코드',v);});
   document.getElementById('n').textContent='';
 }
+/* 일요일(~월 05:00 전)엔 시련 원정 리셋을 홈 숙제 맨 앞에 */
+function homeChores(){const k=new Date(Date.now()+9*36e5),w=k.getUTCDay(),h=k.getUTCHours();const sun=w===0||(w===1&&h<5);
+  const r=D.chores.weekly.find(x=>x[1].startsWith('시련 원정 주간'));return sun&&r?[r,...D.chores.daily.slice(0,3)]:D.chores.daily.slice(0,4);}
 function renderHome(){
   clearBar();
   const cap=capOf(st.lv);
@@ -1520,7 +1530,7 @@ function renderHome(){
   const GA=D.guild.arena;
   document.getElementById('grid').innerHTML=`<section class="gbanner"><div class="gbt">🏆</div><div class="gbx"><div class="gbs">직장인수렵단 · ${esc(GA.title)} · ${esc(GA.week)}</div><div class="gbr"><b>${GA.rank}</b><span>위</span></div><div class="gbm">${esc(GA.msg)}</div><div class="gbb"><button type="button" class="gbj" data-go="join">📝 모험단 가입 신청 ›</button><a class="gbj gbk" href="${D.guild.kakao}" target="_blank" rel="noopener">💬 오픈카톡 ›</a></div></div><div class="gbd" aria-hidden="true">${'★'.repeat(3)}</div></section>
    <h2 class="sec">오늘 숙제 <small>매일 05:00 초기화</small></h2>
-   <div class="homegrid hg4">${D.chores.daily.slice(0,4).map(x=>`<button class="hcard sm" type="button" data-go="chore"><span class="hi">${x[0]}</span><b>${esc(x[1])}</b><span>${x[4]?`<em class="dd">${esc(x[4].split('|')[0])}</em>${esc(x[4].split('|')[1]||'')}`:esc(x[2])}</span></button>`).join('')}</div>
+   <div class="homegrid hg4">${homeChores().map(x=>`<button class="hcard sm${x[1].startsWith('시련 원정 주간')?' hot':''}" type="button" data-go="chore"><span class="hi">${x[0]}</span><b>${esc(x[1])}</b><span>${x[4]?`<em class="dd">${esc(x[4].split('|')[0])}</em>${esc(x[4].split('|')[1]||'')}`:esc(x[2])}</span></button>`).join('')}</div>
    <button class="morebtn" type="button" data-go="chore">📋 매일·주간 숙제 전체 체크리스트 ›</button>
    <h2 class="sec">진행 중 이벤트 <small>끝나는 순서</small></h2>
    <div class="homegrid hg4">${live.map(({e,d})=>`<button class="hcard sm" type="button" data-go="tip"><span class="hi">⏳</span><b>${esc(e[0]==='융광종 토벌'?'융광종 '+e[2]+' 토벌':e[2])}</b><span><em class="dd">${d===0?'오늘 종료':'D-'+d} · ~${md(e[4])}</em>${esc(e[5])}</span></button>`).join('')}</div>
