@@ -1,0 +1,68 @@
+import { getStore } from "@netlify/blobs";
+
+const STATUSES = ["확인 중", "안내 완료", "가입 완료", "보류"];
+const json = (body, status = 200) =>
+  new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
+const clip = (v, n) => String(v ?? "").trim().slice(0, n);
+
+export default async (req) => {
+  const store = getStore({ name: "guild-join", consistency: "strong" });
+  const key = req.headers.get("x-admin-key") || "";
+  const adminKey = process.env.GUILD_ADMIN_KEY || "";
+  const isAdmin = adminKey.length >= 4 && key === adminKey;
+
+  if (req.method === "GET") {
+    const url = new URL(req.url);
+    if (url.searchParams.get("check") === "admin") return json({ admin: isAdmin });
+    const { blobs } = await store.list();
+    const rows = (await Promise.all(blobs.map((b) => store.get(b.key, { type: "json" })))).filter(Boolean);
+    rows.sort((a, b) => (b.at || 0) - (a.at || 0));
+    return json({ admin: isAdmin, rows: rows.map((r) => (isAdmin ? r : { ...r, contact: r.contact ? "(길마만 볼 수 있어요)" : "" })) });
+  }
+
+  if (req.method === "POST") {
+    let b;
+    try { b = await req.json(); } catch { return json({ error: "bad_json" }, 400); }
+    if (b.website) return json({ ok: true }); // honeypot
+    const row = {
+      id: `j${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`,
+      at: Date.now(),
+      nickname: clip(b.nickname, 24),
+      level: clip(b.level, 3),
+      time: clip(b.time, 12),
+      main: clip(b.main, 40),
+      contact: clip(b.contact, 60),
+      message: clip(b.message, 500),
+      status: "확인 중",
+    };
+    if (!row.nickname || !row.message) return json({ error: "required" }, 400);
+    const { blobs } = await store.list();
+    if (blobs.length >= 500) return json({ error: "full" }, 429);
+    await store.setJSON(row.id, row);
+    return json({ ok: true, row: { ...row, contact: row.contact ? "(길마만 볼 수 있어요)" : "" } });
+  }
+
+  if (!isAdmin) return json({ error: "forbidden" }, 403);
+
+  if (req.method === "PATCH") {
+    let b;
+    try { b = await req.json(); } catch { return json({ error: "bad_json" }, 400); }
+    const row = await store.get(clip(b.id, 40), { type: "json" });
+    if (!row) return json({ error: "not_found" }, 404);
+    if (STATUSES.includes(b.status)) row.status = b.status;
+    if (typeof b.note === "string") row.note = clip(b.note, 120);
+    await store.setJSON(row.id, row);
+    return json({ ok: true, row });
+  }
+
+  if (req.method === "DELETE") {
+    const id = clip(new URL(req.url).searchParams.get("id"), 40);
+    if (!id) return json({ error: "id" }, 400);
+    await store.delete(id);
+    return json({ ok: true });
+  }
+
+  return json({ error: "method" }, 405);
+};
+
+export const config = { path: "/api/join" };
