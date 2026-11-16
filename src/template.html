@@ -870,6 +870,10 @@ body{padding-bottom:72px}
 .frow .items{font-size:14px}
 .fshots{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))!important;gap:8px!important;margin-top:4px;padding:0!important}
 .fttip{padding:10px 14px;font-size:14px;border-top:1px solid var(--line);color:var(--muted)}
+.srgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}@media (min-width:1000px){.srgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}.srit{display:grid;gap:2px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}.srit b{font-size:14px}.srit .cat{white-space:normal;font-size:12.5px}
+.mapc .mstat{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.bshots{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin-top:12px;padding:0!important}
+@media (max-width:520px){.bshots{grid-template-columns:1fr!important}}
 /* 큰 모니터: 화면 폭에 맞춰 전체를 키우고 본문 폭도 넓혀요 */
 @media (min-width:1680px){html{zoom:1.12}.wrap{max-width:1440px}}
 @media (min-width:2000px){html{zoom:1.25}.wrap{max-width:1520px}}
@@ -1232,7 +1236,7 @@ function renderJoin(){
 }
 const DESC={home:'',explore:'맵마다 전망대 레벨(별이슬벌레), 미니게임(필드 탐색), 섬의 보물, 에어리어 과제를 채우는 방법이에요. 아래 체크리스트는 이 기기에 저장돼요.',join:'직장인수렵단 모험단 가입 신청서예요. 신청을 남기고 오픈카톡방에 들어와 대기하면, 자리가 날 때 길마가 확인하고 안내해 드려요.',money:'과금 패키지 추천, 시즌 패스(활활 화로), 에너지·의뢰 사냥, 제니·루타 코인·모집권 같은 핵심 재화를 어디서 얻는지 정리했어요.',buddy:'모험가·주인공 무기마다 어떤 동반자를 끼면 좋은지, 동반자 전체 목록과 코어 패시브 발동 조건이에요.',tip:'최신 패치, 이벤트 일정, 쿠폰, 새 방어구 소식이에요.',guide:'캐릭터·무기별 공략과 헷갈리는 시스템 팁이에요. 디시 갤러리 공략글을 정리했어요.',chore:'매일·매주 챙길 것 체크리스트예요. 체크하면 이 브라우저에 저장되고 초기화 시간에 자동으로 풀려요.',hero:'주인공 무기 종류·속성별 추천 장비예요. "내 레벨"을 넣으면 그 레벨에서 낄 수 있는 장비로 자동으로 바꿔서 보여줘요(파란 칸 = 레벨 때문에 바뀐 부위). Lv31 미만이면 중반 세팅이 있는 무기는 중반 세팅으로 보여줘요.',
 adv:'모험가별 최강 장비예요. "내 레벨"을 넣으면 그 레벨에서 낄 수 있는 장비로 자동으로 바꿔서 보여줘요(파란 칸 = 바뀐 부위).',
-party:'game8 추천 파티 6개와 디시인사이드에서 많이 추천하는 편성·운영 팁이에요. 메인 조작 1명 + 서브 3명 구성이에요.',
+party:'GameWith 최강 편성 5개(속성별)와 디시인사이드에서 많이 쓰는 편성·운영 팁이에요. 메인 조작 1명 + 서브 3명 구성이에요.',
 mon:'둥지 사냥 과제 용어, 신규 보스 크샬다오라 풍압 대비, 융광종이 일반 몬스터와 뭐가 다른지, 몬스터별 약점 속성(일반 vs 융광종), 융광종 소형 몬스터 위치예요.',
 art:'위에서 내 삽화 단계(희귀·영웅·전설)를 고르면 카드가 그 단계에 맞게 바뀌어요. 전설 단계에선 코스트별 주옵션·부옵션까지, 서브로 쓸 때 바꿀 세트도 같이 보여줘요.',
 life:'4개 맵의 환경생물과 수중 생물이에요(찬란한 군도는 게임 도감에 있는 7종만, 출현 정보는 아직 없어요). 출현 시간·찾는 위치·사용 효과·크기를 월드별로 볼 수 있어요.',
@@ -1254,7 +1258,7 @@ function renderParty(){
    ${p.subs.length?`<div><span class="cat">교체 후보</span><ul style="margin:2px 0 0;padding-left:18px">${p.subs.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div>`:''}
    ${p.warn?`<div class="warn">주의: ${esc(p.warn)}</div>`:''}</div></article>`).join('');
   const com=D.community.map(g=>`<section class="box"><h3>${esc(g.t)}</h3><ul>${g.items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`).join('');
-  document.getElementById('grid').innerHTML=`<h2 class="sec">추천 파티 <small>game8 · ★ = 직접 조작할 캐릭터</small></h2>
+  document.getElementById('grid').innerHTML=`<h2 class="sec">추천 파티 <small>GameWith 최강 편성 (11/15 갱신) · ★ = 직접 조작할 캐릭터</small></h2>
    <div class="pgrid">${cards||'<p class="empty">조건에 맞는 편성이 없어요.</p>'}</div>
    <h2 class="sec">유저들이 많이 쓰는 편성·팁 <small>디시인사이드 공략글 정리</small></h2><div class="c2">${com}</div>
    <h2 class="sec">편성 요령</h2><section class="box full"><ul>${D.tips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`;
@@ -1273,20 +1277,19 @@ function renderMon(){
   document.getElementById('grid').innerHTML=`${nestHTML()}<h2 class="sec">융광종 vs 일반 몬스터</h2>
   <section class="box full"><div class="tw"><table><thead><tr><th style="width:120px">항목</th><th style="width:22%">일반 몬스터</th><th>융광종</th></tr></thead><tbody>
   ${D.radiant.map(r=>`<tr><td class="part">${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div></section>
+  <div class="c2 eq"><section class="box"><h3>융광종 잡는 요령</h3><ul>${D.radtips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
+  <section class="box"><h3>융광종 소형 몬스터 <small class="cat">나오는 맵</small></h3><div class="srgrid">${D.smallrad.map(s=>`<div class="srit"><span class="nm">${PHT('융광종 '+s[0],'sm')}<b>${esc(s[0])}</b></span><span class="cat">${esc(s[1])}</span></div>`).join('')}</div></section></div>
   <h2 class="sec">신규 보스 크샬다오라 대비: 풍압 무효 세팅 <small>디시 공략글 · 사진 누르면 크게</small></h2>
   <section class="box full"><div class="nm" style="gap:14px">${PHT('크샬다오라','lg')}<div><h3 style="margin:0">강룡 크샬다오라</h3><div class="cat" style="white-space:normal;font-size:14px;margin-top:4px">몸에 두른 바람(용풍압)으로 가까이 가면 몸이 젖혀져요. 풍압을 무효로 만들면 근접 무기도 편하게 붙을 수 있어요.</div></div></div>
   <ol>${D.boss.how.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section>
   <div class="c2"><section class="box"><h3>${PHT('브릭스','sm')} 예시: 브릭스 풍압 내성 장비</h3><div class="tw"><table><thead><tr><th>부위</th><th>장비</th><th>메모</th></tr></thead><tbody>
   ${D.boss.gear.map(g=>`<tr><td class="part">${g[0]}</td><td class="kr"><span class="nm" style="gap:8px">${PHT(g[1].replace('Ⅳ',''),'ar')}<span>${esc(g[1])}</span></span></td><td class="cat">${esc(g[2])}</td></tr>`).join('')}</tbody></table></div>
   <ul>${D.boss.sets.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
-  <section class="box"><h3>${PHT('삽화-파오우르무','sm')} 삽화 코어 = 파오우르무</h3><ul>${D.boss.tips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section></div>
-  <div class="shots">${[{f:'b1',map:'예시 · 브릭스 장비',t:'얼로이 + 우르무',y:'풍압 내성 +1 · 체력 회복 +1'},{f:'b2',map:'예시 · 브릭스 삽화',t:'코어 파오우르무 · 10/12',y:'풍압 Lv3 → 파티 전원 풍압 무효'}].map(shotFig).join('')}</div>
-  <div class="c2"><section class="box"><h3>융광종 잡는 요령</h3><ul>${D.radtips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
-  <section class="box"><h3>융광종 소형 몬스터</h3><div class="tw"><table><thead><tr><th>몬스터</th><th>나오는 맵</th></tr></thead><tbody>
-  ${D.smallrad.map(s=>`<tr><td class="kr"><span class="nm">${PHT('융광종 '+s[0],'sm')}<span>융광종 ${esc(s[0])}${IMG('융광종 '+s[0])}</span></span></td><td>${esc(s[1])}</td></tr>`).join('')}</tbody></table></div></section></div>
-  <h2 class="sec">몬스터별 약점 속성 <small>주황 글씨 = 융광종이 되면 약점이 바뀌는 몬스터</small></h2>
+  <section class="box"><h3>${PHT('삽화-파오우르무','sm')} 삽화 코어 = 파오우르무</h3><ul>${D.boss.tips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
+  <div class="shots bshots">${[{f:'b1',map:'예시 · 브릭스 장비',t:'얼로이 + 우르무',y:'풍압 내성 +1 · 체력 회복 +1'},{f:'b2',map:'예시 · 브릭스 삽화',t:'코어 파오우르무 · 10/12',y:'풍압 Lv3 → 파티 전원 풍압 무효'}].map(shotFig).join('')}</div></section></div>
+  <h2 class="sec">몬스터별 약점 속성 <small>GameWith 한국어판 기준 · 주황 글씨 = 융광종이 되면 약점이 바뀌는 몬스터</small></h2>
   <section class="box full"><div class="tw"><table><thead><tr><th>몬스터</th><th>일반 약점</th><th>융광종 약점</th><th>주로 나오는 곳</th></tr></thead><tbody>
-  ${rows.map(m=>{const d=m[1]!==m[2];return `<tr><td class="kr"><span class="nm">${PHT(m[0],'sm')}<span>${esc(m[0])}${IMG(m[0])}</span></span></td><td>${wk(m[1])}</td><td class="${d?'diff':''}"><span class="nm">${PHT('융광종 '+m[0],'sm')}<span>${wk(m[2])}</span></span></td><td class="cat" style="white-space:normal">${esc(m[3])}</td></tr>`;}).join('')}
+  ${rows.map(m=>{const no=m[2]==='—';const d=!no&&m[1]!==m[2];return `<tr><td class="kr"><span class="nm">${PHT(m[0],'sm')}<span>${esc(m[0])}${IMG(m[0])}${no?'<span class="only">고룡</span>':''}</span></span></td><td>${wk(m[1])}</td><td class="${d?'diff':''}">${no?'<span class="cat">융광종 없음</span>':`<span class="nm">${PHT('융광종 '+m[0],'sm')}<span>${wk(m[2])}</span></span>`}</td><td class="cat" style="white-space:normal">${esc(m[3])}</td></tr>`;}).join('')}
   </tbody></table></div><div class="cat" style="white-space:normal">약점은 가장 잘 먹히는 속성 기준이에요. 같은 몬스터라도 부위·무기에 따라 실제 약점은 달라질 수 있어요.</div></section>`;
   document.getElementById('n').textContent=`몬스터 ${rows.length}종`;
 }
@@ -1439,13 +1442,13 @@ function renderMoney(){
 function renderExplore(){
   clearBar(); const X=D.explore; let S={}; try{S=JSON.parse(localStorage.getItem('mho-explore')||'{}');}catch(e){}
   const mapCards=X.maps.map((m,mi)=>{const done=X.steps.filter((_,si)=>S[mi+'_'+si]).length;return `<section class="box mapc"><h3>${m[1]} ${esc(m[0])} <span class="mprog">${done}/${X.steps.length}</span></h3>
-    <div class="mstat"><span><b>${m[3]}</b>필드 탐색</span><span><b>${m[4]}</b>섬의 보물</span><span><b>${m[5]}</b>전망대</span></div>
+    <div class="mstat"><span><b>${m[3]}</b>필드 탐색</span><span><b>${m[4]}</b>섬의 보물</span></div>
     <div class="cat" style="white-space:normal">해금: ${esc(m[2])}</div>
     <ul class="mchk">${X.steps.map((s,si)=>`<li><label><input type="checkbox" data-k="${mi}_${si}" ${S[mi+'_'+si]?'checked':''}><span>${esc(s)}</span></label></li>`).join('')}</ul></section>`;}).join('');
   const towerRows=X.tower.map(r=>`<tr${r[0]===5||r[0]===7?' class="hl"':''}><td class="part">Lv${r[0]}</td><td><b>${r[1]}</b></td><td>${esc(r[2])}</td></tr>`).join('');
   const gameCards=X.games.map(g=>`<section class="box gcard"><h3>${g[0]} ${esc(g[1])}</h3><div class="gobj">${esc(g[2])}</div><ul>${g[3].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`).join('');
   document.getElementById('grid').innerHTML=`
-  <h2 class="sec">맵별 체크리스트 <small>필드 탐색·섬의 보물 수는 game8 기준</small></h2>
+  <h2 class="sec">맵별 체크리스트 <small>필드 탐색·섬의 보물 수는 game8 기준 · 찬란한 군도는 게임 화면 기준</small></h2>
   <div class="c4 eq">${mapCards}</div>
   <div class="cat full" style="white-space:normal">추천 순서: 위 체크리스트 순서대로 하면 이동이 제일 편해요. ${X.extra.map(esc).join(' · ')}</div>
   <h2 class="sec">전망대(길잡이) 레벨 <small>별이슬벌레로 올림</small></h2>
