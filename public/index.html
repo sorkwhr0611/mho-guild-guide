@@ -854,6 +854,14 @@ header .kakao{grid-row:1;grid-column:2}
 .gbb{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.gbb .gbj{margin-top:0}
 .gbk{background:#fee500!important;color:#191600!important;text-decoration:none}
 @media (max-width:700px){header{grid-template-columns:1fr}header .kakao{grid-row:auto;grid-column:1;justify-self:start;margin:10px 0 2px}}
+
+.wle{display:grid;gap:10px}.wleg{display:grid;gap:6px;padding:10px;border:1.5px dashed var(--line);border-radius:10px}
+.wleh{display:flex;gap:6px}.wlt{flex:1;font:inherit;font-weight:700;font-size:14px;padding:7px 10px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}
+.wln2{font:inherit;font-size:14px;padding:8px 10px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);resize:vertical}
+.wlbar{display:flex;gap:8px;align-items:center;margin-top:10px}
+.wlbar button,.wldel{font:inherit;font-size:13.5px;font-weight:700;padding:7px 12px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+.wlbar button.pri{background:var(--leather,#3a2616);color:var(--gold2,#f0cf80);border-color:var(--gold,#b8892a)}
+.wldel{padding:7px 10px}
 </style>
 </head>
 <body>
@@ -1097,19 +1105,37 @@ function paintJoinList(){const el=document.getElementById('jlist');if(!el)return
   el.querySelectorAll('[data-act]').forEach(x=>{const id=x.closest('.jitem').dataset.id;
     if(x.dataset.act==='st') x.onchange=async()=>{x.disabled=true;try{await joinApi('PATCH',{id,status:x.value});const r=JOIN.rows.find(r=>r.id===id);if(r)r.status=x.value;}catch(e){alert('바꾸지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
     if(x.dataset.act==='del') x.onclick=async()=>{if(!confirm('이 신청을 지울까요?'))return;try{await joinApi('DELETE',null,'?id='+encodeURIComponent(id));JOIN.rows=JOIN.rows.filter(r=>r.id!==id);}catch(e){alert('지우지 못했어요.');}paintJoinList();};});}
-async function loadJoin(){if(!onNetlify())return;JOIN.err='';try{const j=await joinApi('GET');JOIN.rows=j.rows||[];JOIN.admin=!!j.admin;}catch(e){JOIN.err='신청 현황을 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.';}paintJoinList();paintAdm();}
+async function loadJoin(){if(!onNetlify())return;JOIN.err='';try{const j=await joinApi('GET');JOIN.rows=j.rows||[];JOIN.admin=!!j.admin;if(j.waitlist)JOIN.wait=j.waitlist;}catch(e){JOIN.err='신청 현황을 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.';}paintJoinList();paintAdm();paintWait();}
 function paintAdm(){const el=document.getElementById('jadmbox');if(!el)return;
   el.innerHTML=JOIN.admin?`<span class="cat">길마 관리 모드예요. 신청마다 상태를 바꾸거나 지울 수 있어요.</span> <button type="button" id="jout">관리 끄기</button>`
    :`<details><summary>길마 관리</summary><div class="jadmf"><input id="jkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" id="jin">들어가기</button></div></details>`;
   const i=document.getElementById('jin'); if(i) i.onclick=async()=>{try{localStorage.setItem(ADMK,document.getElementById('jkey').value.trim())}catch(e){};await loadJoin();if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');};
-  const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;loadJoin();};}
+  const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;JOIN.wedit=false;loadJoin();};}
+
+function waitGroups(){return JOIN.wait&&JOIN.wait.groups?JOIN.wait.groups:D.guild.notice.groups.map(g=>({title:g[0],names:g[1]}));}
+function waitHtml(){const G=waitGroups();
+  if(JOIN.wedit) return `<div class="wle">${G.map((g,i)=>`<div class="wleg" data-i="${i}"><div class="wleh"><input class="wlt" value="${esc(g.title)}" placeholder="묶음 이름 (예: ⏳ 대기)"><button type="button" class="wldel" title="이 묶음 지우기">✕</button></div><textarea class="wln2" rows="${Math.max(2,g.names.length)}" placeholder="한 줄에 한 명씩">${esc(g.names.join('\n'))}</textarea></div>`).join('')}
+   <div class="wlbar"><button type="button" id="wladd">＋ 묶음 추가</button><span style="flex:1"></span><button type="button" id="wlcancel">취소</button><button type="button" id="wlsave" class="pri">저장</button></div><div class="cat">이름은 한 줄에 한 명씩 적어요. 저장하면 모두에게 바로 바뀌어 보여요.</div></div>`;
+  return G.map(g=>`<div class="wlg"><b>${esc(g.title)} <small class="cat">${g.names.length}</small></b><div class="wln">${g.names.map(n=>`<span>${esc(n)}</span>`).join('')}</div></div>`).join('')+(JOIN.admin?'<div class="wlbar"><button type="button" id="wledit">✏️ 대기명단 수정</button></div>':'');}
+function readWaitEditor(){return [...document.querySelectorAll('.wleg')].map(el=>({title:el.querySelector('.wlt').value.trim(),names:el.querySelector('.wln2').value.split('\n').map(s=>s.trim()).filter(Boolean)}));}
+function paintWait(){const el=document.getElementById('wl');if(!el)return;el.innerHTML=waitHtml();
+  const at=document.getElementById('wlat'); if(at) at.textContent=JOIN.wait&&JOIN.wait.at?`${fmtT(JOIN.wait.at)} 수정`:`${D.guild.notice.date} 길마 공지`;
+  const $=id=>document.getElementById(id);
+  if($('wledit')) $('wledit').onclick=()=>{JOIN.wedit=true;paintWait();};
+  if($('wlcancel')) $('wlcancel').onclick=()=>{JOIN.wedit=false;paintWait();};
+  if($('wladd')) $('wladd').onclick=()=>{const cur=readWaitEditor();cur.push({title:'',names:[]});JOIN.wait=Object.assign({},JOIN.wait||{},{groups:cur});paintWait();};
+  el.querySelectorAll('.wldel').forEach(b=>b.onclick=()=>{const cur=readWaitEditor();cur.splice(+b.closest('.wleg').dataset.i,1);JOIN.wait=Object.assign({},JOIN.wait||{},{groups:cur});paintWait();});
+  if($('wlsave')) $('wlsave').onclick=async()=>{const btn=$('wlsave');btn.disabled=true;btn.textContent='저장 중…';
+    try{const j=await joinApi('PUT',{waitlist:readWaitEditor()});JOIN.wait=j.waitlist;JOIN.wedit=false;}catch(e){alert('저장하지 못했어요. 관리 비밀번호를 확인해 주세요.');btn.disabled=false;btn.textContent='저장';return;}
+    paintWait();};
+}
 function renderJoin(){
   clearBar(); const GA=D.guild.arena;
   document.getElementById('grid').innerHTML=`
   <section class="gbanner"><div class="gbt">📝</div><div class="gbx"><div class="gbs">직장인수렵단 · 모험단원 모집 중</div><div class="gbm" style="font-size:20px;font-weight:800">같이 사냥할 헌터 구해요</div><div class="gbs">지난주 ${esc(GA.title)} ${GA.rank}위 · 토요일엔 모험단 콘텐츠를 같이 해요</div></div></section>
   <div class="jwrap jnote">
   <section class="box"><h3>📢 모험단 안내 <small class="cat">${esc(D.guild.notice.date)} 길마 공지</small></h3><ul>${D.guild.notice.lines.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
-  <section class="box"><h3>📋 대기명단</h3><div class="wl">${D.guild.notice.groups.map(g=>`<div class="wlg"><b>${esc(g[0])} <small class="cat">${g[1].length}</small></b><div class="wln">${g[1].map(n=>`<span>${esc(n)}</span>`).join('')}</div></div>`).join('')}</div></section>
+  <section class="box"><h3>📋 대기명단 <small id="wlat" class="cat"></small></h3><div class="wl" id="wl">${waitHtml()}</div></section>
   </div>
   <div class="jwrap">
   <section class="box jform"><h3>가입 신청서</h3>

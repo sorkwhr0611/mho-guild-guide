@@ -16,13 +16,16 @@ export default async (req) => {
   const hash = createHash("sha256").update(key).digest("hex");
   const isAdmin = key.length > 0 && (envKey ? key === envKey : hash === ADMIN_HASH);
 
+  const meta = getStore({ name: "guild-meta", consistency: "strong" });
+
   if (req.method === "GET") {
     const url = new URL(req.url);
     if (url.searchParams.get("check") === "admin") return json({ admin: isAdmin });
     const { blobs } = await store.list();
     const rows = (await Promise.all(blobs.map((b) => store.get(b.key, { type: "json" })))).filter(Boolean);
     rows.sort((a, b) => (b.at || 0) - (a.at || 0));
-    return json({ admin: isAdmin, rows: rows.map((r) => (isAdmin ? r : { ...r, contact: r.contact ? "(길마만 볼 수 있어요)" : "" })) });
+    const waitlist = await meta.get("waitlist", { type: "json" });
+    return json({ admin: isAdmin, waitlist: waitlist || null, rows: rows.map((r) => (isAdmin ? r : { ...r, contact: r.contact ? "(길마만 볼 수 있어요)" : "" })) });
   }
 
   if (req.method === "POST") {
@@ -58,6 +61,19 @@ export default async (req) => {
     if (typeof b.note === "string") row.note = clip(b.note, 120);
     await store.setJSON(row.id, row);
     return json({ ok: true, row });
+  }
+
+  if (req.method === "PUT") {
+    let b;
+    try { b = await req.json(); } catch { return json({ error: "bad_json" }, 400); }
+    if (!Array.isArray(b.waitlist)) return json({ error: "waitlist" }, 400);
+    const groups = b.waitlist.slice(0, 12).map((g) => ({
+      title: clip(g && g.title, 40),
+      names: (Array.isArray(g && g.names) ? g.names : []).map((n) => clip(n, 40)).filter(Boolean).slice(0, 60),
+    })).filter((g) => g.title || g.names.length);
+    const doc = { groups, at: Date.now() };
+    await meta.setJSON("waitlist", doc);
+    return json({ ok: true, waitlist: doc });
   }
 
   if (req.method === "DELETE") {
