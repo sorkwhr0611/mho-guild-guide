@@ -1,7 +1,7 @@
 [build]
   publish = "public"
   functions = "netlify/functions"
-  command = ""
+  command = "node build.mjs"
 
 [functions]
   node_bundler = "esbuild"
