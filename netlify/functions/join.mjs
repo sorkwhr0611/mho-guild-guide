@@ -1,4 +1,8 @@
 import { getStore } from "@netlify/blobs";
+import { createHash } from "node:crypto";
+
+// 길마 관리 비밀번호(SHA-256). Netlify 환경 변수 GUILD_ADMIN_KEY가 있으면 그게 우선이에요.
+const ADMIN_HASH = "af7f1a19a732de19eaae3eff4946ddad736ab5d5f64fdb7a965212a11972e1da";
 
 const STATUSES = ["확인 중", "안내 완료", "가입 완료", "보류"];
 const json = (body, status = 200) =>
@@ -8,8 +12,9 @@ const clip = (v, n) => String(v ?? "").trim().slice(0, n);
 export default async (req) => {
   const store = getStore({ name: "guild-join", consistency: "strong" });
   const key = req.headers.get("x-admin-key") || "";
-  const adminKey = process.env.GUILD_ADMIN_KEY || "";
-  const isAdmin = adminKey.length >= 4 && key === adminKey;
+  const envKey = process.env.GUILD_ADMIN_KEY || "";
+  const hash = createHash("sha256").update(key).digest("hex");
+  const isAdmin = key.length > 0 && (envKey ? key === envKey : hash === ADMIN_HASH);
 
   if (req.method === "GET") {
     const url = new URL(req.url);

@@ -4,4 +4,4 @@
 
 - `public/index.html` — 공략집 페이지
 - `netlify/functions/join.mjs` — 가입 신청 저장·조회 API (`/api/join`, Netlify Blobs)
-- 길마 관리 비밀번호: Netlify 환경 변수 `GUILD_ADMIN_KEY` (설정 전에는 관리 기능이 꺼져 있어요)
+- 길마 관리 비밀번호: 함수 안 `ADMIN_HASH`(SHA-256). Netlify 환경 변수 `GUILD_ADMIN_KEY`를 넣으면 그게 우선
