@@ -861,6 +861,15 @@ body{padding-bottom:72px}
 .jpopc{width:min(380px,100%);display:grid;justify-items:center;gap:10px;text-align:center;padding:24px 20px 18px;border-radius:16px;background:var(--panel);color:var(--ink);border:2px solid var(--gold);box-shadow:0 12px 40px rgba(0,0,0,.4)}
 .jpopi{font-size:40px;line-height:1}.jpopc h3{margin:0;font-size:20px}.jpopc p{margin:0;font-size:15.5px;line-height:1.6}
 .jpopx{font:inherit;font-size:14px;padding:6px 18px;border-radius:8px;border:1.5px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.flist{display:grid;gap:0}
+.frow{display:grid;gap:6px;padding:12px 14px;border-top:1px solid var(--line)}.frow:first-child{border-top:0}
+.frow.star{background:color-mix(in srgb,var(--gold) 9%,transparent)}
+.frh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-weight:700;font-size:15px}
+.fst{font-size:11.5px;font-weight:800;padding:1px 7px;border-radius:6px;background:var(--leather);color:var(--gold2)}
+.fmap{font-size:12.5px;padding:1px 8px;border-radius:6px;border:1px solid var(--gold);color:var(--accent)}
+.frow .items{font-size:14px}
+.fshots{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))!important;gap:8px!important;margin-top:4px;padding:0!important}
+.fttip{padding:10px 14px;font-size:14px;border-top:1px solid var(--line);color:var(--muted)}
 /* 큰 모니터: 화면 폭에 맞춰 전체를 키우고 본문 폭도 넓혀요 */
 @media (min-width:1680px){html{zoom:1.12}.wrap{max-width:1440px}}
 @media (min-width:2000px){html{zoom:1.25}.wrap{max-width:1520px}}
@@ -1229,7 +1238,7 @@ art:'위에서 내 삽화 단계(희귀·영웅·전설)를 고르면 카드가 
 life:'4개 맵의 환경생물과 수중 생물이에요(찬란한 군도는 게임 도감에 있는 7종만, 출현 정보는 아직 없어요). 출현 시간·찾는 위치·사용 효과·크기를 월드별로 볼 수 있어요.',
 gift:'모험가별로 어떤 인연 선물이 제일 효과적인지 정리했어요. 왼쪽부터 주면 돼요(좋아하는 선물 중 상승량 대 → 중 → 소).',
 item:'게임 아이템 아이콘 목록이에요. 특산품·조합 소재·약품·소모품·미끼·이너웨어·채집 도구를 분류별로 볼 수 있고, 페이지 곳곳의 아이템 이름에도 같은 아이콘이 붙어요.',
-gather:'마라두부 재료(고추·헤븐 베리·섬 진품쌀)를 가장 많이 모으는 자리, 4개 맵의 출장 채집 시설(식물·나무·광석) 최적 위치, 채집 장비 세팅이에요.'};
+gather:'마라두부 공장(고추·헤븐 베리·섬 진품쌀) 자리와, 4개 맵의 출장 채집 시설(식물·목재·광석) 추천 위치예요. 위 "맵"을 고르면 자리와 사진이 그 맵 것만 보여요.'};
 function renderParty(){
   document.getElementById('lt').textContent='속성'; document.getElementById('le').textContent='';
   document.getElementById('e').innerHTML='';
@@ -1602,42 +1611,50 @@ function renderItems(){
   document.getElementById('grid').innerHTML=html||'<p class="empty">찾는 아이템이 없어요.</p>';
   document.getElementById('n').textContent=`아이템 ${cnt}개`;
 }
+let GPREV=null;
 function renderGather(){
-  document.getElementById('lt').textContent='맵'; document.getElementById('le').textContent='시설';
-  lchips('t',['전체',...MAPS],'m'); lchips('e',['전체','식물','나무','광석'],'k');
+  document.getElementById('lt').textContent='맵'; document.getElementById('le').textContent='';
+  lchips('t',['전체',...MAPS],'m'); document.getElementById('e').innerHTML='';
   const q=st.q.trim().toLowerCase();
   const G=D.gather, C=D.cook;
   const M=['고추','헤븐 베리','섬 진품쌀'].map(n=>D.mats.find(m=>m.n===n));
-  const maps=D.facilities.filter(f=>lf.m==='전체'||f.map===lf.m);
-  const shotOK=s=>(lf.m==='전체'||s.map===lf.m)&&(lf.k==='전체'||(s.k||'식물')===lf.k)&&(!q||[s.map,s.t,s.y].join(' ').toLowerCase().includes(q));
-  const SH=D.shots.filter(shotOK);
+  const SHOTS=Object.fromEntries(D.shots.map(x=>[x.f,x]));
+  // 맵을 바꾸면 필터가 먹는 칸(공장·식물·목재·광석)으로 이동
+  const sig=lf.m+'|'+q; if(GPREV!==null&&GPREV!==sig&&![0,3,4,5].includes(SUB.gather))SUB.gather=lf.m==='전체'&&!q?SUB.gather:3; GPREV=sig;
+  const mapOK=f=>lf.m==='전체'||f.map===lf.m;
+  const rowOK=r=>!q||r.join(' ').toLowerCase().includes(q);
+  const pics=r=>(r[4]||[]).length?`<div class="shots in fshots">${r[4].map(k=>SHOTS[k]).filter(Boolean).map(shotFig).join('')}</div>`:'';
+  const rowsHtml=(rows,showMap)=>rows.map(({f,r})=>`<div class="frow${r[3]?' star':''}"><div class="frh">${r[3]?'<span class="fst">★ 추천</span>':''}${showMap?`<b class="fmap">${esc(f.map)}</b>`:''}<span class="kr">${esc(r[1])}</span></div><div class="items">${itemIc(r[2])}</div>${pics(r)}</div>`).join('');
+  const all=D.facilities.flatMap(f=>f.rows.map(r=>({f,r})));
+  // 마라두부 공장 = 사진 있는 식물 자리 중 고추·헤븐 베리·진품쌀
+  const mara=all.filter(({f,r})=>r[0]==='식물'&&(r[4]||[]).some(k=>SHOTS[k]&&SHOTS[k].mara)&&mapOK(f)&&rowOK(r));
   let cnt=0;
-  const fac=maps.map(f=>{
-    const rows=f.rows.filter(r=>(lf.k==='전체'||r[0]===lf.k)&&(!q||r.join(' ').toLowerCase().includes(q)));
-    cnt+=rows.length; if(!rows.length) return '';
-    return `<section class="world"><h3>${f.map}<small>${f.sub}</small></h3><div class="tw"><table>
-    <thead><tr><th>시설</th><th>설치 위치</th><th>1회 수령량</th></tr></thead><tbody>
-    ${rows.map(r=>`<tr class="${r[3]?'star':''}"><td class="kind">${ic(r[0])} ${r[0]}</td><td class="kr">${esc(r[1])}</td><td class="items">${itemIc(r[2])}</td></tr>`).join('')}
-    </tbody></table></div><div style="padding:12px 14px;font-size:14.5px;border-top:1px solid var(--line)">💡 ${esc(f.tip)}</div>${SH.some(s=>s.map===f.map)?`<div class="shots in">${SH.filter(s=>s.map===f.map).map(shotFig).join('')}</div>`:''}<div class="maplink">📷 설치 자리 사진·지도: <a href="https://gamewith.jp/mhoutlanders/587282" target="_blank" rel="noopener">GameWith 시설 추천 위치 (자리별 스크린샷)</a><a href="https://gamewith.ai/monster-hunter-outlanders/ko/interactive/map" target="_blank" rel="noopener">GameWith 한국어 인터랙티브 지도</a></div></section>`;}).join('');
+  const kindSec=(kind,icon)=>{const maps=D.facilities.filter(mapOK).map(f=>{const rs=f.rows.filter(r=>r[0]===kind&&rowOK(r));cnt+=rs.length;if(!rs.length)return '';
+      return `<section class="world fworld"><h3>${f.map}<small>${f.sub}</small></h3><div class="flist">${rowsHtml(rs.map(r=>({f,r})),false)}</div>${kind==='식물'?`<div class="fttip">💡 ${esc(f.tip)}</div>`:''}</section>`;}).join('');
+    return maps||`<p class="empty">${lf.m==='전체'?'':esc(lf.m)+'에는 '}조건에 맞는 ${kind} 시설 자리가 없어요.</p>`;};
   const rows=G.armor.map(a=>`<tr><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px;align-items:flex-start">${PHT(a[1],'ar')}<span>${esc(a[1])}<div class="route" style="color:var(--muted)">${esc(a[2])}</div></span></span></td></tr>`).join('');
   const sk=G.skills.map(s=>`<span class="s core" title="${esc(s[2])}">${esc(s[0])}<b>Lv${s[1]}</b></span>`).join('');
   document.getElementById('grid').innerHTML=`
-  <h2 class="sec">마라두부 한눈에</h2>
+  <h2 class="sec">마라두부 공장 <small>재료 3종을 출장 식물 시설로 자동 수급 · 사진 누르면 크게</small></h2>
   <section class="hero"><div class="big">바삭바삭 마라두부 레시피</div><div class="chipset"><span class="ing">${ic("고추")}고추 ×2</span><span class="ing">${ic("헤븐 베리")}헤븐 베리 ×1</span><span class="ing">${ic("섬 진품쌀")}섬 진품쌀 ×1</span></div>
    <div>${esc(C.effect)}</div>
    <div><b>마라두부 공장 배치 (디시)</b>: 부패의 심연 휘광의 호숫가 2곳 → 헤븐 베리 8 · 찬란한 군도 버섯바위섬 2곳 → 섬 진품쌀 7 · 거목의 벌판 구름안개의 숲 → 고추 20. 한 번 수령하면 진품쌀 기준 마라두부 약 7개 분량이에요.</div><div class="maplink" style="padding:4px 0 0;border:0">📷 실제 시설 배치 스크린샷: <a href="https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12017" target="_blank" rel="noopener">디시 「마라두부 공장 건설 완료」</a><a href="https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=4931" target="_blank" rel="noopener">디시 「헤븐 베리 채집 시설 추천 위치」</a><a href="https://gall.dcinside.com/mgallery/board/view/?id=capcommh&no=1533029" target="_blank" rel="noopener">디시 「헤븐 베리 채집 포인트 14곳」</a></div></section>
-  <h2 class="sec">마라두부 공장 실제 배치 <small>디시 「마라두부 공장 건설 완료」 스샷 · 누르면 크게 보여요</small></h2>
-  ${SH.length?`<div class="shots">${SH.map(shotFig).join('')}</div>`:`<p class="empty">고른 맵·시설에 해당하는 배치 사진이 없어요. 사진은 식물 시설(부패의 심연·찬란한 군도·거목의 벌판)만 있어요.</p>`}
-  <h2 class="sec">마라두부 재료 최대 채집 위치</h2>
+  <div class="life">${mara.length?`<section class="world fworld"><h3>공장 자리 ${mara.length}곳<small>디시 「마라두부 공장 건설 완료」 배치</small></h3><div class="flist">${rowsHtml(mara,true)}</div></section>`:`<p class="empty">${esc(lf.m)}에는 마라두부 공장 자리가 없어요. 공장은 부패의 심연·찬란한 군도·거목의 벌판에 있어요.</p>`}</div>
+  <h2 class="sec">마라두부 재료 위치</h2>
   <div class="c3">${M.map(matCard).join('')}</div>
-  <h2 class="sec">마라두부 해금·요리 순서</h2>
+  <h2 class="sec">마라두부 요리 순서</h2>
   <section class="box full"><ol>
     <li><b>준비</b>: ${esc(C.pre)}</li>
     <li><b>해금</b>: ${esc(C.unlock)} 출장 시설로 받은 헤븐 베리가 75개에 들어가는지는 공략 사이트에 나와 있지 않아요.</li>
     <li><b>요리</b>: ${esc(C.where)}</li>
   </ol><div class="cat" style="white-space:normal">${esc(C.other)}</div></section>
-  <h2 class="sec">맵별 출장 채집 시설 최적 위치 <small>★ = 추천 자리 · 맵·시설 종류로 거를 수 있어요</small></h2>
-  <div class="life">${fac||'<p class="empty">조건에 맞는 자리가 없어요.</p>'}</div>
+  <h2 class="sec">식물 채집 시설 <small>★ = 추천 자리 · 위 "맵"으로 거르기</small></h2>
+  <div class="life">${kindSec('식물')}</div>
+  <h2 class="sec">목재 채집 시설 <small>★ = 추천 자리</small></h2>
+  <div class="life">${kindSec('나무')}</div>
+  <h2 class="sec">광석 채집 시설 <small>★ = 추천 자리</small></h2>
+  <div class="life">${kindSec('광석')}</div>
+  <div class="maplink" style="border:0;padding:0">📷 다른 자리 사진·지도: <a href="https://gamewith.jp/mhoutlanders/587282" target="_blank" rel="noopener">GameWith 시설 추천 위치</a><a href="https://gamewith.ai/monster-hunter-outlanders/ko/interactive/map" target="_blank" rel="noopener">GameWith 한국어 인터랙티브 지도</a></div>
   <h2 class="sec">맵 100% 파먹기 <small>디시 「맵 파먹을때 편하게 찾기」</small></h2>
   <div class="c2"><section class="box"><ul>${D.maptip.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
   <div class="shots" style="grid-column:auto">${shotFig({f:'m1',map:'찬란한 군도',t:'필드 탐색 탭',y:'돋보기 = 안 한 것만 표시'})}</div></div>
@@ -1663,8 +1680,8 @@ function renderGather(){
     <li>허니 헌터 Lv1: 벌꿀 채집량 증가 (킹비트테스타 머리)</li>
     <li>급할 땐 코르네 마을* 물자 관리소에서 특산품·광석·뼈·나무 구매 (주간 제한)</li>
   </ul></section></div></div>
-  <div class="cat full" style="white-space:normal">* 표시는 한국어판 표기를 찾지 못해 직접 옮긴 이름이에요. 시설 위치·수량은 GameWith 일본판 "출장 채집 시설 추천 위치" 기준이에요.</div>`;
-  document.getElementById('n').textContent=`시설 자리 ${cnt}곳`;
+  <div class="cat full" style="white-space:normal">* 표시는 한국어판 표기를 찾지 못해 직접 옮긴 이름이에요. 시설 위치·수량은 GameWith 일본판 "출장 채집 시설 추천 위치"와 디시 스샷 기준이에요.</div>`;
+  document.getElementById('n').textContent=`${lf.m==='전체'?'전체 맵':lf.m} · 시설 자리 ${cnt}곳`;
 }
 function scope(){
   const eq=st.g==='hero'||st.g==='adv';
@@ -1749,8 +1766,9 @@ function buildSub(){
   const SM={'둥지 사냥 과제 용어 정리':['둥지 과제 용어'],'신규 보스 크샬다오라 대비: 풍압 무효 세팅':['크샬다오라 대비'],'몬스터별 약점 속성':['약점 속성표'],
    '미니게임(필드 탐색) 9종 공략':['미니게임 9종'],'전망대(길잡이) 레벨':['전망대 레벨'],'에어리어 과제 · 도감 필드 과제 보상':['과제 보상'],'섬의 보물 6종':['섬의 보물'],
    '활활 화로 (시즌 패스)':['활활 화로 패스'],'에너지 · 의뢰 사냥':['에너지'],'핵심 재화 수급처':['재화 수급처'],'유저들이 많이 쓰는 편성·팁':['유저 편성·팁'],
-   '마라두부 한눈에':['한눈에 보기','마라두부'],'마라두부 공장 실제 배치':['공장 배치','마라두부'],'마라두부 재료 최대 채집 위치':['재료 위치','마라두부'],'마라두부 해금·요리 순서':['해금 순서','마라두부'],
-   '맵별 출장 채집 시설 최적 위치':['출장 시설 위치','채집'],'시설 규칙':['시설 규칙','채집'],'맵 100% 파먹기':['맵 100% 파먹기','채집'],'채집 장비 세팅':['채집 장비','채집'],
+   '마라두부 공장':['공장 배치','마라두부'],'마라두부 재료 위치':['재료 위치','마라두부'],'마라두부 요리 순서':['요리 순서','마라두부'],
+   '식물 채집 시설':['🌿 식물','채집 시설'],'목재 채집 시설':['🪵 목재','채집 시설'],'광석 채집 시설':['⛏️ 광석','채집 시설'],
+   '맵 100% 파먹기':['맵 100% 파먹기','팁'],'시설 규칙':['시설 규칙','팁'],'채집 장비 세팅':['채집 장비','팁'],
    '등급별 진행':['등급별 진행','시작'],'크샬다오라 삽화':['크샬다오라','시작'],'모험가별 추천':['모험가별','추천 세팅'],'주인공 추천':['주인공','추천 세팅'],'서브 세팅 · 옵션 규칙':['서브 · 옵션','추천 세팅'],'삽화 규칙':['삽화 규칙','정보'],'세트 효과 전체':['세트 효과','정보'],'세트별 도감':['세트별 도감','정보'],
    '모험가별 추천 동반자':['모험가별 추천'],'주인공 무기별 추천':['주인공 추천'],'모험가별 추천 선물':['모험가별 선물'],'인연 포인트 계산':['포인트 계산기'],'선물별 인연 상승량':['선물별 포인트'],
    '특산품':['특산품','소재'],'조합 소재':['조합 소재','소재'],'목재·장비 소재':['목재·장비','소재'],'광석·뼈':['광석·뼈','소재'],'소형 몬스터 소재':['소형 몬스터','소재'],'대형 몬스터 소재 Ⅰ':['대형 몬스터 Ⅰ','소재'],'대형 몬스터 소재 Ⅱ':['대형 몬스터 Ⅱ','소재'],'육성·강화 소재':['육성·강화','소재'],
