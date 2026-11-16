@@ -21,11 +21,15 @@ export default async (req) => {
   if (req.method === "GET") {
     const url = new URL(req.url);
     if (url.searchParams.get("check") === "admin") return json({ admin: isAdmin });
+    if (url.searchParams.get("meta") === "1") {
+      const [arena, waitlist] = await Promise.all([meta.get("arena", { type: "json" }), meta.get("waitlist", { type: "json" })]);
+      return json({ admin: isAdmin, arena: arena || null, waitlist: waitlist || null });
+    }
     const { blobs } = await store.list();
     const rows = (await Promise.all(blobs.map((b) => store.get(b.key, { type: "json" })))).filter(Boolean);
     rows.sort((a, b) => (b.at || 0) - (a.at || 0));
-    const waitlist = await meta.get("waitlist", { type: "json" });
-    return json({ admin: isAdmin, waitlist: waitlist || null, rows: rows.map((r) => (isAdmin ? r : { ...r, contact: r.contact ? "(길마만 볼 수 있어요)" : "" })) });
+    const [waitlist, arena] = await Promise.all([meta.get("waitlist", { type: "json" }), meta.get("arena", { type: "json" })]);
+    return json({ admin: isAdmin, waitlist: waitlist || null, arena: arena || null, rows: rows.map((r) => (isAdmin ? r : { ...r, contact: r.contact ? "(길마만 볼 수 있어요)" : "" })) });
   }
 
   if (req.method === "POST") {
@@ -66,6 +70,13 @@ export default async (req) => {
   if (req.method === "PUT") {
     let b;
     try { b = await req.json(); } catch { return json({ error: "bad_json" }, 400); }
+    if (b.arena && typeof b.arena === "object") {
+      const rank = parseInt(b.arena.rank, 10);
+      if (!(rank >= 1 && rank <= 9999)) return json({ error: "rank" }, 400);
+      const doc = { rank, week: clip(b.arena.week, 30), msg: clip(b.arena.msg, 80), at: Date.now() };
+      await meta.setJSON("arena", doc);
+      return json({ ok: true, arena: doc });
+    }
     if (!Array.isArray(b.waitlist)) return json({ error: "waitlist" }, 400);
     const groups = b.waitlist.slice(0, 12).map((g) => ({
       title: clip(g && g.title, 40),

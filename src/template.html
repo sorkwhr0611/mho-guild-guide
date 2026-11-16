@@ -852,6 +852,9 @@ body{padding-bottom:72px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.tabs button.tab[aria-pressed="true"],:root:not([data-theme="light"]) nav.subnav button[aria-pressed="true"]{color:var(--gold2)!important}}
 .hcard.hot{border-color:var(--accent)!important;box-shadow:inset 0 0 0 2px var(--accent)!important}
 @media (max-width:380px){nav.subnav{margin-left:-10px!important;margin-right:-10px!important;padding-left:10px!important;padding-right:10px!important}}
+.arf{display:grid;gap:8px;margin-top:12px;padding:12px;border:1.5px dashed var(--gold);border-radius:10px}
+.arf label{display:grid;gap:4px;font-size:13px;font-weight:700}.arf input{min-width:0;width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);font:inherit}
+.arfr{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px}.arf{min-width:0}.jadmbox .cat,.arf .cat{white-space:normal}.arf .pri{justify-self:start;padding:8px 14px;border-radius:8px;border:1px solid var(--gold);background:var(--leather);color:var(--gold2);font-weight:800;cursor:pointer}
 /* 큰 모니터: 화면 폭에 맞춰 전체를 키우고 본문 폭도 넓혀요 */
 @media (min-width:1680px){html{zoom:1.12}.wrap{max-width:1440px}}
 @media (min-width:2000px){html{zoom:1.25}.wrap{max-width:1520px}}
@@ -1129,12 +1132,23 @@ function paintJoinList(){const el=document.getElementById('jlist');if(!el)return
   el.querySelectorAll('[data-act]').forEach(x=>{const id=x.closest('.jitem').dataset.id;
     if(x.dataset.act==='st') x.onchange=async()=>{x.disabled=true;try{await joinApi('PATCH',{id,status:x.value});const r=JOIN.rows.find(r=>r.id===id);if(r)r.status=x.value;}catch(e){alert('바꾸지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
     if(x.dataset.act==='del') x.onclick=async()=>{if(!confirm('이 신청을 지울까요?'))return;try{await joinApi('DELETE',null,'?id='+encodeURIComponent(id));JOIN.rows=JOIN.rows.filter(r=>r.id!==id);}catch(e){alert('지우지 못했어요.');}paintJoinList();};});}
-async function loadJoin(){if(!onNetlify())return;JOIN.err='';try{const j=await joinApi('GET');JOIN.rows=j.rows||[];JOIN.admin=!!j.admin;if(j.waitlist)JOIN.wait=j.waitlist;}catch(e){JOIN.err='신청 현황을 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.';}paintJoinList();paintAdm();paintWait();}
+async function loadJoin(){if(!onNetlify())return;JOIN.err='';try{const j=await joinApi('GET');JOIN.rows=j.rows||[];JOIN.admin=!!j.admin;if(j.waitlist)JOIN.wait=j.waitlist;if(j.arena)applyArena(j.arena,false);}catch(e){JOIN.err='신청 현황을 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.';}paintJoinList();paintAdm();paintWait();}
+/* 격투장 순위: 길마 관리에서 입력 → 모두에게 반영 */
+function applyArena(a,rerender){if(!a||!a.rank)return;const GA=D.guild.arena;const ch=GA.rank!==a.rank||GA.week!==a.week||GA.msg!==a.msg;
+  GA.rank=a.rank;if(a.week)GA.week=a.week;GA.msg=a.msg||`지난주 ${GA.title} ${a.rank}위! 다들 고생 많았어요 🎉`;
+  if(rerender&&ch&&(st.g==='home'||st.g==='join')){const y=scrollY;render();window.scrollTo({top:y});}}
+function arenaWeek(){const k=new Date(Date.now()+9*36e5);const w=k.getUTCDay();const sat=new Date(k.getTime()-((w+1)%7)*864e5);const mon=new Date(sat.getTime()-5*864e5),sun=new Date(sat.getTime()+864e5);
+  const f=d=>`${d.getUTCMonth()+1}/${d.getUTCDate()}`;return `${f(mon)} ~ ${f(sun)}`;}
+function arenaForm(){const GA=D.guild.arena;return `<div class="arf"><b>🏆 격투장 순위 입력</b><div class="arfr"><label>순위<input id="arRank" type="number" min="1" max="9999" inputmode="numeric" value="${GA.rank}"></label><label>기간<input id="arWeek" value="${esc(arenaWeek())}" maxlength="30"></label></div><label>한마디 <small class="cat">(비우면 자동)</small><input id="arMsg" maxlength="80" placeholder="지난주 ${esc(GA.title)} ○위! 다들 고생 많았어요 🎉"></label><button type="button" id="arSave" class="pri">순위 저장</button><span class="cat">매주 토요일 결과 나오면 넣어 주세요. 저장하면 홈 배너가 바로 바뀌어요.</span></div>`;}
+function bindArena(){const b=document.getElementById('arSave');if(!b)return;b.onclick=async()=>{const rank=parseInt(document.getElementById('arRank').value,10);if(!(rank>=1)){alert('순위를 숫자로 넣어 주세요.');return;}
+  const week=document.getElementById('arWeek').value.trim(),m=document.getElementById('arMsg').value.trim();b.disabled=true;b.textContent='저장 중…';
+  try{const j=await joinApi('PUT',{arena:{rank,week,msg:m||`지난주 ${D.guild.arena.title} ${rank}위! 다들 고생 많았어요 🎉`}});applyArena(j.arena,false);b.textContent='저장했어요 ✓';}catch(e){alert('저장하지 못했어요. 관리 비밀번호를 확인해 주세요.');b.textContent='순위 저장';}b.disabled=false;};}
 function paintAdm(){const el=document.getElementById('jadmbox');if(!el)return;
-  el.innerHTML=JOIN.admin?`<span class="cat">길마 관리 모드예요. 신청마다 상태를 바꾸거나 지울 수 있어요.</span> <button type="button" id="jout">관리 끄기</button>`
+  el.innerHTML=JOIN.admin?`<span class="cat">길마 관리 모드예요. 신청마다 상태를 바꾸거나 지울 수 있어요.</span> <button type="button" id="jout">관리 끄기</button>${arenaForm()}`
    :`<details><summary>길마 관리</summary><div class="jadmf"><input id="jkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" id="jin">들어가기</button></div></details>`;
   const i=document.getElementById('jin'); if(i) i.onclick=async()=>{try{localStorage.setItem(ADMK,document.getElementById('jkey').value.trim())}catch(e){};await loadJoin();if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');};
-  const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;JOIN.wedit=false;loadJoin();};}
+  const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;JOIN.wedit=false;loadJoin();};
+  bindArena();}
 
 function waitGroups(){return JOIN.wait&&JOIN.wait.groups?JOIN.wait.groups:D.guild.notice.groups.map(g=>({title:g[0],names:g[1]}));}
 function waitHtml(){const G=waitGroups();
@@ -1823,6 +1837,7 @@ function tipFor(el){const k=el.dataset.tip, kind=el.dataset.tk||'i', id=kind+':'
  document.getElementById('navb').onclick=()=>{if(NAV.i>0)history.back();};
  document.getElementById('navf').onclick=()=>{if(NAV.i<NAV.max)history.forward();};}
 render();navUI();
+if(onNetlify())fetch('/api/join?meta=1').then(r=>r.ok?r.json():null).then(j=>{if(j&&j.arena)applyArena(j.arena,true);if(j&&j.waitlist&&!JOIN.wait){JOIN.wait=j.waitlist;}}).catch(()=>{});
 </script>
 </body>
 </html>
