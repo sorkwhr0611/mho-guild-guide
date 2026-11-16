@@ -857,6 +857,10 @@ body{padding-bottom:72px}
 .arfr{display:grid;grid-template-columns:90px minmax(0,1fr);gap:8px}.arf{min-width:0}.jadmbox .cat,.arf .cat{white-space:normal}.arf .pri{justify-self:start;padding:8px 14px;border-radius:8px;border:1px solid var(--gold);background:var(--leather);color:var(--gold2);font-weight:800;cursor:pointer}
 .jhow{margin-top:14px;padding:12px 14px;border-radius:10px;background:var(--accent-soft);border:1px solid var(--line)}
 .jhow ol{margin:6px 0 4px;padding-left:20px;line-height:1.8}.jhow .kakao.in{margin-top:8px}
+.jpop{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(20,12,6,.55);backdrop-filter:blur(2px)}
+.jpopc{width:min(380px,100%);display:grid;justify-items:center;gap:10px;text-align:center;padding:24px 20px 18px;border-radius:16px;background:var(--panel);color:var(--ink);border:2px solid var(--gold);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.jpopi{font-size:40px;line-height:1}.jpopc h3{margin:0;font-size:20px}.jpopc p{margin:0;font-size:15.5px;line-height:1.6}
+.jpopx{font:inherit;font-size:14px;padding:6px 18px;border-radius:8px;border:1.5px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
 /* 큰 모니터: 화면 폭에 맞춰 전체를 키우고 본문 폭도 넓혀요 */
 @media (min-width:1680px){html{zoom:1.12}.wrap{max-width:1440px}}
 @media (min-width:2000px){html{zoom:1.25}.wrap{max-width:1520px}}
@@ -1169,6 +1173,11 @@ function paintWait(){const el=document.getElementById('wl');if(!el)return;el.inn
     try{const j=await joinApi('PUT',{waitlist:readWaitEditor()});JOIN.wait=j.waitlist;JOIN.wedit=false;}catch(e){alert('저장하지 못했어요. 관리 비밀번호를 확인해 주세요.');btn.disabled=false;btn.textContent='저장';return;}
     paintWait();};
 }
+function joinPopup(){document.getElementById('jpop')?.remove();const d=document.createElement('div');d.id='jpop';d.className='jpop';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','jpopt');
+  d.innerHTML=`<div class="jpopc"><div class="jpopi">🎉</div><h3 id="jpopt">신청서가 남겨졌어요!</h3><p><b>카톡 오픈채팅방</b>으로 오셔서<br>신청서 남겼음을 알려주세요!!</p>
+  <a class="kakao in" id="jpopgo" href="${D.guild.kakao}" target="_blank" rel="noopener"><span class="kk">💬</span><span><b>오픈채팅방 바로 가기</b><small>몬헌 아웃랜더스 직장인수렵단</small></span></a><button type="button" class="jpopx" id="jpopx">닫기</button></div>`;
+  document.body.appendChild(d);const close=()=>{d.remove();document.removeEventListener('keydown',esc_);};const esc_=e=>{if(e.key==='Escape')close();};
+  d.onclick=e=>{if(e.target===d)close();};document.getElementById('jpopx').onclick=close;document.getElementById('jpopgo').addEventListener('click',()=>setTimeout(close,300));document.addEventListener('keydown',esc_);document.getElementById('jpopgo').focus();}
 function renderJoin(){
   clearBar(); const GA=D.guild.arena;
   document.getElementById('grid').innerHTML=`
@@ -1205,7 +1214,7 @@ function renderJoin(){
     if(!String(rec.nickname||'').trim()||!String(rec.message||'').trim()){msg.textContent='닉네임과 한마디를 적어 주세요.';msg.className='jmsg err';return;}
     if(!onNetlify()){msg.innerHTML=`이 화면에서는 신청이 저장되지 않아요. 공략집 사이트(<a href="${SITE}/#join" target="_blank" rel="noopener">${SITE.replace('https://','')}</a>)에서 남겨 주세요.`;msg.className='jmsg err';return;}
     const btn=f.querySelector('.jbtn'); btn.disabled=true; btn.textContent='남기는 중…';
-    try{const j=await joinApi('POST',rec); f.reset(); msg.innerHTML=`신청이 남겨졌어요! 이제 <a href="${D.guild.kakao}" target="_blank" rel="noopener"><b>오픈카톡방</b></a>에 들어와서 대기해 주세요.`; msg.className='jmsg ok';
+    try{const j=await joinApi('POST',rec); f.reset(); msg.innerHTML=`신청이 남겨졌어요! 이제 <a href="${D.guild.kakao}" target="_blank" rel="noopener"><b>오픈카톡방</b></a>에 들어와서 대기해 주세요.`; msg.className='jmsg ok'; joinPopup();
       if(j.row){JOIN.rows=[j.row,...(JOIN.rows||[])];paintJoinList();}
     }catch(err){msg.textContent=err.code==='full'?'신청이 너무 많이 쌓였어요. 길마에게 알려 주세요.':'저장이 안 됐어요. 잠시 뒤 다시 눌러 주세요.';msg.className='jmsg err';}
     btn.disabled=false; btn.textContent='가입 신청 남기기';
