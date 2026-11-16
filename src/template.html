@@ -839,6 +839,13 @@ table th{background:color-mix(in srgb,var(--gold) 14%,var(--panel))!important;co
 .jbtn{background:linear-gradient(180deg,#b5501f,#8a3510)!important;border:1.5px solid var(--gold)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
 .gbanner{background:linear-gradient(115deg,var(--leather) 0%,var(--leather2) 40%,#8a5a1c 80%,var(--gold) 100%)!important;border:2px solid var(--gold)}
 .chip[aria-pressed="true"],.chips button[aria-pressed="true"]{background:var(--leather)!important;color:var(--gold2)!important;border-color:var(--gold)!important}
+body{padding-bottom:72px}
+#navpill{position:fixed;left:14px;bottom:18px;z-index:20;display:flex;border-radius:999px;overflow:hidden;border:1px solid var(--gold);background:var(--leather);box-shadow:0 4px 14px rgba(0,0,0,.25)}
+#navpill button{width:44px;height:40px;border:0;background:transparent;color:var(--gold2);font-size:20px;font-weight:800;cursor:pointer;display:grid;place-items:center}
+#navpill button+button{border-left:1px solid color-mix(in srgb,var(--gold) 55%,transparent)}
+#navpill button:hover:not(:disabled){background:color-mix(in srgb,var(--gold) 22%,transparent)}
+#navpill button:disabled{opacity:.35;cursor:default}
+#navpill button:focus-visible{outline:2px solid var(--gold2);outline-offset:-3px}
 #totop{background:var(--leather)!important;color:var(--gold2)!important;border-color:var(--gold)!important}
 
 :root[data-theme="dark"] nav.tabs button.tab[aria-pressed="true"],:root[data-theme="dark"] nav.subnav button[aria-pressed="true"]{color:var(--gold2)!important}
@@ -872,6 +879,7 @@ header .kakao{grid-row:1;grid-column:2}
 </header>
 <nav class="tabs" id="g" aria-label="탭"></nav>
 <nav class="subnav" id="sub" aria-label="이 탭 안 바로가기" hidden></nav>
+<div id="navpill" role="group" aria-label="페이지 이동"><button id="navb" type="button" aria-label="뒤로 가기" title="뒤로" disabled>←</button><button id="navf" type="button" aria-label="앞으로 가기" title="앞으로" disabled>→</button></div>
 <button id="totop" type="button" aria-label="메뉴로 올라가기" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
 <p id="desc" class="desc"></p>
 <div class="bar">
@@ -932,13 +940,13 @@ const st={g:'home',t:'전체',e:'전체',q:'',lv:51,fit:false,adapt:true};
 const TABS=["home","chore","tip","money","hero","adv","art","guide","party","buddy","gift","join","mon","explore","life","gather","item"];
 const TABDEF=[["home","🏠","홈","시작"],["chore","📋","숙제","시작"],["tip","📢","소식","시작"],["money","💰","재화·과금","시작"],["hero","⚔️","주인공","세팅"],["adv","🧭","모험가","세팅"],["art","🎴","삽화","세팅"],["guide","🎮","공략","세팅"],["party","👥","추천 파티","파티"],["buddy","🐾","동반자","파티"],["gift","🎁","인연 선물","파티"],["join","📝","가입 신청","파티"],["mon","🐉","몬스터","필드"],["explore","🗺️","맵 탐색","필드"],["life","🦋","환경생물","필드"],["gather","🌶️","채집·요리","채집"],["item","🎒","아이템","채집"]];
 try{const s=JSON.parse(localStorage.getItem('mho-filter')||'null'); if(s&&s.lv>=1&&s.lv<=99) st.lv=s.lv;}catch(_){}
-{const h=location.hash.slice(1); if(TABS.includes(h)) st.g=h;}
+{const h=location.hash.slice(1).split('/')[0]; if(TABS.includes(h)) st.g=h;}
 function chips(id,list,key,obj,cls){
   obj=obj||st; const box=document.getElementById(id); box.innerHTML='';
   list.forEach(([v,label])=>{const b=document.createElement('button');b.className=cls||'chip';b.type='button';b.textContent=label;
     b.setAttribute('aria-pressed',obj[key]===v);b.onclick=()=>{obj[key]=v;save();render();};box.appendChild(b);});
 }
-function save(){try{localStorage.setItem('mho-filter',JSON.stringify({lv:st.lv}));}catch(_){} try{history.replaceState(null,'','#'+st.g);}catch(_){}}
+function save(){try{localStorage.setItem('mho-filter',JSON.stringify({lv:st.lv}));}catch(_){} }
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const CAP=[[16,3],[18,4],[21,5],[26,6],[31,7],[34,8],[41,9],[44,10],[47,11]];
 const capOf=L=>{let r=2;CAP.forEach(c=>{if(L>=c[0])r=c[1];});return r;};
@@ -1633,7 +1641,8 @@ function tabs(list){const box=document.getElementById('g');box.innerHTML='';cons
   groups.forEach((g,gi)=>{const w=document.createElement('div');w.className='tg tgx'+gi;w.innerHTML=`<span class="tgl">${GNAME[g.k]||g.k}</span>`;const row=document.createElement('div');row.className='tgb';
     g.items.forEach(([v,icn,label])=>{const b=document.createElement('button');b.className='tab';b.type='button';b.innerHTML=`<span class="ti">${icn}</span><span class="tl">${label}</span>`;b.setAttribute('aria-pressed',st.g===v);b.onclick=()=>go(v);row.appendChild(b);});
     w.appendChild(row);box.appendChild(w);});}
-function go(v){if(st.g!==v){SUB[v]=0;st.g=v;st.t='전체';st.e='전체';st.fit=false;document.getElementById('fit').checked=false;Object.keys(lf).forEach(k=>lf[k]='전체');}save();render();window.scrollTo({top:0});}
+function enterTab(v){if(st.g!==v){st.g=v;st.t='전체';st.e='전체';st.fit=false;document.getElementById('fit').checked=false;Object.keys(lf).forEach(k=>lf[k]='전체');}}
+function go(v){if(st.g!==v)SUB[v]=0;enterTab(v);save();render();window.scrollTo({top:0});navPush();}
 function render(){
   tabs(TABDEF); if(st.g!=='art')document.documentElement.style.setProperty('--vc','#c9971f');
   const dirty=st.t!=='전체'||st.e!=='전체'||st.q||st.fit||Object.entries(lf).some(([k,v])=>v!=='전체');
@@ -1701,7 +1710,7 @@ function buildSub(){
   const lab=h=>h.dataset&&h.dataset.short?h.dataset.short:nm(h);
   const grps=[];hs.forEach((h,k)=>{const g=(h.dataset&&h.dataset.grp)||'';let o=grps.find(x=>x.g===g);if(!o){o={g,items:[]};grps.push(o);}o.items.push(k);});
   sub.innerHTML=grps.map((o,gi)=>`<div class="srow">${o.g?`<span class="sgl">${esc(o.g)}</span>`:''}<div class="subb">${o.items.map(k=>`<button type="button" data-i="${k}">${esc(lab(hs[k]))}</button>`).join('')}${gi===grps.length-1?`<button type="button" data-i="-1" class="all">전체 보기</button>`:''}</div></div>`).join('');
-  sub.querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>{SUB[st.g]=+b.dataset.i;show(+b.dataset.i);const top=grid.getBoundingClientRect().top+scrollY-sub.offsetHeight-8;if(scrollY>top)window.scrollTo({top:Math.max(0,top)});});
+  sub.querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>{SUB[st.g]=+b.dataset.i;show(+b.dataset.i);navPush();const top=grid.getBoundingClientRect().top+scrollY-sub.offsetHeight-8;if(scrollY>top)window.scrollTo({top:Math.max(0,top)});});
   show(i); setStick();
 }
 function setStick(){const sb=document.getElementById('sub');sb.style.top='0px';
@@ -1714,9 +1723,21 @@ lvEl.addEventListener('input',e=>{const v=parseInt(e.target.value,10); if(v>=1&&
 const fitEl=document.getElementById('fit'); fitEl.checked=!!st.fit;
 document.getElementById('adapt').addEventListener('change',e=>{st.adapt=e.target.checked;render();});
 document.getElementById('reset').onclick=()=>{st.t='전체';st.e='전체';st.q='';st.fit=false;fitEl.checked=false;document.getElementById('q').value='';Object.keys(lf).forEach(k=>lf[k]='전체');render();};
-window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(TABS.includes(h)&&h!==st.g){st.g=h;render();}});
+/* 뒤로·앞으로: 탭과 하위 메뉴를 브라우저 기록에 남겨요 */
+const NAV={i:0,max:0};
+function navHash(){const i=SUB[st.g];return '#'+st.g+(i===-1?'/all':i>0?'/'+i:'');}
+function navParse(h){const [g,s]=String(h||'').replace(/^#/,'').split('/');if(!TABS.includes(g))return null;return {g,s:s==='all'?-1:(parseInt(s,10)||0)};}
+function navUI(){const b=document.getElementById('navb'),f=document.getElementById('navf');if(b)b.disabled=NAV.i<=0;if(f)f.disabled=NAV.i>=NAV.max;}
+function navSaveMax(){try{sessionStorage.setItem('mho-nav-max',NAV.max);}catch(_){}}
+function navPush(){const h=navHash();if(location.hash===h){navUI();return;}NAV.i++;NAV.max=NAV.i;navSaveMax();try{history.pushState({i:NAV.i},'',h);}catch(_){}navUI();}
+function navApply(){const p=navParse(location.hash);const si=history.state&&typeof history.state.i==='number'?history.state.i:null;
+  if(si!==null)NAV.i=si;else{NAV.i++;NAV.max=NAV.i;navSaveMax();try{history.replaceState({i:NAV.i},'',location.hash);}catch(_){}}
+  navUI();if(!p)return;if(p.g===st.g&&(SUB[p.g]||0)===p.s)return;
+  enterTab(p.g);SUB[p.g]=p.s;save();render();window.scrollTo({top:0});}
+window.addEventListener('popstate',navApply);
+window.addEventListener('hashchange',navApply);
 fitEl.addEventListener('change',e=>{st.fit=e.target.checked;save();render();});
-{const br=document.getElementById('brand');const home=()=>{if(location.hash!=='#home')history.replaceState(null,'','#home');go('home');};br.onclick=home;br.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();home();}};}
+{const br=document.getElementById('brand');const home=()=>go('home');br.onclick=home;br.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();home();}};}
 const ROMAN=/[ⅠⅡⅢⅣⅤ]+$/;
 function giIcon(n){return GI[n]?`<img class="gi" src="${GI[n]}" alt="">`:'';}
 function whereOf(n){const out=[];(D.facilities||[]).forEach(f=>f.rows.forEach(r=>{if(r[2].includes(n))out.push(`${f.map} · ${r[1]} (${r[0]} 시설)`);}));
@@ -1773,7 +1794,12 @@ function tipFor(el){const k=el.dataset.tip, kind=el.dataset.tk||'i', id=kind+':'
   document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
 })();
 
-render();
+{const p=navParse(location.hash);if(p&&p.g===st.g)SUB[p.g]=p.s;
+ const si=history.state&&typeof history.state.i==='number'?history.state.i:0;let mx=0;try{mx=+sessionStorage.getItem('mho-nav-max')||0;}catch(_){}
+ NAV.i=si;NAV.max=Math.max(si,mx);try{history.replaceState({i:NAV.i},'',navHash());}catch(_){}
+ document.getElementById('navb').onclick=()=>{if(NAV.i>0)history.back();};
+ document.getElementById('navf').onclick=()=>{if(NAV.i<NAV.max)history.forward();};}
+render();navUI();
 </script>
 </body>
 </html>
