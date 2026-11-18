@@ -790,8 +790,8 @@ h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .jst.s0{background:#c98a14}.jst.s1{background:#2a6fb5}.jst.s2{background:#2c8a4a}.jst.s3{background:#8a8f94}
 .mtab td{vertical-align:middle}.mtab td:nth-child(3){font-size:13.5px}.mlinks{columns:2;column-gap:24px}.mlinks li{break-inside:avoid}@media(max-width:700px){.mlinks{columns:1}}
 .board{gap:12px}.bhead{display:grid;gap:10px}.bcats{display:flex;flex-wrap:wrap;gap:6px}.bcats .chip small{opacity:.7;font-size:11.5px}
-.blist{list-style:none;margin:0;padding:0;display:grid}.blist li{border-top:1px solid var(--line)}
-.brow{font:inherit;color:var(--ink);background:none;border:0;width:100%;text-align:left;display:grid;grid-template-columns:36px 92px 1fr 56px;gap:10px;align-items:center;padding:11px 4px;cursor:pointer}
+.board .blist{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:none;width:100%}.blist li{border-top:1px solid var(--line)}
+.brow{font:inherit;color:var(--ink);background:none;border:0;width:100%;text-align:left;display:grid;grid-template-columns:36px 92px 1fr 56px;gap:10px;align-items:center;padding:9px 8px;cursor:pointer;border-radius:8px}.brow:hover{background:var(--accent-soft)}
 .brow:hover .bt b{color:var(--accent)}.bno{color:var(--muted);font-size:12.5px;text-align:center;font-variant-numeric:tabular-nums}
 .bcat{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 7px;text-align:center;white-space:nowrap}
 .bt{display:grid;gap:1px;min-width:0}.bt b{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bt small{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -937,11 +937,20 @@ header .kakao{grid-row:1;grid-column:2}
 .gnick{flex:1 1 140px;min-width:0;font:inherit;font-size:15px;padding:8px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);box-sizing:border-box;width:100%}
 .gbtn,.gbtn2{font:inherit;font-size:14px;font-weight:800;padding:8px 14px;border-radius:9px;cursor:pointer;border:1.5px solid var(--accent);background:var(--accent);color:#fff}
 .gbtn2{background:var(--panel);color:var(--ink);border-color:var(--line);font-weight:600}
+.gdesc{margin:4px 0 2px;font-size:14.5px;line-height:1.6;white-space:pre-wrap;color:var(--ink)}
 .gnew{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}.gnew summary{cursor:pointer;font-weight:800;color:var(--accent)}
 .gform{display:grid;gap:10px;margin-top:10px}.gmul{align-self:end;padding-bottom:10px}
 .gah{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:end;justify-content:space-between;margin-bottom:8px}.gah .jf{min-width:160px}
 .gcnt{font-size:15px}.gcnt b{font-size:24px;color:var(--accent)}
-.gchips{display:flex;flex-wrap:wrap;gap:8px}
+.gchips{display:flex;flex-wrap:wrap;gap:8px}.gchip.chg{border-style:dashed;border-color:var(--accent)}
+.gsave{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;bottom:8px;z-index:3;background:var(--panel);padding:8px;border:1.5px solid var(--line);border-radius:12px}
+.gsave button{font:inherit;font-size:14px;padding:8px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}.gsave button.pri{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}.gsave button:disabled{opacity:.5;cursor:default}
+.gweek{display:grid;gap:4px;padding:10px 12px;border-radius:10px;background:var(--bg)}.gweek p{margin:0;font-size:14px;line-height:1.6}
+.gatab th.cur{background:var(--accent-soft)}.grm.gone{opacity:.6}.grm small{font-weight:500;font-size:12px}
+.gper{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;width:100%;padding:8px;border:1.5px dashed var(--accent);border-radius:10px}.gper button{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer}.gper button.pri{background:var(--accent);color:#fff;border-color:var(--accent)}
+.gxls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.gxls button{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer}
+.gxprev{display:grid;gap:6px;padding:10px 12px;border:1.5px dashed var(--accent);border-radius:10px;font-size:14px}.gxprev .wlbar{display:flex;flex-wrap:wrap;gap:8px}.gxprev .wlbar button{font:inherit;font-size:13.5px;padding:7px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer}.gxprev .wlbar button.pri{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
+.ggone summary{cursor:pointer;font-size:14px;color:var(--muted);margin:4px 0}
 .gchip{font:inherit;font-size:14.5px;font-weight:700;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
 .gchip.on{background:#2c8a4a;border-color:#2c8a4a;color:#fff}
 .gh3{margin:16px 0 6px;font-size:15px}
@@ -954,13 +963,36 @@ header .kakao{grid-row:1;grid-column:2}
 .gocr input{position:absolute;opacity:0;width:1px;height:1px}
 .groster .wln2,.gadd textarea{width:100%;box-sizing:border-box}
 @media (max-width:600px){.gpc{padding:10px 12px}.gah .jf{min-width:0;flex:1 1 100%}}
+
+/* ===== polish 11.18 ===== */
+.gdiff{display:grid;gap:4px;padding:10px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);font-size:14px;line-height:1.6}.gdiff.on{background:var(--accent-soft);border-color:var(--accent)}
+.gdin{font-weight:800;color:#2f8a4a;margin-right:4px}.gdout{font-weight:800;color:var(--accent);margin-right:4px}
+#admbar{position:fixed;right:14px;bottom:16px;z-index:30;display:flex;gap:6px;align-items:center;padding:6px;border-radius:999px;background:var(--panel);border:1.5px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:14px}
+#admbar[hidden]{display:none}@media (max-width:700px){#admbar{bottom:74px;right:10px}}#admbar.on{background:#2f8a4a;border-color:#2f8a4a;color:#fff;padding:6px 6px 6px 14px;font-weight:700}
+#admbar button{font:inherit;font-size:13.5px;font-weight:700;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+#admbar.on button{background:#fff;color:#2f8a4a;border-color:#fff}#admbar input{font:inherit;font-size:16px;width:150px;padding:6px 10px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+
+header p.upd{max-width:none}.updd{white-space:nowrap}
+.box p.cat,.jinfo p.cat,.gpoll p.cat{white-space:normal}
+@media (max-width:700px){
+  nav.tabs{display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:6px!important}
+  nav.tabs .tg,nav.tabs .tgb{display:contents!important}
+  nav.tabs .tgl{display:none!important}
+  nav.tabs button.tab{height:54px}
+}
+@media (max-width:360px){nav.tabs{grid-template-columns:repeat(4,1fr)!important}}
+a{overflow-wrap:anywhere}
+.box.full ul,.box.full ol,section.full ul,section.full ol{max-width:none}
+.cb,.rar,.only,.gft i,.mono em{font-size:12px}
+.box h3,.world h3,.card h3{line-height:1.3}
+@media (max-width:600px){.maplink a,.box .cat a,.howto .src a{display:inline-block;padding:5px 0}.kakao{min-height:48px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <h1 class="brand" id="brand" role="link" tabindex="0" title="홈으로"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-28 32 32)"><rect x="40" y="27" width="16" height="10" rx="3" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="27" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="37" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><rect x="51" y="28" width="7" height="8" fill="#f3ead7"/><ellipse cx="26" cy="32" rx="20" ry="17" fill="#c8542b" stroke="#3a2a1a" stroke-width="2.5"/><ellipse cx="22" cy="26" rx="10" ry="6" fill="#e07a45" opacity=".8"/></g><circle cx="20" cy="33" r="2.6" fill="#3a2a1a"/><circle cx="31" cy="29" r="2.6" fill="#3a2a1a"/><path d="M22 39q4 4 9-1" stroke="#3a2a1a" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="38" r="2.6" fill="#ff9aa2" opacity=".8"/><circle cx="36" cy="33" r="2.6" fill="#ff9aa2" opacity=".8"/><path d="M27 47l-4 3 4 10 4-10z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/><path d="M24 46h6l-3 3z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/></svg><span>직장인수렵단 <em>공략집</em></span></h1>
-  <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · 2026.11.18 업데이트</p>
+  <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · <span class="updd">2026.11.18 업데이트</span></p>
 </header>
 <nav class="tabs" id="g" aria-label="탭"></nav>
 <nav class="subnav" id="sub" aria-label="이 탭 안 바로가기" hidden></nav>
@@ -1216,7 +1248,7 @@ async function guildApi(method,body){
   const r=await fetch('/api/guild',{method,headers:h,body:body?JSON.stringify(body):undefined});
   const j=await r.json().catch(()=>({})); if(!r.ok||j.error) throw Object.assign(new Error(j.error||r.status),{code:j.error||r.status}); return j;}
 const GERR={not_member:'단원명부에 없는 닉네임이에요. 닉네임을 다시 확인해 주세요.',nickname:'게임 닉네임을 적어 주세요.',closed:'마감된 투표예요.',slot_full:'그 자리는 이미 꽉 찼어요.',
-  forbidden:'길마만 할 수 있어요. 관리 비밀번호를 확인해 주세요.',title:'제목을 적어 주세요.',options:'선택지를 투표는 2개, 파티 모집은 1개 이상 적어 주세요.',full:'투표가 너무 많아요. 지난 투표를 지워 주세요.',
+  period:'들어온 주가 나간 주보다 앞이어야 해요.',names:'명단이 비어 있어요.',forbidden:'길마만 할 수 있어요. 관리 비밀번호를 확인해 주세요.',title:'제목을 적어 주세요.',options:'선택지를 투표는 2개, 파티 모집은 1개 이상 적어 주세요.',full:'투표가 너무 많아요. 지난 투표를 지워 주세요.',
   date:'토요일 날짜만 체크할 수 있어요.',dup:'이미 같은 이름이 있어요.',name:'이름을 적어 주세요.',not_found:'이미 지워졌어요. 새로고침해 주세요.'};
 const gmsg=e=>GERR[e&&e.code]||'저장이 안 됐어요. 잠시 뒤 다시 해 주세요.';
 function satList(n=8){const out=[];let d=new Date((GUILD.sat||kstSat())+'T00:00:00Z');for(let i=0;i<n;i++){out.push(d.toISOString().slice(0,10));d=new Date(d.getTime()-7*864e5);}return out;}
@@ -1229,10 +1261,24 @@ function guildSections(){return `
   <section class="box full gatt" id="gatt"></section>
   <h2 class="sec">단원명부 <small>출석·투표에 쓰는 이름</small></h2>
   <section class="box full groster" id="groster"></section>`;}
+/* 길마 모드 고정 버튼 (오른쪽 아래) */
+function admOn(){return !!(JOIN.admin||GUILD.admin);}
+function paintAdmBar(){let el=document.getElementById('admbar');if(!el){el=document.createElement('div');el.id='admbar';document.body.appendChild(el);}
+  const on=admOn(),show=on||st.g==='join';el.hidden=!show;if(!show){el.innerHTML='';return;}
+  el.className=on?'on':'';
+  el.innerHTML=on?`<span>🔑 길마 모드</span><button type="button" id="admoff">끄기</button>`
+   :(GUILD.admOpen?`<input id="admkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" id="admgo">켜기</button><button type="button" id="admx" aria-label="닫기">✕</button>`:`<button type="button" id="admopen">🔑 길마 모드 켜기</button>`);
+  const $=id=>document.getElementById(id);
+  if($('admopen'))$('admopen').onclick=()=>{GUILD.admOpen=true;paintAdmBar();$('admkey').focus();};
+  if($('admx'))$('admx').onclick=()=>{GUILD.admOpen=false;paintAdmBar();};
+  const login=async()=>{const k=$('admkey').value.trim();if(!k)return;try{localStorage.setItem(ADMK,k)}catch(_){}$('admgo').disabled=true;await loadJoin();await loadGuild();if(!admOn()){alert('비밀번호가 맞지 않아요.');try{localStorage.removeItem(ADMK)}catch(_){}}else GUILD.admOpen=false;paintAdmBar();};
+  if($('admgo')){$('admgo').onclick=login;$('admkey').onkeydown=e=>{if(e.key==='Enter')login();};}
+  if($('admoff'))$('admoff').onclick=async()=>{try{localStorage.removeItem(ADMK)}catch(_){}JOIN.admin=false;JOIN.wedit=false;GUILD.admin=false;GUILD.per=null;GUILD.xls=null;GUILD.xatt=null;await loadJoin();await loadGuild();paintAdmBar();};}
 async function loadGuild(){
   if(!onNetlify()){GUILD.err='local';paintGuild();return;}
   try{const j=await guildApi('GET');Object.assign(GUILD,{loaded:true,err:'',admin:!!j.admin,roster:j.roster||[],polls:j.polls||[],att:j.att||{},sat:j.saturday||kstSat()});if(!GUILD.day)GUILD.day=GUILD.sat;}
   catch(e){GUILD.err='load';}
+  setTimeout(paintAdmBar,0);
   paintGuild();}
 function paintGuild(){paintPolls();paintPollNew();paintAtt();paintRoster();}
 function gOff(){if(GUILD.err==='local')return `<p class="cat" style="margin:0">투표·출석부는 공략집 사이트에서 써요 → <a href="${SITE}/#join" target="_blank" rel="noopener">${SITE.replace('https://','')}</a></p>`;
@@ -1248,7 +1294,7 @@ function pollCard(p){const voted=gGet(GVOTED,{})[p.id]||[];const max=Math.max(1,
     <span class="gol"><b>${esc(o)}</b><span class="gbar"><i style="width:${(p.counts[i]/max*100).toFixed(0)}%"></i></span>
     <small>${p.counts[i]}${p.kind==='party'&&p.slots?' / '+p.slots:''}명${full?' · 꽉 참':''}</small>
     ${p.names&&p.names[i].length?`<span class="gnames">${p.names[i].map(n=>`<span>${esc(n)}</span>`).join('')}</span>`:''}</span></label>`;}).join('');
-  return `<article class="gpc" data-id="${esc(p.id)}"><div class="gph">${kind}${st}<h3>${esc(p.title)}</h3><small class="cat">${fmtT(p.at)}${p.by?' · '+esc(p.by):''} · ${p.voters}명 참여${p.multi?' · 여러 개 선택':''}</small></div>
+  return `<article class="gpc" data-id="${esc(p.id)}"><div class="gph">${kind}${st}<h3>${esc(p.title)}</h3>${p.desc?`<p class="gdesc">${esc(p.desc)}</p>`:''}<small class="cat">${fmtT(p.at)}${p.by?' · '+esc(p.by):''} · ${p.voters}명 참여${p.multi?' · 여러 개 선택':''}</small></div>
    <div class="gopts">${opts}</div>
    ${p.closed?'':`<div class="gvote">${nickInput('gn_'+p.id)}<button type="button" class="gbtn" data-act="vote">${voted.length?'다시 투표':'투표하기'}</button>${voted.length?'<button type="button" class="gbtn2" data-act="unvote">내 표 취소</button>':''}</div>`}
    <div class="jmsg gmsg" role="status"></div>
@@ -1273,6 +1319,7 @@ function paintPollNew(){const el=document.getElementById('gpnew');if(!el)return;
    <div class="jrow"><label class="jf"><span>종류</span><select name="kind">${A?'<option value="vote">길드 투표 (익명 · 결과만 보여요)</option>':''}<option value="party">파티 모집 (참여자 이름 보임)</option></select></label>
    <label class="jf"><span>마감 <small>(비우면 길마가 마감할 때까지)</small></span><input name="deadline" type="datetime-local"></label></div>
    <label class="jf"><span>제목 <b>*</b></span><input name="title" maxlength="60" required placeholder="${A?'예) 이번 주 길드 레이드 요일':'예) 토 21시 크샬 익스트림 같이 가요'}"></label>
+   <label class="jf"><span>내용 <small>(무슨 투표인지 · 일정 · 참고할 점)</small></span><textarea name="desc" rows="3" maxlength="500" placeholder="${A?'예) 이번 주 토요일 길드 레이드를 몇 시에 할지 정해요. 금요일 밤까지 투표해 주세요!':'예) 크샬 익스트림 S랭크 노려요. 디코 없어도 돼요.'}"></textarea></label>
    <label class="jf"><span>선택지 <b>*</b> <small>(한 줄에 하나)</small></span><textarea name="options" rows="4" required placeholder="${A?'토요일\n일요일':'딜러\n서포터'}"></textarea></label>
    <div class="jrow"><label class="jf gslot"><span>자리 수 <small>(파티 모집 · 선택지마다, 0 = 제한 없음)</small></span><input name="slots" type="number" min="0" max="99" value="0" inputmode="numeric"></label>
    <label class="fit gmul"><input type="checkbox" name="multi"> 여러 개 고를 수 있게</label></div>
@@ -1281,45 +1328,122 @@ function paintPollNew(){const el=document.getElementById('gpnew');if(!el)return;
   const f=document.getElementById('gpf'),m=document.getElementById('gpfm');
   el.querySelector('details').ontoggle=e=>GUILD.openNew=e.target.open;
   f.onsubmit=async e=>{e.preventDefault();const fd=new FormData(f);const dl=fd.get('deadline');
-    const body={action:'poll.create',kind:fd.get('kind'),title:fd.get('title'),options:String(fd.get('options')||'').split('\n').map(x=>x.trim()).filter(Boolean),multi:!!fd.get('multi'),slots:+fd.get('slots')||0,deadline:dl?new Date(dl).getTime():0,nickname:A?'':(document.getElementById('gpfn')||{}).value};
+    const body={action:'poll.create',kind:fd.get('kind'),title:fd.get('title'),desc:String(fd.get('desc')||'').trim(),options:String(fd.get('options')||'').split('\n').map(x=>x.trim()).filter(Boolean),multi:!!fd.get('multi'),slots:+fd.get('slots')||0,deadline:dl?new Date(dl).getTime():0,nickname:A?'':(document.getElementById('gpfn')||{}).value};
     const btn=f.querySelector('.jbtn');btn.disabled=true;
     try{const j=await guildApi('POST',body);if(!A)gSet(GNICK,body.nickname.trim());GUILD.polls=[j.poll,...GUILD.polls];GUILD.openNew=false;paintPolls();paintPollNew();}
     catch(err){m.textContent=gmsg(err);m.className='jmsg err';btn.disabled=false;}};}
 /* 출석부 */
+// 이름 정렬: 한글(가나다) → 영문(ABC) → 일본어 → 그 밖의 문자
+const GCOL={ko:new Intl.Collator('ko'),en:new Intl.Collator('en',{sensitivity:'base',numeric:true}),ja:new Intl.Collator('ja'),x:new Intl.Collator(undefined,{numeric:true})};
+function gscript(n){const c=String(n||'').trim().charAt(0);if(/[가-힣ㄱ-ㅎㅏ-ㅣ]/.test(c))return 0;if(/[A-Za-z]/.test(c))return 1;if(/[぀-ヿㇰ-ㇿｦ-ﾟ]/.test(c))return 2;return 3;}
+function gsort(R){return R.slice().sort((x,y)=>{const a=gscript(x.name),b=gscript(y.name);if(a!==b)return a-b;return GCOL[['ko','en','ja','x'][a]].compare(x.name,y.name);});}
+const gact=(m,d)=>(!m.from||m.from<=d)&&(!m.to||d<m.to);
 function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
-  const R=GUILD.roster,days=satList(8),d=GUILD.day||GUILD.sat,P=new Set(GUILD.att[d]||[]);
-  const n=R.filter(m=>P.has(m.id)).length;
+  const days=satList(8),d=GUILD.day||GUILD.sat,P=new Set(GUILD.att[d]||[]);
+  const R=gsort(GUILD.roster.filter(m=>gact(m,d)));
+  if(!GUILD.sel||GUILD.selDay!==d){GUILD.sel=new Set(P);GUILD.selDay=d;}
+  const S=GUILD.sel,add=[...S].filter(i=>!P.has(i)),del=[...P].filter(i=>!S.has(i));
+  const yes=R.filter(m=>P.has(m.id)),no=R.filter(m=>!P.has(m.id));
+  const rows=gsort(GUILD.roster.filter(m=>days.some(x=>gact(m,x))));
   el.innerHTML=`<div class="gah"><label class="jf"><span>날짜</span><select id="gday">${days.map(x=>`<option value="${x}"${x===d?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label>
-   <div class="gcnt"><b>${n}</b> / ${R.length}명 출석</div></div>
-   ${R.length?`<p class="cat gnote">내 이름을 눌러 출석 체크해요. 잘못 눌렀으면 길마에게 말해 주세요${GUILD.admin?' (길마는 다시 누르면 취소돼요)':''}.</p>
-   <div class="gchips">${R.map(m=>`<button type="button" class="gchip${P.has(m.id)?' on':''}" data-id="${esc(m.id)}" aria-pressed="${P.has(m.id)}">${P.has(m.id)?'✓ ':''}${esc(m.name)}</button>`).join('')}</div>
-   <h3 class="gh3">최근 8주 기록</h3><div class="tw gattw"><table class="gatab nostack"><thead><tr><th>단원</th>${days.slice().reverse().map(x=>`<th>${md(x)}</th>`).join('')}<th>합계</th></tr></thead><tbody>
-   ${R.map(m=>{let c=0;const cells=days.slice().reverse().map(x=>{const on=(GUILD.att[x]||[]).includes(m.id);if(on)c++;return `<td>${on?'✓':''}</td>`;}).join('');return `<tr><td class="gan">${esc(m.name)}</td>${cells}<td><b>${c}</b></td></tr>`;}).join('')}</tbody></table></div>`
-   :'<p class="cat" style="margin:0">단원명부가 비어 있어요. 길마가 아래 단원명부에서 이름을 넣으면 출석부가 생겨요.</p>'}`;
+   <div class="gcnt"><b>${yes.length}</b> / ${R.length}명 출석</div></div>${GUILD.roster.length?gdiffBanner(d):''}
+   ${R.length?`<p class="cat gnote">이름을 눌러 골라 두고 아래 <b>출석 저장</b>을 한 번 누르면 한꺼번에 저장돼요.${GUILD.admin?' 길마는 체크를 풀어서 출석을 취소할 수도 있어요.':' 이미 저장된 출석 취소는 길마만 할 수 있어요.'}</p>
+   <div class="gchips">${R.map(m=>{const on=S.has(m.id),ch=on!==P.has(m.id);return `<button type="button" class="gchip${on?' on':''}${ch?' chg':''}" data-id="${esc(m.id)}" aria-pressed="${on}">${on?'✓ ':''}${esc(m.name)}</button>`;}).join('')}</div>
+   <div class="gsave"><button type="button" class="pri" id="gattsave"${add.length||del.length?'':' disabled'}>✓ 출석 저장${add.length||del.length?` (${add.length?'+'+add.length:''}${add.length&&del.length?' · ':''}${del.length?'−'+del.length:''})`:''}</button>${add.length||del.length?'<button type="button" id="gattundo">되돌리기</button>':''}${GUILD.admin?`<span style="flex:1"></span><button type="button" id="gattall">전체 선택</button><button type="button" id="gattnone">전체 해제</button>`:''}</div>
+   ${GUILD.admin?`<div class="gxls"><label class="gocr"><input type="file" id="gxatt" accept=".xlsx,.xls,.csv"><span>📊 엑셀로 ${md(d)} 출석 올리기 (참석여부 O/X)</span></label><button type="button" id="gxatpl">양식 받기</button></div>
+   ${GUILD.xatt&&GUILD.xatt.day===d?`<div class="gxprev"><b>${esc(GUILD.xatt.file)}</b> · ${md(d)} 기준<br><span class="ok">O 출석 ${GUILD.xatt.on.length}명</span> · <span class="cat">X 미출석 ${GUILD.xatt.off.length}명 · 빈칸(그대로 둠) ${GUILD.xatt.skip}명</span>${GUILD.xatt.unknown.length?`<br><span class="warn">명부에 없는 이름 ${GUILD.xatt.unknown.length}명: ${esc(GUILD.xatt.unknown.slice(0,10).join(', '))}${GUILD.xatt.unknown.length>10?' …':''}</span><label class="fit"><input type="checkbox" id="gxaddnew" checked> 이 이름들도 단원명부에 추가하고 반영</label>`:''}
+    <div class="wlbar"><button type="button" class="pri" id="gxatgo">이대로 출석 반영</button><button type="button" id="gxatno">취소</button></div></div>`:''}`:''}
+   <div class="gweek"><h3 class="gh3">${md(d)} 출석 내역</h3>
+    <p><b class="ok">출석 ${yes.length}명</b> ${yes.length?yes.map(m=>esc(m.name)).join(', '):'<span class="cat">아직 없어요</span>'}</p>
+    <p><b class="cat">미출석 ${no.length}명</b> <span class="cat">${no.map(m=>esc(m.name)).join(', ')}</span></p></div>
+   <h3 class="gh3">최근 8주 기록</h3><div class="tw gattw"><table class="gatab nostack"><thead><tr><th>단원</th>${days.slice().reverse().map(x=>`<th${x===d?' class="cur"':''}>${md(x)}</th>`).join('')}<th>합계</th></tr></thead><tbody>
+   ${rows.map(m=>{let c=0;const cells=days.slice().reverse().map(x=>{if(!gact(m,x))return '<td class="cat">–</td>';const on=(GUILD.att[x]||[]).includes(m.id);if(on)c++;return `<td>${on?'✓':''}</td>`;}).join('');return `<tr><td class="gan">${esc(m.name)}</td>${cells}<td><b>${c}</b></td></tr>`;}).join('')}</tbody></table></div><p class="cat gnote">– = 그 주엔 단원이 아니었어요.</p>`
+   :'<p class="cat" style="margin:0">이 주에 해당하는 단원이 없어요. 길마가 아래 단원명부에서 이름을 넣으면 출석부가 생겨요.</p>'}`;
   const sel=document.getElementById('gday');if(sel)sel.onchange=()=>{GUILD.day=sel.value;paintAtt();};
-  el.querySelectorAll('.gchip').forEach(b=>b.onclick=async()=>{const id=b.dataset.id,m=R.find(x=>x.id===id),on=P.has(id);
-    if(on&&!GUILD.admin){alert('이미 출석했어요. 취소는 길마만 할 수 있어요.');return;}
-    if(!confirm(on?`${m.name}님 출석을 취소할까요?`:`${m.name}님 ${md(d)} 출석 체크할까요?`))return;
-    try{const j=await guildApi('POST',{action:on?'att.unmark':'att.mark',date:d,id});GUILD.att[d]=j.present;}catch(e){alert(gmsg(e));}paintAtt();});}
+  el.querySelectorAll('.gchip').forEach(b=>b.onclick=()=>{const id=b.dataset.id;
+    if(S.has(id)){if(P.has(id)&&!GUILD.admin){alert('이미 저장된 출석은 길마만 취소할 수 있어요.');return;}S.delete(id);}else S.add(id);paintAtt();});
+  const $=id=>document.getElementById(id);
+  if($('gattundo'))$('gattundo').onclick=()=>{GUILD.sel=new Set(P);paintAtt();};
+  if($('gattall'))$('gattall').onclick=()=>{R.forEach(m=>S.add(m.id));paintAtt();};
+  if($('gattnone'))$('gattnone').onclick=()=>{R.forEach(m=>S.delete(m.id));paintAtt();};
+  if($('gxatpl'))$('gxatpl').onclick=()=>{const rows=[['닉네임','참석여부'],...R.map(m=>[m.name,P.has(m.id)?'O':''])];const blob=new Blob(['\ufeff'+rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`출석부_${d}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);};
+  if($('gxatt'))$('gxatt').onchange=async()=>{const f=$('gxatt').files[0];if(!f)return;try{const rs=await readSheet(f);if(!rs.length){alert('파일에서 이름을 못 찾았어요. 닉네임 · 참석여부 두 열로 적어 주세요.');return;}
+    if(rs.every(x=>x.att===null)){alert('참석여부 열을 못 찾았어요. 첫 줄에 "닉네임", "참석여부"를 적고 O / X로 채워 주세요.');return;}
+    const by=new Map(GUILD.roster.filter(m=>gact(m,d)).map(m=>[gnorm(m.name),m]));
+    GUILD.xatt={day:d,file:f.name,rows:rs,on:rs.filter(x=>x.att===true).map(x=>x.name),off:rs.filter(x=>x.att===false).map(x=>x.name),skip:rs.filter(x=>x.att===null).length,unknown:rs.filter(x=>x.att!==null&&!by.has(gnorm(x.name))).map(x=>x.name)};}catch(e){alert('파일을 읽지 못했어요. .xlsx나 .csv 파일인지 확인해 주세요.');}paintAtt();};
+  if($('gxatno'))$('gxatno').onclick=()=>{GUILD.xatt=null;paintAtt();};
+  if($('gxatgo'))$('gxatgo').onclick=async()=>{const X=GUILD.xatt,bt=$('gxatgo');bt.disabled=true;bt.textContent='반영 중…';
+    try{if(X.unknown.length&&$('gxaddnew')&&$('gxaddnew').checked){GUILD.roster=(await guildApi('POST',{action:'roster.add',names:X.unknown})).roster;}
+      const by=new Map(GUILD.roster.filter(m=>gact(m,d)).map(m=>[gnorm(m.name),m.id]));
+      const add=X.rows.filter(x=>x.att===true).map(x=>by.get(gnorm(x.name))).filter(Boolean),remove=X.rows.filter(x=>x.att===false).map(x=>by.get(gnorm(x.name))).filter(Boolean);
+      const j=await guildApi('POST',{action:'att.bulk',date:d,add,remove});GUILD.att[d]=j.present;GUILD.sel=new Set(j.present);GUILD.xatt=null;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
+  if($('gattsave'))$('gattsave').onclick=async()=>{const bt=$('gattsave');bt.disabled=true;bt.textContent='저장 중…';
+    try{const j=await guildApi('POST',{action:'att.bulk',date:d,add,remove:del});GUILD.att[d]=j.present;GUILD.sel=new Set(j.present);}catch(e){alert(gmsg(e));}paintAtt();};}
 document.addEventListener('click',async e=>{const b=e.target.closest('.glin');if(!b)return;const k=b.parentElement.querySelector('.glkey').value.trim();if(!k)return;try{localStorage.setItem(ADMK,k)}catch(_){}b.disabled=true;await loadJoin();await loadGuild();b.disabled=false;if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');});
 /* 단원명부 */
+function gprev(d){return new Date(new Date(d+'T00:00:00Z').getTime()-7*864e5).toISOString().slice(0,10);}
+function gdiffBanner(d){const pv=gprev(d),R=GUILD.roster;
+  const inn=gsort(R.filter(m=>gact(m,d)&&!gact(m,pv))),out=gsort(R.filter(m=>gact(m,pv)&&!gact(m,d)));
+  const lab=d===GUILD.sat?`이번 주(${md(d)})`:`${md(d)} 주`;
+  if(!inn.length&&!out.length)return `<div class="gdiff"><b>📣 ${lab} 단원 변동</b><span class="cat">지난주(${md(pv)})와 같아요. 들어오거나 나간 단원이 없어요.</span></div>`;
+  return `<div class="gdiff on"><b>📣 ${lab} 단원 변동 <small class="cat">지난주 ${md(pv)} 대비</small></b>${inn.length?`<div><span class="gdin">🆕 들어온 단원 ${inn.length}명</span> ${inn.map(m=>esc(m.name)).join(', ')}</div>`:''}${out.length?`<div><span class="gdout">👋 나간 단원 ${out.length}명</span> ${out.map(m=>esc(m.name)).join(', ')}</div>`:''}</div>`;}
+function gperiod(m){return m.from&&m.to?`${md(m.from)}~${md(m.to)} 전 주까지`:m.from?`${md(m.from)}부터`:m.to?`~${md(m.to)} 전 주까지`:'';}
 function paintRoster(){const el=document.getElementById('groster');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
-  const R=GUILD.roster,A=GUILD.admin;
-  el.innerHTML=`<div class="gah"><b>단원 ${R.length}명</b>${A?'':'<small class="cat">이름 추가·수정·사진 등록은 길마만 할 수 있어요.</small>'}</div>${A?'':`<details class="glog"><summary>🔑 길마 로그인하고 명부 관리하기 (사진으로 이름 등록)</summary><div class="jadmf"><input class="glkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" class="glin">들어가기</button></div></details>`}
-   ${R.length?`<div class="grl">${R.map(m=>`<div class="grm" data-id="${esc(m.id)}"><span>${esc(m.name)}</span>${A?'<button type="button" data-act="ren" title="이름 바꾸기" aria-label="이름 바꾸기">✏️</button><button type="button" data-act="del" title="빼기" aria-label="명부에서 빼기">✕</button>':''}</div>`).join('')}</div>`:'<p class="cat" style="margin:0">아직 등록된 단원이 없어요.</p>'}
+  const A=GUILD.admin,days=satList(26),rd=GUILD.rday||GUILD.sat;
+  const now=gsort(GUILD.roster.filter(m=>gact(m,rd))),gone=gsort(GUILD.roster.filter(m=>!gact(m,rd)));
+  const wkopt=(cur,first)=>`<option value="">${first}</option>`+days.map(x=>`<option value="${x}"${x===cur?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('');
+  const chip=m=>`<div class="grm${gact(m,rd)?'':' gone'}" data-id="${esc(m.id)}"><span>${esc(m.name)}${gperiod(m)?`<small class="cat"> ${esc(gperiod(m))}</small>`:''}</span>${A?'<button type="button" data-act="ren" title="이름 바꾸기" aria-label="이름 바꾸기">✏️</button><button type="button" data-act="per" title="들어온 주·나간 주" aria-label="기간 정하기">📅</button><button type="button" data-act="del" title="완전히 지우기" aria-label="명부에서 지우기">✕</button>':''}</div>${A&&GUILD.per===m.id?`<div class="gper" data-id="${esc(m.id)}"><label class="jf"><span>들어온 주</span><select class="gpf">${wkopt(m.from,'처음부터')}</select></label><label class="jf"><span>나간 주 <small>(그 주부터 빠져요)</small></span><select class="gpt">${wkopt(m.to,'계속 단원')}</select></label><button type="button" class="pri gpsave">저장</button><button type="button" class="gpcancel">취소</button></div>`:''}`;
+  el.innerHTML=`<div class="gah"><label class="jf"><span>기준 주</span><select id="grday">${days.map(x=>`<option value="${x}"${x===rd?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label><div class="gcnt"><b>${now.length}</b>명</div></div>${GUILD.roster.length?gdiffBanner(rd):''}
+   ${A?'':`<small class="cat">이름 추가·수정·사진 등록은 길마만 할 수 있어요.</small><details class="glog"><summary>🔑 길마 로그인하고 명부 관리하기 (사진으로 이름 등록)</summary><div class="jadmf"><input class="glkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" class="glin">들어가기</button></div></details>`}
+   ${now.length?`<div class="grl">${now.map(chip).join('')}</div>`:'<p class="cat" style="margin:0">이 주에 등록된 단원이 없어요.</p>'}
+   <p class="cat gnote">이름은 한글(가나다) → 영문(ABC) → 일본어 → 기타 순으로 자동 정렬돼요.</p>
+   ${gone.length?`<details class="ggone"><summary>이 주엔 단원이 아닌 이름 ${gone.length}명</summary><div class="grl">${gone.map(chip).join('')}</div></details>`:''}
    ${A?`<div class="gadd"><h3 class="gh3">단원 추가</h3>
-    <label class="gocr"><input type="file" id="gimg" accept="image/*"><span>📷 단원 목록 스크린샷으로 이름 읽기</span></label>
+    <label class="jf"><span>언제부터 단원인가요</span><select id="gfrom">${wkopt(GUILD.addFrom||'','처음부터 (지난 기록에도 나와요)')}</select></label>
+    <div class="gxls"><label class="gocr"><input type="file" id="gxls" accept=".xlsx,.xls,.csv"><span>📊 엑셀(.xlsx·.csv) 명단 올리기</span></label><button type="button" id="gxtpl">양식 받기</button></div>
+    ${GUILD.xls?`<div class="gxprev"><b>${esc(GUILD.xls.file)}</b> · 이름 ${GUILD.xls.names.length}명<br><span class="cat">새로 추가 ${GUILD.xls.fresh.length}명${GUILD.xls.fresh.length?': '+esc(GUILD.xls.fresh.slice(0,12).join(', '))+(GUILD.xls.fresh.length>12?' …':''):''}</span><br><span class="cat">명단에 없는 지금 단원 ${GUILD.xls.miss.length}명${GUILD.xls.miss.length?': '+esc(GUILD.xls.miss.slice(0,12).join(', '))+(GUILD.xls.miss.length>12?' …':''):''}</span>
+     <div class="wlbar"><button type="button" id="gxadd">추가만 하기</button><button type="button" class="pri" id="gxsync">엑셀과 똑같이 맞추기</button><button type="button" id="gxno">취소</button></div><span class="cat">"똑같이 맞추기"를 누르면 명단에 없는 단원은 이번 주(${md(GUILD.sat)})부터 나간 것으로 처리돼요. 지난 출석 기록은 남아요.</span></div>`:''}
+    <label class="gocr"><input type="file" id="gimg" accept="image/*" multiple><span>📷 단원 목록 스크린샷으로 이름 읽기 (여러 장 가능)</span></label>
     <div class="cat" id="gocrm" role="status">${esc(GUILD.ocr||'게임 모험단 단원 목록 화면을 캡처해서 올리면 이름을 글자로 뽑아 줘요. 결과는 꼭 확인하고 고쳐 주세요.')}</div>
-    <textarea id="gnames" class="wln2" rows="5" placeholder="한 줄에 한 명씩 (예)\n퇴근후한판\n칼퇴수렵"></textarea>
+    <textarea id="gnames" class="wln2" rows="5" placeholder="한 줄에 한 명씩 (순서는 상관없어요, 자동 정렬돼요)\n퇴근후한판\n칼퇴수렵"></textarea>
     <div class="wlbar"><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div></div>`:''}`;
+  const R=GUILD.roster;
+  const rds=document.getElementById('grday');if(rds)rds.onchange=()=>{GUILD.rday=rds.value;paintRoster();};
+  const gf=document.getElementById('gfrom');if(gf)gf.onchange=()=>{GUILD.addFrom=gf.value;};
   el.querySelectorAll('.grm [data-act]').forEach(b=>b.onclick=async()=>{const id=b.closest('.grm').dataset.id,m=R.find(x=>x.id===id);
+    if(b.dataset.act==='per'){GUILD.per=GUILD.per===id?null:id;paintRoster();return;}
     if(b.dataset.act==='ren'){const v=prompt('새 이름 (출석 기록은 그대로 이어져요)',m.name);if(v===null||!v.trim()||v.trim()===m.name)return;
       try{GUILD.roster=(await guildApi('POST',{action:'roster.rename',id,name:v.trim()})).roster;}catch(e){alert(gmsg(e));}}
-    else{if(!confirm(`${m.name}님을 명부에서 뺄까요?`))return;try{GUILD.roster=(await guildApi('POST',{action:'roster.del',id})).roster;}catch(e){alert(gmsg(e));}}
+    else{if(!confirm(`${m.name}님을 명부에서 완전히 지울까요? 지난 출석 기록에서도 사라져요.\n(길드를 나간 거라면 📅에서 "나간 주"를 정하면 기록이 남아요)`))return;try{GUILD.roster=(await guildApi('POST',{action:'roster.del',id})).roster;}catch(e){alert(gmsg(e));}}
     paintAtt();paintRoster();});
+  el.querySelectorAll('.gper').forEach(w=>{const id=w.dataset.id;
+    w.querySelector('.gpcancel').onclick=()=>{GUILD.per=null;paintRoster();};
+    w.querySelector('.gpsave').onclick=async()=>{try{GUILD.roster=(await guildApi('POST',{action:'roster.period',id,from:w.querySelector('.gpf').value,to:w.querySelector('.gpt').value})).roster;GUILD.per=null;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};});
   const add=document.getElementById('gaddb');if(add)add.onclick=async()=>{const names=document.getElementById('gnames').value.split('\n').map(x=>x.trim()).filter(Boolean);if(!names.length)return;
-    add.disabled=true;try{const j=await guildApi('POST',{action:'roster.add',names});GUILD.roster=j.roster;GUILD.ocr=`${j.added}명 추가했어요 ✓`;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
-  const fi=document.getElementById('gimg');if(fi)fi.onchange=()=>{if(fi.files[0])ocrRoster(fi.files[0]);};}
+    add.disabled=true;try{const j=await guildApi('POST',{action:'roster.add',names,from:document.getElementById('gfrom').value});GUILD.roster=j.roster;GUILD.ocr=`${j.added}명 추가했어요 ✓`;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
+  const fi=document.getElementById('gimg');if(fi)fi.onchange=async()=>{for(const f of fi.files)await ocrRoster(f);};
+  const xi=document.getElementById('gxls');if(xi)xi.onchange=async()=>{const f=xi.files[0];if(!f)return;try{const names=await readNameFile(f);if(!names.length){alert('파일에서 이름을 못 찾았어요. 첫 번째 열에 한 줄에 한 명씩 적어 주세요.');return;}
+    const cur=GUILD.roster.filter(m=>gact(m,GUILD.sat)),have=new Set(GUILD.roster.filter(m=>!m.to).map(m=>gnorm(m.name))),want=new Set(names.map(gnorm));
+    GUILD.xls={file:f.name,names,fresh:names.filter(n=>!have.has(gnorm(n))),miss:gsort(cur.filter(m=>!want.has(gnorm(m.name)))).map(m=>m.name)};}catch(e){alert('파일을 읽지 못했어요. .xlsx나 .csv 파일인지 확인해 주세요.');}paintRoster();};
+  const $=id=>document.getElementById(id);
+  if($('gxno'))$('gxno').onclick=()=>{GUILD.xls=null;paintRoster();};
+  if($('gxtpl'))$('gxtpl').onclick=()=>{const rows=['닉네임',...gsort(GUILD.roster.filter(m=>gact(m,GUILD.sat))).map(m=>m.name)];const blob=new Blob(['\ufeff'+rows.map(r=>'"'+r.replace(/"/g,'""')+'"').join('\r\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='단원명부.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);};
+  const xsend=async(action)=>{const X=GUILD.xls;try{const j=await guildApi('POST',{action,names:X.names,from:document.getElementById('gfrom').value,leave:GUILD.sat});GUILD.roster=j.roster;GUILD.ocr=action==='roster.sync'?`엑셀과 맞췄어요 ✓ 추가 ${j.added}명 · 나감 처리 ${j.left}명`:`${j.added}명 추가했어요 ✓`;GUILD.xls=null;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
+  if($('gxadd'))$('gxadd').onclick=()=>xsend('roster.add');
+  if($('gxsync'))$('gxsync').onclick=()=>{if(!confirm(`엑셀 명단과 똑같이 맞출까요?\n추가 ${GUILD.xls.fresh.length}명 · 나감 처리 ${GUILD.xls.miss.length}명`))return;xsend('roster.sync');};}
+/* 엑셀·CSV → 이름 (SheetJS는 쓸 때만 불러와요) */
+const NAMEHEAD=/^(닉네임|이름|단원|단원명|모험단원|캐릭터|캐릭터명|name|nickname|nick)$/i;
+function loadXlsx(){return window.XLSX?Promise.resolve():new Promise((ok,no)=>{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';sc.onload=ok;sc.onerror=()=>no(new Error('load'));document.head.appendChild(sc);});}
+const ATTHEAD=/^(참석|출석|참여|참석여부|출석여부|참여여부|출결|attend|attendance)$/i;
+function attVal(v){const t=String(v??'').trim().toLowerCase();if(/^(o|○|◯|〇|y|yes|1|true|참|참석|출석|참여|v|✓|✔)$/.test(t))return true;if(/^(x|×|✕|n|no|0|false|불참|미참|미참석|결석|미출석|-)$/.test(t))return false;return null;}
+async function readSheet(f){let rows;
+  if(/\.csv$/i.test(f.name)){const t=(await f.text()).replace(/^\ufeff/,'');rows=t.split(/\r?\n/).filter(l=>l.trim()).map(l=>{const o=[];l.replace(/("((?:[^"]|"")*)"|[^,]*)(,|$)/g,(m,a,q,sep)=>{if(m!==''||sep)o.push(q!==undefined?q.replace(/""/g,'"'):a);return '';});return o;});}
+  else{await loadXlsx();const wb=XLSX.read(await f.arrayBuffer(),{type:'array'});const ws=wb.Sheets[wb.SheetNames[0]];rows=XLSX.utils.sheet_to_json(ws,{header:1,blankrows:false,defval:''});}
+  let col=0,ac=-1;const hi=rows.findIndex(r=>r.some(c=>NAMEHEAD.test(String(c).trim())));
+  if(hi>=0){col=rows[hi].findIndex(c=>NAMEHEAD.test(String(c).trim()));ac=rows[hi].findIndex(c=>ATTHEAD.test(String(c).trim()));rows=rows.slice(hi+1);}
+  else if(rows.length&&rows.every(r=>r.length>1&&attVal(r[1])!==null||!r[1]))ac=1;
+  const seen=new Set(),out=[];rows.forEach(r=>{const n=String(r[col]??'').trim().slice(0,24);if(n&&!NAMEHEAD.test(n)&&!seen.has(gnorm(n))){seen.add(gnorm(n));out.push({name:n,att:ac>=0?attVal(r[ac]):null});}});return out;}
+async function readNameFile(f){return (await readSheet(f)).map(x=>x.name);}
 /* 스크린샷 → 이름 (tesseract.js를 쓸 때만 불러와요) */
 const OCR_STOP=new Set(['레벨','lv','단원','모험단','단장','부단장','길마','부길마','멤버','온라인','오프라인','접속','접속중','관리','기여도','직책','이름','닉네임','최근','전','분','시간','일','주간','활약도','추방','임명','나가기','확인','취소','정보','목록','마스터','부마스터','명','공헌','전투력','사냥력']);
 function ocrNames(text){const out=[];const seen=new Set();
@@ -1352,7 +1476,7 @@ function paintAdm(){const el=document.getElementById('jadmbox');if(!el)return;
   el.innerHTML=JOIN.admin?`<span class="cat">길마 관리 모드예요. 신청마다 상태·닉네임을 바꾸거나 지울 수 있어요.</span> <button type="button" id="jout">관리 끄기</button>${arenaForm()}`
    :`<details><summary>길마 관리</summary><div class="jadmf"><input id="jkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" id="jin">들어가기</button></div></details>`;
   const i=document.getElementById('jin'); if(i) i.onclick=async()=>{try{localStorage.setItem(ADMK,document.getElementById('jkey').value.trim())}catch(e){};await loadJoin();loadGuild();if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');};
-  const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;JOIN.wedit=false;loadJoin();loadGuild();};
+  const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;JOIN.wedit=false;GUILD.admin=false;loadJoin();loadGuild();paintAdmBar();};
   bindArena();}
 
 function waitGroups(){return JOIN.wait&&JOIN.wait.groups?JOIN.wait.groups:D.guild.notice.groups.map(g=>({title:g[0],names:g[1]}));}
@@ -1656,14 +1780,14 @@ function renderExplore(){
   document.querySelectorAll('.mchk input').forEach(c=>c.onchange=()=>{S[c.dataset.k]=c.checked;try{localStorage.setItem('mho-explore',JSON.stringify(S));}catch(e){}const card=c.closest('.mapc');card.querySelector('.mprog').textContent=`${card.querySelectorAll('input:checked').length}/${X.steps.length}`;});
   document.getElementById('n').textContent='';
 }
-let GP=null, BCAT='전체';
+let GP=null, BCAT='전체', BPG=1; const BPP=15;
 const BCATS=['전체','무기·세팅','모험가','몬스터·사냥','채집·탐색','초보·시스템','생활·편의'];
 const BGRP={'무기·캐릭터':'무기·세팅','사냥':'몬스터·사냥','시스템':'초보·시스템'};
 function boardList(mine){
   const sec=mine.map(s=>{const h=s.els[0];const c=h.cloneNode(true);c.querySelectorAll('small,.ph').forEach(x=>x.remove());const sm=h.querySelector('small');
     const t=c.textContent.trim();const cat=/^(루카|엔쇼우|주인공|모험가)/.test(t)&&!/세팅|프리셋/.test(t)?'모험가':(BGRP[s.m[4]]||'초보·시스템');
     return {id:'s-'+s.m[3],cat,title:t,sub:sm?sm.textContent.trim():'',date:'',sec:s};});
-  const posts=(D.board||[]).map(b=>({id:b.id,cat:b.cat,title:b.title,sub:'',date:b.date,post:b}));
+  const posts=(D.board||[]).map((b,i)=>({id:b.id,cat:b.cat,title:b.title,sub:'',date:b.date,post:b,i})).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||a.i-b.i);
   const all=[...posts,...sec];
   return all;}
 function renderBoard(G,mine){
@@ -1674,10 +1798,11 @@ function renderBoard(G,mine){
   GP=null;
   const q=(st.q||'').trim().toLowerCase();
   const rows=all.filter(x=>(BCAT==='전체'||x.cat===BCAT)&&(!q||(x.title+' '+x.sub+' '+(x.post?x.post.lines.join(' '):'')).toLowerCase().includes(q)));
-  const cnt=c=>c==='전체'?all.length:all.filter(x=>x.cat===c).length;
+  const cnt=c=>c==='전체'?all.length:all.filter(x=>x.cat===c).length;const np=Math.max(1,Math.ceil(rows.length/BPP));BPG=Math.min(Math.max(1,BPG),np);
   G.innerHTML=`<section class="box full board"><div class="bhead"><h3>📋 공략 게시판 <small class="cat">${all.length}개 글</small></h3><div class="bcats">${BCATS.filter(c=>cnt(c)).map(c=>`<button type="button" class="chip" data-c="${esc(c)}" aria-pressed="${c===BCAT}">${esc(c)} <small>${cnt(c)}</small></button>`).join('')}</div></div>
-  <ol class="blist">${rows.map((x,i)=>`<li><button type="button" class="brow" data-id="${esc(x.id)}"><span class="bno">${rows.length-i}</span><span class="bcat">${esc(x.cat)}</span><span class="bt"><b>${esc(x.title)}</b>${x.sub?`<small>${esc(x.sub)}</small>`:''}</span><span class="bdt">${x.date?esc(x.date.replace('-','/')):'정리글'}</span></button></li>`).join('')||'<li class="empty">조건에 맞는 글이 없어요.</li>'}</ol></section>`;
-  G.querySelectorAll('.bcats [data-c]').forEach(b=>b.onclick=()=>{BCAT=b.dataset.c;render();});
+  <ol class="blist">${rows.slice((BPG-1)*BPP,BPG*BPP).map((x,j)=>{const i=(BPG-1)*BPP+j;return `<li><button type="button" class="brow" data-id="${esc(x.id)}"><span class="bno">${rows.length-i}</span><span class="bcat">${esc(x.cat)}</span><span class="bt"><b>${esc(x.title)}</b>${x.sub?`<small>${esc(x.sub)}</small>`:''}</span><span class="bdt">${x.date?esc(x.date.replace('-','/')):'정리글'}</span></button></li>`;}).join('')||'<li class="empty">조건에 맞는 글이 없어요.</li>'}</ol>${np>1?`<nav class="jpg" aria-label="게시판 페이지">${Array.from({length:np},(_,i)=>`<button type="button" data-bp="${i+1}"${i+1===BPG?' aria-current="page"':''}>${i+1}</button>`).join('')}</nav>`:''}</section>`;
+  G.querySelectorAll('[data-bp]').forEach(b=>b.onclick=()=>{BPG=+b.dataset.bp;render();G.querySelector('.board').scrollIntoView({block:'start'});});
+  G.querySelectorAll('.bcats [data-c]').forEach(b=>b.onclick=()=>{BCAT=b.dataset.c;BPG=1;render();});
   G.querySelectorAll('.brow').forEach(b=>b.onclick=()=>{GP=b.dataset.id;render();window.scrollTo({top:0});navPush();});}
 function bBack(){return `<div class="full bback"><button type="button" id="bback" class="cgo">← 공략 목록</button></div>`;}
 function bindBack(){const b=document.getElementById('bback');if(b)b.onclick=()=>{GP=null;render();window.scrollTo({top:0});navPush();};}
@@ -2006,7 +2131,7 @@ function buildSub(){
 function setStick(){const sb=document.getElementById('sub');sb.style.top='0px';
   document.documentElement.style.setProperty('--stick',((sb.hidden?0:sb.offsetHeight)+12)+'px');}
 window.addEventListener('resize',setStick);
-const _render=render; render=function(){const r=_render(); stackTables(); buildSub(); return r;};
+const _render=render; render=function(){const r=_render(); stackTables(); buildSub(); try{paintAdmBar();}catch(_){} return r;};
 document.getElementById('q').addEventListener('input',e=>{st.q=e.target.value;render();});
 const lvEl=document.getElementById('lv'); lvEl.value=st.lv;
 lvEl.addEventListener('input',e=>{const v=parseInt(e.target.value,10); if(v>=1&&v<=99){st.lv=v;save();render();}});
