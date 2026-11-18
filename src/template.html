@@ -994,6 +994,7 @@ a{overflow-wrap:anywhere}
 @media (max-width:600px){.maplink a,.box .cat a,.howto .src a{display:inline-block;padding:5px 0}.kakao{min-height:48px}}
 
 /* ===== guild layout v2 ===== */
+.skl{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;margin:0;font-size:14px;line-height:1.5}.skl dt{font-size:12px;font-weight:800;color:var(--accent);white-space:nowrap;padding-top:2px}.skl dd{margin:0}.skl dd b{display:block}
 section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.gtop select,.gfrom select,.gedit select{min-width:0;max-width:100%}
 #navpill{transition:transform .2s,opacity .2s}#navpill.hide{transform:translateY(120%);opacity:0;pointer-events:none}@media (max-width:700px){#navpill{opacity:.92}}
 .asg i{font-size:12px}.jf small{font-size:12px}.box li a{padding:3px 0}
@@ -1857,6 +1858,7 @@ function moreSec(m){
   const srcs=(m.src||[]).map(x=>`<a href="${esc(x[1])}" target="_blank" rel="noopener">${esc(x[0])}</a>`).join(' · ');
   let body='';
   if(m.type==='table') body=`<section class="box full"><div class="tw"><table class="natab nostack mtab"><thead><tr>${m.cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${m.rows.map(r=>`<tr>${r.map((c,i)=>`<td>${i===0?`<span class="nm">${PHT(c.replace(/ \(SR\)$/,''),'sm')}<b>${esc(c)}</b></span>`:i===1?`<b class="fx">${esc(c)}</b>`:esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${m.note?`<p class="cat" style="white-space:normal;margin:0">${esc(m.note)}</p>`:''}</section>`;
+  else if(m.type==='kv') body=`${m.pre?`<section class="box full"><h3>⚡ 오의 타입</h3><ul>${m.pre.map(p=>`<li><b>${esc(p[0])}</b> · ${esc(p[1])}</li>`).join('')}</ul></section>`:''}<div class="c3 eq skc">${m.items.map(it=>`<section class="box"><h3><span class="nm">${PHT(it[0],'sm')}<span>${esc(it[0])} <small class="cat">${esc(it[1])}</small></span></span></h3><dl class="skl">${it[2].map(r=>`<dt>${esc(r[0])}</dt><dd>${r[1]?`<b>${esc(r[1])}</b> `:''}${esc(r[2])}</dd>`).join('')}</dl></section>`).join('')}</div>${m.note?`<p class="cat full" style="white-space:normal">${esc(m.note)}</p>`:''}`;
   else body=`<div class="c3 eq">${m.items.map(h=>`<section class="box hcard2"><h3>${h[0]} ${esc(h[1])}</h3><p>${esc(h[2])}</p></section>`).join('')}</div>${m.links?`<section class="box full"><h3>🔗 원문 글</h3><ul class="mlinks">${m.links.map(l=>`<li><a href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a></li>`).join('')}</ul></section>`:''}`;
   return `<h2 class="sec">${esc(m.h)} <small>${esc(m.sm)}</small></h2>${body}${srcs?`<div class="cat full" style="white-space:normal">출처: ${srcs}</div>`:''}`;}
 function renderTips(){
@@ -2256,7 +2258,7 @@ function tipFor(el){const k=el.dataset.tip, kind=el.dataset.tk||'i', id=kind+':'
   document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
 })();
 
-{const p=navParse(location.hash);if(p&&p.g===st.g)SUB[p.g]=p.s;
+{const p=navParse(location.hash);if(p&&p.g===st.g){SUB[p.g]=p.s;if(p.p)GP=p.p;}
  const si=history.state&&typeof history.state.i==='number'?history.state.i:0;let mx=0;try{mx=+sessionStorage.getItem('mho-nav-max')||0;}catch(_){}
  NAV.i=si;NAV.max=Math.max(si,mx);try{history.replaceState({i:NAV.i},'',navHash());}catch(_){}
  document.getElementById('navb').onclick=()=>{if(NAV.i>0)history.back();};
