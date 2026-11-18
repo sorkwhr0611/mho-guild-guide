@@ -999,6 +999,26 @@ a{overflow-wrap:anywhere}
 @media (max-width:600px){.maplink a,.box .cat a,.howto .src a{display:inline-block;padding:5px 0}.kakao{min-height:48px}}
 
 /* ===== guild layout v2 ===== */
+.simw{gap:12px}.simsel{display:flex;flex-wrap:wrap;gap:8px}
+.sw{display:inline-flex;align-items:center;gap:6px;padding:5px 6px 5px 6px;border-radius:999px;border:1.5px solid var(--accent);background:var(--accent-soft);font-size:14px}.sw.main{background:var(--accent);color:#fff}.sw.main .swm{color:#ffd54a}
+.sw button{font:inherit;border:0;background:none;cursor:pointer;color:inherit;padding:2px 6px;font-size:14px}.swm{color:var(--muted)}.sw select{font:inherit;font-size:14px;padding:3px 4px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.simq{display:grid;gap:8px}
+.simsk{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(150px,46%),1fr));gap:6px;max-height:none}
+.ssk{font:inherit;display:flex;justify-content:space-between;align-items:center;gap:6px;padding:8px 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;text-align:left;min-width:0}.ssk b{font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ssk small{font-size:11.5px;color:var(--muted);flex:none}.ssk.on{border-color:var(--accent);background:var(--accent);color:#fff}.ssk.on small{color:#fff}
+.simres{display:grid;gap:10px}.srs{display:grid;gap:8px;padding:12px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg)}.srs.full{border-color:#2f8a4a}
+.srsh{display:flex;align-items:center;gap:8px}.srsp{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}.srsp span{display:grid;gap:1px;padding:6px 8px;border-radius:8px;background:var(--panel);font-size:13px;font-weight:700;min-width:0;overflow-wrap:anywhere}.srsp small{font-size:11.5px;color:var(--muted);font-weight:500}
+@media (max-width:700px){.srsp{grid-template-columns:1fr 1fr}}
+.sst{display:flex;flex-wrap:wrap;gap:5px}.stag.hot{background:var(--accent-soft);border-color:var(--accent)}.stag.ok2{background:#e3f3e6;border-color:#2f8a4a;color:#1f7a3a}.stag.miss{background:#fde7dc;border-color:#c0392b;color:#c0392b}.stag.set{border-style:dashed}
+.sslots{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(230px,100%),1fr));gap:10px}.sslot,.sslot select,.sr,.srs{min-width:0;max-width:100%}
+.sslot{display:grid;gap:6px;align-content:start;padding:12px;border-radius:12px;border:1.5px solid var(--line);background:var(--panel)}.sslot.empty{border-style:dashed;background:var(--bg)}
+.ssh{display:flex;justify-content:space-between;align-items:baseline;gap:6px}.sslot select{width:100%;min-width:0;font:inherit;font-size:14px;padding:8px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}
+.simsets{display:grid;gap:8px;margin-bottom:6px}.sset{padding:10px 12px;border-radius:10px;border:1.5px dashed var(--accent);background:var(--accent-soft);font-size:14px}
+.srs-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:10px}
+.sr{display:grid;gap:4px;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel)}.sr.want{border-color:var(--accent)}.sr.want.ok{border-color:#2f8a4a}
+.srh{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.srh b{font-size:14.5px}.srl{font-weight:800;color:var(--accent);white-space:nowrap}.srl small{color:var(--muted);font-weight:500}
+.srbar{position:relative;height:8px;border-radius:5px;background:var(--bg);overflow:visible}.srbar i{display:block;height:100%;border-radius:5px;background:var(--accent)}.sr.ok .srbar i{background:#2f8a4a}.srbar u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);text-decoration:none}
+.sre{font-size:12.5px;white-space:normal}.sset .cat,.sslot .cat,.srs .cat{white-space:normal;overflow-wrap:anywhere}
+
 .hinstall:empty{display:none}.hib{font:inherit;font-weight:700;font-size:15px;width:100%;padding:12px;border-radius:12px;border:1.5px dashed var(--accent);background:var(--accent-soft);color:var(--accent);cursor:pointer}.hid{padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--panel);font-size:14px}.hid summary{cursor:pointer;font-weight:700}.hid ul{margin:8px 0 0}
 .hguild{display:grid;gap:10px;padding:14px 16px;border-radius:14px;background:var(--panel);border:1.5px solid var(--line)}.hguild[hidden]{display:none}
 .hgh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.hgh b{font-size:17px}
@@ -1109,8 +1129,8 @@ const ITEMRX=new RegExp('('+Object.keys(GI).filter(k=>k!=='식물').sort((a,b)=>
 const itemIc=s=>esc(s).replace(ITEMRX,m=>`<span class="tipi" data-tip="${m}">${IC[m]}${m}</span>`);
 
 const st={g:'home',t:'전체',e:'전체',q:'',lv:51,fit:false,adapt:true};
-const TABS=["home","chore","tip","money","hero","adv","art","guide","party","buddy","gift","join","mon","explore","life","gather","item"];
-const TABDEF=[["home","🏠","홈","시작"],["chore","📋","숙제","시작"],["tip","📢","소식","시작"],["money","💰","재화·과금","시작"],["hero","⚔️","주인공","세팅"],["adv","🧭","모험가","세팅"],["art","🎴","삽화","세팅"],["guide","🎮","공략","세팅"],["party","👥","추천 파티","파티"],["buddy","🐾","동반자","파티"],["gift","🎁","인연 선물","파티"],["mon","🐉","몬스터","필드"],["explore","🗺️","맵 탐색","필드"],["life","🦋","환경생물","필드"],["gather","🌶️","채집·요리","채집"],["item","🎒","아이템","채집"],["join","🛡️","길드","길드"]];
+const TABS=["home","chore","tip","money","hero","adv","art","sim","guide","party","buddy","gift","join","mon","explore","life","gather","item"];
+const TABDEF=[["home","🏠","홈","시작"],["chore","📋","숙제","시작"],["tip","📢","소식","시작"],["money","💰","재화·과금","시작"],["hero","⚔️","주인공","세팅"],["adv","🧭","모험가","세팅"],["art","🎴","삽화","세팅"],["sim","🧮","장비 시뮬","세팅"],["guide","🎮","공략","세팅"],["party","👥","추천 파티","파티"],["buddy","🐾","동반자","파티"],["gift","🎁","인연 선물","파티"],["mon","🐉","몬스터","필드"],["explore","🗺️","맵 탐색","필드"],["life","🦋","환경생물","필드"],["gather","🌶️","채집·요리","채집"],["item","🎒","아이템","채집"],["join","🛡️","길드","길드"]];
 try{const s=JSON.parse(localStorage.getItem('mho-filter')||'null'); if(s&&s.lv>=1&&s.lv<=99) st.lv=s.lv;}catch(_){}
 {const h=location.hash.slice(1).split('/')[0]; if(TABS.includes(h)) st.g=h;}
 function chips(id,list,key,obj,cls){
@@ -1507,6 +1527,84 @@ async function paintHomeGuild(){const el=document.getElementById('hguild');if(!e
    <button type="button" class="hgc" data-gsub="단원명부"><span class="cat">단원 변동 (지난주 대비)</span><b>${d<=GSTART?'첫 주':`+${inn.length} <small>/ −${out.length}</small>`}</b><span class="cat hgt">${inn.length?'🆕 '+esc(inn.slice(0,4).map(m=>m.name).join(', '))+(inn.length>4?' …':''):''}${out.length?' 👋 '+esc(out.slice(0,4).map(m=>m.name).join(', '))+(out.length>4?' …':''):''}${!inn.length&&!out.length?'변동 없어요':''}</span></button></div>`;
   el2.querySelectorAll('[data-gsub]').forEach(b=>b.onclick=()=>{go('join');setTimeout(()=>{const t=[...document.querySelectorAll('nav.subnav button')].find(x=>x.textContent.trim().startsWith(b.dataset.gsub));if(t)t.click();},50);});}
 
+
+/* ===================== 장비 시뮬레이터 ===================== */
+const SIMP=['머리','몸통','팔','허리','다리'];
+const SIM={want:[],pick:[-1,-1,-1,-1,-1],cat:'전체',q:'',res:null,lvcap:false,inited:false};
+function simInit(){if(SIM.inited)return;SIM.inited=true;try{const j=JSON.parse(localStorage.getItem('mho-sim')||'null');if(j){SIM.want=j.want||[];SIM.pick=j.pick||SIM.pick;SIM.lvcap=!!j.lvcap;}}catch(_){}
+  const qs=new URLSearchParams(location.search).get('sim');if(qs){const a=qs.split('.').map(x=>x===''||x==='-'?-1:parseInt(x,36));if(a.length===5)SIM.pick=a.map(x=>Number.isFinite(x)&&x<D.sim.armor.length?x:-1);}}
+function simSave(){try{localStorage.setItem('mho-sim',JSON.stringify({want:SIM.want,pick:SIM.pick,lvcap:SIM.lvcap}));}catch(_){}}
+function simTotals(pick){const t={},A=D.sim.armor,ser={};pick.forEach(i=>{if(i<0)return;const a=A[i];a[5].forEach(([n,l])=>t[n]=(t[n]||0)+l);ser[a[1]]=(ser[a[1]]||0)+1;});
+  const sets=[];Object.entries(ser).forEach(([sr,c])=>{const S=D.sim.sets[sr];if(S&&S[1]&&c>=S[1]){sets.push({series:sr,name:S[0],need:S[1],bonus:S[2],desc:S[3]});if(S[2]&&S[2][0])t[S[2][0]]=(t[S[2][0]]||0)+(S[2][1]||1);}});
+  return {t,sets};}
+function simCap(n){const k=D.sim.skills[n];return k?k[0]:7;}
+function simSearch(){const W=SIM.want;if(!W.length)return [];const A=D.sim.armor,cap=capOf(st.lv);
+  const ok=i=>!SIM.lvcap||A[i][3]<=cap;
+  const wi={};W.forEach((w,k)=>wi[w.n]=k);const wt=W.map(w=>w.main?3:1);
+  const vec=i=>{const v=new Array(W.length).fill(0);A[i][5].forEach(([n,l])=>{if(n in wi)v[wi[n]]+=l;});return v;};
+  const parts=SIMP.map((_,pi)=>A.map((a,i)=>i).filter(i=>A[i][2]===pi&&ok(i)));
+  const score=(lv)=>lv.reduce((s,l,k)=>s+wt[k]*Math.min(l,W[k].t),0);
+  let beam=[{p:[],lv:new Array(W.length).fill(0),ser:{}}];
+  parts.forEach(list=>{const nb=[];beam.forEach(b=>{list.forEach(i=>{const v=vec(i);const lv=b.lv.map((x,k)=>x+v[k]);const ser={...b.ser};ser[A[i][1]]=(ser[A[i][1]]||0)+1;nb.push({p:[...b.p,i],lv,ser});});});
+    nb.forEach(x=>{let bonus=0;Object.entries(x.ser).forEach(([sr,c])=>{const S=D.sim.sets[sr];if(S&&S[1]&&S[2]&&S[2][0] in wi){const k=wi[S[2][0]];bonus+=(c>=S[1]?1:c/S[1]*0.6)*wt[k];}});x.sc=score(x.lv)+bonus*0.5+x.lv.reduce((a,b)=>a+b,0)*0.001;});
+    nb.sort((a,b)=>b.sc-a.sc);beam=nb.slice(0,350);});
+  const out=[],seen=new Set();
+  beam.map(b=>{const {t,sets}=simTotals(b.p);const met=W.map(w=>Math.min(t[w.n]||0,w.t));const sc=W.reduce((s,w,k)=>s+wt[k]*met[k],0);const full=W.every((w,k)=>met[k]>=w.t);const extra=Object.values(t).reduce((a,b)=>a+b,0);return {p:b.p,t,sets,sc,full,extra};})
+   .sort((a,b)=>b.sc-a.sc||b.extra-a.extra).forEach(r=>{const k=r.p.join(',');if(!seen.has(k)&&out.length<5){seen.add(k);out.push(r);}});
+  return out;}
+function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills;
+  const cats=['전체',...[...new Set(Object.values(SK).map(k=>k[1]).filter(Boolean))]];
+  const q=SIM.q.trim().toLowerCase();
+  const list=Object.keys(SK).filter(n=>(SIM.cat==='전체'||SK[n][1]===SIM.cat)&&(!q||n.toLowerCase().includes(q)||String(SK[n][3]||'').toLowerCase().includes(q))).sort((a,b)=>SK[b][0]-SK[a][0]||a.localeCompare(b,'ko'));
+  const has=n=>SIM.want.find(w=>w.n===n);
+  const {t,sets}=simTotals(SIM.pick);
+  const skRows=Object.entries(t).sort((a,b)=>(has(b[0])?1:0)-(has(a[0])?1:0)||b[1]-a[1]).map(([n,l])=>{const mx=simCap(n),lv=Math.min(l,mx),w=has(n),info=SK[n];const eff=info?(info[2][lv-1]||info[2][info[2].length-1]||info[3]):'';
+    return `<div class="sr${w?' want':''}${w&&lv>=w.t?' ok':''}"><div class="srh"><b>${esc(n)}</b><span class="srl">Lv${lv}<small>/${mx}</small>${l>mx?`<em class="cat"> (${l-mx} 초과)</em>`:''}</span></div><span class="srbar"><i style="width:${lv/mx*100}%"></i>${w?`<u style="left:${w.t/mx*100}%"></u>`:''}</span>${eff?`<div class="cat sre">${esc(eff)}</div>`:''}</div>`;}).join('');
+  const slot=(pi)=>{const cur=SIM.pick[pi];const opts=A.map((a,i)=>[a,i]).filter(([a])=>a[2]===pi).sort((x,y)=>y[0][4]-x[0][4]||x[0][1].localeCompare(y[0][1],'ko'));
+    const a=cur>=0?A[cur]:null;
+    return `<div class="sslot${a?'':' empty'}"><div class="ssh"><b>${SIMP[pi]}</b>${a?`<span class="cat">레어도 ${a[3]}~${a[4]}${a[6]?' · '+esc(a[6]):''}</span>`:''}</div>
+     <select data-pi="${pi}" aria-label="${SIMP[pi]} 고르기"><option value="-1">— 비어 있음 —</option>${opts.map(([o,i])=>`<option value="${i}"${i===cur?' selected':''}>${esc(o[0])} (${o[3]}~${o[4]}) · ${esc(o[5].map(x=>x[0]+' '+x[1]).join(', '))}</option>`).join('')}</select>
+     ${a?`<div class="sst">${a[5].map(([n,l])=>`<span class="stag${has(n)?' hot':''}">${esc(n)} <b>${l}</b></span>`).join('')}</div><div class="cat">세트: ${esc(a[1])} · ${esc((D.sim.sets[a[1]]||[''])[0])}</div>`:''}</div>`;};
+  const series=[...new Set(A.map(a=>a[1]))].sort((a,b)=>a.localeCompare(b,'ko'));
+  const res=SIM.res;
+  document.getElementById('grid').innerHTML=`
+  <h2 class="sec">① 원하는 스킬 <small>누르면 추가 · 목표 레벨과 ★(꼭 맞출 스킬)을 정해요</small></h2>
+  <section class="box full simw">
+   <div class="simsel">${SIM.want.length?SIM.want.map((w,k)=>`<div class="sw${w.main?' main':''}"><button type="button" class="swm" data-k="${k}" title="꼭 맞출 스킬" aria-pressed="${!!w.main}">★</button><b>${esc(w.n)}</b><select data-k="${k}" aria-label="목표 레벨">${Array.from({length:simCap(w.n)},(_,i)=>`<option${i+1===w.t?' selected':''}>${i+1}</option>`).join('')}</select><button type="button" class="swx" data-k="${k}" aria-label="빼기">✕</button></div>`).join(''):'<p class="cat" style="margin:0">아래에서 원하는 스킬을 눌러 추가하세요. 예: 불속성 대미지 UP 7 + 연기를 띤 칼날 4</p>'}</div>
+   <div class="simq"><label class="bsearch"><span aria-hidden="true">🔍</span><input id="simq" type="search" placeholder="스킬 이름·효과로 찾기" value="${esc(SIM.q)}" autocomplete="off"></label>
+   <div class="bcats">${cats.map(c=>`<button type="button" class="chip" data-cat="${esc(c)}" aria-pressed="${c===SIM.cat}">${esc(c)}</button>`).join('')}</div></div>
+   <div class="simsk">${list.map(n=>`<button type="button" class="ssk${has(n)?' on':''}" data-n="${esc(n)}" title="${esc(SK[n][3]||'')}"><b>${esc(n)}</b><small>최대 ${SK[n][0]}</small></button>`).join('')}</div>
+   <div class="gtbar"><label class="fit"><input type="checkbox" id="simcap"${SIM.lvcap?' checked':''}> 내 레벨(Lv${st.lv}, 레어도 ${capOf(st.lv)})에서 만들 수 있는 것만</label><span style="flex:1"></span><button type="button" class="pri" id="simgo"${SIM.want.length?'':' disabled'}>🔎 추천 조합 찾기</button></div>
+   ${res?`<div class="simres">${res.length?res.map((r,i)=>`<div class="srs${r.full?' full':''}"><div class="srsh"><b>TOP ${i+1}</b>${r.full?'<span class="evs on">목표 달성</span>':'<span class="evs soon">일부 달성</span>'}<span style="flex:1"></span><button type="button" class="cgo" data-use="${i}">이 조합 끼우기</button></div>
+     <div class="srsp">${r.p.map((x,pi)=>`<span><small>${SIMP[pi]}</small>${esc(A[x][0])}</span>`).join('')}</div>
+     <div class="sst">${SIM.want.map(w=>{const l=Math.min(r.t[w.n]||0,simCap(w.n));return `<span class="stag${l>=w.t?' ok2':' miss'}">${esc(w.n)} <b>${l}/${w.t}</b></span>`;}).join('')}${r.sets.map(x=>`<span class="stag set">🔗 ${esc(x.name)}</span>`).join('')}</div></div>`).join(''):'<p class="cat">조건에 맞는 조합이 없어요. 목표 레벨을 낮추거나 레어도 제한을 꺼 보세요.</p>'}</div>`:''}
+  </section>
+  <h2 class="sec">② 장비 <small>부위마다 직접 골라 끼워 봐요</small></h2>
+  <section class="box full">
+   <div class="gtbar"><label class="jf" style="flex:1 1 220px;max-width:320px"><span>한 세트로 채우기</span><select id="simser"><option value="">시리즈 고르기</option>${series.map(x=>`<option>${esc(x)}</option>`).join('')}</select></label><span style="flex:1"></span><button type="button" id="simclr">전체 비우기</button><button type="button" id="simshare">🔗 링크 복사</button></div>
+   <div class="sslots">${SIMP.map((_,pi)=>slot(pi)).join('')}</div>
+  </section>
+  <h2 class="sec">③ 결과 <small>스킬 레벨 · 세트 효과</small></h2>
+  <section class="box full">
+   ${sets.length?`<div class="simsets">${sets.map(x=>`<div class="sset"><b>🔗 ${esc(x.name)}</b> <small class="cat">${esc(x.series)} ${x.need}부위</small><div class="cat">${esc(x.desc)}</div></div>`).join('')}</div>`:''}
+   ${skRows?`<div class="srs-list">${skRows}</div>`:'<p class="cat" style="margin:0">장비를 끼우면 스킬 합계가 여기 나와요.</p>'}
+   <p class="cat gnote">방어구 스킬은 최대 레어도 기준이에요. 강화 단계가 낮으면 레벨이 더 낮을 수 있어요. 자료: ${esc(D.sim.src)} (${esc(D.sim.asof)} 기준).</p>
+  </section>`;
+  const G=document.getElementById('grid'),$=id=>document.getElementById(id);
+  const re=()=>{simSave();render();};
+  G.querySelectorAll('.ssk').forEach(b=>b.onclick=()=>{const n=b.dataset.n,i=SIM.want.findIndex(w=>w.n===n);if(i>=0)SIM.want.splice(i,1);else SIM.want.push({n,t:simCap(n),main:false});SIM.res=null;re();});
+  G.querySelectorAll('.swx').forEach(b=>b.onclick=()=>{SIM.want.splice(+b.dataset.k,1);SIM.res=null;re();});
+  G.querySelectorAll('.swm').forEach(b=>b.onclick=()=>{const w=SIM.want[+b.dataset.k];w.main=!w.main;SIM.res=null;re();});
+  G.querySelectorAll('.sw select').forEach(x=>x.onchange=()=>{SIM.want[+x.dataset.k].t=+x.value;SIM.res=null;re();});
+  G.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>{SIM.cat=b.dataset.cat;re();});
+  const sq=$('simq');if(sq){let tm;sq.oninput=()=>{clearTimeout(tm);tm=setTimeout(()=>{SIM.q=sq.value;const pos=sq.selectionStart;render();const n=$('simq');if(n){n.focus();try{n.setSelectionRange(pos,pos);}catch(_){}}},180);};}
+  if($('simcap'))$('simcap').onchange=()=>{SIM.lvcap=$('simcap').checked;SIM.res=null;re();};
+  if($('simgo'))$('simgo').onclick=()=>{const b=$('simgo');b.disabled=true;b.textContent='찾는 중…';setTimeout(()=>{SIM.res=simSearch();re();const r=document.querySelector('.simres');if(r)r.scrollIntoView({block:'nearest'});},20);};
+  G.querySelectorAll('[data-use]').forEach(b=>b.onclick=()=>{SIM.pick=[...SIM.res[+b.dataset.use].p];re();const e=document.querySelector('.sslots');if(e)e.scrollIntoView({block:'start'});});
+  G.querySelectorAll('.sslot select').forEach(x=>x.onchange=()=>{SIM.pick[+x.dataset.pi]=+x.value;re();});
+  if($('simser'))$('simser').onchange=()=>{const sr=$('simser').value;if(!sr)return;SIMP.forEach((_,pi)=>{const c=A.map((a,i)=>[a,i]).filter(([a])=>a[1]===sr&&a[2]===pi).sort((x,y)=>y[0][4]-x[0][4]);if(c.length)SIM.pick[pi]=c[0][1];});re();};
+  if($('simclr'))$('simclr').onclick=()=>{SIM.pick=[-1,-1,-1,-1,-1];re();};
+  if($('simshare'))$('simshare').onclick=async()=>{const u=`${onNetlify()?location.origin:SITE}/?sim=${SIM.pick.map(i=>i<0?'-':i.toString(36)).join('.')}#sim`;const ok=await copyText(u);$('simshare').textContent=ok?'복사했어요 ✓':'복사 실패';};}
 /* ---- 홈 화면 앱으로 추가 ---- */
 let INSTALL=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();INSTALL=e;if(st.g==='home')paintInstall();});
 function paintInstall(){const el=document.getElementById('hinstall');if(!el)return;const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(standalone){el.innerHTML='';return;}
@@ -1650,7 +1748,7 @@ function renderJoin(){
   paintAdm(); loadJoin(); bindGuild(); loadGuild();
   document.getElementById('n').textContent='';
 }
-const DESC={home:'',explore:'맵마다 전망대 레벨(별이슬벌레), 미니게임(필드 탐색), 섬의 보물, 에어리어 과제를 채우는 방법이에요. 아래 체크리스트는 이 기기에 저장돼요.',join:'직장인수렵단 길드 공간이에요. 가입 신청, 길드 익명 투표, 토요일 길드전 출석부, 단원명부를 여기서 봐요.',money:'과금 패키지 추천, 시즌 패스(활활 화로), 에너지·의뢰 사냥, 제니·루타 코인·모집권 같은 핵심 재화를 어디서 얻는지 정리했어요.',buddy:'모험가·주인공 무기마다 어떤 동반자를 끼면 좋은지, 동반자 전체 목록과 코어 패시브 발동 조건이에요.',tip:'최신 패치, 이벤트 일정, 쿠폰, 새 방어구 소식이에요.',guide:'캐릭터·무기별 공략과 헷갈리는 시스템 팁이에요. 커뮤니티 공략글을 정리했어요.',chore:'매일·매주 챙길 것 체크리스트예요. 체크하면 이 브라우저에 저장되고 초기화 시간에 자동으로 풀려요.',hero:'주인공 무기 종류·속성별 추천 장비예요. "내 레벨"을 넣으면 그 레벨에서 낄 수 있는 장비로 자동으로 바꿔서 보여줘요(파란 칸 = 레벨 때문에 바뀐 부위). Lv31 미만이면 중반 세팅이 있는 무기는 중반 세팅으로 보여줘요.',
+const DESC={home:'',sim:'원하는 스킬을 고르면 방어구 조합을 찾아주고, 부위별로 직접 끼워 보면서 스킬 레벨·세트 효과를 바로 확인해요.',explore:'맵마다 전망대 레벨(별이슬벌레), 미니게임(필드 탐색), 섬의 보물, 에어리어 과제를 채우는 방법이에요. 아래 체크리스트는 이 기기에 저장돼요.',join:'직장인수렵단 길드 공간이에요. 가입 신청, 길드 익명 투표, 토요일 길드전 출석부, 단원명부를 여기서 봐요.',money:'과금 패키지 추천, 시즌 패스(활활 화로), 에너지·의뢰 사냥, 제니·루타 코인·모집권 같은 핵심 재화를 어디서 얻는지 정리했어요.',buddy:'모험가·주인공 무기마다 어떤 동반자를 끼면 좋은지, 동반자 전체 목록과 코어 패시브 발동 조건이에요.',tip:'최신 패치, 이벤트 일정, 쿠폰, 새 방어구 소식이에요.',guide:'캐릭터·무기별 공략과 헷갈리는 시스템 팁이에요. 커뮤니티 공략글을 정리했어요.',chore:'매일·매주 챙길 것 체크리스트예요. 체크하면 이 브라우저에 저장되고 초기화 시간에 자동으로 풀려요.',hero:'주인공 무기 종류·속성별 추천 장비예요. "내 레벨"을 넣으면 그 레벨에서 낄 수 있는 장비로 자동으로 바꿔서 보여줘요(파란 칸 = 레벨 때문에 바뀐 부위). Lv31 미만이면 중반 세팅이 있는 무기는 중반 세팅으로 보여줘요.',
 adv:'모험가별 최강 장비예요. "내 레벨"을 넣으면 그 레벨에서 낄 수 있는 장비로 자동으로 바꿔서 보여줘요(파란 칸 = 바뀐 부위).',
 party:'GameWith 최강 편성 5개(속성별)와 커뮤니티에서 많이 쓰는 편성·운영 팁이에요. 메인 조작 1명 + 서브 3명 구성이에요.',
 mon:'둥지 사냥 과제 용어, 신규 보스 크샬다오라 풍압 대비, 융광종이 일반 몬스터와 뭐가 다른지, 몬스터별 약점 속성(일반 vs 융광종), 융광종 소형 몬스터 위치예요.',
@@ -2171,7 +2269,7 @@ function render(){
   const dirty=st.t!=='전체'||st.e!=='전체'||st.q||st.fit||Object.entries(lf).some(([k,v])=>v!=='전체');
   document.getElementById('reset').hidden=!dirty;
   document.getElementById('desc').textContent=DESC[st.g]||''; scope(); capTable();
-  document.querySelector('.bar').style.display=(['home','chore','tip','guide','money','buddy','explore','join'].includes(st.g))?'none':'';
+  document.querySelector('.bar').style.display=(['home','chore','tip','guide','money','buddy','explore','join','sim'].includes(st.g))?'none':'';
   if(st.g==='home') return renderHome();
   if(st.g==='chore') return renderChores();
   if(st.g==='join') return renderJoin();
@@ -2186,6 +2284,7 @@ function render(){
   if(st.g==='gift') return renderGift();
   if(st.g==='mon') return renderMon();
   if(st.g==='art') return renderArt();
+  if(st.g==='sim') return renderSim();
   document.getElementById('lt').textContent='무기'; document.getElementById('le').textContent='속성';
   const pool=D.builds.filter(b=>b.group===st.g);
   const types=TYPES.filter(t=>pool.some(b=>b.type===t));
@@ -2210,7 +2309,7 @@ function buildSub(){
   const sub=document.getElementById('sub'), grid=document.getElementById('grid');
   const life=st.g==='life';
   const hs=life?[...grid.querySelectorAll('.world > h3')]:[...grid.querySelectorAll(':scope > h2.sec')];
-  if(hs.length<2||st.g==='home'){sub.hidden=true;sub.innerHTML='';groupsReset();setStick();return;}
+  if(hs.length<2||st.g==='home'||st.g==='sim'){sub.hidden=true;sub.innerHTML='';groupsReset();setStick();return;}
   // tag sections
   let groups=[];
   if(life){groups=hs.map(h=>[h.closest('.world')]);}
