@@ -965,6 +965,8 @@ header .kakao{grid-row:1;grid-column:2}
 @media (max-width:600px){.gpc{padding:10px 12px}.gah .jf{min-width:0;flex:1 1 100%}}
 
 /* ===== polish 11.18 ===== */
+.gdiff{display:grid;gap:4px;padding:10px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);font-size:14px;line-height:1.6}.gdiff.on{background:var(--accent-soft);border-color:var(--accent)}
+.gdin{font-weight:800;color:#2f8a4a;margin-right:4px}.gdout{font-weight:800;color:var(--accent);margin-right:4px}
 #admbar{position:fixed;right:14px;bottom:16px;z-index:30;display:flex;gap:6px;align-items:center;padding:6px;border-radius:999px;background:var(--panel);border:1.5px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:14px}
 #admbar[hidden]{display:none}@media (max-width:700px){#admbar{bottom:74px;right:10px}}#admbar.on{background:#2f8a4a;border-color:#2f8a4a;color:#fff;padding:6px 6px 6px 14px;font-weight:700}
 #admbar button{font:inherit;font-size:13.5px;font-weight:700;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
@@ -1344,7 +1346,7 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
   const yes=R.filter(m=>P.has(m.id)),no=R.filter(m=>!P.has(m.id));
   const rows=gsort(GUILD.roster.filter(m=>days.some(x=>gact(m,x))));
   el.innerHTML=`<div class="gah"><label class="jf"><span>날짜</span><select id="gday">${days.map(x=>`<option value="${x}"${x===d?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label>
-   <div class="gcnt"><b>${yes.length}</b> / ${R.length}명 출석</div></div>
+   <div class="gcnt"><b>${yes.length}</b> / ${R.length}명 출석</div></div>${GUILD.roster.length?gdiffBanner(d):''}
    ${R.length?`<p class="cat gnote">이름을 눌러 골라 두고 아래 <b>출석 저장</b>을 한 번 누르면 한꺼번에 저장돼요.${GUILD.admin?' 길마는 체크를 풀어서 출석을 취소할 수도 있어요.':' 이미 저장된 출석 취소는 길마만 할 수 있어요.'}</p>
    <div class="gchips">${R.map(m=>{const on=S.has(m.id),ch=on!==P.has(m.id);return `<button type="button" class="gchip${on?' on':''}${ch?' chg':''}" data-id="${esc(m.id)}" aria-pressed="${on}">${on?'✓ ':''}${esc(m.name)}</button>`;}).join('')}</div>
    <div class="gsave"><button type="button" class="pri" id="gattsave"${add.length||del.length?'':' disabled'}>✓ 출석 저장${add.length||del.length?` (${add.length?'+'+add.length:''}${add.length&&del.length?' · ':''}${del.length?'−'+del.length:''})`:''}</button>${add.length||del.length?'<button type="button" id="gattundo">되돌리기</button>':''}${GUILD.admin?`<span style="flex:1"></span><button type="button" id="gattall">전체 선택</button><button type="button" id="gattnone">전체 해제</button>`:''}</div>
@@ -1379,13 +1381,19 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
     try{const j=await guildApi('POST',{action:'att.bulk',date:d,add,remove:del});GUILD.att[d]=j.present;GUILD.sel=new Set(j.present);}catch(e){alert(gmsg(e));}paintAtt();};}
 document.addEventListener('click',async e=>{const b=e.target.closest('.glin');if(!b)return;const k=b.parentElement.querySelector('.glkey').value.trim();if(!k)return;try{localStorage.setItem(ADMK,k)}catch(_){}b.disabled=true;await loadJoin();await loadGuild();b.disabled=false;if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');});
 /* 단원명부 */
+function gprev(d){return new Date(new Date(d+'T00:00:00Z').getTime()-7*864e5).toISOString().slice(0,10);}
+function gdiffBanner(d){const pv=gprev(d),R=GUILD.roster;
+  const inn=gsort(R.filter(m=>gact(m,d)&&!gact(m,pv))),out=gsort(R.filter(m=>gact(m,pv)&&!gact(m,d)));
+  const lab=d===GUILD.sat?`이번 주(${md(d)})`:`${md(d)} 주`;
+  if(!inn.length&&!out.length)return `<div class="gdiff"><b>📣 ${lab} 단원 변동</b><span class="cat">지난주(${md(pv)})와 같아요. 들어오거나 나간 단원이 없어요.</span></div>`;
+  return `<div class="gdiff on"><b>📣 ${lab} 단원 변동 <small class="cat">지난주 ${md(pv)} 대비</small></b>${inn.length?`<div><span class="gdin">🆕 들어온 단원 ${inn.length}명</span> ${inn.map(m=>esc(m.name)).join(', ')}</div>`:''}${out.length?`<div><span class="gdout">👋 나간 단원 ${out.length}명</span> ${out.map(m=>esc(m.name)).join(', ')}</div>`:''}</div>`;}
 function gperiod(m){return m.from&&m.to?`${md(m.from)}~${md(m.to)} 전 주까지`:m.from?`${md(m.from)}부터`:m.to?`~${md(m.to)} 전 주까지`:'';}
 function paintRoster(){const el=document.getElementById('groster');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
   const A=GUILD.admin,days=satList(26),rd=GUILD.rday||GUILD.sat;
   const now=gsort(GUILD.roster.filter(m=>gact(m,rd))),gone=gsort(GUILD.roster.filter(m=>!gact(m,rd)));
   const wkopt=(cur,first)=>`<option value="">${first}</option>`+days.map(x=>`<option value="${x}"${x===cur?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('');
   const chip=m=>`<div class="grm${gact(m,rd)?'':' gone'}" data-id="${esc(m.id)}"><span>${esc(m.name)}${gperiod(m)?`<small class="cat"> ${esc(gperiod(m))}</small>`:''}</span>${A?'<button type="button" data-act="ren" title="이름 바꾸기" aria-label="이름 바꾸기">✏️</button><button type="button" data-act="per" title="들어온 주·나간 주" aria-label="기간 정하기">📅</button><button type="button" data-act="del" title="완전히 지우기" aria-label="명부에서 지우기">✕</button>':''}</div>${A&&GUILD.per===m.id?`<div class="gper" data-id="${esc(m.id)}"><label class="jf"><span>들어온 주</span><select class="gpf">${wkopt(m.from,'처음부터')}</select></label><label class="jf"><span>나간 주 <small>(그 주부터 빠져요)</small></span><select class="gpt">${wkopt(m.to,'계속 단원')}</select></label><button type="button" class="pri gpsave">저장</button><button type="button" class="gpcancel">취소</button></div>`:''}`;
-  el.innerHTML=`<div class="gah"><label class="jf"><span>기준 주</span><select id="grday">${days.map(x=>`<option value="${x}"${x===rd?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label><div class="gcnt"><b>${now.length}</b>명</div></div>
+  el.innerHTML=`<div class="gah"><label class="jf"><span>기준 주</span><select id="grday">${days.map(x=>`<option value="${x}"${x===rd?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label><div class="gcnt"><b>${now.length}</b>명</div></div>${GUILD.roster.length?gdiffBanner(rd):''}
    ${A?'':`<small class="cat">이름 추가·수정·사진 등록은 길마만 할 수 있어요.</small><details class="glog"><summary>🔑 길마 로그인하고 명부 관리하기 (사진으로 이름 등록)</summary><div class="jadmf"><input class="glkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" class="glin">들어가기</button></div></details>`}
    ${now.length?`<div class="grl">${now.map(chip).join('')}</div>`:'<p class="cat" style="margin:0">이 주에 등록된 단원이 없어요.</p>'}
    <p class="cat gnote">이름은 한글(가나다) → 영문(ABC) → 일본어 → 기타 순으로 자동 정렬돼요.</p>
