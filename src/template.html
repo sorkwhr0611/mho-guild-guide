@@ -788,6 +788,18 @@ h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .jsteps{margin:14px 0 0;padding-left:20px;line-height:1.7;font-size:14px;color:var(--muted)}
 .jst{font-size:12px!important;font-weight:800;padding:2px 9px;border-radius:999px;color:#fff!important;background:#8a8f94}
 .jst.s0{background:#c98a14}.jst.s1{background:#2a6fb5}.jst.s2{background:#2c8a4a}.jst.s3{background:#8a8f94}
+.mtab td{vertical-align:middle}.mtab td:nth-child(3){font-size:13.5px}.mlinks{columns:2;column-gap:24px}.mlinks li{break-inside:avoid}@media(max-width:700px){.mlinks{columns:1}}
+.board{gap:12px}.bhead{display:grid;gap:10px}.bcats{display:flex;flex-wrap:wrap;gap:6px}.bcats .chip small{opacity:.7;font-size:11.5px}
+.blist{list-style:none;margin:0;padding:0;display:grid}.blist li{border-top:1px solid var(--line)}
+.brow{font:inherit;color:var(--ink);background:none;border:0;width:100%;text-align:left;display:grid;grid-template-columns:36px 92px 1fr 56px;gap:10px;align-items:center;padding:11px 4px;cursor:pointer}
+.brow:hover .bt b{color:var(--accent)}.bno{color:var(--muted);font-size:12.5px;text-align:center;font-variant-numeric:tabular-nums}
+.bcat{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 7px;text-align:center;white-space:nowrap}
+.bt{display:grid;gap:1px;min-width:0}.bt b{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bt small{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bdt{font-size:12.5px;color:var(--muted);text-align:right;white-space:nowrap}
+.bback{display:flex}.bpost{gap:12px}.bmeta{display:flex;gap:8px;align-items:center}.btitle{margin:0;font-family:var(--display);font-weight:400;font-size:26px}
+.blines{display:grid;gap:8px;font-size:15.5px;line-height:1.65}
+@media(max-width:700px){.brow{grid-template-columns:76px 1fr;grid-template-areas:"c t" "c d";row-gap:2px}.bno{display:none}.brow .bcat{grid-area:c;align-self:start}.bt{grid-area:t}.bdt{grid-area:d;text-align:left}.btitle{font-size:22px}}
+.jpg{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding-top:12px;border-top:1px solid var(--line)}.jpg button{font:inherit;font-size:14px;min-width:38px;height:38px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}.jpg button[aria-current]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
 .jadm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px}
 .jadm select,.jadm button,.jadmf input,.jadmf button,.jadmbox button{font:inherit;font-size:13px;padding:5px 10px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
 .jadmbox{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px}
@@ -907,13 +919,48 @@ header .kakao{grid-row:1;grid-column:2}
 .wlbar button,.wldel{font:inherit;font-size:13.5px;font-weight:700;padding:7px 12px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
 .wlbar button.pri{background:var(--leather,#3a2616);color:var(--gold2,#f0cf80);border-color:var(--gold,#b8892a)}
 .wldel{padding:7px 10px}
+
+/* ---- 길드: 투표 · 출석부 · 단원명부 ---- */
+.gnote{white-space:normal;margin:0 0 10px}
+.gplist{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(360px,100%),1fr));gap:12px}
+.gpc{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:8px;background:var(--panel);min-width:0}
+.gph h3{margin:4px 0 2px;font-size:17px}.gph small{white-space:normal}
+.gtag{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 8px;border-radius:999px;margin-right:4px;background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.gtag.gv{background:#2a6fb5;color:#fff;border-color:#2a6fb5}.gtag.gp{background:#2c8a4a;color:#fff;border-color:#2c8a4a}.gtag.gx{background:#8a8f94;color:#fff;border-color:#8a8f94}
+.gopts{display:grid;gap:6px}
+.gopt{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;align-items:start;padding:8px 10px;border-radius:10px;border:1.5px solid var(--line);cursor:pointer}
+.gopt.mine{border-color:var(--accent);background:var(--accent-soft)}.gopt input{margin:3px 0 0;width:18px;height:18px;accent-color:var(--accent)}
+.gol{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 8px;align-items:center;min-width:0}.gol b{font-size:14.5px;overflow-wrap:anywhere}.gol small{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.gbar{grid-column:1/-1;height:8px;border-radius:5px;background:var(--bg);overflow:hidden}.gbar i{display:block;height:100%;background:var(--accent);border-radius:5px}
+.gnames{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px}.gnames span{font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--bg);border:1px solid var(--line)}
+.gvote{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.gnick{flex:1 1 140px;min-width:0;font:inherit;font-size:15px;padding:8px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);box-sizing:border-box;width:100%}
+.gbtn,.gbtn2{font:inherit;font-size:14px;font-weight:800;padding:8px 14px;border-radius:9px;cursor:pointer;border:1.5px solid var(--accent);background:var(--accent);color:#fff}
+.gbtn2{background:var(--panel);color:var(--ink);border-color:var(--line);font-weight:600}
+.gnew{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}.gnew summary{cursor:pointer;font-weight:800;color:var(--accent)}
+.gform{display:grid;gap:10px;margin-top:10px}.gmul{align-self:end;padding-bottom:10px}
+.gah{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:end;justify-content:space-between;margin-bottom:8px}.gah .jf{min-width:160px}
+.gcnt{font-size:15px}.gcnt b{font-size:24px;color:var(--accent)}
+.gchips{display:flex;flex-wrap:wrap;gap:8px}
+.gchip{font:inherit;font-size:14.5px;font-weight:700;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+.gchip.on{background:#2c8a4a;border-color:#2c8a4a;color:#fff}
+.gh3{margin:16px 0 6px;font-size:15px}
+.gatab{font-size:13px;min-width:100%}.gatab th,.gatab td{text-align:center;padding:6px 5px;white-space:nowrap}.gatab td.gan{text-align:left;font-weight:700;max-width:120px;overflow:hidden;text-overflow:ellipsis}.gatab td{color:#2c8a4a;font-weight:800}
+.grl{display:flex;flex-wrap:wrap;gap:6px}
+.grm{display:inline-flex;align-items:center;gap:2px;padding:4px 6px 4px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);font-weight:700;font-size:14px;max-width:100%}
+.grm span{overflow-wrap:anywhere}.grm button{font:inherit;font-size:12px;border:0;background:none;color:var(--muted);cursor:pointer;padding:2px 5px;border-radius:6px}.grm button:hover{color:var(--accent)}
+.gadd{display:grid;gap:8px;margin-top:6px}.gadd .cat{white-space:normal}
+.gocr{display:inline-flex;align-items:center;gap:8px;justify-self:start;padding:9px 14px;border-radius:10px;border:1.5px dashed var(--accent);color:var(--accent);font-weight:800;cursor:pointer;font-size:14px}
+.gocr input{position:absolute;opacity:0;width:1px;height:1px}
+.groster .wln2,.gadd textarea{width:100%;box-sizing:border-box}
+@media (max-width:600px){.gpc{padding:10px 12px}.gah .jf{min-width:0;flex:1 1 100%}}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <h1 class="brand" id="brand" role="link" tabindex="0" title="홈으로"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-28 32 32)"><rect x="40" y="27" width="16" height="10" rx="3" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="27" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="37" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><rect x="51" y="28" width="7" height="8" fill="#f3ead7"/><ellipse cx="26" cy="32" rx="20" ry="17" fill="#c8542b" stroke="#3a2a1a" stroke-width="2.5"/><ellipse cx="22" cy="26" rx="10" ry="6" fill="#e07a45" opacity=".8"/></g><circle cx="20" cy="33" r="2.6" fill="#3a2a1a"/><circle cx="31" cy="29" r="2.6" fill="#3a2a1a"/><path d="M22 39q4 4 9-1" stroke="#3a2a1a" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="38" r="2.6" fill="#ff9aa2" opacity=".8"/><circle cx="36" cy="33" r="2.6" fill="#ff9aa2" opacity=".8"/><path d="M27 47l-4 3 4 10 4-10z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/><path d="M24 46h6l-3 3z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/></svg><span>직장인수렵단 <em>공략집</em></span></h1>
-  <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·디시 기준 · 2026.11.17 업데이트</p>
+  <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · 2026.11.18 업데이트</p>
 </header>
 <nav class="tabs" id="g" aria-label="탭"></nav>
 <nav class="subnav" id="sub" aria-label="이 탭 안 바로가기" hidden></nav>
@@ -943,7 +990,7 @@ header .kakao{grid-row:1;grid-column:2}
     <li class="lf"><b>환경생물</b>: 목록·출현 조건은 GameWith 한국어판, "어디서 찾나"는 GameWith 일본판 개별 페이지 설명을 한국어로 옮겼어요. 맵 위의 정확한 좌표는 두 사이트 모두 이미지로만 있어요. "전용"은 그 월드에서만 나오는 생물, 크기는 기록 가능한 최소~최대 크기예요.</li>
     <li class="eq">대검 주인공 세팅은 game8에 중반(레어도 5~7) 것만 있어요. 대검 후반은 모험가 탭의 엔쇼우(용)·브릭스(번개) 세팅을 참고하세요.</li>
   </ul>
-<p class="src"><b>출처</b> <a href="https://game8.jp/mhoutlanders/814950">game8 최강 장비</a> · game8 무기별 주인공 장비·무기 이름 변화 표 · <a href="https://game8.jp/mhoutlanders/786894">game8 추천 파티</a> · <a href="https://game8.jp/mhoutlanders/785307">game8 융광종</a> · <a href="https://game8.jp/mhoutlanders/784759">game8 삽화</a> · <a href="https://gamewith.jp/mhoutlanders/587282">GameWith 출장 채집 시설 위치</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/ko/articles/radiant-monsters">GameWith 한국어 융광종</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/ko/weapons">GameWith 한국어 무기</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/ko/armor">방어구</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/ko/endemic-life">환경생물</a> · <a href="https://altema.jp/mhoutlanders/hebunberry">알테마 헤븐베리</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/zh-hant/articles/weapon-crafting-guide">GameWith 강화 상한</a> · 디시인사이드 몬헌 갤러리 공략글</p></details>
+<p class="src"><b>출처</b> <a href="https://game8.jp/mhoutlanders/814950">game8 최강 장비</a> · game8 무기별 주인공 장비·무기 이름 변화 표 · <a href="https://game8.jp/mhoutlanders/786894">game8 추천 파티</a> · <a href="https://game8.jp/mhoutlanders/785307">game8 융광종</a> · <a href="https://game8.jp/mhoutlanders/784759">game8 삽화</a> · <a href="https://gamewith.jp/mhoutlanders/587282">GameWith 출장 채집 시설 위치</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/ko/articles/radiant-monsters">GameWith 한국어 융광종</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/ko/weapons">GameWith 한국어 무기</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/ko/armor">방어구</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/ko/endemic-life">환경생물</a> · <a href="https://altema.jp/mhoutlanders/hebunberry">알테마 헤븐베리</a> · <a href="https://gamewith.ai/monster-hunter-outlanders/zh-hant/articles/weapon-crafting-guide">GameWith 강화 상한</a> · 커뮤니티 공략글</p></details>
 
 </div>
 <script>
@@ -976,7 +1023,7 @@ const itemIc=s=>esc(s).replace(ITEMRX,m=>`<span class="tipi" data-tip="${m}">${I
 
 const st={g:'home',t:'전체',e:'전체',q:'',lv:51,fit:false,adapt:true};
 const TABS=["home","chore","tip","money","hero","adv","art","guide","party","buddy","gift","join","mon","explore","life","gather","item"];
-const TABDEF=[["home","🏠","홈","시작"],["chore","📋","숙제","시작"],["tip","📢","소식","시작"],["money","💰","재화·과금","시작"],["hero","⚔️","주인공","세팅"],["adv","🧭","모험가","세팅"],["art","🎴","삽화","세팅"],["guide","🎮","공략","세팅"],["party","👥","추천 파티","파티"],["buddy","🐾","동반자","파티"],["gift","🎁","인연 선물","파티"],["join","📝","가입 신청","파티"],["mon","🐉","몬스터","필드"],["explore","🗺️","맵 탐색","필드"],["life","🦋","환경생물","필드"],["gather","🌶️","채집·요리","채집"],["item","🎒","아이템","채집"]];
+const TABDEF=[["home","🏠","홈","시작"],["chore","📋","숙제","시작"],["tip","📢","소식","시작"],["money","💰","재화·과금","시작"],["hero","⚔️","주인공","세팅"],["adv","🧭","모험가","세팅"],["art","🎴","삽화","세팅"],["guide","🎮","공략","세팅"],["party","👥","추천 파티","파티"],["buddy","🐾","동반자","파티"],["gift","🎁","인연 선물","파티"],["mon","🐉","몬스터","필드"],["explore","🗺️","맵 탐색","필드"],["life","🦋","환경생물","필드"],["gather","🌶️","채집·요리","채집"],["item","🎒","아이템","채집"],["join","🛡️","길드","길드"]];
 try{const s=JSON.parse(localStorage.getItem('mho-filter')||'null'); if(s&&s.lv>=1&&s.lv<=99) st.lv=s.lv;}catch(_){}
 {const h=location.hash.slice(1).split('/')[0]; if(TABS.includes(h)) st.g=h;}
 function chips(id,list,key,obj,cls){
@@ -1122,7 +1169,8 @@ function renderLife(){
    <div><b>지역</b><div class="cat" style="white-space:normal;margin-top:4px;font-size:14px">${I.areas.map(esc).join(' · ')}</div></div>
    <div><b>수집 요소</b><div class="gl" style="margin-top:6px">${I.collect.map(c=>`<span class="stag" style="font-size:14px;padding:4px 10px">${esc(c[0])} ${c[1]}</span>`).join('')}</div><div class="cat" style="white-space:normal;margin-top:4px">채집·요리 탭 "맵 100% 파먹기"에 돋보기로 남은 것 찾는 법이 있어요.</div></div>
    <div class="cat" style="white-space:normal">${esc(I.note)}</div></div></section>`:'';
-  document.getElementById('grid').innerHTML=`<div class="life">${html}${miss}${(html||miss)?'':'<p class="empty">조건에 맞는 생물이 없어요. 필터를 "전체"로 바꾸거나 검색어를 지워 보세요.</p>'}</div>`;
+  const ltip=(D.lifetips||[]).length?`<section class="box"><h3>🔎 환경생물 찾는 요령 <small class="cat">${esc(D.lifesrc||'')}</small></h3><ul>${D.lifetips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`:'';
+  document.getElementById('grid').innerHTML=`<div class="life">${ltip}${html}${miss}${(html||miss)?'':'<p class="empty">조건에 맞는 생물이 없어요. 필터를 "전체"로 바꾸거나 검색어를 지워 보세요.</p>'}</div>`;
   document.getElementById('n').textContent=lf.w==='전체'?`월드별 합계 ${total}건 (전체 ${D.life.length}종)`:`${total}종`;
 }
 
@@ -1131,7 +1179,8 @@ const JOINK='mho-join-mine', ADMK='mho-join-admin';
 const SITE='https://wondrous-otter-9e87e6.netlify.app';
 const onNetlify=()=>/netlify\.app$/.test(location.hostname);
 const JST=['확인 중','안내 완료','가입 완료','보류'];
-let JOIN={rows:null,err:'',admin:false};
+let JOIN={rows:null,err:'',admin:false,page:1};
+const JPP=10; /* 신청 현황 한 페이지에 10명 */
 function admKey(){try{return localStorage.getItem(ADMK)||''}catch(e){return ''}}
 async function joinApi(method,body,qs=''){
   const h={'content-type':'application/json'}; const k=admKey(); if(k) h['x-admin-key']=k;
@@ -1144,14 +1193,150 @@ function joinList(){
   if(JOIN.err) return `<p class="jmsg err" style="margin:0">${esc(JOIN.err)}</p>`;
   if(!JOIN.rows) return '<p class="cat" style="margin:0">불러오는 중…</p>';
   if(!JOIN.rows.length) return '<p class="cat" style="margin:0">아직 신청이 없어요. 첫 신청을 남겨 주세요!</p>';
-  return JOIN.rows.map(r=>`<div class="jitem" data-id="${esc(r.id)}"><div class="jih"><b>${esc(r.nickname)}</b><span>Lv${esc(r.level)} · ${esc(r.time)}</span><span class="jst s${JST.indexOf(r.status)}">${esc(r.status||'확인 중')}</span><em>${fmtT(r.at)}</em></div>${r.main?`<div class="cat">${esc(r.main)}</div>`:''}<p>${esc(r.message)}</p>${JOIN.admin?`<div class="jadm">${r.contact?`<span class="cat">연락처: ${esc(r.contact)}</span>`:''}<select data-act="st">${JST.map(s=>`<option${s===r.status?' selected':''}>${s}</option>`).join('')}</select><button type="button" data-act="del">삭제</button></div>`:''}</div>`).join('');
+  const pp=JPP,n=Math.max(1,Math.ceil(JOIN.rows.length/pp));JOIN.page=Math.min(Math.max(1,JOIN.page||1),n);const rows=JOIN.rows.slice((JOIN.page-1)*pp,JOIN.page*pp);
+  return rows.map(r=>`<div class="jitem" data-id="${esc(r.id)}"><div class="jih"><b>${esc(r.nickname)}</b><span>Lv${esc(r.level)} · ${esc(r.time)}</span><span class="jst s${JST.indexOf(r.status)}">${esc(r.status||'확인 중')}</span><em>${fmtT(r.at)}</em></div>${r.main?`<div class="cat">${esc(r.main)}</div>`:''}<p>${esc(r.message)}</p>${JOIN.admin?`<div class="jadm">${r.contact?`<span class="cat">연락처: ${esc(r.contact)}</span>`:''}<select data-act="st">${JST.map(s=>`<option${s===r.status?' selected':''}>${s}</option>`).join('')}</select><button type="button" data-act="nick">✏️ 닉네임 수정</button><button type="button" data-act="del">삭제</button></div>`:''}</div>`).join('')+(n>1?`<nav class="jpg" aria-label="신청 페이지">${Array.from({length:n},(_,i)=>`<button type="button" data-pg="${i+1}"${i+1===JOIN.page?' aria-current="page"':''}>${i+1}</button>`).join('')}</nav>`:'');
 }
 function paintJoinList(){const el=document.getElementById('jlist');if(!el)return;el.innerHTML=joinList();
   const c=document.getElementById('jcnt'); if(c) c.textContent=JOIN.rows?`${JOIN.rows.length}명`:'';
+  el.querySelectorAll('[data-pg]').forEach(b=>b.onclick=()=>{JOIN.page=+b.dataset.pg;paintJoinList();document.getElementById('jlist').closest('section').scrollIntoView({block:'start'});});
   el.querySelectorAll('[data-act]').forEach(x=>{const id=x.closest('.jitem').dataset.id;
     if(x.dataset.act==='st') x.onchange=async()=>{x.disabled=true;try{await joinApi('PATCH',{id,status:x.value});const r=JOIN.rows.find(r=>r.id===id);if(r)r.status=x.value;}catch(e){alert('바꾸지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
+    if(x.dataset.act==='nick') x.onclick=async()=>{const r=JOIN.rows.find(r=>r.id===id);const v=prompt('바꿀 닉네임을 넣어 주세요 (24자까지)',r?r.nickname:'');if(v===null)return;const nk=v.trim().slice(0,24);if(!nk||(r&&nk===r.nickname))return;try{const j=await joinApi('PATCH',{id,nickname:nk});if(r)r.nickname=(j.row&&j.row.nickname)||nk;}catch(e){alert('바꾸지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
     if(x.dataset.act==='del') x.onclick=async()=>{if(!confirm('이 신청을 지울까요?'))return;try{await joinApi('DELETE',null,'?id='+encodeURIComponent(id));JOIN.rows=JOIN.rows.filter(r=>r.id!==id);}catch(e){alert('지우지 못했어요.');}paintJoinList();};});}
 async function loadJoin(){if(!onNetlify())return;JOIN.err='';try{const j=await joinApi('GET');JOIN.rows=j.rows||[];JOIN.admin=!!j.admin;if(j.waitlist)JOIN.wait=j.waitlist;if(j.arena)applyArena(j.arena,false);}catch(e){JOIN.err='신청 현황을 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.';}paintJoinList();paintAdm();paintWait();}
+
+/* ---- 길드: 투표 · 파티 모집 · 토요일 출석부 · 단원명부 (Netlify Functions + Blobs) ---- */
+let GUILD={loaded:false,err:'',admin:false,roster:[],polls:[],att:{},sat:'',day:'',ocr:''};
+const GNICK='mho-guild-nick', GVOTED='mho-guild-voted';
+const gnorm=s=>String(s||'').trim().toLowerCase().replace(/\s+/g,'');
+function gGet(k,d){try{return JSON.parse(localStorage.getItem(k)||'null')??d;}catch(_){return d;}}
+function gSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}
+async function guildApi(method,body){
+  const h={'content-type':'application/json'}; const k=admKey(); if(k) h['x-admin-key']=k;
+  const r=await fetch('/api/guild',{method,headers:h,body:body?JSON.stringify(body):undefined});
+  const j=await r.json().catch(()=>({})); if(!r.ok||j.error) throw Object.assign(new Error(j.error||r.status),{code:j.error||r.status}); return j;}
+const GERR={not_member:'단원명부에 없는 닉네임이에요. 닉네임을 다시 확인해 주세요.',nickname:'게임 닉네임을 적어 주세요.',closed:'마감된 투표예요.',slot_full:'그 자리는 이미 꽉 찼어요.',
+  forbidden:'길마만 할 수 있어요. 관리 비밀번호를 확인해 주세요.',title:'제목을 적어 주세요.',options:'선택지를 투표는 2개, 파티 모집은 1개 이상 적어 주세요.',full:'투표가 너무 많아요. 지난 투표를 지워 주세요.',
+  date:'토요일 날짜만 체크할 수 있어요.',dup:'이미 같은 이름이 있어요.',name:'이름을 적어 주세요.',not_found:'이미 지워졌어요. 새로고침해 주세요.'};
+const gmsg=e=>GERR[e&&e.code]||'저장이 안 됐어요. 잠시 뒤 다시 해 주세요.';
+function satList(n=8){const out=[];let d=new Date((GUILD.sat||kstSat())+'T00:00:00Z');for(let i=0;i<n;i++){out.push(d.toISOString().slice(0,10));d=new Date(d.getTime()-7*864e5);}return out;}
+function kstSat(){const k=new Date(Date.now()+9*36e5);return new Date(k.getTime()-((k.getUTCDay()+1)%7)*864e5).toISOString().slice(0,10);}
+const md=d=>{const [,m,dd]=d.split('-');return `${+m}/${+dd}`;};
+function guildSections(){return `
+  <h2 class="sec">투표 · 파티 모집 <small>무기명 투표 · 같이 갈 사람 모으기</small></h2>
+  <section class="box full gpoll"><div id="gpolls"></div><div id="gpnew"></div></section>
+  <h2 class="sec">출석부 <small>매주 토요일 수렵단</small></h2>
+  <section class="box full gatt" id="gatt"></section>
+  <h2 class="sec">단원명부 <small>출석·투표에 쓰는 이름</small></h2>
+  <section class="box full groster" id="groster"></section>`;}
+async function loadGuild(){
+  if(!onNetlify()){GUILD.err='local';paintGuild();return;}
+  try{const j=await guildApi('GET');Object.assign(GUILD,{loaded:true,err:'',admin:!!j.admin,roster:j.roster||[],polls:j.polls||[],att:j.att||{},sat:j.saturday||kstSat()});if(!GUILD.day)GUILD.day=GUILD.sat;}
+  catch(e){GUILD.err='load';}
+  paintGuild();}
+function paintGuild(){paintPolls();paintPollNew();paintAtt();paintRoster();}
+function gOff(){if(GUILD.err==='local')return `<p class="cat" style="margin:0">투표·출석부는 공략집 사이트에서 써요 → <a href="${SITE}/#join" target="_blank" rel="noopener">${SITE.replace('https://','')}</a></p>`;
+  if(GUILD.err)return '<p class="jmsg err" style="margin:0">길드 정보를 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.</p>';
+  if(!GUILD.loaded)return '<p class="cat" style="margin:0">불러오는 중…</p>';return '';}
+function nickInput(id){return `<input class="gnick" id="${id}" maxlength="24" placeholder="내 게임 닉네임" value="${esc(gGet(GNICK,''))}" autocomplete="nickname">`;}
+/* 투표 목록 */
+function pollCard(p){const voted=gGet(GVOTED,{})[p.id]||[];const max=Math.max(1,...p.counts);const tot=p.counts.reduce((a,b)=>a+b,0);
+  const kind=p.kind==='party'?'<span class="gtag gp">파티 모집</span>':'<span class="gtag gv">무기명 투표</span>';
+  const st=p.closed?'<span class="gtag gx">마감</span>':p.deadline?`<span class="gtag">~${fmtT(p.deadline)}</span>`:'';
+  const opts=p.options.map((o,i)=>{const full=p.kind==='party'&&p.slots&&p.counts[i]>=p.slots;
+    return `<label class="gopt${voted.includes(i)?' mine':''}"><input type="${p.multi?'checkbox':'radio'}" name="v_${esc(p.id)}" value="${i}"${voted.includes(i)?' checked':''}${p.closed?' disabled':''}>
+    <span class="gol"><b>${esc(o)}</b><span class="gbar"><i style="width:${(p.counts[i]/max*100).toFixed(0)}%"></i></span>
+    <small>${p.counts[i]}${p.kind==='party'&&p.slots?' / '+p.slots:''}명${full?' · 꽉 참':''}</small>
+    ${p.names&&p.names[i].length?`<span class="gnames">${p.names[i].map(n=>`<span>${esc(n)}</span>`).join('')}</span>`:''}</span></label>`;}).join('');
+  return `<article class="gpc" data-id="${esc(p.id)}"><div class="gph">${kind}${st}<h3>${esc(p.title)}</h3><small class="cat">${fmtT(p.at)}${p.by?' · '+esc(p.by):''} · ${p.voters}명 참여${p.multi?' · 여러 개 선택':''}</small></div>
+   <div class="gopts">${opts}</div>
+   ${p.closed?'':`<div class="gvote">${nickInput('gn_'+p.id)}<button type="button" class="gbtn" data-act="vote">${voted.length?'다시 투표':'투표하기'}</button>${voted.length?'<button type="button" class="gbtn2" data-act="unvote">내 표 취소</button>':''}</div>`}
+   <div class="jmsg gmsg" role="status"></div>
+   ${GUILD.admin?`<div class="jadm"><button type="button" data-act="close">${p.closed?'다시 열기':'마감하기'}</button><button type="button" data-act="del">삭제</button></div>`:''}</article>`;}
+function paintPolls(){const el=document.getElementById('gpolls');if(!el)return;const off=gOff();
+  if(off){el.innerHTML=off;return;}
+  el.innerHTML=GUILD.polls.length?`<p class="cat gnote">${GUILD.roster.length?'단원명부에 있는 닉네임으로만 투표돼요. ':''}닉네임은 중복 확인에만 쓰고, 무기명 투표는 누가 뭘 골랐는지 아무도 못 봐요. 같은 닉네임으로 다시 투표하면 앞의 표가 바뀌어요.</p><div class="gplist">${GUILD.polls.map(pollCard).join('')}</div>`:'<p class="cat" style="margin:0">아직 진행 중인 투표가 없어요.</p>';
+  el.querySelectorAll('.gpc').forEach(card=>{const id=card.dataset.id,msg=card.querySelector('.gmsg');
+    const rep=j=>{const i=GUILD.polls.findIndex(p=>p.id===id);if(i>=0&&j.poll)GUILD.polls[i]=j.poll;};
+    card.querySelectorAll('[data-act]').forEach(b=>b.onclick=async()=>{const a=b.dataset.act;
+      if(a==='vote'||a==='unvote'){const nk=card.querySelector('.gnick').value.trim();if(!nk){msg.textContent=GERR.nickname;msg.className='jmsg gmsg err';return;}
+        const ch=a==='unvote'?[]:[...card.querySelectorAll('.gopt input:checked')].map(x=>+x.value);if(a==='vote'&&!ch.length){msg.textContent='선택지를 골라 주세요.';msg.className='jmsg gmsg err';return;}
+        b.disabled=true;try{const j=await guildApi('POST',{action:'poll.vote',id,nickname:nk,choices:ch});gSet(GNICK,nk);const v=gGet(GVOTED,{});if(ch.length)v[id]=ch;else delete v[id];gSet(GVOTED,v);rep(j);paintPolls();
+          const m2=document.querySelector(`.gpc[data-id="${CSS.escape(id)}"] .gmsg`);if(m2){m2.textContent=ch.length?(j.replaced?'표를 바꿨어요 ✓':'투표했어요 ✓'):'내 표를 취소했어요.';m2.className='jmsg gmsg ok';}}
+        catch(e){msg.textContent=gmsg(e);msg.className='jmsg gmsg err';b.disabled=false;}}
+      if(a==='close'){const p=GUILD.polls.find(p=>p.id===id);try{rep(await guildApi('POST',{action:'poll.close',id,closed:!p.closed}));}catch(e){alert(gmsg(e));}paintPolls();}
+      if(a==='del'){if(!confirm('이 투표를 지울까요?'))return;try{await guildApi('POST',{action:'poll.delete',id});GUILD.polls=GUILD.polls.filter(p=>p.id!==id);}catch(e){alert(gmsg(e));}paintPolls();}});});}
+/* 새 투표 / 파티 모집 만들기 */
+function paintPollNew(){const el=document.getElementById('gpnew');if(!el)return;if(gOff()){el.innerHTML='';return;}
+  const A=GUILD.admin;
+  el.innerHTML=`<details class="gnew"${GUILD.openNew?' open':''}><summary>＋ ${A?'새 투표 · 파티 모집 만들기':'파티 모집 만들기'}</summary><form id="gpf" class="gform">
+   <div class="jrow"><label class="jf"><span>종류</span><select name="kind">${A?'<option value="vote">무기명 투표 (길드 투표)</option>':''}<option value="party">파티 모집 (참여자 이름 보임)</option></select></label>
+   <label class="jf"><span>마감 <small>(비우면 길마가 마감할 때까지)</small></span><input name="deadline" type="datetime-local"></label></div>
+   <label class="jf"><span>제목 <b>*</b></span><input name="title" maxlength="60" required placeholder="${A?'예) 이번 주 길드 레이드 요일':'예) 토 21시 크샬 익스트림 같이 가요'}"></label>
+   <label class="jf"><span>선택지 <b>*</b> <small>(한 줄에 하나)</small></span><textarea name="options" rows="4" required placeholder="${A?'토요일\n일요일':'딜러\n서포터'}"></textarea></label>
+   <div class="jrow"><label class="jf gslot"><span>자리 수 <small>(파티 모집 · 선택지마다, 0 = 제한 없음)</small></span><input name="slots" type="number" min="0" max="99" value="0" inputmode="numeric"></label>
+   <label class="fit gmul"><input type="checkbox" name="multi"> 여러 개 고를 수 있게</label></div>
+   ${A?'':`<label class="jf"><span>내 게임 닉네임 <b>*</b> <small>(단원명부에 있는 이름)</small></span>${nickInput('gpfn')}</label>`}
+   <button type="submit" class="jbtn">만들기</button><div class="jmsg" id="gpfm" role="status"></div></form></details>`;
+  const f=document.getElementById('gpf'),m=document.getElementById('gpfm');
+  el.querySelector('details').ontoggle=e=>GUILD.openNew=e.target.open;
+  f.onsubmit=async e=>{e.preventDefault();const fd=new FormData(f);const dl=fd.get('deadline');
+    const body={action:'poll.create',kind:fd.get('kind'),title:fd.get('title'),options:String(fd.get('options')||'').split('\n').map(x=>x.trim()).filter(Boolean),multi:!!fd.get('multi'),slots:+fd.get('slots')||0,deadline:dl?new Date(dl).getTime():0,nickname:A?'':(document.getElementById('gpfn')||{}).value};
+    const btn=f.querySelector('.jbtn');btn.disabled=true;
+    try{const j=await guildApi('POST',body);if(!A)gSet(GNICK,body.nickname.trim());GUILD.polls=[j.poll,...GUILD.polls];GUILD.openNew=false;paintPolls();paintPollNew();}
+    catch(err){m.textContent=gmsg(err);m.className='jmsg err';btn.disabled=false;}};}
+/* 출석부 */
+function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
+  const R=GUILD.roster,days=satList(8),d=GUILD.day||GUILD.sat,P=new Set(GUILD.att[d]||[]);
+  const n=R.filter(m=>P.has(m.id)).length;
+  el.innerHTML=`<div class="gah"><label class="jf"><span>날짜</span><select id="gday">${days.map(x=>`<option value="${x}"${x===d?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label>
+   <div class="gcnt"><b>${n}</b> / ${R.length}명 출석</div></div>
+   ${R.length?`<p class="cat gnote">내 이름을 눌러 출석 체크해요. 잘못 눌렀으면 길마에게 말해 주세요${GUILD.admin?' (길마는 다시 누르면 취소돼요)':''}.</p>
+   <div class="gchips">${R.map(m=>`<button type="button" class="gchip${P.has(m.id)?' on':''}" data-id="${esc(m.id)}" aria-pressed="${P.has(m.id)}">${P.has(m.id)?'✓ ':''}${esc(m.name)}</button>`).join('')}</div>
+   <h3 class="gh3">최근 8주 기록</h3><div class="tw gattw"><table class="gatab nostack"><thead><tr><th>단원</th>${days.slice().reverse().map(x=>`<th>${md(x)}</th>`).join('')}<th>합계</th></tr></thead><tbody>
+   ${R.map(m=>{let c=0;const cells=days.slice().reverse().map(x=>{const on=(GUILD.att[x]||[]).includes(m.id);if(on)c++;return `<td>${on?'✓':''}</td>`;}).join('');return `<tr><td class="gan">${esc(m.name)}</td>${cells}<td><b>${c}</b></td></tr>`;}).join('')}</tbody></table></div>`
+   :'<p class="cat" style="margin:0">단원명부가 비어 있어요. 길마가 아래 단원명부에서 이름을 넣으면 출석부가 생겨요.</p>'}`;
+  const sel=document.getElementById('gday');if(sel)sel.onchange=()=>{GUILD.day=sel.value;paintAtt();};
+  el.querySelectorAll('.gchip').forEach(b=>b.onclick=async()=>{const id=b.dataset.id,m=R.find(x=>x.id===id),on=P.has(id);
+    if(on&&!GUILD.admin){alert('이미 출석했어요. 취소는 길마만 할 수 있어요.');return;}
+    if(!confirm(on?`${m.name}님 출석을 취소할까요?`:`${m.name}님 ${md(d)} 출석 체크할까요?`))return;
+    try{const j=await guildApi('POST',{action:on?'att.unmark':'att.mark',date:d,id});GUILD.att[d]=j.present;}catch(e){alert(gmsg(e));}paintAtt();});}
+/* 단원명부 */
+function paintRoster(){const el=document.getElementById('groster');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
+  const R=GUILD.roster,A=GUILD.admin;
+  el.innerHTML=`<div class="gah"><b>단원 ${R.length}명</b>${A?'':'<small class="cat">이름 추가·수정은 길마만 할 수 있어요.</small>'}</div>
+   ${R.length?`<div class="grl">${R.map(m=>`<div class="grm" data-id="${esc(m.id)}"><span>${esc(m.name)}</span>${A?'<button type="button" data-act="ren" title="이름 바꾸기" aria-label="이름 바꾸기">✏️</button><button type="button" data-act="del" title="빼기" aria-label="명부에서 빼기">✕</button>':''}</div>`).join('')}</div>`:'<p class="cat" style="margin:0">아직 등록된 단원이 없어요.</p>'}
+   ${A?`<div class="gadd"><h3 class="gh3">단원 추가</h3>
+    <label class="gocr"><input type="file" id="gimg" accept="image/*"><span>📷 단원 목록 스크린샷으로 이름 읽기</span></label>
+    <div class="cat" id="gocrm" role="status">${esc(GUILD.ocr||'게임 모험단 단원 목록 화면을 캡처해서 올리면 이름을 글자로 뽑아 줘요. 결과는 꼭 확인하고 고쳐 주세요.')}</div>
+    <textarea id="gnames" class="wln2" rows="5" placeholder="한 줄에 한 명씩 (예)\n퇴근후한판\n칼퇴수렵"></textarea>
+    <div class="wlbar"><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div></div>`:''}`;
+  el.querySelectorAll('.grm [data-act]').forEach(b=>b.onclick=async()=>{const id=b.closest('.grm').dataset.id,m=R.find(x=>x.id===id);
+    if(b.dataset.act==='ren'){const v=prompt('새 이름 (출석 기록은 그대로 이어져요)',m.name);if(v===null||!v.trim()||v.trim()===m.name)return;
+      try{GUILD.roster=(await guildApi('POST',{action:'roster.rename',id,name:v.trim()})).roster;}catch(e){alert(gmsg(e));}}
+    else{if(!confirm(`${m.name}님을 명부에서 뺄까요?`))return;try{GUILD.roster=(await guildApi('POST',{action:'roster.del',id})).roster;}catch(e){alert(gmsg(e));}}
+    paintAtt();paintRoster();});
+  const add=document.getElementById('gaddb');if(add)add.onclick=async()=>{const names=document.getElementById('gnames').value.split('\n').map(x=>x.trim()).filter(Boolean);if(!names.length)return;
+    add.disabled=true;try{const j=await guildApi('POST',{action:'roster.add',names});GUILD.roster=j.roster;GUILD.ocr=`${j.added}명 추가했어요 ✓`;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
+  const fi=document.getElementById('gimg');if(fi)fi.onchange=()=>{if(fi.files[0])ocrRoster(fi.files[0]);};}
+/* 스크린샷 → 이름 (tesseract.js를 쓸 때만 불러와요) */
+const OCR_STOP=new Set(['레벨','lv','단원','모험단','단장','부단장','길마','부길마','멤버','온라인','오프라인','접속','접속중','관리','기여도','직책','이름','닉네임','최근','전','분','시간','일','주간','활약도','추방','임명','나가기','확인','취소','정보','목록','마스터','부마스터','명','공헌','전투력','사냥력']);
+function ocrNames(text){const out=[];const seen=new Set();
+  text.split('\n').forEach(line=>{const toks=line.replace(/[|｜\[\]{}()<>«»“”"'`~!@#$%^&*=+;:,.?\/\\·•…]/g,' ').split(/\s+/).filter(Boolean);
+    const t=toks.find(w=>/^[가-힣A-Za-z][가-힣A-Za-z0-9_]{1,11}$/.test(w)&&!OCR_STOP.has(w.toLowerCase())&&!/^(lv|Lv|LV)\d*$/.test(w)&&!/^\d+$/.test(w));
+    if(t&&!seen.has(gnorm(t))){seen.add(gnorm(t));out.push(t);}});
+  return out;}
+function loadTess(){return window.Tesseract?Promise.resolve():new Promise((ok,no)=>{const sc=document.createElement('script');sc.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';sc.onload=ok;sc.onerror=()=>no(new Error('load'));document.head.appendChild(sc);});}
+async function ocrRoster(file){const m=document.getElementById('gocrm'),ta=document.getElementById('gnames');const say=t=>{GUILD.ocr=t;if(m)m.textContent=t;};
+  say('글자 인식 도구 불러오는 중… (처음 한 번은 조금 걸려요)');
+  try{await loadTess();const r=await Tesseract.recognize(file,'kor+eng',{logger:x=>{if(x.status==='recognizing text')say(`이름 읽는 중… ${Math.round(x.progress*100)}%`);else if(x.status)say('준비 중… '+(x.progress?Math.round(x.progress*100)+'%':''));}});
+    const names=ocrNames(r.data.text||'');
+    if(!names.length){say('이름을 못 찾았어요. 단원 목록이 크게 보이게 다시 캡처하거나 직접 적어 주세요.');return;}
+    const have=new Set(GUILD.roster.map(x=>gnorm(x.name)));const fresh=names.filter(n=>!have.has(gnorm(n)));
+    if(ta)ta.value=[ta.value.trim(),...fresh].filter(Boolean).join('\n');
+    say(`${names.length}명 읽었어요${fresh.length<names.length?` (이미 있는 ${names.length-fresh.length}명 제외)`:''}. 틀린 글자를 고친 뒤 "명부에 추가"를 눌러 주세요.`);}
+  catch(e){say('이미지를 읽지 못했어요. 인터넷 연결을 확인하거나 이름을 직접 적어 주세요.');}}
+function bindGuild(){paintGuild();}
 /* 격투장 순위: 길마 관리에서 입력 → 모두에게 반영 */
 function applyArena(a,rerender){if(!a||!a.rank)return;const GA=D.guild.arena;const ch=GA.rank!==a.rank||GA.week!==a.week||GA.msg!==a.msg;
   GA.rank=a.rank;if(a.week)GA.week=a.week;GA.msg=a.msg||`지난주 ${GA.title} ${a.rank}위! 다들 고생 많았어요 🎉`;
@@ -1163,10 +1348,10 @@ function bindArena(){const b=document.getElementById('arSave');if(!b)return;b.on
   const week=document.getElementById('arWeek').value.trim(),m=document.getElementById('arMsg').value.trim();b.disabled=true;b.textContent='저장 중…';
   try{const j=await joinApi('PUT',{arena:{rank,week,msg:m||`지난주 ${D.guild.arena.title} ${rank}위! 다들 고생 많았어요 🎉`}});applyArena(j.arena,false);b.textContent='저장했어요 ✓';}catch(e){alert('저장하지 못했어요. 관리 비밀번호를 확인해 주세요.');b.textContent='순위 저장';}b.disabled=false;};}
 function paintAdm(){const el=document.getElementById('jadmbox');if(!el)return;
-  el.innerHTML=JOIN.admin?`<span class="cat">길마 관리 모드예요. 신청마다 상태를 바꾸거나 지울 수 있어요.</span> <button type="button" id="jout">관리 끄기</button>${arenaForm()}`
+  el.innerHTML=JOIN.admin?`<span class="cat">길마 관리 모드예요. 신청마다 상태·닉네임을 바꾸거나 지울 수 있어요.</span> <button type="button" id="jout">관리 끄기</button>${arenaForm()}`
    :`<details><summary>길마 관리</summary><div class="jadmf"><input id="jkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" id="jin">들어가기</button></div></details>`;
-  const i=document.getElementById('jin'); if(i) i.onclick=async()=>{try{localStorage.setItem(ADMK,document.getElementById('jkey').value.trim())}catch(e){};await loadJoin();if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');};
-  const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;JOIN.wedit=false;loadJoin();};
+  const i=document.getElementById('jin'); if(i) i.onclick=async()=>{try{localStorage.setItem(ADMK,document.getElementById('jkey').value.trim())}catch(e){};await loadJoin();loadGuild();if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');};
+  const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;JOIN.wedit=false;loadJoin();loadGuild();};
   bindArena();}
 
 function waitGroups(){return JOIN.wait&&JOIN.wait.groups?JOIN.wait.groups:D.guild.notice.groups.map(g=>({title:g[0],names:g[1]}));}
@@ -1194,6 +1379,7 @@ function joinPopup(){document.getElementById('jpop')?.remove();const d=document.
 function renderJoin(){
   clearBar();
   document.getElementById('grid').innerHTML=`
+  <h2 class="sec">가입 신청 <small>신청서 · 대기명단 · 신청 현황</small></h2>
   <div class="jwrap jnote">
   <section class="box"><h3>📢 모험단 안내 <small class="cat">${esc(D.guild.notice.date)} 길마 공지</small></h3><ul>${D.guild.notice.lines.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
   <div class="jhow"><b>가입은 이렇게 해요</b><ol><li>아래 <b>가입 신청서</b>를 남겨요.</li><li><b>오픈카톡방</b>에 들어와서 대기해요.</li><li>자리가 나면 길마가 게임 닉네임으로 안내해 드려요.</li></ol>
@@ -1219,7 +1405,7 @@ function renderJoin(){
   <section class="box jinfo"><h3>신청 현황 <small id="jcnt" class="cat"></small></h3>
    <div id="jlist">${joinList()}</div>
    <div id="jadmbox" class="jadmbox"></div>
-  </section></div>`;
+  </section></div>${guildSections()}`;
   const f=document.getElementById('joinf'), msg=document.getElementById('jmsg');
   f.onsubmit=async e=>{
     e.preventDefault(); const fd=new FormData(f); const rec=Object.fromEntries(fd.entries());
@@ -1231,12 +1417,12 @@ function renderJoin(){
     }catch(err){msg.textContent=err.code==='full'?'신청이 너무 많이 쌓였어요. 길마에게 알려 주세요.':'저장이 안 됐어요. 잠시 뒤 다시 눌러 주세요.';msg.className='jmsg err';}
     btn.disabled=false; btn.textContent='가입 신청 남기기';
   };
-  paintAdm(); loadJoin();
+  paintAdm(); loadJoin(); bindGuild(); loadGuild();
   document.getElementById('n').textContent='';
 }
-const DESC={home:'',explore:'맵마다 전망대 레벨(별이슬벌레), 미니게임(필드 탐색), 섬의 보물, 에어리어 과제를 채우는 방법이에요. 아래 체크리스트는 이 기기에 저장돼요.',join:'직장인수렵단 모험단 가입 신청서예요. 신청을 남기고 오픈카톡방에 들어와 대기하면, 자리가 날 때 길마가 확인하고 안내해 드려요.',money:'과금 패키지 추천, 시즌 패스(활활 화로), 에너지·의뢰 사냥, 제니·루타 코인·모집권 같은 핵심 재화를 어디서 얻는지 정리했어요.',buddy:'모험가·주인공 무기마다 어떤 동반자를 끼면 좋은지, 동반자 전체 목록과 코어 패시브 발동 조건이에요.',tip:'최신 패치, 이벤트 일정, 쿠폰, 새 방어구 소식이에요.',guide:'캐릭터·무기별 공략과 헷갈리는 시스템 팁이에요. 디시 갤러리 공략글을 정리했어요.',chore:'매일·매주 챙길 것 체크리스트예요. 체크하면 이 브라우저에 저장되고 초기화 시간에 자동으로 풀려요.',hero:'주인공 무기 종류·속성별 추천 장비예요. "내 레벨"을 넣으면 그 레벨에서 낄 수 있는 장비로 자동으로 바꿔서 보여줘요(파란 칸 = 레벨 때문에 바뀐 부위). Lv31 미만이면 중반 세팅이 있는 무기는 중반 세팅으로 보여줘요.',
+const DESC={home:'',explore:'맵마다 전망대 레벨(별이슬벌레), 미니게임(필드 탐색), 섬의 보물, 에어리어 과제를 채우는 방법이에요. 아래 체크리스트는 이 기기에 저장돼요.',join:'직장인수렵단 길드 공간이에요. 가입 신청, 길드 투표·파티 모집, 토요일 수렵단 출석부, 단원명부를 여기서 봐요.',money:'과금 패키지 추천, 시즌 패스(활활 화로), 에너지·의뢰 사냥, 제니·루타 코인·모집권 같은 핵심 재화를 어디서 얻는지 정리했어요.',buddy:'모험가·주인공 무기마다 어떤 동반자를 끼면 좋은지, 동반자 전체 목록과 코어 패시브 발동 조건이에요.',tip:'최신 패치, 이벤트 일정, 쿠폰, 새 방어구 소식이에요.',guide:'캐릭터·무기별 공략과 헷갈리는 시스템 팁이에요. 커뮤니티 공략글을 정리했어요.',chore:'매일·매주 챙길 것 체크리스트예요. 체크하면 이 브라우저에 저장되고 초기화 시간에 자동으로 풀려요.',hero:'주인공 무기 종류·속성별 추천 장비예요. "내 레벨"을 넣으면 그 레벨에서 낄 수 있는 장비로 자동으로 바꿔서 보여줘요(파란 칸 = 레벨 때문에 바뀐 부위). Lv31 미만이면 중반 세팅이 있는 무기는 중반 세팅으로 보여줘요.',
 adv:'모험가별 최강 장비예요. "내 레벨"을 넣으면 그 레벨에서 낄 수 있는 장비로 자동으로 바꿔서 보여줘요(파란 칸 = 바뀐 부위).',
-party:'GameWith 최강 편성 5개(속성별)와 디시인사이드에서 많이 쓰는 편성·운영 팁이에요. 메인 조작 1명 + 서브 3명 구성이에요.',
+party:'GameWith 최강 편성 5개(속성별)와 커뮤니티에서 많이 쓰는 편성·운영 팁이에요. 메인 조작 1명 + 서브 3명 구성이에요.',
 mon:'둥지 사냥 과제 용어, 신규 보스 크샬다오라 풍압 대비, 융광종이 일반 몬스터와 뭐가 다른지, 몬스터별 약점 속성(일반 vs 융광종), 융광종 소형 몬스터 위치예요.',
 art:'위에서 내 삽화 단계(희귀·영웅·전설)를 고르면 카드가 그 단계에 맞게 바뀌어요. 전설 단계에선 코스트별 주옵션·부옵션까지, 서브로 쓸 때 바꿀 세트도 같이 보여줘요.',
 life:'4개 맵의 환경생물과 수중 생물이에요(찬란한 군도는 게임 도감에 있는 7종만, 출현 정보는 아직 없어요). 출현 시간·찾는 위치·사용 효과·크기를 월드별로 볼 수 있어요.',
@@ -1260,7 +1446,7 @@ function renderParty(){
   const com=D.community.map(g=>`<section class="box"><h3>${esc(g.t)}</h3><ul>${g.items.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`).join('');
   document.getElementById('grid').innerHTML=`<h2 class="sec">추천 파티 <small>GameWith 최강 편성 (11/15 갱신) · ★ = 직접 조작할 캐릭터</small></h2>
    <div class="pgrid">${cards||'<p class="empty">조건에 맞는 편성이 없어요.</p>'}</div>
-   <h2 class="sec">유저들이 많이 쓰는 편성·팁 <small>디시인사이드 공략글 정리</small></h2><div class="c2">${com}</div>
+   <h2 class="sec">유저들이 많이 쓰는 편성·팁 <small>커뮤니티 공략글 정리</small></h2><div class="c2">${com}</div>
    <h2 class="sec">편성 요령</h2><section class="box full"><ul>${D.tips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`;
   document.getElementById('n').textContent=`${list.length}개 편성`;
 }
@@ -1279,7 +1465,7 @@ function renderMon(){
   ${D.radiant.map(r=>`<tr><td class="part">${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div></section>
   <div class="c2 eq"><section class="box"><h3>융광종 잡는 요령</h3><ul>${D.radtips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
   <section class="box"><h3>융광종 소형 몬스터 <small class="cat">나오는 맵</small></h3><div class="srgrid">${D.smallrad.map(s=>`<div class="srit"><span class="nm">${PHT('융광종 '+s[0],'sm')}<b>${esc(s[0])}</b></span><span class="cat">${esc(s[1])}</span></div>`).join('')}</div></section></div>
-  <h2 class="sec">신규 보스 크샬다오라 대비: 풍압 무효 세팅 <small>디시 공략글 · 사진 누르면 크게</small></h2>
+  <h2 class="sec">신규 보스 크샬다오라 대비: 풍압 무효 세팅 <small>커뮤니티 공략글 · 사진 누르면 크게</small></h2>
   <section class="box full"><div class="nm" style="gap:14px">${PHT('크샬다오라','lg')}<div><h3 style="margin:0">강룡 크샬다오라</h3><div class="cat" style="white-space:normal;font-size:14px;margin-top:4px">몸에 두른 바람(용풍압)으로 가까이 가면 몸이 젖혀져요. 풍압을 무효로 만들면 근접 무기도 편하게 붙을 수 있어요.</div></div></div>
   <ol>${D.boss.how.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section>
   <div class="c2"><section class="box"><h3>${PHT('브릭스','sm')} 예시: 브릭스 풍압 내성 장비</h3><div class="tw"><table><thead><tr><th>부위</th><th>장비</th><th>메모</th></tr></thead><tbody>
@@ -1469,6 +1655,37 @@ function renderExplore(){
   document.querySelectorAll('.mchk input').forEach(c=>c.onchange=()=>{S[c.dataset.k]=c.checked;try{localStorage.setItem('mho-explore',JSON.stringify(S));}catch(e){}const card=c.closest('.mapc');card.querySelector('.mprog').textContent=`${card.querySelectorAll('input:checked').length}/${X.steps.length}`;});
   document.getElementById('n').textContent='';
 }
+let GP=null, BCAT='전체';
+const BCATS=['전체','무기·세팅','모험가','몬스터·사냥','채집·탐색','초보·시스템','생활·편의'];
+const BGRP={'무기·캐릭터':'무기·세팅','사냥':'몬스터·사냥','시스템':'초보·시스템'};
+function boardList(mine){
+  const sec=mine.map(s=>{const h=s.els[0];const c=h.cloneNode(true);c.querySelectorAll('small,.ph').forEach(x=>x.remove());const sm=h.querySelector('small');
+    const t=c.textContent.trim();const cat=/^(루카|엔쇼우|주인공|모험가)/.test(t)&&!/세팅|프리셋/.test(t)?'모험가':(BGRP[s.m[4]]||'초보·시스템');
+    return {id:'s-'+s.m[3],cat,title:t,sub:sm?sm.textContent.trim():'',date:'',sec:s};});
+  const posts=(D.board||[]).map(b=>({id:b.id,cat:b.cat,title:b.title,sub:'',date:b.date,post:b}));
+  const all=[...posts,...sec];
+  return all;}
+function renderBoard(G,mine){
+  const all=boardList(mine);
+  const it=GP&&all.find(x=>x.id===GP);
+  if(it&&it.sec){G.insertAdjacentHTML('beforeend',bBack());it.sec.els.forEach(el=>G.appendChild(el));bindBack();return;}
+  if(it&&it.post){const b=it.post;G.innerHTML=`${bBack()}<article class="box full bpost"><div class="bmeta"><span class="bcat">${esc(b.cat)}</span>${b.date?`<span class="cat">${esc(b.date.replace('-','/'))}</span>`:''}</div><h2 class="btitle">${esc(b.title)}</h2><ul class="blines">${b.lines.map(l=>`<li>${itemIc(l)}</li>`).join('')}</ul>${(b.images||[]).length?`<div class="shots in" style="border:0;padding:0">${b.images.map(k=>SHOT[k]?`<figure class="shot" data-f="${k}"><img src="${SHOT[k]}" alt="${esc(b.title)}" loading="lazy"></figure>`:'').join('')}</div>`:''}${b.src?`<a class="cat bsrc" href="${esc(b.src)}" target="_blank" rel="noopener">원문 보기 ›</a>`:''}</article>`;bindBack();return;}
+  GP=null;
+  const q=(st.q||'').trim().toLowerCase();
+  const rows=all.filter(x=>(BCAT==='전체'||x.cat===BCAT)&&(!q||(x.title+' '+x.sub+' '+(x.post?x.post.lines.join(' '):'')).toLowerCase().includes(q)));
+  const cnt=c=>c==='전체'?all.length:all.filter(x=>x.cat===c).length;
+  G.innerHTML=`<section class="box full board"><div class="bhead"><h3>📋 공략 게시판 <small class="cat">${all.length}개 글</small></h3><div class="bcats">${BCATS.filter(c=>cnt(c)).map(c=>`<button type="button" class="chip" data-c="${esc(c)}" aria-pressed="${c===BCAT}">${esc(c)} <small>${cnt(c)}</small></button>`).join('')}</div></div>
+  <ol class="blist">${rows.map((x,i)=>`<li><button type="button" class="brow" data-id="${esc(x.id)}"><span class="bno">${rows.length-i}</span><span class="bcat">${esc(x.cat)}</span><span class="bt"><b>${esc(x.title)}</b>${x.sub?`<small>${esc(x.sub)}</small>`:''}</span><span class="bdt">${x.date?esc(x.date.replace('-','/')):'정리글'}</span></button></li>`).join('')||'<li class="empty">조건에 맞는 글이 없어요.</li>'}</ol></section>`;
+  G.querySelectorAll('.bcats [data-c]').forEach(b=>b.onclick=()=>{BCAT=b.dataset.c;render();});
+  G.querySelectorAll('.brow').forEach(b=>b.onclick=()=>{GP=b.dataset.id;render();window.scrollTo({top:0});navPush();});}
+function bBack(){return `<div class="full bback"><button type="button" id="bback" class="cgo">← 공략 목록</button></div>`;}
+function bindBack(){const b=document.getElementById('bback');if(b)b.onclick=()=>{GP=null;render();window.scrollTo({top:0});navPush();};}
+function moreSec(m){
+  const srcs=(m.src||[]).map(x=>`<a href="${esc(x[1])}" target="_blank" rel="noopener">${esc(x[0])}</a>`).join(' · ');
+  let body='';
+  if(m.type==='table') body=`<section class="box full"><div class="tw"><table class="natab nostack mtab"><thead><tr>${m.cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${m.rows.map(r=>`<tr>${r.map((c,i)=>`<td>${i===0?`<span class="nm">${PHT(c.replace(/ \(SR\)$/,''),'sm')}<b>${esc(c)}</b></span>`:i===1?`<b class="fx">${esc(c)}</b>`:esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${m.note?`<p class="cat" style="white-space:normal;margin:0">${esc(m.note)}</p>`:''}</section>`;
+  else body=`<div class="c3 eq">${m.items.map(h=>`<section class="box hcard2"><h3>${h[0]} ${esc(h[1])}</h3><p>${esc(h[2])}</p></section>`).join('')}</div>${m.links?`<section class="box full"><h3>🔗 원문 글</h3><ul class="mlinks">${m.links.map(l=>`<li><a href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a></li>`).join('')}</ul></section>`:''}`;
+  return `<h2 class="sec">${esc(m.h)} <small>${esc(m.sm)}</small></h2>${body}${srcs?`<div class="cat full" style="white-space:normal">출처: ${srcs}</div>`:''}`;}
 function renderTips(){
   clearBar(); const T=D.tipx; const now=new Date(Date.now()+9*3600e3-0); const today=now.toISOString().slice(5,10);
   const yr=s=>s>='10-01'?'2026-'+s:'2027-'+s; const tdy=new Date(now.toISOString().slice(0,10));
@@ -1532,12 +1749,14 @@ function renderTips(){
   <h2 class="sec">커마 저장 · 코드 <small>무료 변경 · 차림새 ID</small></h2>
   <section class="box full"><h3>💾 커마 저장해 두면 무료로 바꾸기 <small class="mvk">${esc(T.cosmsave.src)}</small></h3><ol>${T.cosmsave.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><p class="cat" style="white-space:normal;margin:0">${esc(T.cosmsave.note)}</p></section>
   <div class="cosm">${T.cosm.map(c=>`<div class="ccard"><figure class="shot" data-f="${c[0]}"><img src="${SHOT[c[0]]}" alt="" loading="lazy"></figure><div class="cc"><span><b>${esc(c[1])}</b><small>${esc(c[2])}</small></span><button type="button" class="cpy" data-c="${esc(c[1])}">복사</button></div></div>`).join('')}</div>
-  <div class="cat full" style="white-space:normal">${esc(T.cosmnote)}</div>`;
+  <div class="cat full" style="white-space:normal">${esc(T.cosmnote)}</div>${(T.more||[]).map(moreSec).join('')}`;
   {const G=document.getElementById('grid');const M=[['최신 업데이트','tip',1,'최신 업데이트',''],['11월 이벤트','tip',2,'이벤트 일정',''],['쿠폰','tip',3,'쿠폰 코드',''],['최신 방어구','tip',4,'새 방어구',''],
    ['주인공 쌍검','guide',1,'주인공 쌍검','무기·캐릭터'],['대검 속성셋','guide',2,'대검 딜 비교','무기·캐릭터'],['크샬 이벤트 번개','guide',3,'번개 헤비보우건','무기·캐릭터'],['루카','guide',4,'루카 (활)','무기·캐릭터'],['엔쇼우','guide',5,'엔쇼우 (대검)','무기·캐릭터'],
-   ['록온','guide',6,'록온 약점 주의','시스템'],['장비 세트 삭제','guide',7,'장비 세트 삭제','시스템'],['칭호','guide',8,'칭호 · 훈장','시스템'],['커마','guide',9,'커마 저장 · 코드','시스템']];
+   ['록온','guide',6,'록온 약점 주의','시스템'],['장비 세트 삭제','guide',7,'장비 세트 삭제','시스템'],['칭호','guide',8,'칭호 · 훈장','시스템'],['커마','guide',9,'커마 저장 · 코드','시스템'],...(T.more||[]).map((m,i)=>[m.h,'guide',(m.grp==='무기·캐릭터'?5.5:m.grp==='사냥'?5.7:9.5)+i/100,m.short,m.grp])];
    const secs=[];let cur=null;[...G.children].forEach(el=>{if(el.matches('h2.sec')){const m=M.find(x=>el.textContent.trim().startsWith(x[0]))||['', 'guide',99,'',''];el.dataset.short=m[3];el.dataset.grp=m[4];cur={m,els:[]};secs.push(cur);}if(cur)cur.els.push(el);else el.remove();});
-   G.innerHTML='';secs.filter(s=>s.m[1]===st.g).sort((a,b)=>a.m[2]-b.m[2]).forEach(s=>s.els.forEach(el=>G.appendChild(el)));}
+   G.innerHTML='';const mine=secs.filter(s=>s.m[1]===st.g).sort((a,b)=>a.m[2]-b.m[2]);
+   if(st.g!=='guide'){mine.forEach(s=>s.els.forEach(el=>G.appendChild(el)));}
+   else renderBoard(G,mine);}
   document.querySelectorAll('.cpy').forEach(b=>b.onclick=()=>{const v=b.dataset.c;const ok=()=>{b.textContent='복사됨';setTimeout(()=>b.textContent='복사',1200);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(ok,()=>{prompt('코드',v)});else prompt('코드',v);});
   document.getElementById('n').textContent='';
 }
@@ -1550,7 +1769,7 @@ function renderHome(){
   const C=[['hero','⚔️','내 무기·방어구 맞추기','주인공 무기 종류·속성별 추천 장비. 레벨 넣으면 그 레벨에서 끼는 장비로 자동 교체'],
    ['adv','🧭','모험가 장비','미도리·페페 등 모험가별 최강 장비'],
    ['art','🎴','삽화 세팅','캐릭터별 삽화 5장 조합 · 세트 규칙 · 코스트 12'],
-   ['party','👥','추천 파티','game8 추천 편성 + 디시 유저 팁'],
+   ['party','👥','추천 파티','game8 추천 편성 + 유저 팁'],
    ['gift','🎁','인연 선물','모험가마다 제일 효과 좋은 선물 순서'],
    ['mon','🐉','몬스터·둥지 사냥','둥지 과제 용어 · 크샬다오라 풍압 대비 · 약점표'],
    ['gather','🌶️','마라두부·채집','마라두부 재료 최대 채집 위치 · 4개 맵 출장 시설'],
@@ -1641,8 +1860,8 @@ function renderGather(){
   <h2 class="sec">마라두부 공장 <small>재료 3종을 출장 식물 시설로 자동 수급 · 사진 누르면 크게</small></h2>
   <section class="hero"><div class="big">바삭바삭 마라두부 레시피</div><div class="chipset"><span class="ing">${ic("고추")}고추 ×2</span><span class="ing">${ic("헤븐 베리")}헤븐 베리 ×1</span><span class="ing">${ic("섬 진품쌀")}섬 진품쌀 ×1</span></div>
    <div>${esc(C.effect)}</div>
-   <div><b>마라두부 공장 배치 (디시)</b>: 부패의 심연 휘광의 호숫가 2곳 → 헤븐 베리 8 · 찬란한 군도 버섯바위섬 2곳 → 섬 진품쌀 7 · 거목의 벌판 구름안개의 숲 → 고추 20. 한 번 수령하면 진품쌀 기준 마라두부 약 7개 분량이에요.</div><div class="maplink" style="padding:4px 0 0;border:0">📷 실제 시설 배치 스크린샷: <a href="https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12017" target="_blank" rel="noopener">디시 「마라두부 공장 건설 완료」</a><a href="https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=4931" target="_blank" rel="noopener">디시 「헤븐 베리 채집 시설 추천 위치」</a><a href="https://gall.dcinside.com/mgallery/board/view/?id=capcommh&no=1533029" target="_blank" rel="noopener">디시 「헤븐 베리 채집 포인트 14곳」</a></div></section>
-  <div class="life">${mara.length?`<section class="world fworld"><h3>공장 자리 ${mara.length}곳<small>디시 「마라두부 공장 건설 완료」 배치</small></h3><div class="flist">${rowsHtml(mara,true)}</div></section>`:`<p class="empty">${esc(lf.m)}에는 마라두부 공장 자리가 없어요. 공장은 부패의 심연·찬란한 군도·거목의 벌판에 있어요.</p>`}</div>
+   <div><b>마라두부 공장 배치</b>: 부패의 심연 휘광의 호숫가 2곳 → 헤븐 베리 8 · 찬란한 군도 버섯바위섬 2곳 → 섬 진품쌀 7 · 거목의 벌판 구름안개의 숲 → 고추 20. 한 번 수령하면 진품쌀 기준 마라두부 약 7개 분량이에요.</div><div class="maplink" style="padding:4px 0 0;border:0">📷 실제 시설 배치 스크린샷: <a href="https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12017" target="_blank" rel="noopener">「마라두부 공장 건설 완료」</a><a href="https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=4931" target="_blank" rel="noopener">「헤븐 베리 채집 시설 추천 위치」</a><a href="https://gall.dcinside.com/mgallery/board/view/?id=capcommh&no=1533029" target="_blank" rel="noopener">「헤븐 베리 채집 포인트 14곳」</a></div></section>
+  <div class="life">${mara.length?`<section class="world fworld"><h3>공장 자리 ${mara.length}곳<small>「마라두부 공장 건설 완료」 배치</small></h3><div class="flist">${rowsHtml(mara,true)}</div></section>`:`<p class="empty">${esc(lf.m)}에는 마라두부 공장 자리가 없어요. 공장은 부패의 심연·찬란한 군도·거목의 벌판에 있어요.</p>`}</div>
   <h2 class="sec">마라두부 재료 위치</h2>
   <div class="c3">${M.map(matCard).join('')}</div>
   <h2 class="sec">마라두부 요리 순서</h2>
@@ -1658,7 +1877,7 @@ function renderGather(){
   <h2 class="sec">광석 채집 시설 <small>★ = 추천 자리</small></h2>
   <div class="life">${kindSec('광석')}</div>
   <div class="maplink" style="border:0;padding:0">📷 다른 자리 사진·지도: <a href="https://gamewith.jp/mhoutlanders/587282" target="_blank" rel="noopener">GameWith 시설 추천 위치</a><a href="https://gamewith.ai/monster-hunter-outlanders/ko/interactive/map" target="_blank" rel="noopener">GameWith 한국어 인터랙티브 지도</a></div>
-  <h2 class="sec">맵 100% 파먹기 <small>디시 「맵 파먹을때 편하게 찾기」</small></h2>
+  <h2 class="sec">맵 100% 파먹기 <small>「맵 파먹을때 편하게 찾기」</small></h2>
   <div class="c2"><section class="box"><ul>${D.maptip.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
   <div class="shots" style="grid-column:auto">${shotFig({f:'m1',map:'찬란한 군도',t:'필드 탐색 탭',y:'돋보기 = 안 한 것만 표시'})}</div></div>
   <h2 class="sec">시설 규칙</h2>
@@ -1683,7 +1902,7 @@ function renderGather(){
     <li>허니 헌터 Lv1: 벌꿀 채집량 증가 (킹비트테스타 머리)</li>
     <li>급할 땐 코르네 마을* 물자 관리소에서 특산품·광석·뼈·나무 구매 (주간 제한)</li>
   </ul></section></div></div>
-  <div class="cat full" style="white-space:normal">* 표시는 한국어판 표기를 찾지 못해 직접 옮긴 이름이에요. 시설 위치·수량은 GameWith 일본판 "출장 채집 시설 추천 위치"와 디시 스샷 기준이에요.</div>`;
+  <div class="cat full" style="white-space:normal">* 표시는 한국어판 표기를 찾지 못해 직접 옮긴 이름이에요. 시설 위치·수량은 GameWith 일본판 "출장 채집 시설 추천 위치"와 유저 스샷 기준이에요.</div>`;
   document.getElementById('n').textContent=`${lf.m==='전체'?'전체 맵':lf.m} · 시설 자리 ${cnt}곳`;
 }
 function scope(){
@@ -1704,14 +1923,14 @@ function stackTables(){
     tb.querySelectorAll('tbody tr').forEach(tr=>[...tr.children].forEach((td,i)=>td.setAttribute('data-label',(hs[i]||'').replace(/\(.*?\)/,''))));
   });
 }
-const GNAME={'시작':'시작','세팅':'세팅','파티':'파티','필드':'필드','채집':'채집'};
+const GNAME={'시작':'시작','세팅':'세팅','파티':'파티','필드':'필드','채집':'채집','길드':'길드'};
 function tabs(list){const box=document.getElementById('g');box.innerHTML='';const groups=[];
   list.forEach(x=>{let g=groups.find(y=>y.k===x[3]);if(!g){g={k:x[3],items:[]};groups.push(g);}g.items.push(x);});
   groups.forEach((g,gi)=>{const w=document.createElement('div');w.className='tg tgx'+gi;w.innerHTML=`<span class="tgl">${GNAME[g.k]||g.k}</span>`;const row=document.createElement('div');row.className='tgb';
     g.items.forEach(([v,icn,label])=>{const b=document.createElement('button');b.className='tab';b.type='button';b.innerHTML=`<span class="ti">${icn}</span><span class="tl">${label}</span>`;b.setAttribute('aria-pressed',st.g===v);b.onclick=()=>go(v);row.appendChild(b);});
     w.appendChild(row);box.appendChild(w);});}
 function enterTab(v){if(st.g!==v){st.g=v;st.t='전체';st.e='전체';st.fit=false;document.getElementById('fit').checked=false;Object.keys(lf).forEach(k=>lf[k]='전체');}}
-function go(v){if(st.g!==v)SUB[v]=0;enterTab(v);save();render();window.scrollTo({top:0});navPush();}
+function go(v){if(st.g!==v)SUB[v]=0;GP=null;enterTab(v);save();render();window.scrollTo({top:0});navPush();}
 function render(){
   tabs(TABDEF); if(st.g!=='art')document.documentElement.style.setProperty('--vc','#c9971f');
   const dirty=st.t!=='전체'||st.e!=='전체'||st.q||st.fit||Object.entries(lf).some(([k,v])=>v!=='전체');
@@ -1795,15 +2014,15 @@ document.getElementById('adapt').addEventListener('change',e=>{st.adapt=e.target
 document.getElementById('reset').onclick=()=>{st.t='전체';st.e='전체';st.q='';st.fit=false;fitEl.checked=false;document.getElementById('q').value='';Object.keys(lf).forEach(k=>lf[k]='전체');render();};
 /* 뒤로·앞으로: 탭과 하위 메뉴를 브라우저 기록에 남겨요 */
 const NAV={i:0,max:0};
-function navHash(){const i=SUB[st.g];return '#'+st.g+(i===-1?'/all':i>0?'/'+i:'');}
-function navParse(h){const [g,s]=String(h||'').replace(/^#/,'').split('/');if(!TABS.includes(g))return null;return {g,s:s==='all'?-1:(parseInt(s,10)||0)};}
+function navHash(){if(st.g==='guide'&&GP)return '#guide/p-'+encodeURIComponent(GP);const i=SUB[st.g];return '#'+st.g+(i===-1?'/all':i>0?'/'+i:'');}
+function navParse(h){const [g,s]=String(h||'').replace(/^#/,'').split('/');if(!TABS.includes(g))return null;if(s&&s.startsWith('p-'))return {g,s:0,p:decodeURIComponent(s.slice(2))};return {g,s:s==='all'?-1:(parseInt(s,10)||0)};}
 function navUI(){const b=document.getElementById('navb'),f=document.getElementById('navf');if(b)b.disabled=NAV.i<=0;if(f)f.disabled=NAV.i>=NAV.max;}
 function navSaveMax(){try{sessionStorage.setItem('mho-nav-max',NAV.max);}catch(_){}}
 function navPush(){const h=navHash();if(location.hash===h){navUI();return;}NAV.i++;NAV.max=NAV.i;navSaveMax();try{history.pushState({i:NAV.i},'',h);}catch(_){}navUI();}
 function navApply(){const p=navParse(location.hash);const si=history.state&&typeof history.state.i==='number'?history.state.i:null;
   if(si!==null)NAV.i=si;else{NAV.i++;NAV.max=NAV.i;navSaveMax();try{history.replaceState({i:NAV.i},'',location.hash);}catch(_){}}
-  navUI();if(!p)return;if(p.g===st.g&&(SUB[p.g]||0)===p.s)return;
-  enterTab(p.g);SUB[p.g]=p.s;save();render();window.scrollTo({top:0});}
+  navUI();if(!p)return;if(p.g===st.g&&(SUB[p.g]||0)===p.s&&(p.p||null)===GP)return;
+  GP=p.p||null;enterTab(p.g);SUB[p.g]=p.s;save();render();window.scrollTo({top:0});}
 window.addEventListener('popstate',navApply);
 window.addEventListener('hashchange',navApply);
 fitEl.addEventListener('change',e=>{st.fit=e.target.checked;save();render();});

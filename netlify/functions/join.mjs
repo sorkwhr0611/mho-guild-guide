@@ -63,6 +63,7 @@ export default async (req) => {
     if (!row) return json({ error: "not_found" }, 404);
     if (STATUSES.includes(b.status)) row.status = b.status;
     if (typeof b.note === "string") row.note = clip(b.note, 120);
+    if (typeof b.nickname === "string" && clip(b.nickname, 24)) row.nickname = clip(b.nickname, 24);
     await store.setJSON(row.id, row);
     return json({ ok: true, row });
   }
