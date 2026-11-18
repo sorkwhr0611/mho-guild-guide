@@ -788,6 +788,8 @@ h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .jsteps{margin:14px 0 0;padding-left:20px;line-height:1.7;font-size:14px;color:var(--muted)}
 .jst{font-size:12px!important;font-weight:800;padding:2px 9px;border-radius:999px;color:#fff!important;background:#8a8f94}
 .jst.s0{background:#c98a14}.jst.s1{background:#2a6fb5}.jst.s2{background:#2c8a4a}.jst.s3{background:#8a8f94}
+.mtab td{vertical-align:middle}.mtab td:nth-child(3){font-size:13.5px}.mlinks{columns:2;column-gap:24px}.mlinks li{break-inside:avoid}@media(max-width:700px){.mlinks{columns:1}}
+.jpg{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding-top:12px;border-top:1px solid var(--line)}.jpg button{font:inherit;font-size:14px;min-width:38px;height:38px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}.jpg button[aria-current]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
 .jadm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px}
 .jadm select,.jadm button,.jadmf input,.jadmf button,.jadmbox button{font:inherit;font-size:13px;padding:5px 10px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
 .jadmbox{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px}
@@ -1122,7 +1124,8 @@ function renderLife(){
    <div><b>지역</b><div class="cat" style="white-space:normal;margin-top:4px;font-size:14px">${I.areas.map(esc).join(' · ')}</div></div>
    <div><b>수집 요소</b><div class="gl" style="margin-top:6px">${I.collect.map(c=>`<span class="stag" style="font-size:14px;padding:4px 10px">${esc(c[0])} ${c[1]}</span>`).join('')}</div><div class="cat" style="white-space:normal;margin-top:4px">채집·요리 탭 "맵 100% 파먹기"에 돋보기로 남은 것 찾는 법이 있어요.</div></div>
    <div class="cat" style="white-space:normal">${esc(I.note)}</div></div></section>`:'';
-  document.getElementById('grid').innerHTML=`<div class="life">${html}${miss}${(html||miss)?'':'<p class="empty">조건에 맞는 생물이 없어요. 필터를 "전체"로 바꾸거나 검색어를 지워 보세요.</p>'}</div>`;
+  const ltip=(D.lifetips||[]).length?`<section class="box"><h3>🔎 환경생물 찾는 요령 <small class="cat">${esc(D.lifesrc||'')}</small></h3><ul>${D.lifetips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`:'';
+  document.getElementById('grid').innerHTML=`<div class="life">${ltip}${html}${miss}${(html||miss)?'':'<p class="empty">조건에 맞는 생물이 없어요. 필터를 "전체"로 바꾸거나 검색어를 지워 보세요.</p>'}</div>`;
   document.getElementById('n').textContent=lf.w==='전체'?`월드별 합계 ${total}건 (전체 ${D.life.length}종)`:`${total}종`;
 }
 
@@ -1131,7 +1134,8 @@ const JOINK='mho-join-mine', ADMK='mho-join-admin';
 const SITE='https://wondrous-otter-9e87e6.netlify.app';
 const onNetlify=()=>/netlify\.app$/.test(location.hostname);
 const JST=['확인 중','안내 완료','가입 완료','보류'];
-let JOIN={rows:null,err:'',admin:false};
+let JOIN={rows:null,err:'',admin:false,page:1};
+const JPP=10; /* 신청 현황 한 페이지에 10명 */
 function admKey(){try{return localStorage.getItem(ADMK)||''}catch(e){return ''}}
 async function joinApi(method,body,qs=''){
   const h={'content-type':'application/json'}; const k=admKey(); if(k) h['x-admin-key']=k;
@@ -1144,12 +1148,15 @@ function joinList(){
   if(JOIN.err) return `<p class="jmsg err" style="margin:0">${esc(JOIN.err)}</p>`;
   if(!JOIN.rows) return '<p class="cat" style="margin:0">불러오는 중…</p>';
   if(!JOIN.rows.length) return '<p class="cat" style="margin:0">아직 신청이 없어요. 첫 신청을 남겨 주세요!</p>';
-  return JOIN.rows.map(r=>`<div class="jitem" data-id="${esc(r.id)}"><div class="jih"><b>${esc(r.nickname)}</b><span>Lv${esc(r.level)} · ${esc(r.time)}</span><span class="jst s${JST.indexOf(r.status)}">${esc(r.status||'확인 중')}</span><em>${fmtT(r.at)}</em></div>${r.main?`<div class="cat">${esc(r.main)}</div>`:''}<p>${esc(r.message)}</p>${JOIN.admin?`<div class="jadm">${r.contact?`<span class="cat">연락처: ${esc(r.contact)}</span>`:''}<select data-act="st">${JST.map(s=>`<option${s===r.status?' selected':''}>${s}</option>`).join('')}</select><button type="button" data-act="del">삭제</button></div>`:''}</div>`).join('');
+  const pp=JPP,n=Math.max(1,Math.ceil(JOIN.rows.length/pp));JOIN.page=Math.min(Math.max(1,JOIN.page||1),n);const rows=JOIN.rows.slice((JOIN.page-1)*pp,JOIN.page*pp);
+  return rows.map(r=>`<div class="jitem" data-id="${esc(r.id)}"><div class="jih"><b>${esc(r.nickname)}</b><span>Lv${esc(r.level)} · ${esc(r.time)}</span><span class="jst s${JST.indexOf(r.status)}">${esc(r.status||'확인 중')}</span><em>${fmtT(r.at)}</em></div>${r.main?`<div class="cat">${esc(r.main)}</div>`:''}<p>${esc(r.message)}</p>${JOIN.admin?`<div class="jadm">${r.contact?`<span class="cat">연락처: ${esc(r.contact)}</span>`:''}<select data-act="st">${JST.map(s=>`<option${s===r.status?' selected':''}>${s}</option>`).join('')}</select><button type="button" data-act="nick">✏️ 닉네임 수정</button><button type="button" data-act="del">삭제</button></div>`:''}</div>`).join('')+(n>1?`<nav class="jpg" aria-label="신청 페이지">${Array.from({length:n},(_,i)=>`<button type="button" data-pg="${i+1}"${i+1===JOIN.page?' aria-current="page"':''}>${i+1}</button>`).join('')}</nav>`:'');
 }
 function paintJoinList(){const el=document.getElementById('jlist');if(!el)return;el.innerHTML=joinList();
   const c=document.getElementById('jcnt'); if(c) c.textContent=JOIN.rows?`${JOIN.rows.length}명`:'';
+  el.querySelectorAll('[data-pg]').forEach(b=>b.onclick=()=>{JOIN.page=+b.dataset.pg;paintJoinList();document.getElementById('jlist').closest('section').scrollIntoView({block:'start'});});
   el.querySelectorAll('[data-act]').forEach(x=>{const id=x.closest('.jitem').dataset.id;
     if(x.dataset.act==='st') x.onchange=async()=>{x.disabled=true;try{await joinApi('PATCH',{id,status:x.value});const r=JOIN.rows.find(r=>r.id===id);if(r)r.status=x.value;}catch(e){alert('바꾸지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
+    if(x.dataset.act==='nick') x.onclick=async()=>{const r=JOIN.rows.find(r=>r.id===id);const v=prompt('바꿀 닉네임을 넣어 주세요 (24자까지)',r?r.nickname:'');if(v===null)return;const nk=v.trim().slice(0,24);if(!nk||(r&&nk===r.nickname))return;try{const j=await joinApi('PATCH',{id,nickname:nk});if(r)r.nickname=(j.row&&j.row.nickname)||nk;}catch(e){alert('바꾸지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
     if(x.dataset.act==='del') x.onclick=async()=>{if(!confirm('이 신청을 지울까요?'))return;try{await joinApi('DELETE',null,'?id='+encodeURIComponent(id));JOIN.rows=JOIN.rows.filter(r=>r.id!==id);}catch(e){alert('지우지 못했어요.');}paintJoinList();};});}
 async function loadJoin(){if(!onNetlify())return;JOIN.err='';try{const j=await joinApi('GET');JOIN.rows=j.rows||[];JOIN.admin=!!j.admin;if(j.waitlist)JOIN.wait=j.waitlist;if(j.arena)applyArena(j.arena,false);}catch(e){JOIN.err='신청 현황을 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.';}paintJoinList();paintAdm();paintWait();}
 /* 격투장 순위: 길마 관리에서 입력 → 모두에게 반영 */
@@ -1163,7 +1170,7 @@ function bindArena(){const b=document.getElementById('arSave');if(!b)return;b.on
   const week=document.getElementById('arWeek').value.trim(),m=document.getElementById('arMsg').value.trim();b.disabled=true;b.textContent='저장 중…';
   try{const j=await joinApi('PUT',{arena:{rank,week,msg:m||`지난주 ${D.guild.arena.title} ${rank}위! 다들 고생 많았어요 🎉`}});applyArena(j.arena,false);b.textContent='저장했어요 ✓';}catch(e){alert('저장하지 못했어요. 관리 비밀번호를 확인해 주세요.');b.textContent='순위 저장';}b.disabled=false;};}
 function paintAdm(){const el=document.getElementById('jadmbox');if(!el)return;
-  el.innerHTML=JOIN.admin?`<span class="cat">길마 관리 모드예요. 신청마다 상태를 바꾸거나 지울 수 있어요.</span> <button type="button" id="jout">관리 끄기</button>${arenaForm()}`
+  el.innerHTML=JOIN.admin?`<span class="cat">길마 관리 모드예요. 신청마다 상태·닉네임을 바꾸거나 지울 수 있어요.</span> <button type="button" id="jout">관리 끄기</button>${arenaForm()}`
    :`<details><summary>길마 관리</summary><div class="jadmf"><input id="jkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" id="jin">들어가기</button></div></details>`;
   const i=document.getElementById('jin'); if(i) i.onclick=async()=>{try{localStorage.setItem(ADMK,document.getElementById('jkey').value.trim())}catch(e){};await loadJoin();if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');};
   const o=document.getElementById('jout'); if(o) o.onclick=()=>{try{localStorage.removeItem(ADMK)}catch(e){};JOIN.admin=false;JOIN.wedit=false;loadJoin();};
@@ -1469,6 +1476,12 @@ function renderExplore(){
   document.querySelectorAll('.mchk input').forEach(c=>c.onchange=()=>{S[c.dataset.k]=c.checked;try{localStorage.setItem('mho-explore',JSON.stringify(S));}catch(e){}const card=c.closest('.mapc');card.querySelector('.mprog').textContent=`${card.querySelectorAll('input:checked').length}/${X.steps.length}`;});
   document.getElementById('n').textContent='';
 }
+function moreSec(m){
+  const srcs=(m.src||[]).map(x=>`<a href="${esc(x[1])}" target="_blank" rel="noopener">${esc(x[0])}</a>`).join(' · ');
+  let body='';
+  if(m.type==='table') body=`<section class="box full"><div class="tw"><table class="natab nostack mtab"><thead><tr>${m.cols.map(c=>`<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${m.rows.map(r=>`<tr>${r.map((c,i)=>`<td>${i===0?`<span class="nm">${PHT(c.replace(/ \(SR\)$/,''),'sm')}<b>${esc(c)}</b></span>`:i===1?`<b class="fx">${esc(c)}</b>`:esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${m.note?`<p class="cat" style="white-space:normal;margin:0">${esc(m.note)}</p>`:''}</section>`;
+  else body=`<div class="c3 eq">${m.items.map(h=>`<section class="box hcard2"><h3>${h[0]} ${esc(h[1])}</h3><p>${esc(h[2])}</p></section>`).join('')}</div>${m.links?`<section class="box full"><h3>🔗 원문 글</h3><ul class="mlinks">${m.links.map(l=>`<li><a href="${esc(l[1])}" target="_blank" rel="noopener">${esc(l[0])}</a></li>`).join('')}</ul></section>`:''}`;
+  return `<h2 class="sec">${esc(m.h)} <small>${esc(m.sm)}</small></h2>${body}${srcs?`<div class="cat full" style="white-space:normal">출처: ${srcs}</div>`:''}`;}
 function renderTips(){
   clearBar(); const T=D.tipx; const now=new Date(Date.now()+9*3600e3-0); const today=now.toISOString().slice(5,10);
   const yr=s=>s>='10-01'?'2026-'+s:'2027-'+s; const tdy=new Date(now.toISOString().slice(0,10));
@@ -1532,10 +1545,10 @@ function renderTips(){
   <h2 class="sec">커마 저장 · 코드 <small>무료 변경 · 차림새 ID</small></h2>
   <section class="box full"><h3>💾 커마 저장해 두면 무료로 바꾸기 <small class="mvk">${esc(T.cosmsave.src)}</small></h3><ol>${T.cosmsave.steps.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><p class="cat" style="white-space:normal;margin:0">${esc(T.cosmsave.note)}</p></section>
   <div class="cosm">${T.cosm.map(c=>`<div class="ccard"><figure class="shot" data-f="${c[0]}"><img src="${SHOT[c[0]]}" alt="" loading="lazy"></figure><div class="cc"><span><b>${esc(c[1])}</b><small>${esc(c[2])}</small></span><button type="button" class="cpy" data-c="${esc(c[1])}">복사</button></div></div>`).join('')}</div>
-  <div class="cat full" style="white-space:normal">${esc(T.cosmnote)}</div>`;
+  <div class="cat full" style="white-space:normal">${esc(T.cosmnote)}</div>${(T.more||[]).map(moreSec).join('')}`;
   {const G=document.getElementById('grid');const M=[['최신 업데이트','tip',1,'최신 업데이트',''],['11월 이벤트','tip',2,'이벤트 일정',''],['쿠폰','tip',3,'쿠폰 코드',''],['최신 방어구','tip',4,'새 방어구',''],
    ['주인공 쌍검','guide',1,'주인공 쌍검','무기·캐릭터'],['대검 속성셋','guide',2,'대검 딜 비교','무기·캐릭터'],['크샬 이벤트 번개','guide',3,'번개 헤비보우건','무기·캐릭터'],['루카','guide',4,'루카 (활)','무기·캐릭터'],['엔쇼우','guide',5,'엔쇼우 (대검)','무기·캐릭터'],
-   ['록온','guide',6,'록온 약점 주의','시스템'],['장비 세트 삭제','guide',7,'장비 세트 삭제','시스템'],['칭호','guide',8,'칭호 · 훈장','시스템'],['커마','guide',9,'커마 저장 · 코드','시스템']];
+   ['록온','guide',6,'록온 약점 주의','시스템'],['장비 세트 삭제','guide',7,'장비 세트 삭제','시스템'],['칭호','guide',8,'칭호 · 훈장','시스템'],['커마','guide',9,'커마 저장 · 코드','시스템'],...(T.more||[]).map((m,i)=>[m.h,'guide',(m.grp==='무기·캐릭터'?5.5:m.grp==='사냥'?5.7:9.5)+i/100,m.short,m.grp])];
    const secs=[];let cur=null;[...G.children].forEach(el=>{if(el.matches('h2.sec')){const m=M.find(x=>el.textContent.trim().startsWith(x[0]))||['', 'guide',99,'',''];el.dataset.short=m[3];el.dataset.grp=m[4];cur={m,els:[]};secs.push(cur);}if(cur)cur.els.push(el);else el.remove();});
    G.innerHTML='';secs.filter(s=>s.m[1]===st.g).sort((a,b)=>a.m[2]-b.m[2]).forEach(s=>s.els.forEach(el=>G.appendChild(el)));}
   document.querySelectorAll('.cpy').forEach(b=>b.onclick=()=>{const v=b.dataset.c;const ok=()=>{b.textContent='복사됨';setTimeout(()=>b.textContent='복사',1200);};if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(v).then(ok,()=>{prompt('코드',v)});else prompt('코드',v);});
