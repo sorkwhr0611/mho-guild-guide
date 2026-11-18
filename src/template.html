@@ -1002,10 +1002,10 @@ a{overflow-wrap:anywhere}
 .gtabs button{font:inherit;font-size:14px;font-weight:700;padding:9px 4px;border:0;border-radius:9px;background:none;color:var(--muted);cursor:pointer}
 .gtabs button[aria-selected="true"]{background:var(--accent);color:#fff}
 .gfrom select,.gedit select,.gedit input{width:100%;font:inherit;font-size:15px;padding:8px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}
-.gbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.gbar button,.gfile{font:inherit;font-size:14px;font-weight:700;padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
-.gbar .pri,.gfile.pri{background:var(--accent);border-color:var(--accent);color:#fff}.gfile input{display:none}
-.gbar .gdel{color:#c0392b;border-color:#c0392b;background:var(--panel)}
+.gtbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.gtbar button,.gfile{font:inherit;font-size:14px;font-weight:700;padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.gtbar .pri,.gfile.pri{background:var(--accent);border-color:var(--accent);color:#fff}.gfile input{display:none}
+.gtbar .gdel{color:#c0392b;border-color:#c0392b;background:var(--panel)}
 .gname{font:inherit;font-size:14.5px;font-weight:700;padding:9px 8px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;position:relative}
 .gname:disabled{cursor:default;opacity:1}.gname:not(:disabled):hover{border-color:var(--accent)}.gname.sel{background:var(--accent);border-color:var(--accent);color:#fff}.gname.gone{opacity:.6}
 .gnewb{font-style:normal;font-size:10.5px;font-weight:800;color:#fff;background:#2f8a4a;border-radius:6px;padding:1px 5px;margin-left:4px;vertical-align:1px}
@@ -1420,20 +1420,20 @@ function paintRoster(){const el=document.getElementById('groster');if(!el)return
     <div class="gedg"><label class="jf"><span>이름</span><input id="gedn" value="${esc(ed.name)}" maxlength="24"></label>
     <label class="jf"><span>들어온 주</span><select id="gedf">${wkopt(ed.from,'처음부터')}</select></label>
     <label class="jf"><span>나간 주 <small>(그 주부터 빠져요)</small></span><select id="gedt">${wkopt(ed.to,'계속 단원')}</select></label></div>
-    <div class="gbar"><button type="button" class="pri" id="geds">저장</button><button type="button" id="gedleave">이번 주부터 나감</button><span style="flex:1"></span><button type="button" class="gdel" id="gedd">완전 삭제</button></div></div>`:'';
+    <div class="gtbar"><button type="button" class="pri" id="geds">저장</button><button type="button" id="gedleave">이번 주부터 나감</button><span style="flex:1"></span><button type="button" class="gdel" id="gedd">완전 삭제</button></div></div>`:'';
   const tab=GUILD.addTab||'text';
   el.innerHTML=`<div class="gtop"><label class="jf"><span>기준 주</span><select id="grday">${days.map(x=>`<option value="${x}"${x===rd?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label><div class="gcnt"><b>${now.length}</b>명</div></div>
    ${R.length?gdiffBanner(rd):''}
    ${A?`<section class="gpanel"><div class="gtabs" role="tablist">${[['text','✍️ 직접 입력'],['xls','📊 엑셀'],['img','📷 스크린샷']].map(([k,l])=>`<button type="button" role="tab" data-tab="${k}" aria-selected="${tab===k}">${l}</button>`).join('')}</div>
     <label class="jf gfrom"><span>추가하는 단원은 언제부터?</span><select id="gfrom">${wkopt(GUILD.addFrom||'','처음부터 (지난 기록에도 나와요)')}</select></label>
-    ${tab==='text'?`<textarea id="gnames" class="wln2" rows="4" placeholder="한 줄에 한 명씩 (순서는 상관없어요, 자동 정렬돼요)\n퇴근후한판\n칼퇴수렵"></textarea><div class="gbar"><span class="cat" id="gocrm">${esc(GUILD.ocr||'')}</span><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div>`:''}
+    ${tab==='text'?`<textarea id="gnames" class="wln2" rows="4" placeholder="한 줄에 한 명씩 (순서는 상관없어요, 자동 정렬돼요)\n퇴근후한판\n칼퇴수렵"></textarea><div class="gtbar"><span class="cat" id="gocrm">${esc(GUILD.ocr||'')}</span><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div>`:''}
     ${tab==='xls'?`<p class="cat gnote">닉네임 · 참석여부(O/X) 두 열 엑셀을 올리면 <b>${md(rd)}</b> 명부와 출석이 바로 반영돼요. O = 출석 체크, X = 미표기, 빈칸 = 그대로.</p>
-     <div class="gbar"><label class="gfile pri"><input type="file" id="gxls" accept=".xlsx,.xls,.csv">📊 엑셀 파일 고르기</label><button type="button" id="gxtpl">양식 받기</button></div>
+     <div class="gtbar"><label class="gfile pri"><input type="file" id="gxls" accept=".xlsx,.xls,.csv">📊 엑셀 파일 고르기</label><button type="button" id="gxtpl">양식 받기</button></div>
      <label class="fit"><input type="checkbox" id="gxsyncck"${GUILD.xsync?' checked':''}> 엑셀에 없는 단원은 이 주부터 나간 것으로 처리</label>
      ${GUILD.xmsg?`<div class="gxprev"><b>📊 ${esc(GUILD.xmsg)}</b></div>`:''}`:''}
     ${tab==='img'?`<p class="cat gnote" id="gocrm" role="status">${esc(GUILD.ocr||'게임 모험단 단원 목록 화면을 캡처해서 올리면 이름을 뽑아 줘요. 여러 장 한 번에 돼요. 결과는 꼭 확인하고 고쳐 주세요.')}</p>
-     <div class="gbar"><label class="gfile pri"><input type="file" id="gimg" accept="image/*" multiple>📷 스크린샷 고르기</label></div>
-     <textarea id="gnames" class="wln2" rows="4" placeholder="읽은 이름이 여기 들어와요. 고친 뒤 추가하세요."></textarea><div class="gbar"><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div>`:''}
+     <div class="gtbar"><label class="gfile pri"><input type="file" id="gimg" accept="image/*" multiple>📷 스크린샷 고르기</label></div>
+     <textarea id="gnames" class="wln2" rows="4" placeholder="읽은 이름이 여기 들어와요. 고친 뒤 추가하세요."></textarea><div class="gtbar"><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div>`:''}
    </section>`:'<p class="cat gnote">이름 추가·수정은 길마만 할 수 있어요. 오른쪽 아래 🔑 길마 모드를 켜 주세요.</p>'}
    ${now.length?`${A?'<p class="cat gnote">이름을 누르면 이름·기간을 고치거나 뺄 수 있어요.</p>':''}<div class="grl">${now.map(chip).join('')}</div>${ed&&gact(ed,rd)?editor:''}`:'<p class="cat" style="margin:0">이 주에 등록된 단원이 없어요.</p>'}
    ${gone.length?`<details class="ggone"${ed&&!gact(ed,rd)?' open':''}><summary>이 주엔 단원이 아닌 이름 ${gone.length}명</summary><div class="grl">${gone.map(chip).join('')}</div>${ed&&!gact(ed,rd)?editor:''}</details>`:''}
