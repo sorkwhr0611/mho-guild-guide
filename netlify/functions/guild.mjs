@@ -70,14 +70,10 @@ export default async (req) => {
 
   // ---- 투표 · 파티 모집 ----
   if (act === "poll.create") {
-    const kind = b.kind === "party" ? "party" : "vote";
-    let by = "";
-    if (!isAdmin) {
-      if (kind !== "party") return err("forbidden", 403);
-      const m = inRoster(b.nickname);
-      if (!m) return err(norm(b.nickname) ? "not_member" : "nickname");
-      by = m.name;
-    } else if (b.nickname) by = clip(b.nickname, 24);
+    // 투표는 길마만 만드는 익명 투표 하나만 써요 (파티 모집은 없앴어요)
+    const kind = "vote";
+    if (!isAdmin) return err("forbidden", 403);
+    const by = "";
     const title = clip(b.title, 60);
     const options = (Array.isArray(b.options) ? b.options : []).map((o) => clip(o, 40)).filter(Boolean);
     const uniq = [...new Set(options)].slice(0, MAX_OPTS);
