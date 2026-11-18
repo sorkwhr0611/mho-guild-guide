@@ -805,7 +805,7 @@ h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .jadmbox{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px}
 .jadmbox summary{cursor:pointer;color:var(--muted);font-size:13px}
 .jadmf{display:flex;gap:8px;margin-top:8px}
-#jlist{max-height:720px;overflow:auto}
+#jlist{max-height:none;overflow:visible}.glog{margin-top:4px}.glog summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:14px}.glog .jadmf{margin-top:8px}
 
 .jnote{margin-bottom:0}
 .wl{display:grid;gap:12px;margin-top:6px}
@@ -1301,10 +1301,11 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
     if(on&&!GUILD.admin){alert('이미 출석했어요. 취소는 길마만 할 수 있어요.');return;}
     if(!confirm(on?`${m.name}님 출석을 취소할까요?`:`${m.name}님 ${md(d)} 출석 체크할까요?`))return;
     try{const j=await guildApi('POST',{action:on?'att.unmark':'att.mark',date:d,id});GUILD.att[d]=j.present;}catch(e){alert(gmsg(e));}paintAtt();});}
+document.addEventListener('click',async e=>{const b=e.target.closest('.glin');if(!b)return;const k=b.parentElement.querySelector('.glkey').value.trim();if(!k)return;try{localStorage.setItem(ADMK,k)}catch(_){}b.disabled=true;await loadJoin();await loadGuild();b.disabled=false;if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');});
 /* 단원명부 */
 function paintRoster(){const el=document.getElementById('groster');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
   const R=GUILD.roster,A=GUILD.admin;
-  el.innerHTML=`<div class="gah"><b>단원 ${R.length}명</b>${A?'':'<small class="cat">이름 추가·수정은 길마만 할 수 있어요.</small>'}</div>
+  el.innerHTML=`<div class="gah"><b>단원 ${R.length}명</b>${A?'':'<small class="cat">이름 추가·수정·사진 등록은 길마만 할 수 있어요.</small>'}</div>${A?'':`<details class="glog"><summary>🔑 길마 로그인하고 명부 관리하기 (사진으로 이름 등록)</summary><div class="jadmf"><input class="glkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" class="glin">들어가기</button></div></details>`}
    ${R.length?`<div class="grl">${R.map(m=>`<div class="grm" data-id="${esc(m.id)}"><span>${esc(m.name)}</span>${A?'<button type="button" data-act="ren" title="이름 바꾸기" aria-label="이름 바꾸기">✏️</button><button type="button" data-act="del" title="빼기" aria-label="명부에서 빼기">✕</button>':''}</div>`).join('')}</div>`:'<p class="cat" style="margin:0">아직 등록된 단원이 없어요.</p>'}
    ${A?`<div class="gadd"><h3 class="gh3">단원 추가</h3>
     <label class="gocr"><input type="file" id="gimg" accept="image/*"><span>📷 단원 목록 스크린샷으로 이름 읽기</span></label>
