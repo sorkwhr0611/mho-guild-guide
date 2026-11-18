@@ -1022,7 +1022,7 @@ a{overflow-wrap:anywhere}
 .srbar{position:relative;height:8px;border-radius:5px;background:var(--bg);overflow:visible}.srbar i{display:block;height:100%;border-radius:5px;background:var(--accent)}.sr.ok .srbar i{background:#2f8a4a}.srbar u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);text-decoration:none}
 .sre{font-size:12.5px;white-space:normal}.sset .cat,.sslot .cat,.srs .cat{white-space:normal;overflow-wrap:anywhere}
 
-.hinstall:empty{display:none}.hib{font:inherit;font-weight:700;font-size:15px;width:100%;padding:12px;border-radius:12px;border:1.5px dashed var(--accent);background:var(--accent-soft);color:var(--accent);cursor:pointer}.hid{padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--panel);font-size:14px}.hid summary{cursor:pointer;font-weight:700}.hid ul{margin:8px 0 0}
+.hinstall:empty{display:none}.hib{font:inherit;font-weight:700;font-size:15px;width:100%;padding:12px;border-radius:12px;border:1.5px dashed var(--accent);background:var(--accent-soft);color:var(--accent);cursor:pointer}.hid{margin-top:8px;padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--panel);font-size:14px}.hid summary{cursor:pointer;font-weight:700}.hid ul{margin:8px 0 0}
 .hguild{display:grid;gap:10px;padding:14px 16px;border-radius:14px;background:var(--panel);border:1.5px solid var(--line)}.hguild[hidden]{display:none}
 .hgh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.hgh b{font-size:17px}
 .hgg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}@media (max-width:700px){.hgg{grid-template-columns:1fr}}
@@ -1611,9 +1611,14 @@ function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills;
 /* ---- 홈 화면 앱으로 추가 ---- */
 let INSTALL=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();INSTALL=e;if(st.g==='home')paintInstall();});
 function paintInstall(){const el=document.getElementById('hinstall');if(!el)return;const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(standalone){el.innerHTML='';return;}
-  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
-  el.innerHTML=INSTALL?`<button type="button" class="hib" id="hib">📲 홈 화면에 앱으로 추가하기</button>`:`<details class="hid"><summary>📲 폰 홈 화면에 앱처럼 추가하는 법</summary><ul><li><b>아이폰(사파리)</b>: 아래 공유 버튼 → "홈 화면에 추가"</li><li><b>안드로이드(크롬)</b>: 오른쪽 위 ⋮ → "홈 화면에 추가" 또는 "앱 설치"</li><li>추가하면 주소창 없이 앱처럼 바로 열려요.</li></ul></details>`;
-  const b=document.getElementById('hib');if(b)b.onclick=async()=>{INSTALL.prompt();try{await INSTALL.userChoice;}catch(_){}INSTALL=null;paintInstall();};}
+  const ua=navigator.userAgent,ios=/iphone|ipad|ipod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1),kakao=/KAKAOTALK/i.test(ua),inapp=kakao||/NAVER|Instagram|FBAN|FBAV|Line\//i.test(ua),mob=/android|iphone|ipad|ipod|mobile/i.test(ua)||ios;
+  let how;
+  if(inapp)how=`<li><b>${kakao?'카카오톡':'앱 안'} 브라우저에서는 추가가 안 돼요.</b></li><li>${ios?'오른쪽 아래 <b>⋯</b> 또는 공유 → <b>"Safari로 열기"</b>':'오른쪽 위/아래 <b>⋮</b> → <b>"다른 브라우저로 열기"</b>(크롬)'}를 누른 뒤 거기서 다시 이 버튼을 눌러주세요.</li>`;
+  else if(ios)how=`<li>사파리 아래쪽 <b>공유 버튼(□↑)</b> → <b>"홈 화면에 추가"</b> → 추가</li><li>크롬 앱이면 주소창 오른쪽 <b>공유</b> → "홈 화면에 추가"</li>`;
+  else if(mob)how=`<li>크롬 오른쪽 위 <b>⋮</b> → <b>"홈 화면에 추가"</b> 또는 <b>"앱 설치"</b></li><li>삼성 인터넷: 아래 <b>≡</b> → "현재 페이지 추가" → 홈 화면</li>`;
+  else how=`<li>크롬·엣지 주소창 오른쪽 <b>설치 아이콘(⊕)</b> 또는 메뉴 → <b>"앱 설치"</b></li>`;
+  el.innerHTML=`<button type="button" class="hib" id="hib">📲 홈 화면에 앱으로 추가하기</button><div class="hid" id="hih" hidden><ul>${how}<li>추가하면 주소창 없이 앱처럼 바로 열려요.</li></ul></div>`;
+  const b=document.getElementById('hib');b.onclick=async()=>{if(INSTALL&&!inapp){INSTALL.prompt();try{await INSTALL.userChoice;}catch(_){}INSTALL=null;paintInstall();return;}const h=document.getElementById('hih');h.hidden=!h.hidden;};}
 /* ---- 카톡 공유용 요약 ---- */
 function guildSummary(d){const R=gsort(GUILD.roster.filter(m=>gact(m,d))),P=new Set(GUILD.att[d]||[]),yes=R.filter(m=>P.has(m.id)),no=R.filter(m=>!P.has(m.id));
   const pv=gprev(d),inn=gsort(GUILD.roster.filter(m=>gact(m,d)&&!gact(m,pv))),out=gsort(GUILD.roster.filter(m=>gact(m,pv)&&!gact(m,d)));
@@ -2431,7 +2436,7 @@ if(onNetlify())fetch('/api/join?meta=1').then(r=>r.ok?r.json():null).then(j=>{if
 /* 모바일: 아래로 스크롤하면 ←→ 버튼 숨기고, 위로 올리면 다시 보여요 */
 {let ly=scrollY;addEventListener('scroll',()=>{const np=document.getElementById('navpill');if(!np)return;const y=scrollY;if(Math.abs(y-ly)<8)return;np.classList.toggle('hide',y>ly&&y>200);ly=y;},{passive:true});}
 
-if('serviceWorker' in navigator&&/netlify\.app$/.test(location.hostname))addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+if('serviceWorker' in navigator&&location.protocol==='https:')addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
 </script>
 </body>
 </html>
