@@ -22,6 +22,8 @@ function lastSaturday(now = Date.now()) {
 }
 // 그 주(토요일 d)에 단원이었나: from(들어온 주) ≤ d < to(나간 주)
 const activeOn = (m, d) => (!m.from || m.from <= d) && (!m.to || d < m.to);
+// 다음 주 토요일까지는 미리 만들어 둘 수 있어요
+const nextSaturday = () => new Date(new Date(lastSaturday() + "T00:00:00Z").getTime() + 7 * 864e5).toISOString().slice(0, 10);
 const isSat = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && new Date(d + "T00:00:00Z").getUTCDay() === 6;
 
 function pollView(p, admin) {
@@ -132,7 +134,7 @@ export default async (req) => {
   // ---- 출석부 ----
   if (act === "att.mark" || act === "att.unmark") {
     const d = clip(b.date, 10);
-    if (!isSat(d) || d > lastSaturday()) return err("date");
+    if (!isSat(d) || d > nextSaturday()) return err("date");
     if (act === "att.unmark" && !isAdmin) return err("forbidden", 403);
     const mid = clip(b.id, 40);
     const mm = roster.members.find((m) => m.id === mid);
@@ -162,7 +164,7 @@ export default async (req) => {
   // 여러 명 한 번에 저장 (추가는 누구나, 빼기는 길마만)
   if (act === "att.bulk") {
     const d = clip(b.date, 10);
-    if (!isSat(d) || d > lastSaturday()) return err("date");
+    if (!isSat(d) || d > nextSaturday()) return err("date");
     const ids = (v) => (Array.isArray(v) ? v : []).map((x) => clip(x, 40)).slice(0, MAX_ROSTER);
     const add = ids(b.add), del = ids(b.remove);
     if (del.length && !isAdmin) return err("forbidden", 403);

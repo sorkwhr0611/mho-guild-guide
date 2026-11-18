@@ -994,6 +994,9 @@ a{overflow-wrap:anywhere}
 @media (max-width:600px){.maplink a,.box .cat a,.howto .src a{display:inline-block;padding:5px 0}.kakao{min-height:48px}}
 
 /* ===== guild layout v2 ===== */
+section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.gtop select,.gfrom select,.gedit select{min-width:0;max-width:100%}
+#navpill{transition:transform .2s,opacity .2s}#navpill.hide{transform:translateY(120%);opacity:0;pointer-events:none}@media (max-width:700px){#navpill{opacity:.92}}
+.asg i{font-size:12px}.jf small{font-size:12px}.box li a{padding:3px 0}
 .gtop{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .gtop .jf{flex:1 1 220px;max-width:320px}.gtop select{width:100%;font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}
 .gcnt{font-size:15px;color:var(--muted);white-space:nowrap}.gcnt b{font-size:30px;color:var(--accent);font-family:var(--display);font-weight:400;margin-right:2px}
@@ -1285,7 +1288,9 @@ const GERR={not_member:'단원명부에 없는 닉네임이에요. 닉네임을 
   period:'들어온 주가 나간 주보다 앞이어야 해요.',names:'명단이 비어 있어요.',forbidden:'길마만 할 수 있어요. 관리 비밀번호를 확인해 주세요.',title:'제목을 적어 주세요.',options:'선택지를 투표는 2개, 파티 모집은 1개 이상 적어 주세요.',full:'투표가 너무 많아요. 지난 투표를 지워 주세요.',
   date:'토요일 날짜만 체크할 수 있어요.',dup:'이미 같은 이름이 있어요.',name:'이름을 적어 주세요.',not_found:'이미 지워졌어요. 새로고침해 주세요.'};
 const gmsg=e=>GERR[e&&e.code]||'저장이 안 됐어요. 잠시 뒤 다시 해 주세요.';
-function satList(n=8){const out=[];let d=new Date((GUILD.sat||kstSat())+'T00:00:00Z');for(let i=0;i<n;i++){out.push(d.toISOString().slice(0,10));d=new Date(d.getTime()-7*864e5);}return out;}
+const GSTART='2026-11-14'; /* 출석부 첫 주 */
+function satList(n=99){const out=[];const cur=GUILD.sat||kstSat();let d=new Date(new Date(cur+'T00:00:00Z').getTime()+7*864e5);for(let i=0;i<n;i++){const x=d.toISOString().slice(0,10);if(x<GSTART)break;out.push(x);d=new Date(d.getTime()-7*864e5);}return out;}
+const satLabel=x=>`${md(x)} (토)${x===GUILD.sat?' · 이번 주':x>GUILD.sat?' · 다음 주 (미리)':''}`;
 function kstSat(){const k=new Date(Date.now()+9*36e5);return new Date(k.getTime()-((k.getUTCDay()+1)%7)*864e5).toISOString().slice(0,10);}
 const md=d=>{const [,m,dd]=d.split('-');return `${+m}/${+dd}`;};
 function guildSections(){return `
@@ -1371,13 +1376,13 @@ function gscript(n){const c=String(n||'').trim().charAt(0);if(/[가-힣ㄱ-ㅎ�
 function gsort(R){return R.slice().sort((x,y)=>{const a=gscript(x.name),b=gscript(y.name);if(a!==b)return a-b;return GCOL[['ko','en','ja','x'][a]].compare(x.name,y.name);});}
 const gact=(m,d)=>(!m.from||m.from<=d)&&(!m.to||d<m.to);
 function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
-  const days=satList(8),d=GUILD.day||GUILD.sat,P=new Set(GUILD.att[d]||[]);
+  const days=satList(),hist=days.filter(x=>x<=GUILD.sat).slice(0,8),d=GUILD.day||GUILD.sat,P=new Set(GUILD.att[d]||[]);
   const R=gsort(GUILD.roster.filter(m=>gact(m,d)));
   if(!GUILD.sel||GUILD.selDay!==d){GUILD.sel=new Set(P);GUILD.selDay=d;}
   const S=GUILD.sel,add=[...S].filter(i=>!P.has(i)),del=[...P].filter(i=>!S.has(i));
   const yes=R.filter(m=>P.has(m.id)),no=R.filter(m=>!P.has(m.id));
-  const rows=gsort(GUILD.roster.filter(m=>days.some(x=>gact(m,x))));
-  el.innerHTML=`<div class="gtop"><label class="jf"><span>날짜</span><select id="gday">${days.map(x=>`<option value="${x}"${x===d?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label>
+  const rows=gsort(GUILD.roster.filter(m=>hist.some(x=>gact(m,x))));
+  el.innerHTML=`<div class="gtop"><label class="jf"><span>날짜</span><select id="gday">${days.map(x=>`<option value="${x}"${x===d?' selected':''}>${satLabel(x)}</option>`).join('')}</select></label>
    <div class="gcnt"><b>${yes.length}</b> / ${R.length}명 참여</div></div>${GUILD.roster.length?gdiffBanner(d):''}
    ${R.length?`<p class="cat gnote">길드전에 참여한 단원 이름을 눌러 고르고 <b>참여 저장</b>을 누르면 한꺼번에 저장돼요.${GUILD.admin?' 체크를 풀면 참여 취소예요.':' 저장된 참여 취소는 길마만 할 수 있어요.'}</p>
    <div class="gchips">${R.map(m=>{const on=S.has(m.id),ch=on!==P.has(m.id);return `<button type="button" class="gchip${on?' on':''}${ch?' chg':''}" data-id="${esc(m.id)}" aria-pressed="${on}">${on?'✓ ':''}${esc(m.name)}</button>`;}).join('')}</div>
@@ -1385,8 +1390,8 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
    <div class="gweek"><h3 class="gh3">${md(d)} 길드전 참여 내역</h3>
     <p><b class="ok">참여 ${yes.length}명</b> ${yes.length?yes.map(m=>esc(m.name)).join(', '):'<span class="cat">아직 없어요</span>'}</p>
     <p><b class="gno">미참여 ${no.length}명</b> <span class="gnl">${no.map(m=>esc(m.name)).join(', ')}</span></p></div>
-   <details class="ghist"${GUILD.histOpen?' open':''}><summary>📅 최근 8주 길드전 참여 기록 보기</summary><div class="tw gattw"><table class="gatab nostack"><thead><tr><th>단원</th>${days.slice().reverse().map(x=>`<th${x===d?' class="cur"':''}>${md(x)}</th>`).join('')}<th>합계</th></tr></thead><tbody>
-   ${rows.map(m=>{let c=0;const cells=days.slice().reverse().map(x=>{if(!gact(m,x))return '<td class="cat">–</td>';const on=(GUILD.att[x]||[]).includes(m.id);if(on)c++;return `<td>${on?'✓':''}</td>`;}).join('');return `<tr><td class="gan">${esc(m.name)}</td>${cells}<td><b>${c}</b></td></tr>`;}).join('')}</tbody></table></div><p class="cat gnote">– = 그 주엔 단원이 아니었어요.</p></details>
+   <details class="ghist"${GUILD.histOpen?' open':''}><summary>📅 최근 길드전 참여 기록 보기 (${hist.length}주)</summary><div class="tw gattw"><table class="gatab nostack"><thead><tr><th>단원</th>${hist.slice().reverse().map(x=>`<th${x===d?' class="cur"':''}>${md(x)}</th>`).join('')}<th>합계</th></tr></thead><tbody>
+   ${rows.map(m=>{let c=0;const cells=hist.slice().reverse().map(x=>{if(!gact(m,x))return '<td class="cat">–</td>';const on=(GUILD.att[x]||[]).includes(m.id);if(on)c++;return `<td>${on?'✓':''}</td>`;}).join('');return `<tr><td class="gan">${esc(m.name)}</td>${cells}<td><b>${c}</b></td></tr>`;}).join('')}</tbody></table></div><p class="cat gnote">– = 그 주엔 단원이 아니었어요.</p></details>
    ${GUILD.admin?`<details class="gtools"><summary>⚙️ 관리 도구</summary><div class="gdanger"><b>⚠️ 되돌릴 수 없어요</b><button type="button" id="gattclr">${md(d)} 참여 기록 삭제</button><button type="button" id="gattclrall">모든 주 참여 기록 삭제</button></div></details>`:''}`
    :'<p class="cat" style="margin:0">이 주에 해당하는 단원이 없어요. 길마가 단원명부에서 이름을 넣으면 길드전 출석부가 생겨요.</p>'}`;
   const sel=document.getElementById('gday');if(sel)sel.onchange=()=>{GUILD.day=sel.value;paintAtt();};
@@ -1405,15 +1410,16 @@ document.addEventListener('click',async e=>{const b=e.target.closest('.glin');if
 /* 단원명부 */
 function gprev(d){return new Date(new Date(d+'T00:00:00Z').getTime()-7*864e5).toISOString().slice(0,10);}
 function gdiffBanner(d){const pv=gprev(d),R=GUILD.roster;
+  if(d<=GSTART)return `<div class="gdiff"><b>📣 ${md(d)} 단원 변동</b><span class="cat">출석부 첫 주예요. 다음 주부터 지난주 대비 들어온·나간 단원을 보여줘요.</span></div>`;
   const inn=gsort(R.filter(m=>gact(m,d)&&!gact(m,pv))),out=gsort(R.filter(m=>gact(m,pv)&&!gact(m,d)));
   const lab=d===GUILD.sat?`이번 주(${md(d)})`:`${md(d)} 주`;
   if(!inn.length&&!out.length)return `<div class="gdiff"><b>📣 ${lab} 단원 변동</b><span class="cat">지난주(${md(pv)})와 같아요. 들어오거나 나간 단원이 없어요.</span></div>`;
   return `<div class="gdiff on"><b>📣 ${lab} 단원 변동 <small class="cat">지난주 ${md(pv)} 대비</small></b>${inn.length?`<div><span class="gdin">🆕 들어온 단원 ${inn.length}명</span> ${inn.map(m=>esc(m.name)).join(', ')}</div>`:''}${out.length?`<div><span class="gdout">👋 나간 단원 ${out.length}명</span> ${out.map(m=>esc(m.name)).join(', ')}</div>`:''}</div>`;}
 function gperiod(m){return m.from&&m.to?`${md(m.from)}~${md(m.to)} 전 주까지`:m.from?`${md(m.from)}부터`:m.to?`~${md(m.to)} 전 주까지`:'';}
 function paintRoster(){const el=document.getElementById('groster');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
-  const A=GUILD.admin,days=satList(26),rd=GUILD.rday||GUILD.sat,R=GUILD.roster;
+  const A=GUILD.admin,days=satList(),rd=GUILD.rday||GUILD.sat,R=GUILD.roster;
   const now=gsort(R.filter(m=>gact(m,rd))),gone=gsort(R.filter(m=>!gact(m,rd)));
-  const wkopt=(cur,first)=>`<option value="">${first}</option>`+days.map(x=>`<option value="${x}"${x===cur?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('');
+  const wkopt=(cur,first)=>`<option value="">${first}</option>`+days.map(x=>`<option value="${x}"${x===cur?' selected':''}>${satLabel(x)}</option>`).join('');
   const ed=A&&GUILD.edit&&R.find(m=>m.id===GUILD.edit);
   const chip=m=>`<button type="button" class="gname${gact(m,rd)?'':' gone'}${ed&&ed.id===m.id?' sel':''}" data-id="${esc(m.id)}"${A?'':' disabled'} title="${esc(m.name)}${gperiod(m)?' · '+esc(gperiod(m)):''}">${esc(m.name)}${m.from===rd?'<i class="gnewb">NEW</i>':''}</button>`;
   const editor=ed?`<div class="gedit"><div class="gedh"><b>✏️ ${esc(ed.name)}</b><button type="button" class="gx" id="gedx" aria-label="닫기">✕</button></div>
@@ -1422,7 +1428,7 @@ function paintRoster(){const el=document.getElementById('groster');if(!el)return
     <label class="jf"><span>나간 주 <small>(그 주부터 빠져요)</small></span><select id="gedt">${wkopt(ed.to,'계속 단원')}</select></label></div>
     <div class="gtbar"><button type="button" class="pri" id="geds">저장</button><button type="button" id="gedleave">이번 주부터 나감</button><span style="flex:1"></span><button type="button" class="gdel" id="gedd">완전 삭제</button></div></div>`:'';
   const tab=GUILD.addTab||'text';
-  el.innerHTML=`<div class="gtop"><label class="jf"><span>기준 주</span><select id="grday">${days.map(x=>`<option value="${x}"${x===rd?' selected':''}>${md(x)} (토)${x===GUILD.sat?' · 이번 주':''}</option>`).join('')}</select></label><div class="gcnt"><b>${now.length}</b>명</div></div>
+  el.innerHTML=`<div class="gtop"><label class="jf"><span>기준 주</span><select id="grday">${days.map(x=>`<option value="${x}"${x===rd?' selected':''}>${satLabel(x)}</option>`).join('')}</select></label><div class="gcnt"><b>${now.length}</b>명</div></div>
    ${R.length?gdiffBanner(rd):''}
    ${A?`<section class="gpanel"><div class="gtabs" role="tablist">${[['text','✍️ 직접 입력'],['xls','📊 엑셀'],['img','📷 스크린샷']].map(([k,l])=>`<button type="button" role="tab" data-tab="${k}" aria-selected="${tab===k}">${l}</button>`).join('')}</div>
     <label class="jf gfrom"><span>추가하는 단원은 언제부터?</span><select id="gfrom">${wkopt(GUILD.addFrom||'','처음부터 (지난 기록에도 나와요)')}</select></label>
@@ -2257,6 +2263,9 @@ function tipFor(el){const k=el.dataset.tip, kind=el.dataset.tk||'i', id=kind+':'
  document.getElementById('navf').onclick=()=>{if(NAV.i<NAV.max)history.forward();};}
 render();navUI();
 if(onNetlify())fetch('/api/join?meta=1').then(r=>r.ok?r.json():null).then(j=>{if(j&&j.arena)applyArena(j.arena,true);if(j&&j.waitlist&&!JOIN.wait){JOIN.wait=j.waitlist;}}).catch(()=>{});
+
+/* 모바일: 아래로 스크롤하면 ←→ 버튼 숨기고, 위로 올리면 다시 보여요 */
+{let ly=scrollY;addEventListener('scroll',()=>{const np=document.getElementById('navpill');if(!np)return;const y=scrollY;if(Math.abs(y-ly)<8)return;np.classList.toggle('hide',y>ly&&y>200);ly=y;},{passive:true});}
 </script>
 </body>
 </html>
