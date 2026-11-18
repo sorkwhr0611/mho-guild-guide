@@ -790,8 +790,8 @@ h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .jst.s0{background:#c98a14}.jst.s1{background:#2a6fb5}.jst.s2{background:#2c8a4a}.jst.s3{background:#8a8f94}
 .mtab td{vertical-align:middle}.mtab td:nth-child(3){font-size:13.5px}.mlinks{columns:2;column-gap:24px}.mlinks li{break-inside:avoid}@media(max-width:700px){.mlinks{columns:1}}
 .board{gap:12px}.bhead{display:grid;gap:10px}.bcats{display:flex;flex-wrap:wrap;gap:6px}.bcats .chip small{opacity:.7;font-size:11.5px}
-.blist{list-style:none;margin:0;padding:0;display:grid}.blist li{border-top:1px solid var(--line)}
-.brow{font:inherit;color:var(--ink);background:none;border:0;width:100%;text-align:left;display:grid;grid-template-columns:36px 92px 1fr 56px;gap:10px;align-items:center;padding:11px 4px;cursor:pointer}
+.board .blist{list-style:none;margin:0;padding:0;display:grid;gap:0;max-width:none;width:100%}.blist li{border-top:1px solid var(--line)}
+.brow{font:inherit;color:var(--ink);background:none;border:0;width:100%;text-align:left;display:grid;grid-template-columns:36px 92px 1fr 56px;gap:10px;align-items:center;padding:9px 8px;cursor:pointer;border-radius:8px}.brow:hover{background:var(--accent-soft)}
 .brow:hover .bt b{color:var(--accent)}.bno{color:var(--muted);font-size:12.5px;text-align:center;font-variant-numeric:tabular-nums}
 .bcat{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 7px;text-align:center;white-space:nowrap}
 .bt{display:grid;gap:1px;min-width:0}.bt b{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bt small{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -1658,14 +1658,14 @@ function renderExplore(){
   document.querySelectorAll('.mchk input').forEach(c=>c.onchange=()=>{S[c.dataset.k]=c.checked;try{localStorage.setItem('mho-explore',JSON.stringify(S));}catch(e){}const card=c.closest('.mapc');card.querySelector('.mprog').textContent=`${card.querySelectorAll('input:checked').length}/${X.steps.length}`;});
   document.getElementById('n').textContent='';
 }
-let GP=null, BCAT='전체';
+let GP=null, BCAT='전체', BPG=1; const BPP=15;
 const BCATS=['전체','무기·세팅','모험가','몬스터·사냥','채집·탐색','초보·시스템','생활·편의'];
 const BGRP={'무기·캐릭터':'무기·세팅','사냥':'몬스터·사냥','시스템':'초보·시스템'};
 function boardList(mine){
   const sec=mine.map(s=>{const h=s.els[0];const c=h.cloneNode(true);c.querySelectorAll('small,.ph').forEach(x=>x.remove());const sm=h.querySelector('small');
     const t=c.textContent.trim();const cat=/^(루카|엔쇼우|주인공|모험가)/.test(t)&&!/세팅|프리셋/.test(t)?'모험가':(BGRP[s.m[4]]||'초보·시스템');
     return {id:'s-'+s.m[3],cat,title:t,sub:sm?sm.textContent.trim():'',date:'',sec:s};});
-  const posts=(D.board||[]).map(b=>({id:b.id,cat:b.cat,title:b.title,sub:'',date:b.date,post:b}));
+  const posts=(D.board||[]).map((b,i)=>({id:b.id,cat:b.cat,title:b.title,sub:'',date:b.date,post:b,i})).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||a.i-b.i);
   const all=[...posts,...sec];
   return all;}
 function renderBoard(G,mine){
@@ -1676,10 +1676,11 @@ function renderBoard(G,mine){
   GP=null;
   const q=(st.q||'').trim().toLowerCase();
   const rows=all.filter(x=>(BCAT==='전체'||x.cat===BCAT)&&(!q||(x.title+' '+x.sub+' '+(x.post?x.post.lines.join(' '):'')).toLowerCase().includes(q)));
-  const cnt=c=>c==='전체'?all.length:all.filter(x=>x.cat===c).length;
+  const cnt=c=>c==='전체'?all.length:all.filter(x=>x.cat===c).length;const np=Math.max(1,Math.ceil(rows.length/BPP));BPG=Math.min(Math.max(1,BPG),np);
   G.innerHTML=`<section class="box full board"><div class="bhead"><h3>📋 공략 게시판 <small class="cat">${all.length}개 글</small></h3><div class="bcats">${BCATS.filter(c=>cnt(c)).map(c=>`<button type="button" class="chip" data-c="${esc(c)}" aria-pressed="${c===BCAT}">${esc(c)} <small>${cnt(c)}</small></button>`).join('')}</div></div>
-  <ol class="blist">${rows.map((x,i)=>`<li><button type="button" class="brow" data-id="${esc(x.id)}"><span class="bno">${rows.length-i}</span><span class="bcat">${esc(x.cat)}</span><span class="bt"><b>${esc(x.title)}</b>${x.sub?`<small>${esc(x.sub)}</small>`:''}</span><span class="bdt">${x.date?esc(x.date.replace('-','/')):'정리글'}</span></button></li>`).join('')||'<li class="empty">조건에 맞는 글이 없어요.</li>'}</ol></section>`;
-  G.querySelectorAll('.bcats [data-c]').forEach(b=>b.onclick=()=>{BCAT=b.dataset.c;render();});
+  <ol class="blist">${rows.slice((BPG-1)*BPP,BPG*BPP).map((x,j)=>{const i=(BPG-1)*BPP+j;return `<li><button type="button" class="brow" data-id="${esc(x.id)}"><span class="bno">${rows.length-i}</span><span class="bcat">${esc(x.cat)}</span><span class="bt"><b>${esc(x.title)}</b>${x.sub?`<small>${esc(x.sub)}</small>`:''}</span><span class="bdt">${x.date?esc(x.date.replace('-','/')):'정리글'}</span></button></li>`;}).join('')||'<li class="empty">조건에 맞는 글이 없어요.</li>'}</ol>${np>1?`<nav class="jpg" aria-label="게시판 페이지">${Array.from({length:np},(_,i)=>`<button type="button" data-bp="${i+1}"${i+1===BPG?' aria-current="page"':''}>${i+1}</button>`).join('')}</nav>`:''}</section>`;
+  G.querySelectorAll('[data-bp]').forEach(b=>b.onclick=()=>{BPG=+b.dataset.bp;render();G.querySelector('.board').scrollIntoView({block:'start'});});
+  G.querySelectorAll('.bcats [data-c]').forEach(b=>b.onclick=()=>{BCAT=b.dataset.c;BPG=1;render();});
   G.querySelectorAll('.brow').forEach(b=>b.onclick=()=>{GP=b.dataset.id;render();window.scrollTo({top:0});navPush();});}
 function bBack(){return `<div class="full bback"><button type="button" id="bback" class="cgo">← 공략 목록</button></div>`;}
 function bindBack(){const b=document.getElementById('bback');if(b)b.onclick=()=>{GP=null;render();window.scrollTo({top:0});navPush();};}
