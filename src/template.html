@@ -937,6 +937,7 @@ header .kakao{grid-row:1;grid-column:2}
 .gnick{flex:1 1 140px;min-width:0;font:inherit;font-size:15px;padding:8px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);box-sizing:border-box;width:100%}
 .gbtn,.gbtn2{font:inherit;font-size:14px;font-weight:800;padding:8px 14px;border-radius:9px;cursor:pointer;border:1.5px solid var(--accent);background:var(--accent);color:#fff}
 .gbtn2{background:var(--panel);color:var(--ink);border-color:var(--line);font-weight:600}
+.gdesc{margin:4px 0 2px;font-size:14.5px;line-height:1.6;white-space:pre-wrap;color:var(--ink)}
 .gnew{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}.gnew summary{cursor:pointer;font-weight:800;color:var(--accent)}
 .gform{display:grid;gap:10px;margin-top:10px}.gmul{align-self:end;padding-bottom:10px}
 .gah{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:end;justify-content:space-between;margin-bottom:8px}.gah .jf{min-width:160px}
@@ -1248,7 +1249,7 @@ function pollCard(p){const voted=gGet(GVOTED,{})[p.id]||[];const max=Math.max(1,
     <span class="gol"><b>${esc(o)}</b><span class="gbar"><i style="width:${(p.counts[i]/max*100).toFixed(0)}%"></i></span>
     <small>${p.counts[i]}${p.kind==='party'&&p.slots?' / '+p.slots:''}명${full?' · 꽉 참':''}</small>
     ${p.names&&p.names[i].length?`<span class="gnames">${p.names[i].map(n=>`<span>${esc(n)}</span>`).join('')}</span>`:''}</span></label>`;}).join('');
-  return `<article class="gpc" data-id="${esc(p.id)}"><div class="gph">${kind}${st}<h3>${esc(p.title)}</h3><small class="cat">${fmtT(p.at)}${p.by?' · '+esc(p.by):''} · ${p.voters}명 참여${p.multi?' · 여러 개 선택':''}</small></div>
+  return `<article class="gpc" data-id="${esc(p.id)}"><div class="gph">${kind}${st}<h3>${esc(p.title)}</h3>${p.desc?`<p class="gdesc">${esc(p.desc)}</p>`:''}<small class="cat">${fmtT(p.at)}${p.by?' · '+esc(p.by):''} · ${p.voters}명 참여${p.multi?' · 여러 개 선택':''}</small></div>
    <div class="gopts">${opts}</div>
    ${p.closed?'':`<div class="gvote">${nickInput('gn_'+p.id)}<button type="button" class="gbtn" data-act="vote">${voted.length?'다시 투표':'투표하기'}</button>${voted.length?'<button type="button" class="gbtn2" data-act="unvote">내 표 취소</button>':''}</div>`}
    <div class="jmsg gmsg" role="status"></div>
@@ -1273,6 +1274,7 @@ function paintPollNew(){const el=document.getElementById('gpnew');if(!el)return;
    <div class="jrow"><label class="jf"><span>종류</span><select name="kind">${A?'<option value="vote">길드 투표 (익명 · 결과만 보여요)</option>':''}<option value="party">파티 모집 (참여자 이름 보임)</option></select></label>
    <label class="jf"><span>마감 <small>(비우면 길마가 마감할 때까지)</small></span><input name="deadline" type="datetime-local"></label></div>
    <label class="jf"><span>제목 <b>*</b></span><input name="title" maxlength="60" required placeholder="${A?'예) 이번 주 길드 레이드 요일':'예) 토 21시 크샬 익스트림 같이 가요'}"></label>
+   <label class="jf"><span>내용 <small>(무슨 투표인지 · 일정 · 참고할 점)</small></span><textarea name="desc" rows="3" maxlength="500" placeholder="${A?'예) 이번 주 토요일 길드 레이드를 몇 시에 할지 정해요. 금요일 밤까지 투표해 주세요!':'예) 크샬 익스트림 S랭크 노려요. 디코 없어도 돼요.'}"></textarea></label>
    <label class="jf"><span>선택지 <b>*</b> <small>(한 줄에 하나)</small></span><textarea name="options" rows="4" required placeholder="${A?'토요일\n일요일':'딜러\n서포터'}"></textarea></label>
    <div class="jrow"><label class="jf gslot"><span>자리 수 <small>(파티 모집 · 선택지마다, 0 = 제한 없음)</small></span><input name="slots" type="number" min="0" max="99" value="0" inputmode="numeric"></label>
    <label class="fit gmul"><input type="checkbox" name="multi"> 여러 개 고를 수 있게</label></div>
@@ -1281,7 +1283,7 @@ function paintPollNew(){const el=document.getElementById('gpnew');if(!el)return;
   const f=document.getElementById('gpf'),m=document.getElementById('gpfm');
   el.querySelector('details').ontoggle=e=>GUILD.openNew=e.target.open;
   f.onsubmit=async e=>{e.preventDefault();const fd=new FormData(f);const dl=fd.get('deadline');
-    const body={action:'poll.create',kind:fd.get('kind'),title:fd.get('title'),options:String(fd.get('options')||'').split('\n').map(x=>x.trim()).filter(Boolean),multi:!!fd.get('multi'),slots:+fd.get('slots')||0,deadline:dl?new Date(dl).getTime():0,nickname:A?'':(document.getElementById('gpfn')||{}).value};
+    const body={action:'poll.create',kind:fd.get('kind'),title:fd.get('title'),desc:String(fd.get('desc')||'').trim(),options:String(fd.get('options')||'').split('\n').map(x=>x.trim()).filter(Boolean),multi:!!fd.get('multi'),slots:+fd.get('slots')||0,deadline:dl?new Date(dl).getTime():0,nickname:A?'':(document.getElementById('gpfn')||{}).value};
     const btn=f.querySelector('.jbtn');btn.disabled=true;
     try{const j=await guildApi('POST',body);if(!A)gSet(GNICK,body.nickname.trim());GUILD.polls=[j.poll,...GUILD.polls];GUILD.openNew=false;paintPolls();paintPollNew();}
     catch(err){m.textContent=gmsg(err);m.className='jmsg err';btn.disabled=false;}};}

@@ -28,7 +28,7 @@ function pollView(p, admin) {
   const vs = Object.values(p.votes || {});
   vs.forEach((v) => v.c.forEach((i) => { if (counts[i] !== undefined) { counts[i]++; if (names && v.n) names[i].push(v.n); } }));
   const closed = !!p.closed || (p.deadline && Date.now() > p.deadline);
-  return { id: p.id, at: p.at, title: p.title, kind: p.kind, multi: p.multi, deadline: p.deadline || null, slots: p.slots || 0,
+  return { id: p.id, at: p.at, title: p.title, desc: p.desc || "", kind: p.kind, multi: p.multi, deadline: p.deadline || null, slots: p.slots || 0,
     by: p.by || "", closed, options: p.options, counts, names, voters: vs.length };
 }
 
@@ -83,7 +83,7 @@ export default async (req) => {
     const { blobs } = await store.list({ prefix: "poll:" });
     if (blobs.length >= MAX_POLLS) return err("full", 429);
     const dl = Number(b.deadline) || 0;
-    const p = { id: uid("p"), at: Date.now(), title, kind, multi: !!b.multi, options: uniq,
+    const p = { id: uid("p"), at: Date.now(), title, desc: clip(b.desc, 500), kind, multi: !!b.multi, options: uniq,
       deadline: dl > Date.now() ? dl : null, slots: kind === "party" ? Math.max(0, Math.min(99, parseInt(b.slots, 10) || 0)) : 0,
       by, closed: false, votes: {} };
     await store.setJSON("poll:" + p.id, p);
