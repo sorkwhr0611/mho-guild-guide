@@ -994,6 +994,8 @@ a{overflow-wrap:anywhere}
 @media (max-width:600px){.maplink a,.box .cat a,.howto .src a{display:inline-block;padding:5px 0}.kakao{min-height:48px}}
 
 /* ===== guild layout v2 ===== */
+.c2.upd{margin:0;font-size:inherit;color:inherit}.agsel{margin:0!important}#grid>.gbanner{margin:0}
+.srct{table-layout:fixed;width:100%}.srct td:first-child{width:58%}.srct td.amt{white-space:normal!important;overflow-wrap:anywhere;text-align:right}.srct .cat{white-space:normal}
 .skl{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;margin:0;font-size:14px;line-height:1.5}.skl dt{font-size:12px;font-weight:800;color:var(--accent);white-space:nowrap;padding-top:2px}.skl dd{margin:0}.skl dd b{display:block}
 section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.gtop select,.gfrom select,.gedit select{min-width:0;max-width:100%}
 #navpill{transition:transform .2s,opacity .2s}#navpill.hide{transform:translateY(120%);opacity:0;pointer-events:none}@media (max-width:700px){#navpill{opacity:.92}}
@@ -1792,7 +1794,7 @@ function renderMoney(){
   <h2 class="sec">에너지 · 의뢰 사냥 <small>매일 뭐 돌릴지 · 루타 코인으로 살지</small></h2>
   <div class="c2 eq"><section class="box"><h3>에너지 기본</h3><ul>${E.base.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
   <section class="box"><h3>루타 코인으로 에너지 사기</h3><div class="tw">${buyT}</div><div class="cat" style="white-space:normal">${esc(E.buynote)}</div></section></div>
-  <section class="box full"><h3>의뢰 사냥 우선순위 (에너지 20 / 판)</h3><div class="tw">${huntT}</div><div class="cat" style="white-space:normal">${esc(E.huntnote)}</div></section>
+  <section class="box full"><h3>의뢰 사냥 우선순위 (고렙 기준 · 에너지 20 / 판)</h3><div class="tw">${huntT}</div><div class="cat" style="white-space:normal">${esc(E.huntnote)}</div></section>
   <h2 class="sec">핵심 재화 수급처 <small>제니 · 루타 코인 · 모집권 · 공명의 결정 · 소재 · 광요 코인</small></h2>
   <div class="c3 eq src3">${M.src.map(srcBox).join('')}</div>
   <div class="cat full" style="white-space:normal">${esc(M.srcnote)} · 출처: ${esc(M.cite)}</div>`;
