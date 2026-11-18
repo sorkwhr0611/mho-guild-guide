@@ -1355,15 +1355,13 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
    <div class="gchips">${R.map(m=>{const on=S.has(m.id),ch=on!==P.has(m.id);return `<button type="button" class="gchip${on?' on':''}${ch?' chg':''}" data-id="${esc(m.id)}" aria-pressed="${on}">${on?'✓ ':''}${esc(m.name)}</button>`;}).join('')}</div>
    <div class="gsave"><button type="button" class="pri" id="gattsave"${add.length||del.length?'':' disabled'}>✓ 출석 저장${add.length||del.length?` (${add.length?'+'+add.length:''}${add.length&&del.length?' · ':''}${del.length?'−'+del.length:''})`:''}</button>${add.length||del.length?'<button type="button" id="gattundo">되돌리기</button>':''}${GUILD.admin?`<span style="flex:1"></span><button type="button" id="gattall">전체 선택</button><button type="button" id="gattnone">전체 해제</button>`:''}</div>
    ${GUILD.admin?`<div class="gdanger"><b>⚠️ 출석 기록 지우기</b><button type="button" id="gattclr">${md(d)} 출석 전체 삭제</button><button type="button" id="gattclrall">모든 주 출석 기록 삭제</button></div>`:''}
-   ${GUILD.admin?`<div class="gxls"><label class="gocr"><input type="file" id="gxatt" accept=".xlsx,.xls,.csv"><span>📊 엑셀로 ${md(d)} 출석 올리기 (O = 출석 체크 · X = 미표기, 바로 반영)</span></label><button type="button" id="gxatpl">양식 받기</button></div>
-   ${GUILD.xattMsg?`<div class="gxprev"><b>📊 ${esc(GUILD.xattMsg)}</b></div>`:''}`:''}
    <div class="gweek"><h3 class="gh3">${md(d)} 출석 내역</h3>
     <p><b class="ok">출석 ${yes.length}명</b> ${yes.length?yes.map(m=>esc(m.name)).join(', '):'<span class="cat">아직 없어요</span>'}</p>
     <p><b class="cat">미출석 ${no.length}명</b> <span class="cat">${no.map(m=>esc(m.name)).join(', ')}</span></p></div>
    <h3 class="gh3">최근 8주 기록</h3><div class="tw gattw"><table class="gatab nostack"><thead><tr><th>단원</th>${days.slice().reverse().map(x=>`<th${x===d?' class="cur"':''}>${md(x)}</th>`).join('')}<th>합계</th></tr></thead><tbody>
    ${rows.map(m=>{let c=0;const cells=days.slice().reverse().map(x=>{if(!gact(m,x))return '<td class="cat">–</td>';const on=(GUILD.att[x]||[]).includes(m.id);if(on)c++;return `<td>${on?'✓':''}</td>`;}).join('');return `<tr><td class="gan">${esc(m.name)}</td>${cells}<td><b>${c}</b></td></tr>`;}).join('')}</tbody></table></div><p class="cat gnote">– = 그 주엔 단원이 아니었어요.</p>`
    :'<p class="cat" style="margin:0">이 주에 해당하는 단원이 없어요. 길마가 아래 단원명부에서 이름을 넣으면 출석부가 생겨요.</p>'}`;
-  const sel=document.getElementById('gday');if(sel)sel.onchange=()=>{GUILD.day=sel.value;GUILD.xattMsg='';paintAtt();};
+  const sel=document.getElementById('gday');if(sel)sel.onchange=()=>{GUILD.day=sel.value;paintAtt();};
   el.querySelectorAll('.gchip').forEach(b=>b.onclick=()=>{const id=b.dataset.id;
     if(S.has(id)){if(P.has(id)&&!GUILD.admin){alert('이미 저장된 출석은 길마만 취소할 수 있어요.');return;}S.delete(id);}else S.add(id);paintAtt();});
   const $=id=>document.getElementById(id);
@@ -1372,11 +1370,6 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
   if($('gattundo'))$('gattundo').onclick=()=>{GUILD.sel=new Set(P);paintAtt();};
   if($('gattall'))$('gattall').onclick=()=>{R.forEach(m=>S.add(m.id));paintAtt();};
   if($('gattnone'))$('gattnone').onclick=()=>{R.forEach(m=>S.delete(m.id));paintAtt();};
-  if($('gxatpl'))$('gxatpl').onclick=()=>{const rows=[['닉네임','참석여부'],...R.map(m=>[m.name,P.has(m.id)?'O':''])];const blob=new Blob(['\ufeff'+rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`출석부_${d}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);};
-  if($('gxatt'))$('gxatt').onchange=async()=>{const f=$('gxatt').files[0];if(!f)return;let rs;try{rs=await readSheet(f);}catch(e){alert('파일을 읽지 못했어요. .xlsx나 .csv 파일인지 확인해 주세요.');return;}
-    if(!rs.length){alert('파일에서 이름을 못 찾았어요. 닉네임 · 참석여부 두 열로 적어 주세요.');return;}
-    if(rs.every(x=>x.att===null)){alert('참석여부 열을 못 찾았어요. 첫 줄에 "닉네임", "참석여부"를 적고 O / X로 채워 주세요.');return;}
-    GUILD.xattMsg='반영 중…';paintAtt();try{GUILD.xattMsg=await applyAttRows(rs,d);}catch(e){GUILD.xattMsg='';alert(gmsg(e));}paintAtt();paintRoster();};
   if($('gattsave'))$('gattsave').onclick=async()=>{const bt=$('gattsave');bt.disabled=true;bt.textContent='저장 중…';
     try{const j=await guildApi('POST',{action:'att.bulk',date:d,add,remove:del});GUILD.att[d]=j.present;GUILD.sel=new Set(j.present);}catch(e){alert(gmsg(e));}paintAtt();};}
 document.addEventListener('click',async e=>{const b=e.target.closest('.glin');if(!b)return;const k=b.parentElement.querySelector('.glkey').value.trim();if(!k)return;try{localStorage.setItem(ADMK,k)}catch(_){}b.disabled=true;await loadJoin();await loadGuild();b.disabled=false;if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');});
@@ -1400,16 +1393,16 @@ function paintRoster(){const el=document.getElementById('groster');if(!el)return
    ${gone.length?`<details class="ggone"><summary>이 주엔 단원이 아닌 이름 ${gone.length}명</summary><div class="grl">${gone.map(chip).join('')}</div></details>`:''}
    ${A?`<div class="gadd"><h3 class="gh3">단원 추가</h3>
     <label class="jf"><span>언제부터 단원인가요</span><select id="gfrom">${wkopt(GUILD.addFrom||'','처음부터 (지난 기록에도 나와요)')}</select></label>
-    <div class="gxls"><label class="gocr"><input type="file" id="gxls" accept=".xlsx,.xls,.csv"><span>📊 엑셀(.xlsx·.csv) 명단 올리기</span></label><button type="button" id="gxtpl">양식 받기</button></div>
-    ${GUILD.xls?`<div class="gxprev"><b>${esc(GUILD.xls.file)}</b> · 이름 ${GUILD.xls.names.length}명<br><span class="cat">새로 추가 ${GUILD.xls.fresh.length}명${GUILD.xls.fresh.length?': '+esc(GUILD.xls.fresh.slice(0,12).join(', '))+(GUILD.xls.fresh.length>12?' …':''):''}</span><br><span class="cat">명단에 없는 지금 단원 ${GUILD.xls.miss.length}명${GUILD.xls.miss.length?': '+esc(GUILD.xls.miss.slice(0,12).join(', '))+(GUILD.xls.miss.length>12?' …':''):''}</span>${GUILD.xls.hasAtt?`<br><b class="ok">참석여부 열이 있어요 → 이번 주(${md(GUILD.sat)}) 출석부에도 O는 체크, X는 미표기로 같이 반영해요.</b>`:''}
-     <div class="wlbar"><button type="button" id="gxadd">추가만 하기</button><button type="button" class="pri" id="gxsync">엑셀과 똑같이 맞추기</button><button type="button" id="gxno">취소</button></div><span class="cat">"똑같이 맞추기"를 누르면 명단에 없는 단원은 이번 주(${md(GUILD.sat)})부터 나간 것으로 처리돼요. 지난 출석 기록은 남아요.</span></div>`:''}
+    <div class="gxls"><label class="gocr"><input type="file" id="gxls" accept=".xlsx,.xls,.csv"><span>📊 엑셀 올리기 (닉네임 · 참석여부 O/X → ${md(rd)} 명부·출석 자동 반영)</span></label><button type="button" id="gxtpl">양식 받기</button></div>
+    <label class="fit"><input type="checkbox" id="gxsyncck"${GUILD.xsync?' checked':''}> 엑셀에 없는 단원은 이 주부터 나간 것으로 처리</label>
+    ${GUILD.xmsg?`<div class="gxprev"><b>📊 ${esc(GUILD.xmsg)}</b></div>`:''}
     <label class="gocr"><input type="file" id="gimg" accept="image/*" multiple><span>📷 단원 목록 스크린샷으로 이름 읽기 (여러 장 가능)</span></label>
     <div class="cat" id="gocrm" role="status">${esc(GUILD.ocr||'게임 모험단 단원 목록 화면을 캡처해서 올리면 이름을 글자로 뽑아 줘요. 결과는 꼭 확인하고 고쳐 주세요.')}</div>
     <textarea id="gnames" class="wln2" rows="5" placeholder="한 줄에 한 명씩 (순서는 상관없어요, 자동 정렬돼요)\n퇴근후한판\n칼퇴수렵"></textarea>
     <div class="wlbar"><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div></div>
     <div class="gdanger"><b>⚠️ 위험 구역</b><span class="cat">되돌릴 수 없어요.</span><button type="button" id="grclear">단원명부 전체 삭제</button></div>`:''}`;
   const R=GUILD.roster;
-  const rds=document.getElementById('grday');if(rds)rds.onchange=()=>{GUILD.rday=rds.value;paintRoster();};
+  const rds=document.getElementById('grday');if(rds)rds.onchange=()=>{GUILD.rday=rds.value;GUILD.xmsg='';paintRoster();};
   const gf=document.getElementById('gfrom');if(gf)gf.onchange=()=>{GUILD.addFrom=gf.value;};
   el.querySelectorAll('.grm [data-act]').forEach(b=>b.onclick=async()=>{const id=b.closest('.grm').dataset.id,m=R.find(x=>x.id===id);
     if(b.dataset.act==='per'){GUILD.per=GUILD.per===id?null:id;paintRoster();return;}
@@ -1425,15 +1418,16 @@ function paintRoster(){const el=document.getElementById('groster');if(!el)return
   const add=document.getElementById('gaddb');if(add)add.onclick=async()=>{const names=document.getElementById('gnames').value.split('\n').map(x=>x.trim()).filter(Boolean);if(!names.length)return;
     add.disabled=true;try{const j=await guildApi('POST',{action:'roster.add',names,from:document.getElementById('gfrom').value});GUILD.roster=j.roster;GUILD.ocr=`${j.added}명 추가했어요 ✓`;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
   const fi=document.getElementById('gimg');if(fi)fi.onchange=async()=>{for(const f of fi.files)await ocrRoster(f);};
-  const xi=document.getElementById('gxls');if(xi)xi.onchange=async()=>{const f=xi.files[0];if(!f)return;try{const rows=await readSheet(f),names=rows.map(x=>x.name);if(!names.length){alert('파일에서 이름을 못 찾았어요. 첫 번째 열에 한 줄에 한 명씩 적어 주세요.');return;}
-    const cur=GUILD.roster.filter(m=>gact(m,GUILD.sat)),have=new Set(GUILD.roster.filter(m=>!m.to).map(m=>gnorm(m.name))),want=new Set(names.map(gnorm));
-    GUILD.xls={file:f.name,names,rows,hasAtt:rows.some(x=>x.att!==null),fresh:names.filter(n=>!have.has(gnorm(n))),miss:gsort(cur.filter(m=>!want.has(gnorm(m.name)))).map(m=>m.name)};}catch(e){alert('파일을 읽지 못했어요. .xlsx나 .csv 파일인지 확인해 주세요.');}paintRoster();};
+  const sc=document.getElementById('gxsyncck');if(sc)sc.onchange=()=>{GUILD.xsync=sc.checked;};
+  const xi=document.getElementById('gxls');if(xi)xi.onchange=async()=>{const f=xi.files[0];if(!f)return;let rows;try{rows=await readSheet(f);}catch(e){alert('파일을 읽지 못했어요. .xlsx나 .csv 파일인지 확인해 주세요.');return;}
+    if(!rows.length){alert('파일에서 이름을 못 찾았어요. 첫 줄에 "닉네임"을 적고 아래로 한 명씩 적어 주세요.');return;}
+    const d=rd,from=document.getElementById('gfrom').value,sync=!!GUILD.xsync;GUILD.xmsg='반영 중…';paintRoster();
+    try{const j=await guildApi('POST',{action:sync?'roster.sync':'roster.add',names:rows.map(x=>x.name),from,leave:d});GUILD.roster=j.roster;
+      let msg=`명부 ✓ 새 단원 ${j.added}명${sync?` · 나감 처리 ${j.left}명`:''}`;
+      if(rows.some(x=>x.att!==null)){msg+=' · '+await applyAttRows(rows,d);GUILD.day=d;}
+      GUILD.xmsg=msg;}catch(e){GUILD.xmsg='';alert(gmsg(e));}paintAtt();paintRoster();};
   const $=id=>document.getElementById(id);
-  if($('gxno'))$('gxno').onclick=()=>{GUILD.xls=null;paintRoster();};
-  if($('gxtpl'))$('gxtpl').onclick=()=>{const rows=['닉네임',...gsort(GUILD.roster.filter(m=>gact(m,GUILD.sat))).map(m=>m.name)];const blob=new Blob(['\ufeff'+rows.map(r=>'"'+r.replace(/"/g,'""')+'"').join('\r\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='단원명부.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);};
-  const xsend=async(action)=>{const X=GUILD.xls;try{const j=await guildApi('POST',{action,names:X.names,from:document.getElementById('gfrom').value,leave:GUILD.sat});GUILD.roster=j.roster;GUILD.ocr=action==='roster.sync'?`엑셀과 맞췄어요 ✓ 추가 ${j.added}명 · 나감 처리 ${j.left}명`:`${j.added}명 추가했어요 ✓`;if(X.hasAtt){GUILD.ocr+=' · '+await applyAttRows(X.rows,GUILD.sat);GUILD.day=GUILD.sat;}GUILD.xls=null;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
-  if($('gxadd'))$('gxadd').onclick=()=>xsend('roster.add');
-  if($('gxsync'))$('gxsync').onclick=()=>{if(!confirm(`엑셀 명단과 똑같이 맞출까요?\n추가 ${GUILD.xls.fresh.length}명 · 나감 처리 ${GUILD.xls.miss.length}명`))return;xsend('roster.sync');};}
+  if($('gxtpl'))$('gxtpl').onclick=()=>{const P=new Set(GUILD.att[rd]||[]);const rows=[['닉네임','참석여부'],...gsort(GUILD.roster.filter(m=>gact(m,rd))).map(m=>[m.name,P.has(m.id)?'O':''])];const blob=new Blob(['\ufeff'+rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\r\n')],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`단원명부_출석_${rd}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);};}
 /* 엑셀 O/X → 출석 바로 반영 (명부에 없는 이름은 그 주부터 단원으로 추가) */
 async function applyAttRows(rows,d){const R0=GUILD.roster.filter(m=>gact(m,d));const have=new Set(R0.map(m=>gnorm(m.name)));
   const unknown=rows.filter(x=>x.att!==null&&!have.has(gnorm(x.name))).map(x=>x.name);
