@@ -965,6 +965,7 @@ header .kakao{grid-row:1;grid-column:2}
 @media (max-width:600px){.gpc{padding:10px 12px}.gah .jf{min-width:0;flex:1 1 100%}}
 
 /* ===== polish 11.18 ===== */
+.gdanger{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px;padding:10px 12px;border:1.5px dashed #c0392b;border-radius:10px;font-size:14px}.gdanger b{color:#c0392b}.gdanger button{font:inherit;font-size:13.5px;font-weight:700;padding:7px 12px;border-radius:8px;border:1.5px solid #c0392b;background:var(--panel);color:#c0392b;cursor:pointer}
 .gdiff{display:grid;gap:4px;padding:10px 14px;border-radius:12px;background:var(--bg);border:1.5px solid var(--line);font-size:14px;line-height:1.6}.gdiff.on{background:var(--accent-soft);border-color:var(--accent)}
 .gdin{font-weight:800;color:#2f8a4a;margin-right:4px}.gdout{font-weight:800;color:var(--accent);margin-right:4px}
 #admbar{position:fixed;right:14px;bottom:16px;z-index:30;display:flex;gap:6px;align-items:center;padding:6px;border-radius:999px;background:var(--panel);border:1.5px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:14px}
@@ -1350,6 +1351,7 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
    ${R.length?`<p class="cat gnote">이름을 눌러 골라 두고 아래 <b>출석 저장</b>을 한 번 누르면 한꺼번에 저장돼요.${GUILD.admin?' 길마는 체크를 풀어서 출석을 취소할 수도 있어요.':' 이미 저장된 출석 취소는 길마만 할 수 있어요.'}</p>
    <div class="gchips">${R.map(m=>{const on=S.has(m.id),ch=on!==P.has(m.id);return `<button type="button" class="gchip${on?' on':''}${ch?' chg':''}" data-id="${esc(m.id)}" aria-pressed="${on}">${on?'✓ ':''}${esc(m.name)}</button>`;}).join('')}</div>
    <div class="gsave"><button type="button" class="pri" id="gattsave"${add.length||del.length?'':' disabled'}>✓ 출석 저장${add.length||del.length?` (${add.length?'+'+add.length:''}${add.length&&del.length?' · ':''}${del.length?'−'+del.length:''})`:''}</button>${add.length||del.length?'<button type="button" id="gattundo">되돌리기</button>':''}${GUILD.admin?`<span style="flex:1"></span><button type="button" id="gattall">전체 선택</button><button type="button" id="gattnone">전체 해제</button>`:''}</div>
+   ${GUILD.admin?`<div class="gdanger"><b>⚠️ 출석 기록 지우기</b><button type="button" id="gattclr">${md(d)} 출석 전체 삭제</button><button type="button" id="gattclrall">모든 주 출석 기록 삭제</button></div>`:''}
    ${GUILD.admin?`<div class="gxls"><label class="gocr"><input type="file" id="gxatt" accept=".xlsx,.xls,.csv"><span>📊 엑셀로 ${md(d)} 출석 올리기 (참석여부 O/X)</span></label><button type="button" id="gxatpl">양식 받기</button></div>
    ${GUILD.xatt&&GUILD.xatt.day===d?`<div class="gxprev"><b>${esc(GUILD.xatt.file)}</b> · ${md(d)} 기준<br><span class="ok">O 출석 ${GUILD.xatt.on.length}명</span> · <span class="cat">X 미출석 ${GUILD.xatt.off.length}명 · 빈칸(그대로 둠) ${GUILD.xatt.skip}명</span>${GUILD.xatt.unknown.length?`<br><span class="warn">명부에 없는 이름 ${GUILD.xatt.unknown.length}명: ${esc(GUILD.xatt.unknown.slice(0,10).join(', '))}${GUILD.xatt.unknown.length>10?' …':''}</span><label class="fit"><input type="checkbox" id="gxaddnew" checked> 이 이름들도 단원명부에 추가하고 반영</label>`:''}
     <div class="wlbar"><button type="button" class="pri" id="gxatgo">이대로 출석 반영</button><button type="button" id="gxatno">취소</button></div></div>`:''}`:''}
@@ -1363,6 +1365,8 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
   el.querySelectorAll('.gchip').forEach(b=>b.onclick=()=>{const id=b.dataset.id;
     if(S.has(id)){if(P.has(id)&&!GUILD.admin){alert('이미 저장된 출석은 길마만 취소할 수 있어요.');return;}S.delete(id);}else S.add(id);paintAtt();});
   const $=id=>document.getElementById(id);
+  if($('gattclr'))$('gattclr').onclick=async()=>{if(!confirm(`${md(d)} 출석 ${P.size}명을 전부 지울까요?`))return;try{await guildApi('POST',{action:'att.clear',date:d});GUILD.att[d]=[];GUILD.sel=new Set();}catch(e){alert(gmsg(e));}paintAtt();};
+  if($('gattclrall'))$('gattclrall').onclick=async()=>{const v=prompt('모든 주의 출석 기록을 지워요. 되돌릴 수 없어요.\n계속하려면 "전체삭제"라고 입력해 주세요.');if(v===null)return;if(v.trim()!=='전체삭제'){alert('입력이 달라서 지우지 않았어요.');return;}try{await guildApi('POST',{action:'att.clear',all:true});GUILD.att={};GUILD.sel=new Set();}catch(e){alert(gmsg(e));}paintAtt();};
   if($('gattundo'))$('gattundo').onclick=()=>{GUILD.sel=new Set(P);paintAtt();};
   if($('gattall'))$('gattall').onclick=()=>{R.forEach(m=>S.add(m.id));paintAtt();};
   if($('gattnone'))$('gattnone').onclick=()=>{R.forEach(m=>S.delete(m.id));paintAtt();};
@@ -1406,7 +1410,8 @@ function paintRoster(){const el=document.getElementById('groster');if(!el)return
     <label class="gocr"><input type="file" id="gimg" accept="image/*" multiple><span>📷 단원 목록 스크린샷으로 이름 읽기 (여러 장 가능)</span></label>
     <div class="cat" id="gocrm" role="status">${esc(GUILD.ocr||'게임 모험단 단원 목록 화면을 캡처해서 올리면 이름을 글자로 뽑아 줘요. 결과는 꼭 확인하고 고쳐 주세요.')}</div>
     <textarea id="gnames" class="wln2" rows="5" placeholder="한 줄에 한 명씩 (순서는 상관없어요, 자동 정렬돼요)\n퇴근후한판\n칼퇴수렵"></textarea>
-    <div class="wlbar"><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div></div>`:''}`;
+    <div class="wlbar"><span style="flex:1"></span><button type="button" class="pri" id="gaddb">명부에 추가</button></div></div>
+    <div class="gdanger"><b>⚠️ 위험 구역</b><span class="cat">되돌릴 수 없어요.</span><button type="button" id="grclear">단원명부 전체 삭제</button></div>`:''}`;
   const R=GUILD.roster;
   const rds=document.getElementById('grday');if(rds)rds.onchange=()=>{GUILD.rday=rds.value;paintRoster();};
   const gf=document.getElementById('gfrom');if(gf)gf.onchange=()=>{GUILD.addFrom=gf.value;};
@@ -1419,6 +1424,8 @@ function paintRoster(){const el=document.getElementById('groster');if(!el)return
   el.querySelectorAll('.gper').forEach(w=>{const id=w.dataset.id;
     w.querySelector('.gpcancel').onclick=()=>{GUILD.per=null;paintRoster();};
     w.querySelector('.gpsave').onclick=async()=>{try{GUILD.roster=(await guildApi('POST',{action:'roster.period',id,from:w.querySelector('.gpf').value,to:w.querySelector('.gpt').value})).roster;GUILD.per=null;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};});
+  const rc=document.getElementById('grclear');if(rc)rc.onclick=async()=>{const v=prompt(`단원명부 ${GUILD.roster.length}명과 모든 출석 기록을 지워요. 되돌릴 수 없어요.\n계속하려면 "전체삭제"라고 입력해 주세요.`);if(v===null)return;if(v.trim()!=='전체삭제'){alert('입력이 달라서 지우지 않았어요.');return;}
+    try{const j=await guildApi('POST',{action:'roster.clear'});GUILD.roster=j.roster;GUILD.att={};GUILD.sel=null;GUILD.ocr='단원명부를 비웠어요.';}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
   const add=document.getElementById('gaddb');if(add)add.onclick=async()=>{const names=document.getElementById('gnames').value.split('\n').map(x=>x.trim()).filter(Boolean);if(!names.length)return;
     add.disabled=true;try{const j=await guildApi('POST',{action:'roster.add',names,from:document.getElementById('gfrom').value});GUILD.roster=j.roster;GUILD.ocr=`${j.added}명 추가했어요 ✓`;}catch(e){alert(gmsg(e));}paintAtt();paintRoster();};
   const fi=document.getElementById('gimg');if(fi)fi.onchange=async()=>{for(const f of fi.files)await ocrRoster(f);};

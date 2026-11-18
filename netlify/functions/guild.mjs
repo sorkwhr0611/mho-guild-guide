@@ -149,6 +149,20 @@ export default async (req) => {
     return json({ ok: true, date: d, present: a.present });
   }
 
+  // 출석 기록 지우기 (길마만): date가 있으면 그 주만, all이면 전부
+  if (act === "att.clear") {
+    if (!isAdmin) return err("forbidden", 403);
+    if (b.all) {
+      const { blobs } = await store.list({ prefix: "att:" });
+      await Promise.all(blobs.map((x) => store.delete(x.key)));
+      return json({ ok: true, cleared: blobs.length });
+    }
+    const d = clip(b.date, 10);
+    if (!isSat(d)) return err("date");
+    await store.delete("att:" + d);
+    return json({ ok: true, date: d, present: [] });
+  }
+
   // 여러 명 한 번에 저장 (추가는 누구나, 빼기는 길마만)
   if (act === "att.bulk") {
     const d = clip(b.date, 10);
@@ -184,6 +198,13 @@ export default async (req) => {
       }
       await store.setJSON("roster", { members: ms, at: Date.now() });
       return json({ ok: true, roster: ms, added: added.length });
+    }
+    if (act === "roster.clear") {
+      // 명부 전체 삭제 — 출석 기록도 같이 지워요 (주인 없는 기록이 되니까)
+      const { blobs } = await store.list({ prefix: "att:" });
+      await Promise.all(blobs.map((x) => store.delete(x.key)));
+      await store.setJSON("roster", { members: [], at: Date.now() });
+      return json({ ok: true, roster: [], cleared: blobs.length });
     }
     if (act === "roster.sync") {
       // 엑셀 명단과 똑같이: 없던 이름은 추가, 명단에 없는 현재 단원은 leave 주부터 나간 것으로
