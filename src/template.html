@@ -635,7 +635,7 @@ small.no{color:#b3412a!important}
 .aalt{margin:0 14px 10px;padding:10px 12px;border-radius:10px;border:1.5px solid var(--vc);background:color-mix(in srgb,var(--vc) 8%,var(--panel));display:grid;gap:8px}
 .aalth{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 .aaltp{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.aai{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;min-width:0}.aai>span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.aai{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;min-width:0}.aai>span:last-child{min-width:0;word-break:keep-all;overflow-wrap:anywhere;line-height:1.25}
 .aai .ph.sm{width:28px;height:28px;flex:none}
 
 .cxg{align-items:stretch}.cxcard{display:flex;flex-direction:column;gap:10px}
@@ -1127,7 +1127,7 @@ section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.
 <div class="wrap">
 <header>
   <h1 class="brand" id="brand" role="link" tabindex="0" title="홈으로"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-28 32 32)"><rect x="40" y="27" width="16" height="10" rx="3" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="27" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="37" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><rect x="51" y="28" width="7" height="8" fill="#f3ead7"/><ellipse cx="26" cy="32" rx="20" ry="17" fill="#c8542b" stroke="#3a2a1a" stroke-width="2.5"/><ellipse cx="22" cy="26" rx="10" ry="6" fill="#e07a45" opacity=".8"/></g><circle cx="20" cy="33" r="2.6" fill="#3a2a1a"/><circle cx="31" cy="29" r="2.6" fill="#3a2a1a"/><path d="M22 39q4 4 9-1" stroke="#3a2a1a" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="38" r="2.6" fill="#ff9aa2" opacity=".8"/><circle cx="36" cy="33" r="2.6" fill="#ff9aa2" opacity=".8"/><path d="M27 47l-4 3 4 10 4-10z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/><path d="M24 46h6l-3 3z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/></svg><span>직장인수렵단 <em>공략집</em></span></h1>
-  <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · <span class="updd">2026.11.18 업데이트</span></p>
+  <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · <span class="updd">2026.11.19 업데이트</span></p>
 </header>
 <nav class="tabs" id="g" aria-label="탭"></nav>
 <nav class="subnav" id="sub" aria-label="이 탭 안 바로가기" hidden></nav>
@@ -2041,7 +2041,7 @@ function choreKey(kind){const n=new Date(Date.now()-5*3600e3);if(kind==='d')retu
 function choreGet(){try{return JSON.parse(localStorage.getItem('mho-chores')||'{}');}catch(_){return {};}}
 /* ---- 공략에서 더 보기 (탭·숙제 → 공략 게시판 글) ---- */
 const RELB={chore:['quest-tips','exchange-must','emergency-season','coop-points','research-alchemy'],tip:['tips-title','emergency-season','dc-14572'],money:['money-pack-1118','bounty-shop','tralli-shop'],
- hero:['final-weapon-type-1118','tips-hero','hero-crit-engrave','hero-awaken-box','dc-16974','element-weakness'],adv:['final-adv-1118','tips-adv','support-gear','team-power'],art:['final-art-1118','illust-mainstat','illust-guidance','dc-16947'],
+ hero:['final-weapon-type-1118','tips-hero','hero-crit-engrave','hero-awaken-box','dc-16974','element-weakness','dc-17159'],adv:['final-adv-1118','tips-adv','support-gear','team-power','dc-17115'],art:['final-art-1118','illust-mainstat','illust-guidance','dc-16947'],
  sim:['final-armor-1118','tips-hero','gear-filter','dc-10703'],party:['dc-3940','dc-8838','team-power'],buddy:['dc-9399','dc-16756'],gift:['quest-tips'],
  mon:['tips-ruler','dc-13921','dc-15624','dc-5164','chichi-master','arena-ruler-swap','dc-5614'],explore:['time-skip','glider-boost','dc-6279','rathian-nest','cracked-rock','dc-10137'],
  life:['tips-life','dc-16479','dc-10723','dc-11116','dc-8946','dc-7896','tips-dex'],gather:['dc-16938','gather-set','white-herb','ore-zeni','survival-trait','dc-10373'],item:['item-shortcut','alchemy-warning']};
