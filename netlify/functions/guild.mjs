@@ -20,6 +20,8 @@ function lastSaturday(now = Date.now()) {
   const back = (k.getUTCDay() + 1) % 7; // 토=0, 일=1, ..., 금=6
   return new Date(k.getTime() - back * 864e5).toISOString().slice(0, 10);
 }
+// 그 주(토요일 d)에 단원이었나: from(들어온 주) ≤ d < to(나간 주)
+const activeOn = (m, d) => (!m.from || m.from <= d) && (!m.to || d < m.to);
 const isSat = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && new Date(d + "T00:00:00Z").getUTCDay() === 6;
 
 function pollView(p, admin) {
@@ -62,7 +64,8 @@ export default async (req) => {
     const n = norm(nick);
     if (!n) return null;
     if (!roster.members.length) return { name: clip(nick, 24) };
-    return roster.members.find((m) => norm(m.name) === n) || null;
+    const now = lastSaturday();
+    return roster.members.find((m) => norm(m.name) === n && (!m.to || m.to > now)) || null;
   };
 
   // ---- 투표 · 파티 모집 ----
@@ -136,10 +139,28 @@ export default async (req) => {
     if (!isSat(d) || d > lastSaturday()) return err("date");
     if (act === "att.unmark" && !isAdmin) return err("forbidden", 403);
     const mid = clip(b.id, 40);
-    if (act === "att.mark" && !roster.members.some((m) => m.id === mid)) return err("not_member");
+    const mm = roster.members.find((m) => m.id === mid);
+    if (act === "att.mark" && (!mm || !activeOn(mm, d))) return err("not_member");
     const a = await getAtt(d);
     const set = new Set(a.present);
     act === "att.mark" ? set.add(mid) : set.delete(mid);
+    a.present = [...set];
+    await store.setJSON("att:" + d, a);
+    return json({ ok: true, date: d, present: a.present });
+  }
+
+  // 여러 명 한 번에 저장 (추가는 누구나, 빼기는 길마만)
+  if (act === "att.bulk") {
+    const d = clip(b.date, 10);
+    if (!isSat(d) || d > lastSaturday()) return err("date");
+    const ids = (v) => (Array.isArray(v) ? v : []).map((x) => clip(x, 40)).slice(0, MAX_ROSTER);
+    const add = ids(b.add), del = ids(b.remove);
+    if (del.length && !isAdmin) return err("forbidden", 403);
+    const ok = new Set(roster.members.filter((m) => activeOn(m, d)).map((m) => m.id));
+    const a = await getAtt(d);
+    const set = new Set(a.present);
+    add.forEach((i) => ok.has(i) && set.add(i));
+    del.forEach((i) => set.delete(i));
     a.present = [...set];
     await store.setJSON("att:" + d, a);
     return json({ ok: true, date: d, present: a.present });
@@ -151,15 +172,36 @@ export default async (req) => {
     const ms = roster.members;
     if (act === "roster.add") {
       const names = (Array.isArray(b.names) ? b.names : []).map((n) => clip(n, 24)).filter(Boolean);
+      const from = isSat(clip(b.from, 10)) ? clip(b.from, 10) : null;
       const added = [];
       for (const n of names) {
+        const old = ms.find((m) => norm(m.name) === norm(n));
+        if (old) { if (old.to) { delete old.to; if (from) old.from = from; added.push(old); } continue; } // 나갔던 단원 다시 들어옴
         if (ms.length >= MAX_ROSTER) break;
-        if (ms.some((m) => norm(m.name) === norm(n))) continue;
         const m = { id: uid("m"), name: n };
+        if (from) m.from = from;
         ms.push(m); added.push(m);
       }
       await store.setJSON("roster", { members: ms, at: Date.now() });
       return json({ ok: true, roster: ms, added: added.length });
+    }
+    if (act === "roster.sync") {
+      // 엑셀 명단과 똑같이: 없던 이름은 추가, 명단에 없는 현재 단원은 leave 주부터 나간 것으로
+      const names = [...new Map((Array.isArray(b.names) ? b.names : []).map((n) => clip(n, 24)).filter(Boolean).map((n) => [norm(n), n])).values()];
+      if (!names.length) return err("names");
+      const from = isSat(clip(b.from, 10)) ? clip(b.from, 10) : null;
+      const leave = isSat(clip(b.leave, 10)) ? clip(b.leave, 10) : lastSaturday();
+      const want = new Set(names.map(norm));
+      let added = 0, left = 0;
+      for (const n of names) {
+        const old = ms.find((m) => norm(m.name) === norm(n));
+        if (old) { if (old.to) { delete old.to; if (from) old.from = from; added++; } continue; }
+        if (ms.length >= MAX_ROSTER) break;
+        const m = { id: uid("m"), name: n }; if (from) m.from = from; ms.push(m); added++;
+      }
+      for (const m of ms) if (!want.has(norm(m.name)) && (!m.to || m.to > leave) && (!m.from || m.from < leave)) { m.to = leave; left++; }
+      await store.setJSON("roster", { members: ms, at: Date.now() });
+      return json({ ok: true, roster: ms, added, left });
     }
     const id = clip(b.id, 40);
     const m = ms.find((x) => x.id === id);
@@ -169,6 +211,11 @@ export default async (req) => {
       if (!n) return err("name");
       if (ms.some((x) => x.id !== id && norm(x.name) === norm(n))) return err("dup");
       m.name = n; // id가 그대로라 출석 기록은 그대로 이어져요
+    } else if (act === "roster.period") {
+      const f = clip(b.from, 10), t = clip(b.to, 10);
+      if ((f && !isSat(f)) || (t && !isSat(t)) || (f && t && t <= f)) return err("period");
+      if (f) m.from = f; else delete m.from;
+      if (t) m.to = t; else delete m.to;
     } else if (act === "roster.del") {
       roster.members = ms.filter((x) => x.id !== id);
     } else return err("action");
