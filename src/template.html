@@ -1613,12 +1613,13 @@ let INSTALL=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();I
 function paintInstall(){const el=document.getElementById('hinstall');if(!el)return;const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;if(standalone){el.innerHTML='';return;}
   const ua=navigator.userAgent,ios=/iphone|ipad|ipod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1),kakao=/KAKAOTALK/i.test(ua),inapp=kakao||/NAVER|Instagram|FBAN|FBAV|Line\//i.test(ua),mob=/android|iphone|ipad|ipod|mobile/i.test(ua)||ios;
   let how;
-  if(inapp)how=`<li><b>${kakao?'카카오톡':'앱 안'} 브라우저에서는 추가가 안 돼요.</b></li><li>${ios?'오른쪽 아래 <b>⋯</b> 또는 공유 → <b>"Safari로 열기"</b>':'오른쪽 위/아래 <b>⋮</b> → <b>"다른 브라우저로 열기"</b>(크롬)'}를 누른 뒤 거기서 다시 이 버튼을 눌러주세요.</li>`;
-  else if(ios)how=`<li>사파리 아래쪽 <b>공유 버튼(□↑)</b> → <b>"홈 화면에 추가"</b> → 추가</li><li>크롬 앱이면 주소창 오른쪽 <b>공유</b> → "홈 화면에 추가"</li>`;
+  if(kakao)how=`<li><b>카카오톡 안에서 열린 창이라 '홈 화면에 추가'가 없어요.</b></li><li>위 버튼을 누르면 ${ios?'사파리':'크롬'}로 이 페이지가 열려요. 거기서 이 버튼을 다시 눌러주세요.</li><li>안 열리면 ${ios?'오른쪽 아래 <b>⋯</b> → <b>"Safari로 열기"</b>':'오른쪽 위 <b>⋮</b> → <b>"다른 브라우저로 열기"</b>'}</li>`;
+  else if(inapp)how=`<li><b>앱 안 브라우저에서는 추가가 안 돼요.</b></li><li>${ios?'메뉴(⋯) → <b>"Safari로 열기"</b>':'메뉴(⋮) → <b>"다른 브라우저로 열기"</b>'}를 누른 뒤 거기서 다시 이 버튼을 눌러주세요.</li>`;
+  else if(ios)how=`<li>사파리 <b>공유 버튼(□↑)</b>을 누르고 목록을 <b>아래로 내리면</b> <b>"홈 화면에 추가"</b>가 있어요 → 추가</li><li>공유 버튼이 안 보이면 주소창 옆 <b>⋯</b> → 공유 → (더 보기) → "홈 화면에 추가"</li><li>크롬 앱이면 주소창 오른쪽 <b>공유</b> → "홈 화면에 추가"</li>`;
   else if(mob)how=`<li>크롬 오른쪽 위 <b>⋮</b> → <b>"홈 화면에 추가"</b> 또는 <b>"앱 설치"</b></li><li>삼성 인터넷: 아래 <b>≡</b> → "현재 페이지 추가" → 홈 화면</li>`;
   else how=`<li>크롬·엣지 주소창 오른쪽 <b>설치 아이콘(⊕)</b> 또는 메뉴 → <b>"앱 설치"</b></li>`;
-  el.innerHTML=`<button type="button" class="hib" id="hib">📲 홈 화면에 앱으로 추가하기</button><div class="hid" id="hih" hidden><ul>${how}<li>추가하면 주소창 없이 앱처럼 바로 열려요.</li></ul></div>`;
-  const b=document.getElementById('hib');b.onclick=async()=>{if(INSTALL&&!inapp){INSTALL.prompt();try{await INSTALL.userChoice;}catch(_){}INSTALL=null;paintInstall();return;}const h=document.getElementById('hih');h.hidden=!h.hidden;};}
+  el.innerHTML=`<button type="button" class="hib" id="hib">${kakao?(ios?'📲 사파리로 열어서 홈 화면에 추가하기':'📲 크롬으로 열어서 홈 화면에 추가하기'):'📲 홈 화면에 앱으로 추가하기'}</button><div class="hid" id="hih" hidden><ul>${how}<li>추가하면 주소창 없이 앱처럼 바로 열려요.</li></ul></div>`;
+  const b=document.getElementById('hib');b.onclick=async()=>{if(INSTALL&&!inapp){INSTALL.prompt();try{await INSTALL.userChoice;}catch(_){}INSTALL=null;paintInstall();return;}const h=document.getElementById('hih');if(kakao){h.hidden=false;location.href='kakaotalk://web/openExternal?url='+encodeURIComponent(location.href.replace(/#.*$/,'')+'#home');return;}h.hidden=!h.hidden;};}
 /* ---- 카톡 공유용 요약 ---- */
 function guildSummary(d){const R=gsort(GUILD.roster.filter(m=>gact(m,d))),P=new Set(GUILD.att[d]||[]),yes=R.filter(m=>P.has(m.id)),no=R.filter(m=>!P.has(m.id));
   const pv=gprev(d),inn=gsort(GUILD.roster.filter(m=>gact(m,d)&&!gact(m,pv))),out=gsort(GUILD.roster.filter(m=>gact(m,pv)&&!gact(m,d)));
