@@ -805,7 +805,7 @@ h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .jadmbox{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);font-size:13px}
 .jadmbox summary{cursor:pointer;color:var(--muted);font-size:13px}
 .jadmf{display:flex;gap:8px;margin-top:8px}
-#jlist{max-height:720px;overflow:auto}
+#jlist{max-height:none;overflow:visible}.glog{margin-top:4px}.glog summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:14px}.glog .jadmf{margin-top:8px}
 
 .jnote{margin-bottom:0}
 .wl{display:grid;gap:12px;margin-top:6px}
@@ -1223,7 +1223,7 @@ function satList(n=8){const out=[];let d=new Date((GUILD.sat||kstSat())+'T00:00:
 function kstSat(){const k=new Date(Date.now()+9*36e5);return new Date(k.getTime()-((k.getUTCDay()+1)%7)*864e5).toISOString().slice(0,10);}
 const md=d=>{const [,m,dd]=d.split('-');return `${+m}/${+dd}`;};
 function guildSections(){return `
-  <h2 class="sec">투표 · 파티 모집 <small>무기명 투표 · 같이 갈 사람 모으기</small></h2>
+  <h2 class="sec">투표 · 파티 모집 <small>길드 투표(익명) · 같이 갈 사람 모으기</small></h2>
   <section class="box full gpoll"><div id="gpolls"></div><div id="gpnew"></div></section>
   <h2 class="sec">출석부 <small>매주 토요일 수렵단</small></h2>
   <section class="box full gatt" id="gatt"></section>
@@ -1241,7 +1241,7 @@ function gOff(){if(GUILD.err==='local')return `<p class="cat" style="margin:0">�
 function nickInput(id){return `<input class="gnick" id="${id}" maxlength="24" placeholder="내 게임 닉네임" value="${esc(gGet(GNICK,''))}" autocomplete="nickname">`;}
 /* 투표 목록 */
 function pollCard(p){const voted=gGet(GVOTED,{})[p.id]||[];const max=Math.max(1,...p.counts);const tot=p.counts.reduce((a,b)=>a+b,0);
-  const kind=p.kind==='party'?'<span class="gtag gp">파티 모집</span>':'<span class="gtag gv">무기명 투표</span>';
+  const kind=p.kind==='party'?'<span class="gtag gp">파티 모집</span>':'<span class="gtag gv">길드 투표 · 익명</span>';
   const st=p.closed?'<span class="gtag gx">마감</span>':p.deadline?`<span class="gtag">~${fmtT(p.deadline)}</span>`:'';
   const opts=p.options.map((o,i)=>{const full=p.kind==='party'&&p.slots&&p.counts[i]>=p.slots;
     return `<label class="gopt${voted.includes(i)?' mine':''}"><input type="${p.multi?'checkbox':'radio'}" name="v_${esc(p.id)}" value="${i}"${voted.includes(i)?' checked':''}${p.closed?' disabled':''}>
@@ -1255,7 +1255,7 @@ function pollCard(p){const voted=gGet(GVOTED,{})[p.id]||[];const max=Math.max(1,
    ${GUILD.admin?`<div class="jadm"><button type="button" data-act="close">${p.closed?'다시 열기':'마감하기'}</button><button type="button" data-act="del">삭제</button></div>`:''}</article>`;}
 function paintPolls(){const el=document.getElementById('gpolls');if(!el)return;const off=gOff();
   if(off){el.innerHTML=off;return;}
-  el.innerHTML=GUILD.polls.length?`<p class="cat gnote">${GUILD.roster.length?'단원명부에 있는 닉네임으로만 투표돼요. ':''}닉네임은 중복 확인에만 쓰고, 무기명 투표는 누가 뭘 골랐는지 아무도 못 봐요. 같은 닉네임으로 다시 투표하면 앞의 표가 바뀌어요.</p><div class="gplist">${GUILD.polls.map(pollCard).join('')}</div>`:'<p class="cat" style="margin:0">아직 진행 중인 투표가 없어요.</p>';
+  el.innerHTML=GUILD.polls.length?`<p class="cat gnote">${GUILD.roster.length?'단원명부에 있는 닉네임으로만 투표돼요. ':''}닉네임은 중복 확인에만 쓰고, 길드 투표는 익명이라 누가 뭘 골랐는지 아무도 못 봐요. 같은 닉네임으로 다시 투표하면 앞의 표가 바뀌어요.</p><div class="gplist">${GUILD.polls.map(pollCard).join('')}</div>`:'<p class="cat" style="margin:0">아직 진행 중인 투표가 없어요.</p>';
   el.querySelectorAll('.gpc').forEach(card=>{const id=card.dataset.id,msg=card.querySelector('.gmsg');
     const rep=j=>{const i=GUILD.polls.findIndex(p=>p.id===id);if(i>=0&&j.poll)GUILD.polls[i]=j.poll;};
     card.querySelectorAll('[data-act]').forEach(b=>b.onclick=async()=>{const a=b.dataset.act;
@@ -1269,15 +1269,15 @@ function paintPolls(){const el=document.getElementById('gpolls');if(!el)return;c
 /* 새 투표 / 파티 모집 만들기 */
 function paintPollNew(){const el=document.getElementById('gpnew');if(!el)return;if(gOff()){el.innerHTML='';return;}
   const A=GUILD.admin;
-  el.innerHTML=`<details class="gnew"${GUILD.openNew?' open':''}><summary>＋ ${A?'새 투표 · 파티 모집 만들기':'파티 모집 만들기'}</summary><form id="gpf" class="gform">
-   <div class="jrow"><label class="jf"><span>종류</span><select name="kind">${A?'<option value="vote">무기명 투표 (길드 투표)</option>':''}<option value="party">파티 모집 (참여자 이름 보임)</option></select></label>
+  el.innerHTML=`<details class="gnew"${GUILD.openNew?' open':''}><summary>＋ ${A?'길드 투표 · 파티 모집 만들기':'파티 모집 만들기'}</summary><form id="gpf" class="gform">
+   <div class="jrow"><label class="jf"><span>종류</span><select name="kind">${A?'<option value="vote">길드 투표 (익명 · 결과만 보여요)</option>':''}<option value="party">파티 모집 (참여자 이름 보임)</option></select></label>
    <label class="jf"><span>마감 <small>(비우면 길마가 마감할 때까지)</small></span><input name="deadline" type="datetime-local"></label></div>
    <label class="jf"><span>제목 <b>*</b></span><input name="title" maxlength="60" required placeholder="${A?'예) 이번 주 길드 레이드 요일':'예) 토 21시 크샬 익스트림 같이 가요'}"></label>
    <label class="jf"><span>선택지 <b>*</b> <small>(한 줄에 하나)</small></span><textarea name="options" rows="4" required placeholder="${A?'토요일\n일요일':'딜러\n서포터'}"></textarea></label>
    <div class="jrow"><label class="jf gslot"><span>자리 수 <small>(파티 모집 · 선택지마다, 0 = 제한 없음)</small></span><input name="slots" type="number" min="0" max="99" value="0" inputmode="numeric"></label>
    <label class="fit gmul"><input type="checkbox" name="multi"> 여러 개 고를 수 있게</label></div>
    ${A?'':`<label class="jf"><span>내 게임 닉네임 <b>*</b> <small>(단원명부에 있는 이름)</small></span>${nickInput('gpfn')}</label>`}
-   <button type="submit" class="jbtn">만들기</button><div class="jmsg" id="gpfm" role="status"></div></form></details>`;
+   <button type="submit" class="jbtn">만들기</button><div class="jmsg" id="gpfm" role="status"></div></form></details>${A?'':`<details class="glog"><summary>🔑 길드 투표(익명)는 길마만 만들 수 있어요 · 길마 로그인</summary><div class="jadmf"><input class="glkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" class="glin">들어가기</button></div></details>`}`;
   const f=document.getElementById('gpf'),m=document.getElementById('gpfm');
   el.querySelector('details').ontoggle=e=>GUILD.openNew=e.target.open;
   f.onsubmit=async e=>{e.preventDefault();const fd=new FormData(f);const dl=fd.get('deadline');
@@ -1301,10 +1301,11 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
     if(on&&!GUILD.admin){alert('이미 출석했어요. 취소는 길마만 할 수 있어요.');return;}
     if(!confirm(on?`${m.name}님 출석을 취소할까요?`:`${m.name}님 ${md(d)} 출석 체크할까요?`))return;
     try{const j=await guildApi('POST',{action:on?'att.unmark':'att.mark',date:d,id});GUILD.att[d]=j.present;}catch(e){alert(gmsg(e));}paintAtt();});}
+document.addEventListener('click',async e=>{const b=e.target.closest('.glin');if(!b)return;const k=b.parentElement.querySelector('.glkey').value.trim();if(!k)return;try{localStorage.setItem(ADMK,k)}catch(_){}b.disabled=true;await loadJoin();await loadGuild();b.disabled=false;if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');});
 /* 단원명부 */
 function paintRoster(){const el=document.getElementById('groster');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
   const R=GUILD.roster,A=GUILD.admin;
-  el.innerHTML=`<div class="gah"><b>단원 ${R.length}명</b>${A?'':'<small class="cat">이름 추가·수정은 길마만 할 수 있어요.</small>'}</div>
+  el.innerHTML=`<div class="gah"><b>단원 ${R.length}명</b>${A?'':'<small class="cat">이름 추가·수정·사진 등록은 길마만 할 수 있어요.</small>'}</div>${A?'':`<details class="glog"><summary>🔑 길마 로그인하고 명부 관리하기 (사진으로 이름 등록)</summary><div class="jadmf"><input class="glkey" type="password" placeholder="관리 비밀번호" autocomplete="off"><button type="button" class="glin">들어가기</button></div></details>`}
    ${R.length?`<div class="grl">${R.map(m=>`<div class="grm" data-id="${esc(m.id)}"><span>${esc(m.name)}</span>${A?'<button type="button" data-act="ren" title="이름 바꾸기" aria-label="이름 바꾸기">✏️</button><button type="button" data-act="del" title="빼기" aria-label="명부에서 빼기">✕</button>':''}</div>`).join('')}</div>`:'<p class="cat" style="margin:0">아직 등록된 단원이 없어요.</p>'}
    ${A?`<div class="gadd"><h3 class="gh3">단원 추가</h3>
     <label class="gocr"><input type="file" id="gimg" accept="image/*"><span>📷 단원 목록 스크린샷으로 이름 읽기</span></label>
