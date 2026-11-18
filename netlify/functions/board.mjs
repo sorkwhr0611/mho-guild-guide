@@ -13,7 +13,10 @@ const err = (code, status = 400) => json({ error: code }, status);
 const clip = (v, n) => String(v ?? "").trim().slice(0, n);
 const sha = (s) => createHash("sha256").update(s).digest("hex");
 const uid = () => `u${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;
-const view = (p) => ({ id: p.id, at: p.at, nick: p.nick, cat: p.cat, title: p.title, lines: p.lines, imgs: p.imgs || 0, yt: p.yt || "" });
+const view = (p) => ({ id: p.id, at: p.at, nick: p.nick, cat: p.cat, title: p.title, lines: p.lines, imgs: p.imgs || 0, yt: p.yt || "", hid: !!p.hid });
+const REPORT_HIDE = 3; // 신고 3번이면 자동으로 숨겨요 (길마가 다시 보이게 할 수 있음)
+const pidOk = (x) => /^[a-z0-9_-]{1,60}$/i.test(String(x || ""));
+const cView = (c, admin) => ({ id: c.id, at: c.at, nick: c.nick, text: c.hid && !admin ? "" : c.text, hid: !!c.hid });
 
 export default async (req) => {
   const store = getStore({ name: "guild-board", consistency: "strong" });
@@ -33,7 +36,17 @@ export default async (req) => {
       return new Response(Buffer.from(m[2], "base64"), { headers: { "content-type": m[1], "cache-control": "public, max-age=31536000, immutable" } });
     }
     const idx = (await store.get("index", { type: "json" })) || [];
-    return json({ admin: isAdmin, posts: idx.map(view) });
+    const meta = (await store.get("meta", { type: "json" })) || {};
+    const pid = url.searchParams.get("post");
+    if (pid) {
+      if (!pidOk(pid)) return err("post");
+      const m = meta[pid] || {};
+      const tok = sha("tk|" + clip(url.searchParams.get("tk"), 64));
+      return json({ admin: isAdmin, likes: (m.l || []).length, liked: (m.l || []).includes(tok), reported: (m.r || []).includes(tok), comments: (m.c || []).map((c) => cView(c, isAdmin)) });
+    }
+    const counts = {};
+    Object.entries(meta).forEach(([k, m]) => { const l = (m.l || []).length, c = (m.c || []).filter((x) => !x.hid).length; if (l || c) counts[k] = [l, c]; });
+    return json({ admin: isAdmin, posts: idx.filter((p) => isAdmin || !p.hid).map(view), counts });
   }
   if (req.method !== "POST") return err("method", 405);
   let b;
@@ -68,9 +81,68 @@ export default async (req) => {
     if (!isAdmin && p.pw !== sha("bp|" + clip(b.pw, 40))) return err("forbidden", 403);
     await Promise.all(Array.from({ length: p.imgs || 0 }, (_, i) => store.delete(`img:${p.id}:${i}`)));
     await store.setJSON("index", idx.filter((x) => x.id !== id));
+    const mt = (await store.get("meta", { type: "json" })) || {};
+    if (mt["u-" + id]) { delete mt["u-" + id]; await store.setJSON("meta", mt); }
     return json({ ok: true });
   }
 
+  // ---- 추천 · 댓글 · 신고 · 숨김 ----
+  const meta = (await store.get("meta", { type: "json" })) || {};
+  const pid = clip(b.post, 60);
+  if (!pidOk(pid)) return err("post");
+  const m = meta[pid] || (meta[pid] = {});
+  m.l = m.l || []; m.c = m.c || []; m.r = m.r || [];
+  const tokRaw = clip(b.tk, 64);
+  const tok = sha("tk|" + tokRaw);
+  const save = async () => { await store.setJSON("meta", meta); return json({ ok: true, likes: m.l.length, liked: m.l.includes(tok), comments: m.c.map((c) => cView(c, isAdmin)) }); };
+  const userPost = pid.startsWith("u-") ? idx.find((x) => "u-" + x.id === pid) : null;
+
+  if (act === "like") {
+    if (tokRaw.length < 8) return err("tk");
+    const i = m.l.indexOf(tok);
+    i >= 0 ? m.l.splice(i, 1) : m.l.push(tok);
+    return save();
+  }
+  if (act === "comment.add") {
+    const nick = clip(b.nick, 24), text = clip(b.text, 500), pw = clip(b.pw, 40);
+    if (!nick) return err("nick");
+    if (!text) return err("body");
+    if (pw.length < 4) return err("pw");
+    if (m.c.length >= 300) return err("full", 429);
+    m.c.push({ id: uid(), at: Date.now(), nick, text, pw: sha("bp|" + pw), r: [] });
+    return save();
+  }
+  if (act === "comment.del") {
+    const c = m.c.find((x) => x.id === clip(b.id, 40));
+    if (!c) return err("not_found", 404);
+    if (!isAdmin && c.pw !== sha("bp|" + clip(b.pw, 40))) return err("forbidden", 403);
+    m.c = m.c.filter((x) => x !== c);
+    return save();
+  }
+  if (act === "report") {
+    if (tokRaw.length < 8) return err("tk");
+    if (b.id) { // 댓글 신고
+      const c = m.c.find((x) => x.id === clip(b.id, 40));
+      if (!c) return err("not_found", 404);
+      c.r = c.r || [];
+      if (!c.r.includes(tok)) c.r.push(tok);
+      if (c.r.length >= REPORT_HIDE) c.hid = true;
+      return save();
+    }
+    if (!userPost) return err("post");
+    if (!m.r.includes(tok)) m.r.push(tok);
+    if (m.r.length >= REPORT_HIDE && !userPost.hid) { userPost.hid = true; await store.setJSON("index", idx); }
+    return save();
+  }
+  if (act === "hide") { // 길마: 글이나 댓글 숨기기/보이기
+    if (!isAdmin) return err("forbidden", 403);
+    const on = b.hide !== false;
+    if (b.id) { const c = m.c.find((x) => x.id === clip(b.id, 40)); if (!c) return err("not_found", 404); c.hid = on; if (!on) c.r = []; return save(); }
+    if (!userPost) return err("post");
+    userPost.hid = on; if (!on) m.r = [];
+    await store.setJSON("index", idx);
+    return save();
+  }
   return err("action");
 };
 
