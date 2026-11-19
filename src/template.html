@@ -2602,7 +2602,7 @@ document.addEventListener('click',e=>{const my=e.target.closest('[data-fmy]');if
 function renderGather(){
   document.getElementById('lt').textContent='맵'; document.getElementById('le').textContent='';
   lchips('t',['전체',...MAPS],'m'); document.getElementById('e').innerHTML='';
-  const q=st.q.trim().toLowerCase();
+  const q=''; /* 채집 탭은 위쪽 공용 필터를 숨기고, 출장 시설 칸의 맵·종류·재료 필터만 써요 */
   const G=D.gather, C=D.cook;
   const M=['고추','헤븐 베리','섬 진품쌀'].map(n=>D.mats.find(m=>m.n===n));
   const SHOTS=Object.fromEntries(D.shots.map(x=>[x.f,x]));
@@ -2723,7 +2723,7 @@ function render(){
   const dirty=st.t!=='전체'||st.e!=='전체'||st.q||st.fit||Object.entries(lf).some(([k,v])=>v!=='전체');
   document.getElementById('reset').hidden=!dirty;
   document.getElementById('desc').textContent=DESC[st.g]||''; scope(); capTable();
-  document.querySelector('.bar').style.display=(['home','chore','tip','guide','money','buddy','explore','join','sim'].includes(st.g))?'none':'';
+  document.querySelector('.bar').style.display=(['home','chore','tip','guide','money','buddy','explore','join','sim','gather'].includes(st.g))?'none':'';
   if(st.g==='home') return renderHome();
   if(st.g==='chore') return renderChores();
   if(st.g==='join') return renderJoin();
