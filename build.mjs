@@ -1,3 +1,4 @@
+import { execSync } from "node:child_process";
 // src/ 의 원본을 합쳐서 public/index.html 을 만들어요. (Netlify가 배포할 때 자동 실행)
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync } from "node:fs";
@@ -24,11 +25,14 @@ const toFile = (uri) => {
 const splitMap = (obj) => Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, toFile(v)]));
 const iconsJs = "window.__DEF=" + JSON.stringify(splitMap(JSON.parse(rd("./src/icons.json")))) + ";";
 const iconsName = "icons." + createHash("sha1").update(iconsJs).digest("hex").slice(0, 10) + ".js";
+// 사이트에 마지막으로 반영된 시각 (마지막 커밋 시각, 없으면 지금)
+const builtAt = (() => { try { return execSync("git log -1 --format=%cI", { stdio: ["ignore", "pipe", "ignore"] }).toString().trim() || new Date().toISOString(); } catch { return new Date().toISOString(); } })();
 const html = rd("./src/template.html")
   .replace(/const GI=(\{.*?\});/s, (_, j) => "const GI=" + JSON.stringify(splitMap(JSON.parse(j))) + ";")
   .replace("__ICONSJS__", () => iconsName)
   .replace("__SHOTS__", () => rd("./src/shots.json").trim())
   .replace("__IMGS__", () => JSON.stringify(imgShown))
+  .replace("__BUILT__", () => builtAt)
   .replace("__DATA__", () => data);
 mkdirSync(new URL("./public/", import.meta.url), { recursive: true });
 writeFileSync(new URL("./public/index.html", import.meta.url), html);
