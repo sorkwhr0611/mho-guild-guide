@@ -70,6 +70,7 @@ tr.final td{background:var(--final);color:var(--final-ink)}
 .set span{color:var(--accent);font-weight:600}
 .radcd{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;border:1.5px solid var(--accent);background:var(--accent-soft)}.radcd .rci{font-size:26px}.radcd>div{flex:1;display:grid;gap:2px;min-width:0}.radcd b{font-size:16px}.radcd span{font-size:14px;color:var(--muted)}.radcd em{font-style:normal;font-weight:800;color:var(--accent)}
 .rchk{display:inline-block;font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px;background:#fde7dc;color:#b03a1e;border:1px solid #e8a68f;margin-left:6px}.pend h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pend ul{margin:0;padding-left:18px;display:grid;gap:4px}.pend li{font-size:14px}
+.gsrch{position:relative;margin:10px 0 4px}.gsrch input{width:100%;box-sizing:border-box;font:inherit;font-size:15px;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink)}.gsrch input:focus{outline:none;border-color:var(--accent)}#gqr{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:60;max-height:min(70vh,560px);overflow:auto;background:var(--panel);border:1.5px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:6px}.gqh{font-size:12px;font-weight:800;color:var(--accent);padding:8px 10px 2px}.gqi{display:grid;gap:1px;width:100%;text-align:left;font:inherit;border:0;background:none;color:var(--ink);padding:7px 10px;border-radius:8px;cursor:pointer}.gqi b{font-size:14.5px}.gqi small{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gqi.on,.gqi:hover{background:var(--accent-soft)}.gqe{margin:8px 10px;color:var(--muted);font-size:14px}
 .chfresh{padding:10px 14px;border-radius:10px;background:var(--final);border:1.5px solid var(--gold);font-weight:700;font-size:14.5px}
 .jnote{margin:6px 0 2px;padding:8px 10px;border-radius:9px;background:var(--accent-soft);border-left:3px solid var(--accent);font-size:14px;white-space:normal}.jnote b{color:var(--accent);margin-right:4px}
 .note{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14.5px;color:var(--muted)}
@@ -1136,6 +1137,7 @@ section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.
   <h1 class="brand" id="brand" role="link" tabindex="0" title="홈으로"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-28 32 32)"><rect x="40" y="27" width="16" height="10" rx="3" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="27" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="37" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><rect x="51" y="28" width="7" height="8" fill="#f3ead7"/><ellipse cx="26" cy="32" rx="20" ry="17" fill="#c8542b" stroke="#3a2a1a" stroke-width="2.5"/><ellipse cx="22" cy="26" rx="10" ry="6" fill="#e07a45" opacity=".8"/></g><circle cx="20" cy="33" r="2.6" fill="#3a2a1a"/><circle cx="31" cy="29" r="2.6" fill="#3a2a1a"/><path d="M22 39q4 4 9-1" stroke="#3a2a1a" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="38" r="2.6" fill="#ff9aa2" opacity=".8"/><circle cx="36" cy="33" r="2.6" fill="#ff9aa2" opacity=".8"/><path d="M27 47l-4 3 4 10 4-10z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/><path d="M24 46h6l-3 3z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/></svg><span>직장인수렵단 <em>공략집</em></span></h1>
   <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · <span class="updd">2026.11.19 업데이트</span></p>
 </header>
+<div class="gsrch" role="search"><input id="gq" type="search" placeholder="🔍 사이트 전체 검색 (예: 고추, 레이기에나, 위협, 헤보)" aria-label="사이트 전체 검색" autocomplete="off"><div id="gqr" hidden></div></div>
 <nav class="tabs" id="g" aria-label="탭"></nav>
 <nav class="subnav" id="sub" aria-label="이 탭 안 바로가기" hidden></nav>
 <div id="navpill" role="group" aria-label="페이지 이동"><button id="navb" type="button" aria-label="뒤로 가기" title="뒤로" disabled>←</button><button id="navf" type="button" aria-label="앞으로 가기" title="앞으로" disabled>→</button></div>
@@ -2569,6 +2571,43 @@ function render(){
 }
 
 const SUB={};
+/* ---- 사이트 전체 검색 ---- */
+let GIDX=null;
+function gIndex(){if(GIDX)return GIDX;const L=[];const add=(t,n,sub,act)=>{if(n)L.push({t,n:String(n),sub:sub||'',act,l:(n+' '+(sub||'')).toLowerCase()});};
+  (D.board||[]).forEach(b=>add('공략',b.title,b.cat+' · '+(b.lines||[]).join(' ').slice(0,300),{post:b.id}));
+  (D.tipx.more||[]).forEach(m=>add('공략 정리',m.h.replace(/^\S+\s/,''),m.sm||'',{post:'s-'+(m.short||m.h)}));
+  const gl=(D.tipx.more||[]).find(m=>m.h.startsWith('📖'));if(gl)gl.rows.forEach(r=>add('용어',r[0],r[1],{post:'s-'+gl.short}));
+  (D.items||[]).forEach(g=>g.n.forEach(n=>add('아이템',n,g.c+(D.itemnote&&D.itemnote[n]?' · '+D.itemnote[n]:''),{tab:'item',q:n})));
+  const fac={};(D.facilities||[]).forEach(f=>f.rows.forEach(r=>String(r[2]).split('·').forEach(x=>{const nm=x.replace(/["\d]|생산량|매우 많음|많음/g,'').trim();if(nm&&nm.length<=12){(fac[nm]=fac[nm]||new Set()).add(f.map+' '+r[1]);}})));
+  Object.entries(fac).forEach(([nm,set])=>add('채집 시설',nm,[...set].slice(0,3).join(' / ')+(set.size>3?` 외 ${set.size-3}곳`:''),{tab:'gather',q:nm}));
+  (D.mats||[]).forEach(m=>add('채집',m.n,m.where,{tab:'gather',q:m.n}));
+  (D.sim.armor||[]).forEach((a,i)=>add('방어구',a[0],a[1]+' 세트 · '+a[5].map(x=>x[0]+' '+x[1]).join(' · '),{sim:'armor',i}));
+  Object.keys(D.sim.skills||{}).forEach(k=>add('스킬',k,(D.sim.skills[k][3]||'')+'',{sim:'skill',n:k}));
+  (D.monsters||[]).forEach(m=>add('몬스터',m[0],'약점 '+m[2]+' · '+m[3],{tab:'mon',q:m[0]}));
+  Object.entries(D.artdb||{}).forEach(([m,[c,st2]])=>add('삽화',m,c+'코 · '+st2,{tab:'art',q:m}));
+  ((D.buddy||{}).list||[]).forEach(b=>add('동반자',b[0],b[2]+' · '+b[3]+(b[8]?' · '+b[8]:''),{tab:'buddy'}));
+  (D.life||[]).forEach(x=>add('환경생물',x.n,(x.w||[]).join(' · ')+(x.t?' · '+x.t:''),{tab:'life',q:x.n}));
+  const seenB=new Set();(D.builds||[]).forEach(b=>{const k=b.name+b.elem;if(seenB.has(k))return;seenB.add(k);add(b.group==='hero'?'주인공 빌드':'모험가 빌드',b.name+(b.group==='hero'?'':' · '+b.elem),b.type+' · '+b.stage+' · '+(b.wkr||''),{tab:b.group==='hero'?'hero':'adv'});});
+  TABDEF.forEach(t=>add('탭',t[2],t[3]||'',{tab:t[0]}));
+  return GIDX=L;}
+const GALIAS={'헤보':'헤비보우건','차액':'차지액스','격대':'격투 대회','마격':'마스터 격투장','현챌':'현상금 챌린지','협포':'협동 포인트','오충효':'오의 충전','속뎀':'속성 대미지','익스':'익스트림','저회':'저스트 회피','서폿':'서포터'};
+function gSearch(q){q=q.trim().toLowerCase();if(!q)return [];const al=GALIAS[q]?GALIAS[q].toLowerCase():null;
+  const R=gIndex().map(x=>{const n=x.n.toLowerCase();const f=qq=>n===qq?0:n.startsWith(qq)?1:n.includes(qq)?2:x.l.includes(qq)?3:9;let sc=f(q);if(al)sc=Math.min(sc,f(al)+0.5);return {x,sc};}).filter(o=>o.sc<9).sort((a,b)=>a.sc-b.sc||a.x.n.length-b.x.n.length);
+  const per={};const top=R.filter(o=>{per[o.x.t]=(per[o.x.t]||0)+1;return per[o.x.t]<=5;}).slice(0,30).map(o=>o.x);const ord=[...new Set(top.map(x=>x.t))];return ord.flatMap(t=>top.filter(x=>x.t===t));}
+function gRun(a){const box=document.getElementById('gqr');box.hidden=true;
+  if(a.post){goPost(a.post);return;}
+  if(a.sim==='armor'){simInit();SIM.open=D.sim.armor[a.i][2];SIM.pq=D.sim.armor[a.i][0];go('sim');return;}
+  if(a.sim==='skill'){simInit();SIM.q=a.n;go('sim');return;}
+  if(a.tab){go(a.tab);if(a.q){st.q=a.q;document.getElementById('q').value=a.q;render();}}}
+(function(){const inp=document.getElementById('gq'),box=document.getElementById('gqr');let res=[],sel=0;
+  const paint=()=>{const q=inp.value;res=gSearch(q);sel=0;if(!q.trim()){box.hidden=true;return;}box.hidden=false;
+    if(!res.length){box.innerHTML='<p class="gqe">찾는 게 없어요. 다른 말로 찾아보세요.</p>';return;}
+    let last='';box.innerHTML=res.map((x,i)=>{const h=x.t!==last?`<div class="gqh">${esc(x.t)}</div>`:'';last=x.t;return h+`<button type="button" class="gqi${i===sel?' on':''}" data-i="${i}"><b>${esc(x.n)}</b><small>${esc(x.sub.slice(0,90))}</small></button>`;}).join('');
+    box.querySelectorAll('.gqi').forEach(b=>b.onclick=()=>{gRun(res[+b.dataset.i].act);inp.blur();});};
+  inp.addEventListener('input',paint);inp.addEventListener('focus',()=>{if(inp.value.trim())paint();});
+  inp.addEventListener('keydown',e=>{if(box.hidden)return;const its=[...box.querySelectorAll('.gqi')];if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();sel=(sel+(e.key==='ArrowDown'?1:-1)+its.length)%its.length;its.forEach((b,i)=>b.classList.toggle('on',i===sel));its[sel]&&its[sel].scrollIntoView({block:'nearest'});}else if(e.key==='Enter'&&res[sel]){e.preventDefault();gRun(res[sel].act);inp.blur();}else if(e.key==='Escape'){box.hidden=true;}});
+  document.addEventListener('click',e=>{if(!e.target.closest('.gsrch'))box.hidden=true;});})();
+
 function groupsReset(){document.querySelectorAll('#grid .sechide').forEach(e=>e.classList.remove('sechide'));}
 function buildSub(){
   const sub=document.getElementById('sub'), grid=document.getElementById('grid');
