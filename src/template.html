@@ -2129,19 +2129,19 @@ function renderArt(){
   const A=D.art; const q=st.q.trim(); const G=A.grades; const K=A.kushala;
   const fb=x=>!q||JSON.stringify(x).includes(q);
   const gchips=`<div class="agsel"><span>내 삽화 단계</span>${G.stages.map(s=>`<button type="button" class="agb g-${s[1]}" data-g="${s[0]}" aria-pressed="${artg===s[0]}"><b>${s[0]}</b><small>${esc(s[2].split(' (')[0])}</small></button>`).join('')}</div>`;
-  document.getElementById('grid').innerHTML=`<h2 class="sec">등급별 진행 <small>희귀 → 영웅 → 전설</small></h2>
+  document.getElementById('grid').innerHTML=`<h2 class="sec">🔍 내 삽화 등급 판정 <small>전설 기준 · 카드의 주옵션 수치를 넣으면 하·중·상·최상(종결)을 알려줘요</small></h2>
+  <div class="c2 agjudge"><section class="box"><h3>수치 넣기</h3><div id="agbox">${agHtml()}</div></section>
+  <section class="box"><h3>등급별 수치표 <small class="cat">전설 · 주옵션 한 줄 · 단위 % · 위 Lv1 / 아래 Lv10</small></h3><div class="tw"><table class="nostack ensb agtab"><thead><tr><th>코스트</th><th>옵션</th><th>하</th><th>중</th><th>상</th><th>최상<br><small>종결</small></th></tr></thead><tbody>${[4,3,1].map(c=>Object.keys(ARTLV1[c]).map((o,ix,arr)=>{const G=agVals(c,o);return `<tr>${ix===0?`<td class="part" rowspan="${arr.length}">${c}코</td>`:''}<td>${AGN[o]}</td>${G.v.map((v,gi)=>{const inc=((ARTMO[c]||{})[o]||[])[1]||G.v[3];return `<td class="agt${gi}">${v.toFixed(2)}<small class="ag10">${(v+inc).toFixed(2)}</small></td>`;}).join('')}</tr>`;}).join('')).join('')}</tbody></table></div>
+  <p class="cat gnote" style="margin-bottom:0">판정은 넣은 수치와 가장 가까운 단계로 해요. 중·상·Lv10은 계산값이에요(확인 중).</p>
+</section></div>
+  <section class="box full agexbox"><h3>게임 안 「출현 가능한 효과」 화면 <small class="cat">여기엔 물결 범위만 나와요 · 판정은 내 카드 화면으로</small></h3><details class="agmore" open><summary>수치표 읽는 법</summary><p class="cat gnote">게임 화면엔 「1.75%~3.51%」처럼 물결로 나와요. 지금까지 확인한 카드들은 이 4단계 수치 중 하나에 딱 맞았지만, 중간 값이 나오는지는 아직 확인 중이에요. 하·최상은 게임 화면 수치이고, 중·상은 최대치의 ⅔·80% 비율 값이에요(실제 카드와 0.02 정도 차이가 날 수 있어요 · 확인 중). 판정은 넣은 수치와 가장 가까운 단계로 해요. Lv10 값은 Lv1 값에 강화로 오르는 양(코스트·옵션마다 같은 양)을 더한 계산값이에요. 크샬다오라·루가 에알다(고룡)는 수치가 고정이라 판정이 필요 없어요. Lv10 판정은 강화로 오르는 양을 빼서 Lv1로 환산한 값이에요.</p></details><div class="shots in agex">${['artex_1','artex_2','artex_3'].filter(k=>SHOT[k]).map(k=>`<figure class="shot" data-f="${k}"><img src="${SHOT[k]}" alt="삽화 정보 예시" loading="lazy"></figure>`).join('')}</div></section>
+  <h2 class="sec">등급별 진행 <small>희귀 → 영웅 → 전설</small></h2>
   <div class="c3 eq agc">${G.stages.map(s=>`<section class="box ag g-${s[1]}"><h3><span class="gdot"></span>${s[0]} <small>${esc(s[2])}</small></h3><p class="agk">${esc(s[3])}</p><p>${esc(s[4])}</p></section>`).join('')}</div>
   <div class="c2 eq"><section class="box"><h3>💡 모험단 팁</h3><ul>${G.guild.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
   <section class="box"><h3>삽화집 레벨별 드롭률</h3><div class="tw"><table class="nostack agt"><thead><tr><th>삽화집 Lv</th><th class="g-파랑">희귀</th><th class="g-보라">영웅</th><th class="g-금">전설</th></tr></thead><tbody>${G.rates.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('')}</tbody></table></div><div class="cat" style="white-space:normal">출처: ${esc(G.src)}</div></section></div>
   <h2 class="sec">크샬다오라 삽화 <small>S0 시즌 한정</small></h2>
   <div class="c2 eq"><section class="box"><div class="kh">${PHT('삽화-크샬다오라','lg')}<div class="tw" style="flex:1"><table class="nostack ensb"><tbody>${K.facts.map(r=>`<tr><td class="part">${r[0]}</td><td>${esc(r[1])}</td></tr>`).join('')}</tbody></table></div></div></section>
   <section class="box"><h3>어떻게 쓰나</h3><ul>${K.how.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="cat" style="white-space:normal;margin:0">🌪️ ${esc(K.wind)}</p></section></div>
-  <h2 class="sec">🔍 내 삽화 등급 판정 <small>전설 기준 · 카드의 주옵션 수치를 넣으면 하·중·상·최상(종결)을 알려줘요</small></h2>
-  <div class="c2 agjudge"><section class="box"><h3>수치 넣기</h3><div id="agbox">${agHtml()}</div></section>
-  <section class="box"><h3>등급별 수치표 <small class="cat">전설 · 주옵션 한 줄 · 단위 % · 위 Lv1 / 아래 Lv10</small></h3><div class="tw"><table class="nostack ensb agtab"><thead><tr><th>코스트</th><th>옵션</th><th>하</th><th>중</th><th>상</th><th>최상<br><small>종결</small></th></tr></thead><tbody>${[4,3,1].map(c=>Object.keys(ARTLV1[c]).map((o,ix,arr)=>{const G=agVals(c,o);return `<tr>${ix===0?`<td class="part" rowspan="${arr.length}">${c}코</td>`:''}<td>${AGN[o]}</td>${G.v.map((v,gi)=>{const inc=((ARTMO[c]||{})[o]||[])[1]||G.v[3];return `<td class="agt${gi}">${v.toFixed(2)}<small class="ag10">${(v+inc).toFixed(2)}</small></td>`;}).join('')}</tr>`;}).join('')).join('')}</tbody></table></div>
-  <p class="cat gnote" style="margin-bottom:0">판정은 넣은 수치와 가장 가까운 단계로 해요. 중·상·Lv10은 계산값이에요(확인 중).</p>
-</section></div>
-  <section class="box full agexbox"><h3>게임 안 「출현 가능한 효과」 화면 <small class="cat">여기엔 물결 범위만 나와요 · 판정은 내 카드 화면으로</small></h3><details class="agmore" open><summary>수치표 읽는 법</summary><p class="cat gnote">게임 화면엔 「1.75%~3.51%」처럼 물결로 나와요. 지금까지 확인한 카드들은 이 4단계 수치 중 하나에 딱 맞았지만, 중간 값이 나오는지는 아직 확인 중이에요. 하·최상은 게임 화면 수치이고, 중·상은 최대치의 ⅔·80% 비율 값이에요(실제 카드와 0.02 정도 차이가 날 수 있어요 · 확인 중). 판정은 넣은 수치와 가장 가까운 단계로 해요. Lv10 값은 Lv1 값에 강화로 오르는 양(코스트·옵션마다 같은 양)을 더한 계산값이에요. 크샬다오라·루가 에알다(고룡)는 수치가 고정이라 판정이 필요 없어요. Lv10 판정은 강화로 오르는 양을 빼서 Lv1로 환산한 값이에요.</p></details><div class="shots in agex">${['artex_1','artex_2','artex_3'].filter(k=>SHOT[k]).map(k=>`<figure class="shot" data-f="${k}"><img src="${SHOT[k]}" alt="삽화 정보 예시" loading="lazy"></figure>`).join('')}</div></section>
   <h2 class="sec">모험가별 추천 <small>메인 조작 / 파티 서브 · 백련의 증표 「수렵 마스터」 이후 기준</small></h2>
   ${gchips}
   <div class="agsel amsel"><span>어떻게 쓰나</span><button type="button" class="amb" data-m="main" aria-pressed="${artm==='main'}"><b>🎮 메인 조작</b><small>내가 직접 플레이 · 크샬/루가 코어</small></button><button type="button" class="amb" data-m="party" aria-pressed="${artm==='party'}"><b>👥 파티 서브</b><small>조작 안 함 · 전용 코어 + 서포트 세트</small></button></div>
@@ -2827,7 +2827,7 @@ function buildSub(){
    '마라두부 공장':['공장 배치','마라두부'],'마라두부 재료 위치':['재료 위치','마라두부'],'마라두부 요리 순서':['요리 순서','마라두부'],
    '출장 채집 시설':['🏭 출장 시설','채집 시설'],
    '맵 100% 파먹기':['맵 100% 파먹기','팁'],'시설 규칙':['시설 규칙','팁'],'채집 장비 세팅':['채집 장비','팁'],
-   '등급별 진행':['등급별 진행','시작'],'크샬다오라 삽화':['크샬다오라','시작'],'🔍 내 삽화 등급 판정':['🔍 등급 판정','시작'],'모험가별 추천':['모험가별','추천 세팅'],'주인공 추천':['주인공','추천 세팅'],'서브 세팅 · 옵션 규칙':['서브 · 옵션','추천 세팅'],'📊 삽화 코스트별 최대 옵션':['코스트별 최대 옵션','정보'],'삽화 규칙':['삽화 규칙','정보'],'세트 효과 전체':['세트 효과','정보'],'세트별 도감':['세트별 도감','정보'],
+   '🔍 내 삽화 등급 판정':['🔍 등급 판정','시작'],'등급별 진행':['등급별 진행','시작'],'크샬다오라 삽화':['크샬다오라','시작'],'모험가별 추천':['모험가별','추천 세팅'],'주인공 추천':['주인공','추천 세팅'],'서브 세팅 · 옵션 규칙':['서브 · 옵션','추천 세팅'],'📊 삽화 코스트별 최대 옵션':['코스트별 최대 옵션','정보'],'삽화 규칙':['삽화 규칙','정보'],'세트 효과 전체':['세트 효과','정보'],'세트별 도감':['세트별 도감','정보'],
    '모험가별 추천 동반자':['모험가별 추천'],'주인공 무기별 추천':['주인공 추천'],'모험가별 추천 선물':['모험가별 선물'],'인연 포인트 계산':['포인트 계산기'],'선물별 인연 상승량':['선물별 포인트'],
    '특산품':['특산품','소재'],'조합 소재':['조합 소재','소재'],'목재·장비 소재':['목재·장비','소재'],'광석·뼈':['광석·뼈','소재'],'소형 몬스터 소재':['소형 몬스터','소재'],'대형 몬스터 소재 Ⅰ':['대형 몬스터 Ⅰ','소재'],'대형 몬스터 소재 Ⅱ':['대형 몬스터 Ⅱ','소재'],'육성·강화 소재':['육성·강화','소재'],
    '약품':['약품','사용템'],'소모품':['소모품','사용템'],'낚시 미끼':['낚시 미끼','사용템'],'채집 도구':['채집 도구','사용템'],'이너웨어':['이너웨어','사용템'],'인연 선물':['인연 선물','사용템']};
