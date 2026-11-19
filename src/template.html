@@ -2307,7 +2307,7 @@ function boardList(mine){
   const sec=mine.map(s=>{const h=s.els[0];const c=h.cloneNode(true);c.querySelectorAll('small,.ph').forEach(x=>x.remove());const sm=h.querySelector('small');
     const t=c.textContent.trim();const cat=/^(루카|엔쇼우|주인공|모험가)/.test(t)&&!/세팅|프리셋/.test(t)?'모험가':(BGRP[s.m[4]]||'초보·시스템');
     return {id:'s-'+s.m[3],cat,title:t,sub:sm?sm.textContent.trim():'',date:'',sec:s};});
-  const posts=(D.board||[]).map((b,i)=>({id:b.id,cat:b.cat,title:b.title,sub:'',date:b.date,post:b,i})).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||a.i-b.i);
+  const posts=(D.board||[]).map((b,i)=>({id:b.id,cat:b.cat,title:b.title,sub:'',date:b.date,post:b,i})).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||b.i-a.i);
   const up=(UB.posts||[]).map(u=>({id:'u-'+u.id,cat:u.cat,title:u.title,sub:'',date:new Date(u.at+9*3600e3).toISOString().slice(5,10),user:u,post:{id:'u-'+u.id,cat:u.cat,title:u.title,date:new Date(u.at+9*3600e3).toISOString().slice(5,10),lines:u.lines,images:[],uimgs:Array.from({length:u.imgs||0},(_,i)=>'/api/board?img='+u.id+':'+i),yt:u.yt,nick:u.nick,uid:u.id}}));
   const all=[...up,...posts,...sec].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
   return all;}
