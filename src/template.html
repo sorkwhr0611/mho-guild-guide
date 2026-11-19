@@ -1222,7 +1222,7 @@ function phPut(k,v){PH.cache[k]=v;if(!PH.db)return;const tx=PH.db.transaction('p
 const PALIAS={'융광종 워터슛':'융광종 워터숏'};
 const phKey=n=>{let k=String(n).replace(/\*/g,'').replace(/\(.*?\)/g,'').trim();const k2=k.replace(/[ⅠⅡⅢⅣⅤ]+$/,'');if(!DEF[k]&&DEF[k2])k=k2;return PALIAS[k]||k;};
 const LEGV=['삽화-루가 에알다','삽화-크샬다오라'];
-function PHT(n,cls=''){const k=phKey(n);const v=k&&DEF[k];return v?`<span class="ph has ${cls}${k.startsWith('삽화-')?' vis':''}${LEGV.includes(k)?' leg':''}"><img src="${v}" alt="${esc(k)}"></span>`:'';}
+function PHT(n,cls='',fb){let k=phKey(n);let v=k&&DEF[k];if(!v&&fb&&DEF[fb]){k=fb;v=DEF[fb];cls+=' gen';}return v?`<span class="ph has ${cls}${k.startsWith('삽화-')?' vis':''}${LEGV.includes(k)?' leg':''}"><img src="${v}" alt="${esc(k)}"></span>`:'';}
 const TIER=r=>r>=11?['전설','t-leg']:r>=9?['영웅','t-epi']:['일반','t-nor'];
 const isRuler=n=>/^(광룡|광영)/.test(String(n));
 const PAL=['#c8452c','#2a6fb5','#b68a00','#2a93a8','#6d3fa0','#3f8a4a','#b8501f','#8a5a2b'];
@@ -1283,7 +1283,7 @@ function card(b0){
   const c=`var(${EL[b.elem]||'--neutral'})`;
   const title=b.group==='hero'?`${b.type} · ${b.elem==='범용'?'범용':b.elem+'속성'}`:b.name;
   const route=b.route.map(r=>`${esc(r[1])}(레어도 ${r[0]})`).join(' → ');
-  const rows=b.armor.map(a=>{const c2=A.ch.find(x=>x.part===a[0]);return `<tr class="${c2?'swap':''}"><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px">${PHT(a[1],'ar gear '+aT[1])}<span><span class="tipg" data-tip="${esc(a[1])}" data-tk="g">${esc(a[1])}</span>${c2?`<em class="was">원래 ${esc(c2.from)} · Lv${c2.need}부터</em>`:''}</span></span></td></tr>`;}).join('');
+  const rows=b.armor.map(a=>{const c2=A.ch.find(x=>x.part===a[0]);return `<tr class="${c2?'swap':''}"><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px">${PHT(a[1],'ar gear '+aT[1],'부위-'+a[0])}<span><span class="tipg" data-tip="${esc(a[1])}" data-tk="g">${esc(a[1])}</span>${c2?`<em class="was">원래 ${esc(c2.from)} · Lv${c2.need}부터</em>`:''}</span></span></td></tr>`;}).join('');
   const sk=b.skills.map((s,i)=>`<span class="s${i<2?' core':''}" title="${esc(D.skilldesc[s[0]]||EXTRA[s[0]]||'')}">${esc(s[0])}<b>Lv${s[1]}</b></span>`).join('');
   const p=plan(b);
   const rs0=b.route.map(r=>rng(r[0])); const wTop=Math.max(...rs0.map(r=>r[1])); const wReach=Math.min(cap,wTop); const wT=TIER(cap);
@@ -1293,12 +1293,12 @@ function card(b0){
   let gen=b.final, genRoute=route;
   if(isRuler(b.wkr)){const alt=chainsFor(b.type,b.elem==='범용'?'불':b.elem).filter(x=>!isRuler(x.wkr)&&x.src!=='a').sort((x,y)=>y.top-x.top)[0]; if(alt){gen=alt.final;genRoute=alt.route.map(r=>`${esc(r[1])}(레어도 ${r[0]})`).join(' → ');} else {gen='일반 최종 무기 데이터 없음';genRoute='';}}
   const rulerRow=`<tr class="final ruler"><td class="part">최종<br><b class="rk">각성 무기</b></td><td><div class="fx fxf"><div class="kr">${esc(rulerName)} <span class="tb ${rT[1]}">${cap>=9?rT[0]+' · 레어도 '+rReach:'Lv41부터'}</span></div><div class="route" title="${esc(D.ruler.info+' '+D.ruler.mat+' · '+D.ruler.awk)}">지배자 무기(루가 에알다) · 레어도 9 → 14 · 각성 최대 5칸</div></div></td></tr>`;
-  const genRow=`<tr class="final"><td class="part">최종<br><b class="rk">일반 무기</b></td><td><div class="fx fxf"><div class="kr"><span class="nm" style="gap:8px">${PHT(String(gen).split(' · ')[0].replace(/[ⅠⅡⅢⅣⅤ]+$/,''),'ar gear '+wT[1])}<span>${esc(gen)} <span class="tb ${wT[1]}">${wT[0]}</span></span></span></div><div class="route">${genRoute}</div></div></td></tr>`;
+  const genRow=`<tr class="final"><td class="part">최종<br><b class="rk">일반 무기</b></td><td><div class="fx fxf"><div class="kr"><span class="nm" style="gap:8px">${PHT(String(gen).split(' · ')[0].replace(/[ⅠⅡⅢⅣⅤ]+$/,''),'ar gear '+wT[1],'무기-'+b.type)}<span>${esc(gen)} <span class="tb ${wT[1]}">${wT[0]}</span></span></span></div><div class="route">${genRoute}</div></div></td></tr>`;
   return `<article class="card" style="--c:${c}" data-at="${aT[1]}">
   <div class="chead">${PHT(b.group==='hero'?'주인공':b.name.split(' ')[0],'lg')}<h3>${esc(title)}${b.group==='hero'?'<small>주인공</small>':''}</h3></div>
   <div class="meta"><span class="tag el">${ic(b.elem)}${b.elem}</span>${b.group==='hero'?'':`<span class="tag">${b.type}</span>`}<span class="tag">${b.group==='hero'?(b.stage==='중반'?'중반 세팅':'후반 세팅'):'모험가 전용'}</span>${p.done&&!A.sw&&!A.ch.length?`<span class="tag ok2">Lv${st.lv} 완성</span>`:''}${A.sw||A.ch.length?`<span class="tag sw">Lv${st.lv} 맞춤</span>`:''}</div>
   <table><thead><tr><th>부위</th><th>장비</th></tr></thead><tbody>
-  <tr class="${A.sw?'swap':''}"><td class="part">무기</td><td class="kr"><span class="nm" style="gap:8px">${PHT(b.wkr,'ar gear '+wT[1])}<span><span class="tipg" data-tip="${esc(b.wkr)}" data-tk="g">${esc(b.wkr)}</span>${A.sw?`<em class="was">원래 ${esc(A.sw.from)} · Lv${A.sw.need}부터${A.sw.isAk?' · 수렵혼옥+철광석으로 제작':''}</em>`:''}</span></span></td></tr>
+  <tr class="${A.sw?'swap':''}"><td class="part">무기</td><td class="kr"><span class="nm" style="gap:8px">${PHT(b.wkr,'ar gear '+wT[1],'무기-'+b.type)}<span><span class="tipg" data-tip="${esc(b.wkr)}" data-tk="g">${esc(b.wkr)}</span>${A.sw?`<em class="was">원래 ${esc(A.sw.from)} · Lv${A.sw.need}부터${A.sw.isAk?' · 수렵혼옥+철광석으로 제작':''}</em>`:''}</span></span></td></tr>
   ${rulerRow}${genRow}
   <tr class="lv"><td class="part">Lv${st.lv}</td><td><div class="fx fxl"><div class="fxi">${p.html}</div></div></td></tr>
   ${rows}</tbody></table>
@@ -1650,7 +1650,7 @@ function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills,AS
   const wantScore=i=>A[i][5].reduce((s,[n,l])=>s+(has(n)?(has(n).main?3:1)*l:0),0);
   const slot=pi=>{const cur=SIM.pick[pi],a=cur>=0?A[cur]:null,op=SIM.open===pi;
     const opts=op?A.map((x,i)=>i).filter(i=>A[i][2]===pi&&(!SIM.pq||A[i][0].includes(SIM.pq)||A[i][5].some(s=>s[0].includes(SIM.pq)))).sort((x,y)=>wantScore(y)-wantScore(x)||A[y][4]-A[x][4]):[];
-    return `<div class="sinv${a?'':' empty'}${op?' open':''}"><button type="button" class="sinvh" data-op="${pi}"><span class="sico">${['⛑️','🦺','🧤','🎗️','👢'][pi]}</span>${a?`<span class="sinvt"><b>${esc(a[0])}</b><small class="cat">${esc(a[1])} 세트 · 레어도 ${a[3]}~${a[4]}${a[6]?' · '+esc(a[6]):''}</small><span class="sbcs">${a[5].map(([n,l])=>`<span class="stag${has(n)?' hot':''}">${esc(n)} Lv${l}</span>`).join('')}</span></span>`:`<span class="sinvt"><b class="cat">${SIMP[pi]} · 눌러서 장비 고르기</b></span>`}<span class="sinvx">${a?`<span class="sx" data-clr="${pi}" role="button" aria-label="빼기">✕</span>`:'＋'}</span></button>
+    return `<div class="sinv${a?'':' empty'}${op?' open':''}"><button type="button" class="sinvh" data-op="${pi}"><span class="sico">${a?PHT(a[0],'sm','부위-'+SIMP[pi]):PHT('부위-'+SIMP[pi],'sm')}</span>${a?`<span class="sinvt"><b>${esc(a[0])}</b><small class="cat">${esc(a[1])} 세트 · 레어도 ${a[3]}~${a[4]}${a[6]?' · '+esc(a[6]):''}</small><span class="sbcs">${a[5].map(([n,l])=>`<span class="stag${has(n)?' hot':''}">${esc(n)} Lv${l}</span>`).join('')}</span></span>`:`<span class="sinvt"><b class="cat">${SIMP[pi]} · 눌러서 장비 고르기</b></span>`}<span class="sinvx">${a?`<span class="sx" data-clr="${pi}" role="button" aria-label="빼기">✕</span>`:'＋'}</span></button>
     ${op?`<div class="spick"><input type="search" id="simpq" placeholder="${SIMP[pi]} 이름·스킬로 찾기" value="${esc(SIM.pq)}" autocomplete="off"><div class="spl">${opts.slice(0,60).map(i=>`<button type="button" class="spo${i===cur?' on':''}" data-put="${i}"><b>${esc(A[i][0])}</b><small class="cat">${esc(A[i][1])} · R${A[i][3]}~${A[i][4]}</small><span class="sbcs">${A[i][5].map(([n,l])=>`<span class="stag${has(n)?' hot':''}">${esc(n)} ${l}</span>`).join('')}</span></button>`).join('')||'<p class="cat">맞는 장비가 없어요.</p>'}</div></div>`:''}</div>`;};
   /* 비교표 */
   const cmp=()=>{if(!res.length)return '';const R=res;const W=SIM.want;
@@ -1948,7 +1948,7 @@ function renderMon(){
   <section class="box full"><div class="nm" style="gap:14px">${PHT('크샬다오라','lg')}<div><h3 style="margin:0">강룡 크샬다오라</h3><div class="cat" style="white-space:normal;font-size:14px;margin-top:4px">몸에 두른 바람(용풍압)으로 가까이 가면 몸이 젖혀져요. 풍압을 무효로 만들면 근접 무기도 편하게 붙을 수 있어요.</div></div></div>
   <ol>${D.boss.how.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></section>
   <div class="c2"><section class="box"><h3>${PHT('브릭스','sm')} 예시: 브릭스 풍압 내성 장비</h3><div class="tw"><table><thead><tr><th>부위</th><th>장비</th><th>메모</th></tr></thead><tbody>
-  ${D.boss.gear.map(g=>`<tr><td class="part">${g[0]}</td><td class="kr"><span class="nm" style="gap:8px">${PHT(g[1].replace('Ⅳ',''),'ar')}<span>${esc(g[1])}</span></span></td><td class="cat">${esc(g[2])}</td></tr>`).join('')}</tbody></table></div>
+  ${D.boss.gear.map(g=>`<tr><td class="part">${g[0]}</td><td class="kr"><span class="nm" style="gap:8px">${PHT(g[1].replace('Ⅳ',''),'ar','부위-'+g[0])}<span>${esc(g[1])}</span></span></td><td class="cat">${esc(g[2])}</td></tr>`).join('')}</tbody></table></div>
   <ul>${D.boss.sets.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
   <section class="box"><h3>${PHT('삽화-파오우르무','sm')} 삽화 코어 = 파오우르무</h3><ul>${D.boss.tips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
   <div class="shots bshots">${[{f:'b1',map:'예시 · 브릭스 장비',t:'얼로이 + 우르무',y:'풍압 내성 +1 · 체력 회복 +1'},{f:'b2',map:'예시 · 브릭스 삽화',t:'코어 파오우르무 · 10/12',y:'풍압 Lv3 → 파티 전원 풍압 무효'}].map(shotFig).join('')}</div></section></div>
@@ -2403,7 +2403,7 @@ function renderGather(){
   const kindSec=(kind,icon)=>{const maps=D.facilities.filter(mapOK).map(f=>{const rs=f.rows.filter(r=>r[0]===kind&&rowOK(r));cnt+=rs.length;if(!rs.length)return '';
       return `<section class="world fworld"><h3>${f.map}<small>${f.sub}</small></h3><div class="flist">${rowsHtml(rs.map(r=>({f,r})),false)}</div>${kind==='식물'?`<div class="fttip">💡 ${esc(f.tip)}</div>`:''}</section>`;}).join('');
     return maps||`<p class="empty">${lf.m==='전체'?'':esc(lf.m)+'에는 '}조건에 맞는 ${kind} 시설 자리가 없어요.</p>`;};
-  const rows=G.armor.map(a=>`<tr><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px;align-items:flex-start">${PHT(a[1],'ar')}<span>${esc(a[1])}<div class="route" style="color:var(--muted)">${esc(a[2])}</div></span></span></td></tr>`).join('');
+  const rows=G.armor.map(a=>`<tr><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px;align-items:flex-start">${PHT(a[1],'ar','부위-'+a[0])}<span>${esc(a[1])}<div class="route" style="color:var(--muted)">${esc(a[2])}</div></span></span></td></tr>`).join('');
   const sk=G.skills.map(s=>`<span class="s core" title="${esc(s[2])}">${esc(s[0])}<b>Lv${s[1]}</b></span>`).join('');
   document.getElementById('grid').innerHTML=`
   <h2 class="sec">마라두부 공장 <small>재료 3종을 출장 식물 시설로 자동 수급 · 사진 누르면 크게</small></h2>
