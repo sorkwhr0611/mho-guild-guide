@@ -73,7 +73,7 @@ tr.final td{background:var(--final);color:var(--final-ink)}
 .gsrch{position:relative;margin:10px 0 4px}.gsrch input{width:100%;box-sizing:border-box;font:inherit;font-size:15px;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink)}.gsrch input:focus{outline:none;border-color:var(--accent)}#gqr{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:60;max-height:min(70vh,560px);overflow:auto;background:var(--panel);border:1.5px solid var(--line);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:6px}.gqh{font-size:12px;font-weight:800;color:var(--accent);padding:8px 10px 2px}.gqi{display:grid;gap:1px;width:100%;text-align:left;font:inherit;border:0;background:none;color:var(--ink);padding:7px 10px;border-radius:8px;cursor:pointer}.gqi b{font-size:14.5px}.gqi small{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gqi.on,.gqi:hover{background:var(--accent-soft)}.gqe{margin:8px 10px;color:var(--muted);font-size:14px}
 .bwts{align-items:center;padding-top:2px;border-top:1px dashed var(--line)}.bwts .chip{font-size:13px;padding:4px 10px}
 .fmat .bcats{align-items:center}.fmk{font-weight:800;min-width:34px}.famt{font-weight:800;color:var(--accent);background:var(--accent-soft);padding:1px 8px;border-radius:999px}
-#icard{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:16px}#icard[hidden]{display:none}#icard .icbg{position:absolute;inset:0;background:rgba(0,0,0,.45)}#icard .icbox{position:relative;width:min(560px,100%);max-height:86vh;overflow:auto;background:var(--panel);border:1.5px solid var(--line);border-radius:14px;padding:18px 18px 16px;box-shadow:0 20px 50px rgba(0,0,0,.3)}#icard .icx{position:absolute;top:10px;right:10px;border:0;background:none;font-size:18px;cursor:pointer;color:var(--ink)}.ichd{display:flex;gap:12px;align-items:center;margin-bottom:8px;padding-right:28px}.ichd .gi{width:44px;height:44px}.ichd h3{margin:0}#icard .tsec{margin-top:10px;display:grid;gap:4px}#icard .tsec>b{font-size:13px;color:var(--accent)}#icard .trow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:14px}#icard .trow em{font-style:normal;color:var(--muted);font-size:13px}#icard .tk{font-weight:700}#icard .trow .gi,#icard .trow img{width:22px;height:22px;object-fit:contain}.icgo{margin-top:12px}.it2[data-icard]{cursor:pointer}.it2[data-icard]:hover{border-color:var(--accent)}
+#icard{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:16px}#icard[hidden]{display:none}#icard .icbg{position:absolute;inset:0;background:rgba(0,0,0,.45)}#icard .icbox{position:relative;width:min(560px,100%);max-height:86vh;overflow:auto;background:var(--panel);border:1.5px solid var(--line);border-radius:14px;padding:18px 18px 16px;box-shadow:0 20px 50px rgba(0,0,0,.3)}#icard .icx{position:absolute;top:10px;right:10px;border:0;background:none;font-size:18px;cursor:pointer;color:var(--ink)}.ichd{display:flex;gap:12px;align-items:center;margin-bottom:8px;padding-right:28px}.ichd .gi{width:44px;height:44px}.ichd h3{margin:0}#icard .tsec{margin-top:10px;display:grid;gap:4px}#icard .tsec>b{font-size:13px;color:var(--accent)}#icard .trow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:14px}#icard .trow em{font-style:normal;color:var(--muted);font-size:13px}#icard .tk{font-weight:700;min-width:44px}.mlink{color:inherit;text-decoration:underline dotted;text-underline-offset:3px}#icard [data-icard]{display:inline-flex;align-items:center;gap:4px;color:var(--ink)}#icard .trow .gi,#icard .trow img{width:22px;height:22px;object-fit:contain}.icgo{margin-top:12px}.it2[data-icard]{cursor:pointer}.it2[data-icard]:hover{border-color:var(--accent)}
 .chfresh{padding:10px 14px;border-radius:10px;background:var(--final);border:1.5px solid var(--gold);font-weight:700;font-size:14.5px}
 .jnote{margin:6px 0 2px;padding:8px 10px;border-radius:9px;background:var(--accent-soft);border-left:3px solid var(--accent);font-size:14px;white-space:normal}.jnote b{color:var(--accent);margin-right:4px}
 .note{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14.5px;color:var(--muted)}
@@ -1989,7 +1989,7 @@ function renderMon(){
   <div class="shots bshots">${[{f:'b1',map:'예시 · 브릭스 장비',t:'얼로이 + 우르무',y:'풍압 내성 +1 · 체력 회복 +1'},{f:'b2',map:'예시 · 브릭스 삽화',t:'코어 파오우르무 · 10/12',y:'풍압 Lv3 → 파티 전원 풍압 무효'}].map(shotFig).join('')}</div></section></div>
   <h2 class="sec">몬스터별 약점 속성 <small>GameWith 한국어판 기준 · 주황 글씨 = 융광종이 되면 약점이 바뀌는 몬스터</small></h2>
   <section class="box full"><div class="tw"><table><thead><tr><th>몬스터</th><th>일반 약점</th><th>융광종 약점</th><th>주로 나오는 곳</th></tr></thead><tbody>
-  ${rows.map(m=>{const no=m[2]==='—';const d=!no&&m[1]!==m[2];return `<tr><td class="kr"><span class="nm">${PHT(m[0],'sm')}<span>${esc(m[0])}${IMG(m[0])}${no?'<span class="only">고룡</span>':''}</span></span></td><td>${wk(m[1])}</td><td class="${d?'diff':''}">${no?'<span class="cat">융광종 없음</span>':`<span class="nm">${PHT('융광종 '+m[0],'sm')}<span>${wk(m[2])}</span></span>`}</td><td class="cat" style="white-space:normal">${esc(m[3])}</td></tr>`;}).join('')}
+  ${rows.map(m=>{const no=m[2]==='—';const d=!no&&m[1]!==m[2];return `<tr><td class="kr"><span class="nm">${PHT(m[0],'sm')}<span><a href="#" class="mlink" data-mcard="${esc(m[0])}">${esc(m[0])}</a>${IMG(m[0])}${no?'<span class="only">고룡</span>':''}</span></span></td><td>${wk(m[1])}</td><td class="${d?'diff':''}">${no?'<span class="cat">융광종 없음</span>':`<span class="nm">${PHT('융광종 '+m[0],'sm')}<span>${wk(m[2])}</span></span>`}</td><td class="cat" style="white-space:normal">${esc(m[3])}</td></tr>`;}).join('')}
   </tbody></table></div><div class="cat" style="white-space:normal">약점은 가장 잘 먹히는 속성 기준이에요. 같은 몬스터라도 부위·무기에 따라 실제 약점은 달라질 수 있어요.</div></section>`;
   document.getElementById('n').textContent=`몬스터 ${rows.length}종`;
 }
@@ -2586,8 +2586,30 @@ function render(){
 
 function newArmorHtml(){const T=D.tipx;return `<h2 class="sec">최신 방어구 교체 추천 <small>레어도 10~14 신규 방어구</small></h2><section class="box full"><div class="tw"><table class="natab nostack"><thead><tr><th style="width:190px">방어구</th><th style="width:70px">레어도</th><th>핵심 스킬</th><th style="width:240px">이런 세팅에</th><th style="width:250px">바꾸는 법</th></tr></thead><tbody>${T.newarmor.rows.map(r=>`<tr><td><b class="tipg" data-tip="${esc(r[0].split(' ')[0]==='융광종'?r[0].split(' 시리즈')[0]+'메일':r[0])}" data-tk="g">${esc(r[0])}</b></td><td class="part">${esc(r[1])}</td><td><ul class="tight">${r[2].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></td><td>${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join('')}</tbody></table></div><div class="cat" style="white-space:normal">${esc(T.newarmor.note)} 출처: ${esc(T.newarmor.src)}</div></section>`;}
 const SUB={};
+
+/* ---- 몬스터 한 장 카드 ---- */
+function cardShell(){itemCard.__init||(itemCard('__init__'),itemCard.__init=1);return document.getElementById('icard');}
+function monCard(mon){const ov=cardShell();const M=(D.monsters||[]).find(m=>m[0]===mon);
+  const arm=(D.sim.armor||[]).filter(a=>a[7]===mon||a[7]==='융광종 '+mon);
+  const epis=Object.entries(D.craft.epi||{}).filter(([,v])=>v[0]===mon).map(([k])=>k);
+  const allItems=(D.items||[]).flatMap(g=>g.n);const mats=allItems.filter(n=>epis.some(e=>n.startsWith(e+'의 ')||n.startsWith('융광종 '+e+'의 ')));
+  const art=D.artdb&&D.artdb[mon];const rart=D.artdb&&D.artdb['융광종 '+mon];
+  const names=new Set(arm.map(a=>a[0]));const builds=(D.builds||[]).filter(b=>b.armor.some(x=>names.has(String(x[1]).replace(/[ⅠⅡⅢⅣⅤ]+$/,'').trim())));
+  const posts=(D.board||[]).filter(b=>(b.title+' '+(b.lines||[]).join(' ')).includes(mon)).slice(0,8);
+  const sec=(t,h)=>h?`<div class="tsec"><b>${t}</b>${h}</div>`:'';
+  ov.querySelector('.icin').innerHTML=`<div class="ichd">${PHT(mon,'lg')}<div><h3>${esc(mon)}</h3><span class="cat">${M&&M[3]?esc(M[3]):''}</span></div></div>
+   ${M?sec('약점 속성',`<div class="trow"><span class="tk">일반</span><span>${esc(M[1])}</span></div><div class="trow"><span class="tk">융광종</span><span>${M[2]==='—'?'융광종 없음':esc(M[2])}</span></div>`):''}
+   ${art||rart?sec('삽화',[art?`<div class="trow">${PHT('삽화-'+mon,'xs')}<span>${esc(mon)} · ${art[0]}코 · ${esc(art[1])}</span></div>`:'',rart?`<div class="trow">${PHT('삽화-융광종 '+mon,'xs')}<span>융광종 ${esc(mon)} · ${rart[0]}코 · ${esc(rart[1])}</span></div>`:''].join('')):''}
+   ${arm.length?sec('방어구',arm.map(a=>`<div class="trow">${PHT(a[0],'xs','부위-'+SIMP[a[2]])}<span class="tipg" data-tip="${esc(a[0])}" data-tk="g">${esc(a[0])}</span><em>${a[5].map(x=>x[0]+' '+x[1]).join(' · ')}</em></div>`).join('')):''}
+   ${mats.length?sec('소재 (누르면 아이템 카드)',`<div class="trow" style="gap:4px 10px">${mats.map(n=>`<a href="#" data-icard="${esc(n)}">${giIcon(n)}${esc(n)}</a>`).join('')}</div>`):''}
+   ${builds.length?sec('이 몬스터 방어구를 쓰는 추천 빌드',`<div class="trow">${esc([...new Set(builds.map(b=>b.name+(b.group==='hero'?'':' ('+b.elem+')')))].slice(0,10).join(', '))}${builds.length>10?' 외':''}</div>`):''}
+   ${posts.length?sec('관련 공략',posts.map(b=>`<div class="trow"><a href="#" data-post="${esc(b.id)}">${esc(b.title)}</a></div>`).join('')):''}
+   <button type="button" class="cgo icgo" data-go="mon">🐉 몬스터 탭 ›</button>`;
+  ov.hidden=false;ov.querySelectorAll('[data-post],[data-go]').forEach(a=>a.addEventListener('click',()=>{ov.hidden=true;if(a.dataset.go)go(a.dataset.go);}));}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-mcard]');if(b){e.preventDefault();monCard(b.dataset.mcard);}});
 /* ---- 아이템 한 장 카드 ---- */
-function itemCard(n){let ov=document.getElementById('icard');if(!ov){ov=document.createElement('div');ov.id='icard';ov.innerHTML='<div class="icbg"></div><div class="icbox" role="dialog" aria-modal="true"><button type="button" class="icx" aria-label="닫기">✕</button><div class="icin"></div></div>';document.body.appendChild(ov);ov.querySelector('.icbg').onclick=()=>ov.hidden=true;ov.querySelector('.icx').onclick=()=>ov.hidden=true;document.addEventListener('keydown',e=>{if(e.key==='Escape')ov.hidden=true;});}
+function itemCard(n){let ov=document.getElementById('icard');const __first=!ov;if(!ov){ov=document.createElement('div');ov.id='icard';ov.innerHTML='<div class="icbg"></div><div class="icbox" role="dialog" aria-modal="true"><button type="button" class="icx" aria-label="닫기">✕</button><div class="icin"></div></div>';document.body.appendChild(ov);ov.querySelector('.icbg').onclick=()=>ov.hidden=true;ov.querySelector('.icx').onclick=()=>ov.hidden=true;document.addEventListener('keydown',e=>{if(e.key==='Escape')ov.hidden=true;});}
+  if(n==='__init__')return;
   const grp=(D.items||[]).find(g=>g.n.includes(n));let body=tipItem(n).replace(/^<div class="thd">.*?<\/div>/,'');if((FMAT[n]||[]).length)body=body.replace(/<div class="tsec"><b>얻는 곳<\/b>(?:<div class="trow">[^<]*<\/div>)+<\/div>/,'');
   const fac=(FMAT[n]||[]).slice().sort((a,b)=>b.amt-a.amt);const mat=(D.mats||[]).find(m=>m.n===n);
   const posts=(D.board||[]).filter(b=>(b.title+' '+(b.lines||[]).join(' ')).includes(n)).slice(0,6);
@@ -2616,7 +2638,7 @@ function gIndex(){if(GIDX)return GIDX;const L=[];const add=(t,n,sub,act)=>{if(n)
   (D.mats||[]).forEach(m=>add('채집',m.n,m.where,{tab:'gather',q:m.n}));
   (D.sim.armor||[]).forEach((a,i)=>add('방어구',a[0],a[1]+' 세트 · '+a[5].map(x=>x[0]+' '+x[1]).join(' · '),{sim:'armor',i}));
   Object.keys(D.sim.skills||{}).forEach(k=>add('스킬',k,(D.sim.skills[k][3]||'')+'',{sim:'skill',n:k}));
-  (D.monsters||[]).forEach(m=>add('몬스터',m[0],'약점 '+m[2]+' · '+m[3],{tab:'mon',q:m[0]}));
+  (D.monsters||[]).forEach(m=>add('몬스터',m[0],'약점 '+m[1]+' · '+m[3],{mcard:m[0]}));
   Object.entries(D.artdb||{}).forEach(([m,[c,st2]])=>add('삽화',m,c+'코 · '+st2,{tab:'art',q:m}));
   ((D.buddy||{}).list||[]).forEach(b=>add('동반자',b[0],b[2]+' · '+b[3]+(b[8]?' · '+b[8]:''),{tab:'buddy'}));
   (D.life||[]).forEach(x=>add('환경생물',x.n,(x.w||[]).join(' · ')+(x.t?' · '+x.t:''),{tab:'life',q:x.n}));
@@ -2630,6 +2652,7 @@ function gSearch(q){q=q.trim().toLowerCase();if(!q)return [];const al=GALIAS[q]?
 function gRun(a){const box=document.getElementById('gqr');box.hidden=true;
   if(a.post){goPost(a.post);return;}
   if(a.icard){itemCard(a.icard);return;}
+  if(a.mcard){monCard(a.mcard);return;}
   if(a.sim==='armor'){simInit();SIM.open=D.sim.armor[a.i][2];SIM.pq=D.sim.armor[a.i][0];go('sim');return;}
   if(a.sim==='skill'){simInit();SIM.q=a.n;go('sim');return;}
   if(a.tab){go(a.tab);if(a.q){st.q=a.q;document.getElementById('q').value=a.q;render();}}}
