@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>직장인수렵단 공략집</title>
+<meta name="description" content="몬스터헌터 아웃랜더스 모험단 직장인수렵단 공략집 · 장비·삽화·숙제·이벤트·공략 게시판">
+<meta property="og:type" content="website"><meta property="og:site_name" content="직장인수렵단 공략집"><meta property="og:title" content="직장인수렵단 공략집"><meta property="og:description" content="몬헌 아웃랜더스 장비·삽화·숙제·이벤트·공략을 한곳에서"><meta property="og:image" content="https://mho-guild-guide.pages.dev/icon-512.png"><meta property="og:url" content="https://mho-guild-guide.pages.dev/">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#3b2414">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -78,6 +80,7 @@ tr.final td{background:var(--final);color:var(--final-ink)}
 .lvcard{border:1.5px solid var(--line);border-radius:12px;background:var(--panel);padding:12px 16px;display:grid;gap:10px}.lvh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between}.lvh b{font-size:16px}.lvh input{font:inherit;width:64px;padding:4px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);margin-left:6px}.lvg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:10px}.lvg>div{display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:8px 12px}.lvg b{font-size:15px}.lvg small{font-size:13px;color:var(--muted)}.lvb{display:flex;gap:8px;flex-wrap:wrap}
 .migbox{display:grid;gap:6px;margin:10px 0;padding:10px 12px;border:1.5px dashed var(--accent);border-radius:10px;background:var(--accent-soft)}.migbox button{justify-self:start}
 #moved{margin:8px 0;padding:12px 16px;border-radius:12px;background:#d23c1f;color:#fff;font-size:15px;line-height:1.5}#moved a{color:#fff;font-weight:800;text-decoration:underline}
+.bshare{margin-left:auto}
 .chfresh{padding:10px 14px;border-radius:10px;background:var(--final);border:1.5px solid var(--gold);font-weight:700;font-size:14.5px}
 .jnote{margin:6px 0 2px;padding:8px 10px;border-radius:9px;background:var(--accent-soft);border-left:3px solid var(--accent);font-size:14px;white-space:normal}.jnote b{color:var(--accent);margin-right:4px}
 .note{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14.5px;color:var(--muted)}
@@ -813,7 +816,7 @@ h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .bcat{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:2px 7px;text-align:center;white-space:nowrap}
 .bt{display:grid;gap:1px;min-width:0}.bt b{font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bt small{font-size:12.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bdt{font-size:12.5px;color:var(--muted);text-align:right;white-space:nowrap}
-.bback{display:flex}.bpost{gap:12px}.bmeta{display:flex;gap:8px;align-items:center}.btitle{margin:0;font-family:var(--display);font-weight:400;font-size:26px}
+.bback{display:flex}.bpost{gap:12px}.bmeta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btitle{margin:0;font-family:var(--display);font-weight:400;font-size:26px}
 .blines{display:grid;gap:8px;font-size:15.5px;line-height:1.65}
 @media(max-width:700px){.brow{grid-template-columns:76px 1fr;grid-template-areas:"c t" "c d";row-gap:2px}.bno{display:none}.brow .bcat{grid-area:c;align-self:start}.bt{grid-area:t}.bdt{grid-area:d;text-align:left}.btitle{font-size:22px}}
 .jpg{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding-top:12px;border-top:1px solid var(--line)}.jpg button{font:inherit;font-size:14px;min-width:38px;height:38px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}.jpg button[aria-current]{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
@@ -1229,7 +1232,7 @@ const IMG=(n,pre='몬스터헌터 아웃랜더스 ')=>{const k=String(n).replace
 /* 내 사진: 사용자가 고른 이미지를 이 브라우저(IndexedDB)에만 저장 */
 const PH={db:null,cache:{}};
 const DEF=window.__DEF||{};
-const SHOT=__SHOTS__;__IMGS__.forEach(k=>SHOT[k]='/img/'+k+'.jpg');
+const SHOT=__SHOTS__;__IMGS__.forEach(f=>SHOT[f.replace(/\.\w+$/,'')]='/img/'+f);
 const ARTLIST=["리오레이아", "리오레이아 아종", "리오레우스", "융광종 리오레우스", "디아블로스", "디아블로스 아종", "융광종 디아블로스", "볼보로스", "융광종 볼보로스", "안쟈나프", "융광종 안쟈나프", "융광종 도스쟈그라스", "푸케푸케", "융광종 푸케푸케", "쿠루루야크", "융광종 쿠루루야크", "쥬라토도스", "융광종 쥬라토도스", "토비카가치", "파오우르무", "융광종 파오우르무", "레이기에나", "도스기르오스", "오도가론", "라도발킨", "치치야크", "융광종 리오레이아", "아프토노스", "아프케로스", "켈비", "칸타로스", "랑고스타", "가쟈우", "쟈그라스", "메르노스", "케스토돈", "라피노스", "샤무오스", "바르노스", "기르오스", "가스토돈", "노이오스", "껍질숨기족 전사", "껍질숨기족 투척수", "도스쟈그라스", "융광종 레이기에나", "융광종 토비카가치", "융광종 라도발킨", "융광종 치치야크", "융광종 오도가론", "융광종 도스기르오스", "융광종 리오레이아 아종", "융광종 디아블로스 아종", "크샬다오라", "루가 에알다"];
 function phOpen(){return new Promise(r=>{try{const q=indexedDB.open('mho-photos',1);q.onupgradeneeded=()=>q.result.createObjectStore('p');q.onsuccess=()=>r(q.result);q.onerror=()=>r(null);}catch(_){r(null);}});}
 function phAll(){return new Promise(r=>{if(!PH.db)return r();const tx=PH.db.transaction('p'),s=tx.objectStore('p'),out={};const c=s.openCursor();c.onsuccess=()=>{const x=c.result;if(x){out[x.key]=x.value;x.continue();}else{PH.cache=out;r();}};c.onerror=()=>r();});}
@@ -2212,7 +2215,7 @@ function renderExplore(){
 let GP=null, BCAT='전체', BPG=1, BQ='', BW='전체';
 const BWT=[['대검',/대검/],['태도',/태도/],['쌍검',/쌍검/],['랜스',/랜스/],['해머',/해머/],['헤비보우건',/헤비\s?보우건|헤보/],['활',/(^|[^가-힣])활|활 /],['차지액스',/차지액스|차액/]];
 const bwOf=x=>{if(x.post&&x.post.wt)return x.post.wt;const hit=t=>BWT.filter(([,r])=>r.test(t)).map(([n])=>n);let f=hit(x.title);if(!f.length)f=hit(x.post?x.post.lines.join(' '):x.sub||'');return f.length===1?f[0]:f.length?'여러 무기':'공통';}; const BPP=15;
-const BCATS=['전체','무기·세팅','모험가','몬스터·사냥','채집·탐색','초보·시스템','생활·편의'];
+const BCATS=['전체','무기·세팅','모험가','몬스터·사냥','채집·탐색','초보·시스템','생활·편의','자유'];
 const BGRP={'무기·캐릭터':'무기·세팅','사냥':'몬스터·사냥','시스템':'초보·시스템'};
 function boardList(mine){
   const sec=mine.map(s=>{const h=s.els[0];const c=h.cloneNode(true);c.querySelectorAll('small,.ph').forEach(x=>x.remove());const sm=h.querySelector('small');
@@ -2226,7 +2229,7 @@ function boardList(mine){
 let UB={loaded:false,loading:false,posts:[]};
 async function ubLoad(force){if(UB.loading||(UB.loaded&&!force))return;UB.loading=true;try{const r=await fetch('/api/board',{headers:admKey()?{'x-admin-key':admKey()}:{}});const j=await r.json();if(Array.isArray(j.posts)){UB.posts=j.posts;UB.admin=!!j.admin;UB.counts=j.counts||{};}}catch(_){}UB.loading=false;UB.loaded=true;if(st.g==='guide')render();}
 async function ubApi(body){const h={'content-type':'application/json'};const k=admKey();if(k)h['x-admin-key']=k;const r=await fetch('/api/board',{method:'POST',headers:h,body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));if(!r.ok||j.error)throw Object.assign(new Error(j.error||r.status),{code:j.error||r.status});return j;}
-const UBERR={tk:'잠시 뒤 다시 해 주세요.',post:'이 글엔 댓글을 달 수 없어요.',nick:'닉네임을 적어 주세요.',title:'제목을 적어 주세요.',body:'내용을 적어 주세요.',pw:'삭제용 비밀번호를 4자 이상 적어 주세요.',full:'글이 너무 많아요. 길마에게 알려 주세요.',forbidden:'비밀번호가 맞지 않아요.',not_found:'이미 지워진 글이에요.'};
+const UBERR={tk:'잠시 뒤 다시 해 주세요.',post:'이 글엔 댓글을 달 수 없어요.',nick:'닉네임을 적어 주세요.',title:'제목을 적어 주세요.',body:'내용을 적어 주세요.',pw:'삭제용 비밀번호를 4자 이상 적어 주세요.',full:'글이 너무 많아요. 길마에게 알려 주세요.',forbidden:'길마만 할 수 있어요.',not_found:'이미 지워진 글이에요.'};
 function ubShrink(file){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{let w=im.width,h=im.height;const M=1100;if(w>M){h=Math.round(h*M/w);w=M;}const c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);let q=.8,d=c.toDataURL('image/jpeg',q);while(d.length>400000&&q>.35){q-=.1;d=c.toDataURL('image/jpeg',q);}res(d);};im.onerror=rej;im.src=fr.result;};fr.onerror=rej;fr.readAsDataURL(file);});}
 function ubTk(){let t=gGet('mho-tk','');if(!t||t.length<8){t=Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2);gSet('mho-tk',t);}return t;}
 async function ubSoc(pid,user){const el=document.getElementById('bsoc');if(!el)return;
@@ -2252,13 +2255,13 @@ function renderWrite(G){const nick=gGet(GNICK,'');let imgs=[];
   <label class="jf"><span>제목</span><input id="bwt" maxlength="80" placeholder="예: 융광종 디아블로스 잠행 피하는 법"></label>
   <label class="jf"><span>내용 <small class="cat">한 줄에 팁 하나씩 쓰면 목록으로 보여요</small></span><textarea id="bwb" rows="8" maxlength="8000" placeholder="공략·팁·자랑 무엇이든 좋아요."></textarea></label>
   <label class="jf"><span>사진 <small class="cat">최대 3장 · 자동으로 줄여서 올려요</small></span><input id="bwi" type="file" accept="image/*" multiple></label><div class="bwp" id="bwp"></div>
-  <div class="bwg"><label class="jf"><span>유튜브 링크 <small class="cat">선택</small></span><input id="bwy" inputmode="url" placeholder="https://youtu.be/..."></label>
-  <label class="jf"><span>삭제용 비밀번호</span><input id="bwpw" type="password" maxlength="40" placeholder="4자 이상" autocomplete="new-password"></label></div>
+  <div class="bwg"><label class="jf"><span>유튜브 링크 <small class="cat">선택</small></span><input id="bwy" inputmode="url" placeholder="https://youtu.be/..."></label></div>
+  <p class="cat" style="margin:0">올린 글을 지우거나 고쳐야 하면 길마에게 말해 주세요.</p>
   <div class="gtbar"><span class="cat" id="bwmsg" role="status"></span><span style="flex:1"></span><button type="button" class="pri" id="bwgo">등록하기</button></div></section>`;
   bindBack();const $=id=>document.getElementById(id);
   $('bwi').onchange=async()=>{const fs=[...$('bwi').files].slice(0,3);$('bwmsg').textContent='사진 줄이는 중…';imgs=[];for(const f of fs){try{imgs.push(await ubShrink(f));}catch(_){}}$('bwp').innerHTML=imgs.map(d=>`<img src="${d}" alt="" loading="lazy" decoding="async">`).join('');$('bwmsg').textContent=imgs.length?`사진 ${imgs.length}장 준비됐어요.`:'';};
   $('bwgo').onclick=async()=>{const b=$('bwgo');b.disabled=true;$('bwmsg').textContent='올리는 중…';
-    try{const j=await ubApi({action:'create',nick:$('bwn').value,cat:$('bwc').value,title:$('bwt').value,body:$('bwb').value,yt:$('bwy').value,pw:$('bwpw').value,images:imgs});gSet(GNICK,$('bwn').value.trim());UB.posts.unshift(j.post);GP='u-'+j.post.id;render();window.scrollTo({top:0});navPush();}
+    try{const j=await ubApi({action:'create',nick:$('bwn').value,cat:$('bwc').value,title:$('bwt').value,body:$('bwb').value,yt:$('bwy').value,images:imgs});gSet(GNICK,$('bwn').value.trim());UB.posts.unshift(j.post);GP='u-'+j.post.id;render();window.scrollTo({top:0});navPush();}
     catch(e){$('bwmsg').textContent=UBERR[e.code]||'등록이 안 됐어요. 잠시 뒤 다시 해 주세요.';b.disabled=false;}};}
 function renderBoard(G,mine){
   ubLoad();
@@ -2266,8 +2269,8 @@ function renderBoard(G,mine){
   const all=boardList(mine);
   const it=GP&&all.find(x=>x.id===GP);
   if(it&&it.sec){G.insertAdjacentHTML('beforeend',bBack());it.sec.els.forEach(el=>G.appendChild(el));bindBack();return;}
-  if(it&&it.post){const b=it.post;G.innerHTML=`${bBack()}<article class="box full bpost"><div class="bmeta"><span class="bcat">${esc(b.cat)}</span>${b.date?`<span class="cat">${esc(b.date.replace('-','/'))} 확인</span>`:''}${recheckOf(b)?`<span class="rchk">⚠️ ${esc(recheckOf(b))} 뒤 다시 확인 필요</span>`:''}</div><h2 class="btitle">${esc(b.title)}</h2>${b.nick?`<p class="cat bnick">✍️ ${esc(b.nick)}</p>`:''}<ul class="blines">${b.lines.map(l=>`<li>${itemIc(l)}</li>`).join('')}</ul>${(b.images||[]).length?`<div class="shots in" style="border:0;padding:0">${b.images.map(k=>SHOT[k]?`<figure class="shot" data-f="${k}"><img src="${SHOT[k]}" alt="${esc(b.title)}" loading="lazy"></figure>`:'').join('')}</div>`:''}${(b.uimgs||[]).length?`<div class="shots in" style="border:0;padding:0">${b.uimgs.map(u=>`<figure class="shot"><img src="${u}" alt="${esc(b.title)}" loading="lazy"></figure>`).join('')}</div>`:''}${b.yt?`<div class="bvid"><iframe src="https://www.youtube-nocookie.com/embed/${esc(b.yt)}" title="${esc(b.title)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`:''}${b.video==='dc'?`<a class="bvlink" href="${esc(b.src)}" target="_blank" rel="noopener">🎬 영상으로 보기 (원문)</a>`:''}${b.src?`<a class="cat bsrc" href="${esc(b.src)}" target="_blank" rel="noopener">원문 보기 ›</a>`:''}${b.uid?`<div class="gtbar"><span style="flex:1"></span><button type="button" id="bdel">🗑 글 삭제</button></div>`:''}</article>`;bindBack();
-    const del=document.getElementById('bdel');if(del)del.onclick=async()=>{const pw=UB.admin||admKey()?'':prompt('글 쓸 때 정한 삭제용 비밀번호를 적어 주세요.');if(pw===null)return;if(!confirm('이 글을 지울까요?'))return;try{await ubApi({action:'delete',id:b.uid,pw});UB.posts=UB.posts.filter(x=>x.id!==b.uid);GP=null;render();navPush();}catch(e){alert(UBERR[e.code]||'삭제가 안 됐어요.');}};
+  if(it&&it.post){const b=it.post;G.innerHTML=`${bBack()}<article class="box full bpost"><div class="bmeta"><span class="bcat">${esc(b.cat)}</span>${b.date?`<span class="cat">${esc(b.date.replace('-','/'))} 확인</span>`:''}${recheckOf(b)?`<span class="rchk">⚠️ ${esc(recheckOf(b))} 뒤 다시 확인 필요</span>`:''}${!b.uid&&/^[a-z0-9_-]+$/i.test(b.id)?`<button type="button" class="cgo bshare" data-share="${esc(b.id)}">🔗 링크 복사</button>`:''}</div><h2 class="btitle">${esc(b.title)}</h2>${b.nick?`<p class="cat bnick">✍️ ${esc(b.nick)}</p>`:''}<ul class="blines">${b.lines.map(l=>`<li>${itemIc(l)}</li>`).join('')}</ul>${(b.images||[]).length?`<div class="shots in" style="border:0;padding:0">${b.images.map(k=>SHOT[k]?`<figure class="shot" data-f="${k}"><img src="${SHOT[k]}" alt="${esc(b.title)}" loading="lazy"></figure>`:'').join('')}</div>`:''}${(b.uimgs||[]).length?`<div class="shots in" style="border:0;padding:0">${b.uimgs.map(u=>`<figure class="shot"><img src="${u}" alt="${esc(b.title)}" loading="lazy"></figure>`).join('')}</div>`:''}${b.yt?`<div class="bvid"><iframe src="https://www.youtube-nocookie.com/embed/${esc(b.yt)}" title="${esc(b.title)}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`:''}${b.video==='dc'?`<a class="bvlink" href="${esc(b.src)}" target="_blank" rel="noopener">🎬 영상으로 보기 (원문)</a>`:''}${b.src?`<a class="cat bsrc" href="${esc(b.src)}" target="_blank" rel="noopener">원문 보기 ›</a>`:''}${b.uid&&(UB.admin||admKey())?`<div class="gtbar"><span style="flex:1"></span><button type="button" id="bdel">🗑 글 삭제 (길마)</button></div>`:''}</article>`;bindBack();
+    const del=document.getElementById('bdel');if(del)del.onclick=async()=>{const pw='';if(!confirm('이 글을 지울까요?'))return;try{await ubApi({action:'delete',id:b.uid,pw});UB.posts=UB.posts.filter(x=>x.id!==b.uid);GP=null;render();navPush();}catch(e){alert(UBERR[e.code]||'삭제가 안 됐어요.');}};
     return;}
   GP=null;
   const q=(BQ||st.q||'').trim().toLowerCase();
@@ -2297,6 +2300,7 @@ function pendingList(){const out=[];const seen=new Set();const walk=(o,top,ctx)=
 function pendingSec(){const L=pendingList();const grp={};L.forEach(x=>{const loc=x.top==='board'?['guide','공략 게시판']:(PEND_LOC[x.top]||['tip','기타']);(grp[loc[1]]=grp[loc[1]]||{tab:loc[0],items:[]}).items.push(x);});
   return `<h2 class="sec">🔍 확인 중 모아보기 <small>${L.length}개 · 아는 분은 모험단 오픈카톡이나 공략 글쓰기로 알려 주세요</small></h2>${Object.entries(grp).map(([lab,g])=>`<section class="box full pend"><h3>${esc(lab)} <small class="cat">${g.items.length}개</small> ${g.tab!=='guide'?`<button type="button" class="cgo" data-go="${g.tab}">보러 가기 ›</button>`:''}</h3><ul>${g.items.map(x=>`<li>${x.ctx?`<b>${esc(String(x.ctx).slice(0,40))}</b> · `:''}${x.id?`<a href="#" data-post="${esc(x.id)}">${esc(x.t)}</a>`:esc(x.t)}</li>`).join('')}</ul></section>`).join('')}`;}
 document.addEventListener('click',e=>{const b=e.target.closest('.pend [data-go]');if(b){e.preventDefault();go(b.dataset.go);}});
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-share]');if(!b)return;e.preventDefault();const ok=await copyText((onCloudflare()?location.origin:SITE)+'/p/'+b.dataset.share);b.textContent=ok?'복사했어요 ✓ 카톡에 붙여 넣으면 미리보기가 떠요':'복사 실패';setTimeout(()=>b.textContent='🔗 링크 복사',2500);});
 function recheckOf(b){if(!b||!b.date)return null;const R=(D.tipx.recheck||[]);const txt=(b.title+' '+(b.lines||[]).join(' '));for(const r of R){if(b.date<r.date&&r.kw.some(k=>txt.includes(k)))return r.label;}return null;}
 function renderTips(){
   clearBar(); const T=D.tipx; const now=new Date(Date.now()+9*3600e3-0); const today=now.toISOString().slice(5,10);
@@ -2408,7 +2412,7 @@ function renderHome(){
   const leftTxt=ms=>{const m=Math.max(0,Math.floor(ms/6e4)),d=Math.floor(m/1440),h=Math.floor(m%1440/60),mm=m%60;return d?`${d}일 ${h}시간`:h?`${h}시간 ${mm}분`:`${mm}분`;};
   const radHtml=nextSwap?`<section class="full radcd"><span class="rci">🔥</span><div><b>${radNow?esc(radNow[2].replace(/^(융광종 )?/,'융광종 '))+' 토벌 중':'이번 융광종 토벌 확인 중'}</b><span>다음 교체 ${nextSwap.w===1?'월':'금'}요일 05:00까지 <em>${leftTxt(nextSwap.t-nowMs)}</em> 남았어요${radNow&&radNow[5]?' · 보상 '+esc(radNow[5]):''}</span></div><button type="button" class="cgo" data-go="tip">일정 ›</button></section>`:'';
   const NEWP=(D.board||[]).map((b,i)=>({b,i})).sort((x,y)=>String(y.b.date).localeCompare(String(x.b.date))||y.i-x.i).slice(0,4).map(x=>x.b);
-  const CI={'무기·세팅':'⚔️','모험가':'🧭','몬스터·사냥':'🐉','채집·탐색':'🌿','초보·시스템':'🔰','생활·편의':'🏕️'};
+  const CI={'자유':'💬','무기·세팅':'⚔️','모험가':'🧭','몬스터·사냥':'🐉','채집·탐색':'🌿','초보·시스템':'🔰','생활·편의':'🏕️'};
   const LV=st.lv,LT=D.tipx.lvtips||[];const nextCap=CAP.find(c=>c[0]>LV);const done=LT.filter(x=>x[0]<=LV),todo=LT.filter(x=>x[0]>LV);
   const lvHtml=`<section class="full lvcard"><div class="lvh"><b>🎯 내 레벨 맞춤</b><label>모험 랭크 <input id="hlv" type="number" min="1" max="99" inputmode="numeric" value="${LV}"></label></div>
    <div class="lvg"><div><span class="cat">지금 강화 상한</span><b>레어도 ${capOf(LV)}</b>${nextCap?`<small>Lv${nextCap[0]}에 레어도 ${nextCap[1]}</small>`:'<small>지금 확인된 상한은 여기까지예요</small>'}</div>
@@ -2466,7 +2470,7 @@ function renderItems(){
 }
 let GPREV=null;
 let GMAT='';
-const FMAT=(()=>{const M={};(D.facilities||[]).forEach(f=>f.rows.forEach(r=>String(r[2]).split('·').forEach(x=>{const m=/^\s*(.+?)\s+(\d+)(?:\+(\d+))?/.exec(x);if(!m)return;const n=m[1].replace(/\*$/,'').trim();if(/생산량|사진/.test(n)||n.length<2)return;(M[n]=M[n]||[]).push({f,r,amt:+m[2]+(+m[3]||0)});})));return M;})();
+const FMAT=(()=>{const M={};(D.facilities||[]).forEach(f=>f.rows.forEach(r=>String(r[2]).split('·').forEach(x=>{const m=/^\s*(.+?)\s+(\d+)(?:\+(\d+))?/.exec(x);if(!m)return;const n=m[1].replace(/\*$/,'').trim();if(/생산량|사진|다른|확인 중/.test(n)||n.length<2)return;(M[n]=M[n]||[]).push({f,r,amt:+m[2]+(+m[3]||0)});})));return M;})();
 document.addEventListener('click',e=>{const b=e.target.closest('[data-fm]');if(b){e.preventDefault();GMAT=GMAT===b.dataset.fm?'':b.dataset.fm;const y=scrollY;render();window.scrollTo({top:y});}});
 function renderGather(){
   document.getElementById('lt').textContent='맵'; document.getElementById('le').textContent='';
@@ -2683,8 +2687,14 @@ function gIndex(){if(GIDX)return GIDX;const L=[];const add=(t,n,sub,act)=>{if(n)
   TABDEF.forEach(t=>add('탭',t[2],t[3]||'',{tab:t[0]}));
   return GIDX=L;}
 const GALIAS={'헤보':'헤비보우건','차액':'차지액스','격대':'격투 대회','마격':'마스터 격투장','현챌':'현상금 챌린지','협포':'협동 포인트','오충효':'오의 충전','속뎀':'속성 대미지','익스':'익스트림','저회':'저스트 회피','서폿':'서포터'};
-function gSearch(q){q=q.trim().toLowerCase();if(!q)return [];const al=GALIAS[q]?GALIAS[q].toLowerCase():null;
-  const R=gIndex().map(x=>{const n=x.n.toLowerCase();const f=qq=>n===qq?0:n.startsWith(qq)?1:n.includes(qq)?2:x.l.includes(qq)?3:9;let sc=f(q);if(al)sc=Math.min(sc,f(al)+0.5);return {x,sc};}).filter(o=>o.sc<9).sort((a,b)=>a.sc-b.sc||a.x.n.length-b.x.n.length);
+const CHO='ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ';const cho=t=>[...t].map(c=>{const k=c.charCodeAt(0)-0xAC00;return k>=0&&k<11172?CHO[Math.floor(k/588)]:c;}).join('');
+function lev(a,b){if(Math.abs(a.length-b.length)>2)return 9;const d=Array.from({length:a.length+1},(_,i)=>[i]);for(let j=1;j<=b.length;j++)d[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[a.length][b.length];}
+function gSearch(q){q=q.trim().toLowerCase();if(!q)return [];const al=GALIAS[q]?GALIAS[q].toLowerCase():null;const isCho=/^[ㄱ-ㅎ]+$/.test(q.replace(/\s/g,''));const qc=q.replace(/\s/g,'');
+  let R=gIndex().map(x=>{const n=x.n.toLowerCase();const f=qq=>n===qq?0:n.startsWith(qq)?1:n.includes(qq)?2:x.l.includes(qq)?3:9;let sc=f(q);if(al)sc=Math.min(sc,f(al)+0.5);
+    if(sc===9&&isCho){x.c=x.c||cho(n.replace(/\s/g,''));if(x.c.startsWith(qc))sc=1.5;else if(x.c.includes(qc))sc=2.5;}
+    return {x,sc};}).filter(o=>o.sc<9);
+  gSearch.fz=false;if(!R.length&&!isCho&&q.length>=3){gSearch.fz=true;const tol=q.length>=6?2:1;R=gIndex().map(x=>{const n=x.n.toLowerCase().replace(/\s/g,'');const d=lev(qc,n);return {x,sc:d<=tol?4+d:9};}).filter(o=>o.sc<9);}
+  R.sort((a,b)=>a.sc-b.sc||a.x.n.length-b.x.n.length);
   const per={};const top=R.filter(o=>{per[o.x.t]=(per[o.x.t]||0)+1;return per[o.x.t]<=5;}).slice(0,30).map(o=>o.x);const ord=[...new Set(top.map(x=>x.t))];return ord.flatMap(t=>top.filter(x=>x.t===t));}
 function gRun(a){const box=document.getElementById('gqr');box.hidden=true;
   if(a.post){goPost(a.post);return;}
@@ -2696,7 +2706,7 @@ function gRun(a){const box=document.getElementById('gqr');box.hidden=true;
 (function(){const inp=document.getElementById('gq'),box=document.getElementById('gqr');let res=[],sel=0;
   const paint=()=>{const q=inp.value;res=gSearch(q);sel=0;if(!q.trim()){box.hidden=true;return;}box.hidden=false;
     if(!res.length){box.innerHTML='<p class="gqe">찾는 게 없어요. 다른 말로 찾아보세요.</p>';return;}
-    let last='';box.innerHTML=res.map((x,i)=>{const h=x.t!==last?`<div class="gqh">${esc(x.t)}</div>`:'';last=x.t;return h+`<button type="button" class="gqi${i===sel?' on':''}" data-i="${i}"><b>${esc(x.n)}</b><small>${esc(x.sub.slice(0,90))}</small></button>`;}).join('');
+    let last='';box.innerHTML=(gSearch.fz?'<p class="gqe">정확히 맞는 게 없어서 비슷한 이름을 보여 줘요</p>':'')+res.map((x,i)=>{const h=x.t!==last?`<div class="gqh">${esc(x.t)}</div>`:'';last=x.t;return h+`<button type="button" class="gqi${i===sel?' on':''}" data-i="${i}"><b>${esc(x.n)}</b><small>${esc(x.sub.slice(0,90))}</small></button>`;}).join('');
     box.querySelectorAll('.gqi').forEach(b=>b.onclick=()=>{gRun(res[+b.dataset.i].act);inp.blur();});};
   inp.addEventListener('input',paint);inp.addEventListener('focus',()=>{if(inp.value.trim())paint();});
   inp.addEventListener('keydown',e=>{if(box.hidden)return;const its=[...box.querySelectorAll('.gqi')];if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();sel=(sel+(e.key==='ArrowDown'?1:-1)+its.length)%its.length;its.forEach((b,i)=>b.classList.toggle('on',i===sel));its[sel]&&its[sel].scrollIntoView({block:'nearest'});}else if(e.key==='Enter'&&res[sel]){e.preventDefault();gRun(res[sel].act);inp.blur();}else if(e.key==='Escape'){box.hidden=true;}});

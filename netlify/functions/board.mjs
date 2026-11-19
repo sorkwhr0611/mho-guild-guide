@@ -4,7 +4,7 @@ import { createHash } from "node:crypto";
 // 공략 게시판 글쓰기 (누구나 쓰기 · 글쓴이 비밀번호 또는 길마가 삭제)
 // 길마 인증은 guild.mjs와 같아요 (x-admin-key, 환경 변수 GUILD_ADMIN_KEY 우선).
 const ADMIN_HASH = "af7f1a19a732de19eaae3eff4946ddad736ab5d5f64fdb7a965212a11972e1da";
-const CATS = ["무기·세팅", "모험가", "몬스터·사냥", "채집·탐색", "초보·시스템", "생활·편의"];
+const CATS = ["무기·세팅", "모험가", "몬스터·사냥", "채집·탐색", "초보·시스템", "생활·편의", "자유"];
 const MAX_POSTS = 500, MAX_IMG = 3, MAX_IMG_LEN = 420000; // data URL 한 장 약 300KB까지
 
 const json = (body, status = 200) =>
@@ -67,14 +67,12 @@ export default async (req) => {
     if (!nick) return err("nick");
     if (!title) return err("title");
     if (!lines.length) return err("body");
-    const pw = clip(b.pw, 40);
-    if (pw.length < 4) return err("pw");
     if (idx.length >= MAX_POSTS) return err("full", 429);
     const imgs = (Array.isArray(b.images) ? b.images : []).filter((s) => typeof s === "string" && /^data:image\/(jpeg|png|webp);base64,/.test(s) && s.length <= MAX_IMG_LEN).slice(0, MAX_IMG);
     let yt = "";
     const ym = /(?:youtu\.be\/|v=|shorts\/|embed\/)([A-Za-z0-9_-]{11})/.exec(String(b.yt || ""));
     if (ym) yt = ym[1];
-    const p = { id: uid(), at: Date.now(), nick, cat, title, lines, imgs: imgs.length, yt, pw: sha("bp|" + pw) };
+    const p = { id: uid(), at: Date.now(), nick, cat, title, lines, imgs: imgs.length, yt }; // 글 삭제는 길마만
     await Promise.all(imgs.map((s, i) => store.set(`img:${p.id}:${i}`, s)));
     idx.unshift(p);
     await store.setJSON("index", idx);
@@ -85,7 +83,7 @@ export default async (req) => {
     const id = clip(b.id, 40);
     const p = idx.find((x) => x.id === id);
     if (!p) return err("not_found", 404);
-    if (!isAdmin && p.pw !== sha("bp|" + clip(b.pw, 40))) return err("forbidden", 403);
+    if (!isAdmin) return err("forbidden", 403);
     await Promise.all(Array.from({ length: p.imgs || 0 }, (_, i) => store.delete(`img:${p.id}:${i}`)));
     await store.setJSON("index", idx.filter((x) => x.id !== id));
     const mt = (await store.get("meta", { type: "json" })) || {};
