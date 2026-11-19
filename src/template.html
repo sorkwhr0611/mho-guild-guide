@@ -1958,7 +1958,7 @@ art:'위에서 내 삽화 단계(희귀·영웅·전설)를 고르면 카드가 
 life:'4개 맵의 환경생물과 수중 생물이에요(찬란한 군도는 게임 도감에 있는 7종만, 출현 정보는 아직 없어요). 출현 시간·찾는 위치·사용 효과·크기를 월드별로 볼 수 있어요.',
 gift:'모험가별로 어떤 인연 선물이 제일 효과적인지 정리했어요. 왼쪽부터 주면 돼요(좋아하는 선물 중 상승량 대 → 중 → 소).',
 item:'게임 아이템 아이콘 목록이에요. 특산품·조합 소재·약품·소모품·미끼·이너웨어·채집 도구를 분류별로 볼 수 있고, 페이지 곳곳의 아이템 이름에도 같은 아이콘이 붙어요.',
-gather:'마라두부 공장(고추·헤븐 베리·섬 진품쌀) 자리와, 4개 맵의 출장 채집 시설(식물·목재·광석) 추천 위치예요. 위 "맵"을 고르면 자리와 사진이 그 맵 것만 보여요.'};
+gather:'마라두부 공장(고추·헤븐 베리·섬 진품쌀) 자리와, 출장 채집 시설 위치예요. "출장 시설"에서 맵·종류·재료를 고르면 시설 사진과 나오는 재료가 같이 보여요.'};
 function renderParty(){
   document.getElementById('lt').textContent='속성'; document.getElementById('le').textContent='';
   document.getElementById('e').innerHTML='';
@@ -2469,9 +2469,9 @@ function renderItems(){
   document.getElementById('n').textContent=`아이템 ${cnt}개`;
 }
 let GPREV=null;
-let GMAT='',GKIND='식물';
+let GMAT='',GKIND='전체';
 const FMAT=(()=>{const M={};(D.facilities||[]).forEach(f=>f.rows.forEach(r=>String(r[2]).split('·').forEach(x=>{const m=/^\s*(.+?)\s+(\d+)(?:\+(\d+))?/.exec(x);if(!m)return;const n=m[1].replace(/\*$/,'').trim();if(/생산량|사진|다른|확인 중/.test(n)||n.length<2)return;(M[n]=M[n]||[]).push({f,r,amt:+m[2]+(+m[3]||0)});})));return M;})();
-document.addEventListener('click',e=>{const b=e.target.closest('[data-fm]');if(b){e.preventDefault();GMAT=GMAT===b.dataset.fm?'':b.dataset.fm;const y=scrollY;render();window.scrollTo({top:y});return;}const k=e.target.closest('[data-fk]');if(k){e.preventDefault();GKIND=k.dataset.fk;GMAT='';const y=scrollY;render();window.scrollTo({top:y});}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-fm]');if(b){e.preventDefault();GMAT=GMAT===b.dataset.fm?'':b.dataset.fm;const y=scrollY;render();window.scrollTo({top:y});return;}const fm=e.target.closest('[data-fmap]');if(fm){e.preventDefault();lf.m=fm.dataset.fmap;if(GMAT&&FMAT[GMAT]&&lf.m!=='전체'&&!FMAT[GMAT].some(o=>o.f.map===lf.m))GMAT='';const y=scrollY;render();window.scrollTo({top:y});return;}const k=e.target.closest('[data-fk]');if(k){e.preventDefault();GKIND=k.dataset.fk;GMAT='';const y=scrollY;render();window.scrollTo({top:y});}});
 function renderGather(){
   document.getElementById('lt').textContent='맵'; document.getElementById('le').textContent='';
   lchips('t',['전체',...MAPS],'m'); document.getElementById('e').innerHTML='';
@@ -2489,9 +2489,6 @@ function renderGather(){
   // 마라두부 공장 = 사진 있는 식물 자리 중 고추·헤븐 베리·진품쌀
   const mara=all.filter(({f,r})=>r[0]==='식물'&&(r[4]||[]).some(k=>SHOTS[k]&&SHOTS[k].mara)&&mapOK(f)&&rowOK(r));
   let cnt=0;
-  const kindSec=(kind,icon)=>{const maps=D.facilities.filter(mapOK).map(f=>{const rs=f.rows.filter(r=>r[0]===kind&&rowOK(r));cnt+=rs.length;if(!rs.length)return '';
-      return `<section class="world fworld"><h3>${f.map}<small>${f.sub}</small></h3><div class="flist">${rowsHtml(rs.map(r=>({f,r})),false)}</div>${kind==='식물'?`<div class="fttip">💡 ${esc(f.tip)}</div>`:''}</section>`;}).join('');
-    return maps||`<p class="empty">${lf.m==='전체'?'':esc(lf.m)+'에는 '}조건에 맞는 ${kind} 시설 자리가 없어요.</p>`;};
   const rows=G.armor.map(a=>`<tr><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px;align-items:flex-start">${PHT(a[1],'ar','부위-'+a[0])}<span>${esc(a[1])}<div class="route" style="color:var(--muted)">${esc(a[2])}</div></span></span></td></tr>`).join('');
   const sk=G.skills.map(s=>`<span class="s core" title="${esc(s[2])}">${esc(s[0])}<b>Lv${s[1]}</b></span>`).join('');
   document.getElementById('grid').innerHTML=`
@@ -2508,15 +2505,19 @@ function renderGather(){
     <li><b>해금</b>: ${esc(C.unlock)} 출장 시설로 받은 헤븐 베리가 75개에 들어가는지는 공략 사이트에 나와 있지 않아요.</li>
     <li><b>요리</b>: ${esc(C.where)}</li>
   </ol><div class="cat" style="white-space:normal">${esc(C.other)}</div></section>
-  <h2 class="sec">출장 채집 시설 <small>종류 → 소재를 고르면 많이 주는 자리부터 · ★ = 추천 자리 · 위 '맵' 필터도 같이 적용</small></h2>
-  <section class="box full fmat">${(()=>{const KN={'식물':'🌿 식물','나무':'🪵 목재','광석':'⛏️ 광석'};
-    const kinds={};Object.entries(FMAT).forEach(([n,L])=>{const k=L[0].r[0];(kinds[k]=kinds[k]||[]).push([n,L.length]);});
+  <h2 class="sec">출장 채집 시설 <small>맵 · 종류 · 재료를 고르면 사진과 나오는 재료를 같이 보여줘요 · ★ = 추천 자리</small></h2>
+  <section class="box full fmat">${(()=>{const KN={'전체':'전체','식물':'🌿 식물','나무':'🪵 목재','광석':'⛏️ 광석'};
+    const kinds={};Object.entries(FMAT).forEach(([n,L])=>{const k=L[0].r[0];(kinds[k]=kinds[k]||[]).push([n,L.filter(o=>mapOK(o.f)).length]);});
     if(GMAT&&FMAT[GMAT])GKIND=FMAT[GMAT][0].r[0];
+    const mapchips=`<div class="bcats"><span class="cat fmk">맵</span>${['전체',...D.facilities.map(f=>f.map)].map(m=>`<button type="button" class="chip" data-fmap="${esc(m)}" aria-pressed="${lf.m===m}">${esc(m)}</button>`).join('')}</div>`;
     const kchips=`<div class="bcats"><span class="cat fmk">종류</span>${Object.keys(KN).map(k=>`<button type="button" class="chip" data-fk="${k}" aria-pressed="${GKIND===k}">${KN[k]}</button>`).join('')}</div>`;
-    const mchips=`<div class="bcats"><span class="cat fmk">소재</span><button type="button" class="chip" data-fm="" aria-pressed="${!GMAT}">전체</button>${(kinds[GKIND]||[]).sort((a,b)=>b[1]-a[1]).map(([n,c])=>`<button type="button" class="chip" data-fm="${esc(n)}" aria-pressed="${GMAT===n}">${esc(n)} <small>${c}</small></button>`).join('')}</div>`;
-    if(!GMAT||!FMAT[GMAT])return kchips+mchips+`<div class="life">${kindSec(GKIND)}</div>`;
-    const L=FMAT[GMAT].filter(o=>mapOK(o.f)).sort((a,b)=>b.amt-a.amt);
-    return kchips+mchips+`<h3 style="margin:6px 0 0">${ic(GMAT)}${esc(GMAT)} <small class="cat">${L.length}곳 · 많이 주는 순</small></h3>`+(L.length?`<div class="flist">${L.map(o=>`<div class="frow${o.r[3]?' star':''}"><div class="frh"><span class="famt">${o.amt}개</span>${o.r[3]?'<span class="fst">★ 추천</span>':''}<b class="fmap">${esc(o.f.map)}</b><span class="kr">${esc(o.r[1])}</span></div><div class="items">${itemIc(o.r[2])}</div>${pics(o.r)}</div>`).join('')}</div>`:`<p class="empty">${esc(lf.m)}에는 이 소재가 나오는 시설이 없어요.</p>`);})()}</section>
+    const ml=(GKIND==='전체'?Object.values(kinds).flat():(kinds[GKIND]||[])).filter(x=>x[1]>0).sort((a,b)=>b[1]-a[1]);
+    const mchips=`<div class="bcats"><span class="cat fmk">재료</span><button type="button" class="chip" data-fm="" aria-pressed="${!GMAT}">전체</button>${ml.map(([n,c])=>`<button type="button" class="chip" data-fm="${esc(n)}" aria-pressed="${GMAT===n}">${ic(n)}${esc(n)} <small>${c}</small></button>`).join('')}</div>`;
+    let L,title;
+    if(GMAT&&FMAT[GMAT]){L=FMAT[GMAT].filter(o=>mapOK(o.f)&&rowOK(o.r)).sort((a,b)=>b.amt-a.amt);title=`${ic(GMAT)}${esc(GMAT)} <small class="cat">${L.length}곳 · 많이 주는 순</small>`;}
+    else{L=[];D.facilities.filter(mapOK).forEach(f=>f.rows.forEach(r=>{if((GKIND==='전체'||r[0]===GKIND)&&rowOK(r))L.push({f,r});}));L.sort((a,b)=>(b.r[3]?1:0)-(a.r[3]?1:0));title=`${GKIND==='전체'?'전체 시설':KN[GKIND]+' 시설'} <small class="cat">${L.length}곳 · ★ 추천 먼저</small>`;}
+    cnt=L.length;
+    return mapchips+kchips+mchips+`<h3 style="margin:6px 0 0">${title}</h3>`+(L.length?`<div class="flist">${L.map(o=>`<div class="frow${o.r[3]?' star':''}"><div class="frh">${o.amt?`<span class="famt">${o.amt}개</span>`:`<span class="famt">${esc(KN[o.r[0]]||o.r[0])}</span>`}${o.r[3]?'<span class="fst">★ 추천</span>':''}<b class="fmap">${esc(o.f.map)}</b><span class="kr">${esc(o.r[1])}</span></div><div class="items">${itemIc(o.r[2])}</div>${pics(o.r)}</div>`).join('')}</div>`:`<p class="empty">${lf.m==='전체'?'':esc(lf.m)+'에는 '}조건에 맞는 시설이 없어요.</p>`);})()}</section>
   <div class="maplink" style="border:0;padding:0">📷 다른 자리 사진·지도: <a href="https://gamewith.jp/mhoutlanders/587282" target="_blank" rel="noopener">GameWith 시설 추천 위치</a><a href="https://gamewith.ai/monster-hunter-outlanders/ko/interactive/map" target="_blank" rel="noopener">GameWith 한국어 인터랙티브 지도</a></div>
   <h2 class="sec">맵 100% 파먹기 <small>「맵 파먹을때 편하게 찾기」</small></h2>
   <div class="c2"><section class="box"><ul>${D.maptip.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
