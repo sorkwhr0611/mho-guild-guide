@@ -77,6 +77,7 @@ tr.final td{background:var(--final);color:var(--final-ink)}
 .tab{position:relative}.tnew{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:#d23c1f;color:#fff;font-size:11px;font-weight:800;line-height:18px;text-align:center;box-shadow:0 0 0 2px var(--panel)}
 .lvcard{border:1.5px solid var(--line);border-radius:12px;background:var(--panel);padding:12px 16px;display:grid;gap:10px}.lvh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between}.lvh b{font-size:16px}.lvh input{font:inherit;width:64px;padding:4px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);margin-left:6px}.lvg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:10px}.lvg>div{display:grid;gap:2px;background:var(--bg);border-radius:10px;padding:8px 12px}.lvg b{font-size:15px}.lvg small{font-size:13px;color:var(--muted)}.lvb{display:flex;gap:8px;flex-wrap:wrap}
 .migbox{display:grid;gap:6px;margin:10px 0;padding:10px 12px;border:1.5px dashed var(--accent);border-radius:10px;background:var(--accent-soft)}.migbox button{justify-self:start}
+#moved{margin:8px 0;padding:12px 16px;border-radius:12px;background:#d23c1f;color:#fff;font-size:15px;line-height:1.5}#moved a{color:#fff;font-weight:800;text-decoration:underline}
 .chfresh{padding:10px 14px;border-radius:10px;background:var(--final);border:1.5px solid var(--gold);font-weight:700;font-size:14.5px}
 .jnote{margin:6px 0 2px;padding:8px 10px;border-radius:9px;background:var(--accent-soft);border-left:3px solid var(--accent);font-size:14px;white-space:normal}.jnote b{color:var(--accent);margin-right:4px}
 .note{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14.5px;color:var(--muted)}
@@ -1139,6 +1140,7 @@ section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.
 </head>
 <body>
 <div class="wrap">
+<div id="moved" hidden><b>📢 공략집 주소가 바뀌었어요!</b> 새 주소: <a href="https://mho-guild-guide.pages.dev">mho-guild-guide.pages.dev</a> · 홈 화면 앱·즐겨찾기도 새 주소로 바꿔 주세요.</div>
 <header>
   <h1 class="brand" id="brand" role="link" tabindex="0" title="홈으로"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-28 32 32)"><rect x="40" y="27" width="16" height="10" rx="3" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="27" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="37" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><rect x="51" y="28" width="7" height="8" fill="#f3ead7"/><ellipse cx="26" cy="32" rx="20" ry="17" fill="#c8542b" stroke="#3a2a1a" stroke-width="2.5"/><ellipse cx="22" cy="26" rx="10" ry="6" fill="#e07a45" opacity=".8"/></g><circle cx="20" cy="33" r="2.6" fill="#3a2a1a"/><circle cx="31" cy="29" r="2.6" fill="#3a2a1a"/><path d="M22 39q4 4 9-1" stroke="#3a2a1a" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="38" r="2.6" fill="#ff9aa2" opacity=".8"/><circle cx="36" cy="33" r="2.6" fill="#ff9aa2" opacity=".8"/><path d="M27 47l-4 3 4 10 4-10z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/><path d="M24 46h6l-3 3z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/></svg><span>직장인수렵단 <em>공략집</em></span></h1>
   <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · <span class="updd">2026.11.19 업데이트</span></p>
@@ -1359,9 +1361,10 @@ function renderLife(){
 
 /* ---- 모험단 가입 신청 (Netlify Functions + Blobs) ---- */
 const JOINK='mho-join-mine', ADMK='mho-join-admin';
-const SITE='https://wondrous-otter-9e87e6.netlify.app';
+const SITE='https://mho-guild-guide.pages.dev';
 /* 서버 기능(가입·투표·출석부·게시판)이 있는 주소: Netlify 또는 Cloudflare Pages(커스텀 도메인은 여기 추가) */
 const API_HOSTS=[];const onNetlify=()=>/(netlify\.app|pages\.dev)$/.test(location.hostname)||API_HOSTS.includes(location.hostname);
+if(/netlify\.app$/.test(location.hostname)){const mv=document.getElementById('moved');if(mv){mv.hidden=false;const a=mv.querySelector('a');a.href='https://mho-guild-guide.pages.dev/'+location.hash;}}
 const onCloudflare=()=>/pages\.dev$/.test(location.hostname)||API_HOSTS.includes(location.hostname);
 const JST=['확인 중','안내 완료','가입 완료','보류'];
 let JOIN={rows:null,err:'',admin:false,page:1};
