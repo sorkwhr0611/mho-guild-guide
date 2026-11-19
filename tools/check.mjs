@@ -84,8 +84,8 @@ for(const e of g.querySelectorAll('*')){if(!vis(e))continue;const r=e.getBoundin
  const s=getComputedStyle(e);if(/auto|scroll/.test(s.overflowX+s.overflowY)&&(e.scrollWidth>e.clientWidth+1||e.scrollHeight>e.clientHeight+1)&&!e.closest('.tw'))out.push('안쪽 스크롤 '+nm(e));
  if(e.tagName==='IMG'&&e.complete&&!e.naturalWidth&&r.top<innerHeight)out.push('깨진 그림 '+(e.getAttribute('src')||'').slice(0,40));}
 for(const row of g.querySelectorAll('.evr, tr')){const c=[...row.children].filter(vis).map(x=>x.getBoundingClientRect());for(let i=1;i<c.length;i++){if(c[i].left<c[i-1].right-1&&c[i].top<c[i-1].bottom-1&&c[i-1].top<c[i].bottom-1)out.push('칸 겹침 '+row.className)}}
-for(const gr of g.querySelectorAll('.c2,.c3')){const cs=[...gr.children].filter(x=>vis(x)&&x.children.length>1);const rows={};cs.forEach(c=>{const k=Math.round(c.getBoundingClientRect().top);(rows[k]=rows[k]||[]).push(c)});
- for(const R of Object.values(rows)){if(R.length<2)continue;for(let i=1;i<3;i++){const L=R.map(c=>c.children[i]).filter(Boolean);if(L.length<2||new Set(L.map(x=>x.className)).size>1)continue;const tops=L.map(x=>x.getBoundingClientRect().top);if(Math.max(...tops)-Math.min(...tops)>6)out.push('나란한 카드끼리 칸 높이가 달라요 '+nm(R[0]))}}}
+for(const gr of g.querySelectorAll('.c2,.c3,.homegrid,.hnews')){const cs=[...gr.children].filter(x=>vis(x)&&x.children.length>1);const rows={};cs.forEach(c=>{const k=Math.round(c.getBoundingClientRect().top);(rows[k]=rows[k]||[]).push(c)});
+ for(const R of Object.values(rows)){if(R.length<2)continue;for(let i=1;i<3;i++){const L=R.map(c=>c.children[i]).filter(Boolean);if(L.length<2||new Set(L.map(x=>x.className)).size>1)continue;const tops=L.map(x=>x.getBoundingClientRect().top),bots=L.map(x=>x.getBoundingClientRect().bottom);if(Math.max(...tops)-Math.min(...tops)>6&&Math.max(...bots)-Math.min(...bots)>6)out.push('나란한 카드끼리 칸 높이가 달라요 '+nm(R[0]))}}}
 return [...new Set(out)].slice(0,6)})()`;
 const { chromium } = require("playwright");
 const br = process.env.CHECK_FAST ? null : await chromium.launch();
