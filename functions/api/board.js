@@ -1,6 +1,6 @@
 // ⚠️ 자동 생성: netlify/functions/board.mjs 에서 tools/port-functions.mjs 로 만들었어요. 직접 고치지 마세요.
 import { kvStore } from "../_lib/store.js";
-import { createHash } from "node:crypto";
+import { createHash, b64bytes } from "../_lib/hash.js";
 
 // 공략 게시판 글쓰기 (누구나 쓰기 · 글쓴이 비밀번호 또는 길마가 삭제)
 // 길마 인증은 guild.mjs와 같아요 (x-admin-key, 환경 변수 GUILD_ADMIN_KEY 우선).
@@ -41,7 +41,7 @@ export async function onRequest({ request: req, env }) {
       if (!d) return err("not_found", 404);
       const m = /^data:(image\/(?:jpeg|png|webp));base64,(.+)$/.exec(d);
       if (!m) return err("img");
-      return new Response(Buffer.from(m[2], "base64"), { headers: { "content-type": m[1], "cache-control": "public, max-age=31536000, immutable" } });
+      return new Response(b64bytes(m[2]), { headers: { "content-type": m[1], "cache-control": "public, max-age=31536000, immutable" } });
     }
     const idx = (await store.get("index", { type: "json" })) || [];
     const meta = (await store.get("meta", { type: "json" })) || {};

@@ -1,7 +1,7 @@
 // Netlify → Cloudflare 이사 도우미 (길마 전용)
 // POST /api/migrate : 예전 Netlify 사이트의 /api/{join,guild,board}?export=1 에서 원본을 받아 KV에 그대로 옮겨요.
 // GET  /api/migrate : 지금 KV에 저장소별로 몇 개가 들어 있는지 보여 줘요.
-import { createHash } from "node:crypto";
+import { createHash } from "../_lib/hash.js";
 const ADMIN_HASH = "af7f1a19a732de19eaae3eff4946ddad736ab5d5f64fdb7a965212a11972e1da";
 const OLD = "https://wondrous-otter-9e87e6.netlify.app";
 const json = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });

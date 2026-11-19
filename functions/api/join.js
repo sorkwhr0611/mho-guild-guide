@@ -1,6 +1,6 @@
 // ⚠️ 자동 생성: netlify/functions/join.mjs 에서 tools/port-functions.mjs 로 만들었어요. 직접 고치지 마세요.
 import { kvStore } from "../_lib/store.js";
-import { createHash } from "node:crypto";
+import { createHash, b64bytes } from "../_lib/hash.js";
 
 // 길마 관리 비밀번호(SHA-256). Netlify 환경 변수 GUILD_ADMIN_KEY가 있으면 그게 우선이에요.
 const ADMIN_HASH = "af7f1a19a732de19eaae3eff4946ddad736ab5d5f64fdb7a965212a11972e1da";

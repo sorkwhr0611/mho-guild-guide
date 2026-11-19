@@ -1,6 +1,6 @@
 // ⚠️ 자동 생성: netlify/functions/guild.mjs 에서 tools/port-functions.mjs 로 만들었어요. 직접 고치지 마세요.
 import { kvStore } from "../_lib/store.js";
-import { createHash } from "node:crypto";
+import { createHash, b64bytes } from "../_lib/hash.js";
 
 // 길드 투표 · 파티 모집 · 단원명부 · 토요일 출석부
 // 길마 인증은 join.mjs와 같아요 (x-admin-key, 환경 변수 GUILD_ADMIN_KEY 우선).
