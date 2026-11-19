@@ -2083,6 +2083,12 @@ document.addEventListener('click',e=>{const f=e.target.closest('figure.shot');if
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.lb').forEach(x=>x.remove());});
 /* 한국 시간 05:00 기준 (UTC+9 → 05시를 0시로 당기면 +4시간) */
 function choreKey(kind){const n=new Date(Date.now()+4*3600e3);if(kind==='d')return 'd'+n.toISOString().slice(0,10);const day=(n.getUTCDay()+6)%7;const m=new Date(n-day*864e5);return 'w'+m.toISOString().slice(0,10);}
+function evtGet(){try{return JSON.parse(localStorage.getItem('mho-evtodo')||'{}');}catch(_){return {};}}
+function evtSet(v){try{localStorage.setItem('mho-evtodo',JSON.stringify(v));}catch(_){}}
+function evLive(){const now=Date.now();const k=(v,end)=>{const [d,t]=String(v).split(' ');return Date.parse((d>='10-01'?'2026-':'2027-')+d+'T'+(t||(end?'23:59':'00:00'))+':00+09:00');};return (D.tipx.cal.ev||[]).filter(e=>e[3]&&k(e[3])<=now&&now<=k(e[4],1)+59e3).sort((a,b)=>k(a[4],1)-k(b[4],1));}
+function evTodoHtml(dk){const T=D.tipx.evtodo||{};const S=evtGet();const L=evLive().filter(e=>T[e[1]]);if(!L.length)return '';
+  const md=x=>String(x).split(' ')[0].replace('-','/').replace(/^0/,'');
+  return `<h2 class="sec">🎪 진행 중 이벤트 할 일 <small>이벤트가 끝나면 사라져요 · '매일'로 시작하는 건 매일 05:00 초기화</small></h2><section class="box full"><div class="chores">${L.map(e=>T[e[1]].map((t,i)=>{const ek=e[1]+'|'+e[3]+'|'+i+(/^매일|^일일/.test(t)?'|'+dk:'');const on=!!S[ek];return `<label class="chore evtd${on?' on':''}"><input type="checkbox" data-ek="${esc(ek)}" ${on?'checked':''}><span class="ci">🎪</span><span class="ct"><b>${esc(t)}</b><span>${esc(e[0]==='융광종 토벌'?e[2]+' 토벌':e[0]==='출석·패스'?e[1]:e[2])} · ~${md(e[4])}</span></span><span class="cbtns"><button type="button" class="cgo" data-go="tip">일정 ›</button></span></label>`;}).join('')).join('')}</div></section>`;}
 function choreGet(){try{return JSON.parse(localStorage.getItem('mho-chores')||'{}');}catch(_){return {};}}
 /* ---- 공략에서 더 보기 (탭·숙제 → 공략 게시판 글) ---- */
 const RELB={chore:['quest-tips','exchange-must','emergency-season','research-alchemy'],tip:['tips-title','emergency-season','dc-14572'],money:['money-pack-1118','tralli-shop'],
@@ -2106,8 +2112,10 @@ function renderChores(){
   <section class="box full"><div class="chores">${list(C.daily,dk)}</div></section>
   <h2 class="sec">주간 숙제 <small>${cnt(C.weekly,wk)}/${C.weekly.length} 완료 · 월요일 05:00 초기화</small></h2>
   <section class="box full"><div class="chores">${list(C.weekly,wk)}</div></section>
+  ${evTodoHtml(dk)}
   <div class="cat full" style="white-space:normal">${esc(C.note)}</div>${(C.more||[]).map(moreSec).join('')}`;
-  document.querySelectorAll('.chore input').forEach(x=>x.onchange=()=>{const S2=choreGet();Object.keys(S2).forEach(k=>{if(k!==dk&&k!==wk)delete S2[k];});(S2[x.dataset.k]=S2[x.dataset.k]||{})[x.dataset.i]=x.checked;try{localStorage.setItem('mho-chores',JSON.stringify(S2));}catch(_){}render();});
+  document.querySelectorAll('.evtd input').forEach(x=>x.onchange=()=>{const S3=evtGet();if(x.checked)S3[x.dataset.ek]=1;else delete S3[x.dataset.ek];evtSet(S3);render();});
+  document.querySelectorAll('.chore input:not([data-ek])').forEach(x=>x.onchange=()=>{const S2=choreGet();Object.keys(S2).forEach(k=>{if(k!==dk&&k!==wk)delete S2[k];});(S2[x.dataset.k]=S2[x.dataset.k]||{})[x.dataset.i]=x.checked;try{localStorage.setItem('mho-chores',JSON.stringify(S2));}catch(_){}render();});
   document.querySelectorAll('.cgo[data-go]').forEach(b=>b.onclick=e=>{e.preventDefault();go(b.dataset.go);});
   document.getElementById('n').textContent='';
 }
