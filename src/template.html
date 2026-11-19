@@ -2138,7 +2138,7 @@ function renderArt(){
   <h2 class="sec">🔍 내 삽화 등급 판정 <small>전설 기준 · 카드의 주옵션 수치를 넣으면 하·중·상·최상(종결)을 알려줘요</small></h2>
   <div class="c2 agjudge"><section class="box"><h3>수치 넣기</h3><div id="agbox">${agHtml()}</div></section>
   <section class="box"><h3>등급별 Lv1 수치표 <small class="cat">전설 · 주옵션 한 줄 · 단위 %</small></h3><div class="tw"><table class="nostack ensb agtab"><thead><tr><th>코스트</th><th>옵션</th><th>하</th><th>중</th><th>상</th><th>최상<br><small>종결</small></th></tr></thead><tbody>${[4,3,1].map(c=>Object.keys(ARTLV1[c]).map((o,ix,arr)=>{const G=agVals(c,o);return `<tr>${ix===0?`<td class="part" rowspan="${arr.length}">${c}코</td>`:''}<td>${AGN[o]}</td>${G.v.map((v,gi)=>`<td class="agt${gi}">${v.toFixed(2)}</td>`).join('')}</tr>`;}).join('')).join('')}</tbody></table></div>
-  <p class="cat gnote">게임 화면엔 「1.75%~3.51%」처럼 물결로 나오지만, 실제로는 이 4단계 수치 중 하나로 붙어요. 하·최상은 게임 화면 수치이고, 중·상은 최대치의 ⅔·80% 비율 값이에요(실제 카드와 0.02 정도 차이가 날 수 있어요 · 확인 중). 판정은 넣은 수치와 가장 가까운 단계로 해요. 크샬다오라·루가 에알다(고룡)는 수치가 고정이라 판정이 필요 없어요. Lv10 판정은 강화로 오르는 양을 빼서 Lv1로 환산한 값이에요.</p>
+  <p class="cat gnote">게임 화면엔 「1.75%~3.51%」처럼 물결로 나와요. 지금까지 확인한 카드들은 이 4단계 수치 중 하나에 딱 맞았지만, 중간 값이 나오는지는 아직 확인 중이에요. 하·최상은 게임 화면 수치이고, 중·상은 최대치의 ⅔·80% 비율 값이에요(실제 카드와 0.02 정도 차이가 날 수 있어요 · 확인 중). 판정은 넣은 수치와 가장 가까운 단계로 해요. 크샬다오라·루가 에알다(고룡)는 수치가 고정이라 판정이 필요 없어요. Lv10 판정은 강화로 오르는 양을 빼서 Lv1로 환산한 값이에요.</p>
   <div class="shots in agex">${['artex_1','artex_2','artex_3'].filter(k=>SHOT[k]).map(k=>`<figure class="shot" data-f="${k}"><img src="${SHOT[k]}" alt="삽화 정보 예시" loading="lazy"></figure>`).join('')}</div></section></div>
   <h2 class="sec">모험가별 추천 <small>메인 조작 / 파티 서브 · 백련의 증표 「수렵 마스터」 이후 기준</small></h2>
   ${gchips}
