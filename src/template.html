@@ -773,7 +773,7 @@ h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .ph.cx{width:36px!important;height:36px!important}
 .ph.gear{background:#2e2c2a!important;border:0!important}
 .ph.gear::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 100%,var(--tc) 0%,transparent 72%);mix-blend-mode:screen;opacity:.55;pointer-events:none}
-.ph.gear::after{z-index:2}
+.ph.gear::after{z-index:2}.ph.gen::before,.ph.gen::after{display:none}.ph.gen{box-shadow:none!important}.ph.gen img{width:100%!important;height:100%!important;object-fit:cover!important;transform:none!important;padding:0!important;margin:0!important}
 
 .jwrap{grid-column:1/-1;display:grid;grid-template-columns:1.3fr 1fr;gap:16px;align-items:stretch}
 .jform form{display:grid;gap:12px;margin-top:10px}
@@ -1292,13 +1292,13 @@ function card(b0){
   const rReach=Math.min(cap,14); const rT=TIER(rReach);
   let gen=b.final, genRoute=route;
   if(isRuler(b.wkr)){const alt=chainsFor(b.type,b.elem==='범용'?'불':b.elem).filter(x=>!isRuler(x.wkr)&&x.src!=='a').sort((x,y)=>y.top-x.top)[0]; if(alt){gen=alt.final;genRoute=alt.route.map(r=>`${esc(r[1])}(레어도 ${r[0]})`).join(' → ');} else {gen='일반 최종 무기 데이터 없음';genRoute='';}}
-  const rulerRow=`<tr class="final ruler"><td class="part">최종<br><b class="rk">각성 무기</b></td><td><div class="fx fxf"><div class="kr">${esc(rulerName)} <span class="tb ${rT[1]}">${cap>=9?rT[0]+' · 레어도 '+rReach:'Lv41부터'}</span></div><div class="route" title="${esc(D.ruler.info+' '+D.ruler.mat+' · '+D.ruler.awk)}">지배자 무기(루가 에알다) · 레어도 9 → 14 · 각성 최대 5칸</div></div></td></tr>`;
+  const rulerRow=`<tr class="final ruler"><td class="part">최종<br><b class="rk">각성 무기</b></td><td><div class="fx fxf"><div class="kr"><span class="nm" style="gap:8px">${PHT(rulerName,'ar gear '+rT[1],'지배자-'+b.type+'-'+b.elem)}<span>${esc(rulerName)} <span class="tb ${rT[1]}">${cap>=9?rT[0]+' · 레어도 '+rReach:'Lv41부터'}</span></span></span></div><div class="route" title="${esc(D.ruler.info+' '+D.ruler.mat+' · '+D.ruler.awk)}">지배자 무기(루가 에알다) · 레어도 9 → 14 · 각성 최대 5칸</div></div></td></tr>`;
   const genRow=`<tr class="final"><td class="part">최종<br><b class="rk">일반 무기</b></td><td><div class="fx fxf"><div class="kr"><span class="nm" style="gap:8px">${PHT(String(gen).split(' · ')[0].replace(/[ⅠⅡⅢⅣⅤ]+$/,''),'ar gear '+wT[1],'무기-'+b.type)}<span>${esc(gen)} <span class="tb ${wT[1]}">${wT[0]}</span></span></span></div><div class="route">${genRoute}</div></div></td></tr>`;
   return `<article class="card" style="--c:${c}" data-at="${aT[1]}">
   <div class="chead">${PHT(b.group==='hero'?'주인공':b.name.split(' ')[0],'lg')}<h3>${esc(title)}${b.group==='hero'?'<small>주인공</small>':''}</h3></div>
   <div class="meta"><span class="tag el">${ic(b.elem)}${b.elem}</span>${b.group==='hero'?'':`<span class="tag">${b.type}</span>`}<span class="tag">${b.group==='hero'?(b.stage==='중반'?'중반 세팅':'후반 세팅'):'모험가 전용'}</span>${p.done&&!A.sw&&!A.ch.length?`<span class="tag ok2">Lv${st.lv} 완성</span>`:''}${A.sw||A.ch.length?`<span class="tag sw">Lv${st.lv} 맞춤</span>`:''}</div>
   <table><thead><tr><th>부위</th><th>장비</th></tr></thead><tbody>
-  <tr class="${A.sw?'swap':''}"><td class="part">무기</td><td class="kr"><span class="nm" style="gap:8px">${PHT(b.wkr,'ar gear '+wT[1],'무기-'+b.type)}<span><span class="tipg" data-tip="${esc(b.wkr)}" data-tk="g">${esc(b.wkr)}</span>${A.sw?`<em class="was">원래 ${esc(A.sw.from)} · Lv${A.sw.need}부터${A.sw.isAk?' · 수렵혼옥+철광석으로 제작':''}</em>`:''}</span></span></td></tr>
+  <tr class="${A.sw?'swap':''}"><td class="part">무기</td><td class="kr"><span class="nm" style="gap:8px">${PHT(b.wkr,'ar gear '+wT[1],(isRuler(b.wkr)?'지배자-'+b.type+'-'+b.elem:'무기-'+b.type))}<span><span class="tipg" data-tip="${esc(b.wkr)}" data-tk="g">${esc(b.wkr)}</span>${A.sw?`<em class="was">원래 ${esc(A.sw.from)} · Lv${A.sw.need}부터${A.sw.isAk?' · 수렵혼옥+철광석으로 제작':''}</em>`:''}</span></span></td></tr>
   ${rulerRow}${genRow}
   <tr class="lv"><td class="part">Lv${st.lv}</td><td><div class="fx fxl"><div class="fxi">${p.html}</div></div></td></tr>
   ${rows}</tbody></table>
