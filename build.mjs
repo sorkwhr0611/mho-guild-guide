@@ -34,5 +34,7 @@ for (const f of readdirSync(new URL("./src/pwa/", import.meta.url))) copyFileSyn
 writeFileSync(new URL("./public/" + iconsName, import.meta.url), iconsJs);
 mkdirSync(new URL("./public/img/", import.meta.url), { recursive: true });
 for (const f of imgs) copyFileSync(new URL("./src/img/" + f + ".jpg", import.meta.url), new URL("./public/img/" + f + ".jpg", import.meta.url));
+// 캐시 규칙 (Cloudflare Pages · Netlify 둘 다 public/_headers 를 읽어요)
+writeFileSync(new URL("./public/_headers", import.meta.url), ["/icons.*", "  Cache-Control: public, max-age=31536000, immutable", "/ic/*", "  Cache-Control: public, max-age=31536000, immutable", "/img/*", "  Cache-Control: public, max-age=604800", ""].join("\n"));
 console.log("icons", icFiles.size, "files");
 console.log("built public/index.html", (html.length / 1024).toFixed(0) + "KB");
