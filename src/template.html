@@ -506,6 +506,8 @@ label.calc input,label.calc select{font:inherit;font-size:16px;padding:9px 12px;
 .shunt{margin-top:12px}.shh a{color:inherit;text-decoration:underline dotted}.shr{border-top:1px solid var(--line);padding:8px 0;display:grid;gap:4px}.shh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .fmy{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--muted);cursor:pointer;white-space:nowrap}.fmy input{width:17px;height:17px;accent-color:var(--accent)}
 .fcalc{border:1.5px dashed var(--line);border-radius:12px;padding:10px 12px;margin:8px 0;display:grid;gap:8px}.fch{display:flex;align-items:center;gap:4px 8px;flex-wrap:wrap;min-width:0}.fch small{white-space:normal;min-width:0;flex:1 1 200px}.fch .chip{margin-left:auto}.fct{display:flex;flex-wrap:wrap;gap:6px 12px}.fct .tmat.imp{color:#b45309;font-weight:700}.fcm{font-size:14px}
+.agdrop{display:flex;align-items:center;gap:10px;border:2px dashed var(--accent);border-radius:12px;padding:10px 12px;margin-bottom:10px;cursor:pointer;background:var(--bg)}.agdrop:hover{background:var(--panel)}.agdi{font-size:26px}@media (max-width:600px){.agdi,.pconly{display:none}.agexi{height:60px!important}}.agexi{margin-left:auto;height:74px;width:auto;border-radius:6px;flex:none}.agdrop>span{display:grid;gap:2px;min-width:0;flex:1}.agdrop small{white-space:normal}.agost{font-size:13.5px;padding:6px 10px;border-radius:8px;background:var(--bg);margin-bottom:8px;white-space:normal}.agprev{max-width:100%;max-height:180px;border-radius:8px;margin-bottom:8px;display:block}
+.shots.in.agex .shot{border-radius:10px;background:#1b1714}.shots.in.agex .shot img{aspect-ratio:3/4!important;object-fit:cover!important;object-position:top!important;height:auto!important;display:block}
 .agf,.agin{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}.agin select{font:inherit;padding:6px 8px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}.agin input{font:inherit;width:90px;padding:6px 8px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);text-align:right}
 .agr{border-top:1px solid var(--line);padding:8px 0;display:grid;gap:5px}.agrr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}.agg{background:var(--g);color:#fff;font-weight:800;border-radius:999px;padding:2px 12px}.agw{color:#b45309}
 .agbar{position:relative;height:10px;border-radius:6px;background:linear-gradient(90deg,#8a8a8a33,#4a86c544 66.7%,#8b5cc455 80%,#c9971f77);margin-top:2px}.agbar .agoff{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,#0001 0 4px,transparent 4px 8px);border-radius:6px 0 0 6px}.agbar b{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--muted)}.agbar em{position:absolute;top:-4px;width:6px;height:18px;margin-left:-3px;background:var(--accent);border-radius:3px}
@@ -2077,12 +2079,47 @@ function agRes(){const T=[['하','#8a8a8a','더 좋은 게 나오면 바로 바�
     const res=!(v>0)?`<span class="cat">숫자를 넣으면 등급이 나와요</span>`:g.bad?`<span class="agw">Lv${AG.lv} ${AGN[x.o]} 범위(${(R[0]+(AG.lv===10?g.inc:0)).toFixed(2)}~${(R[1]+(AG.lv===10?g.inc:0)).toFixed(2)}%) 밖이에요. 코스트·옵션·레벨을 확인해 주세요</span>`:`<span class="agg" style="--g:${T[g.g][1]}">${T[g.g][0]}</span><span>최대치의 <b>${Math.round(g.r*100)}%</b>${AG.lv===10?` (Lv1 환산 ${g.b}%)`:''} · Lv10이면 약 <b>${(g.b+(((ARTMO[AG.c]||{})[x.o]||[])[1]||g.mx)).toFixed(2)}%</b></span><span class="cat">${T[g.g][2]}</span>`;
     return `<div class="agr"><b>${AGN[x.o]}</b><div class="agrr">${res}</div>${bar}</div>`;}).join('');}
 function agHtml(){const opts=Object.keys(ARTLV1[AG.c]);AG.r.forEach((x,i)=>{if(!opts.includes(x.o))x.o=opts[Math.min(i,opts.length-1)];});
-  return `<div class="agf"><span class="cat fmk">코스트</span>${[4,3,1].map(c=>`<button type="button" class="chip" data-agc="${c}" aria-pressed="${AG.c===c}">${c}코</button>`).join('')}<span class="cat fmk" style="margin-left:10px">삽화 레벨</span>${[1,10].map(l=>`<button type="button" class="chip" data-agl="${l}" aria-pressed="${AG.lv===l}">Lv${l}</button>`).join('')}</div>
+  return `<label class="agdrop"><input type="file" id="agfile" accept="image/*" hidden><span class="agdi">📷</span><span><b>게임 스크린샷으로 판정</b><small class="cat">삽화 카드 화면(Lv·주옵션 수치가 보이게)을 넣으면 자동 판정<span class="pconly"> · 끌어다 놓거나 캡처 후 Ctrl+V</span> · 사진은 이 기기 안에서만 읽어요</small></span>${SHOT.artex_card&&!AGO.img?`<img class="agexi" src="${SHOT.artex_card}" alt="넣을 화면 예시" title="이런 화면을 넣으세요">`:''}</label>${AGO.st?`<div class="agost" id="agost">${esc(AGO.st)}</div>`:''}${AGO.img?`<img class="agprev" src="${AGO.img}" alt="넣은 스크린샷">`:''}
+  <div class="agf"><span class="cat fmk">코스트</span>${[4,3,1].map(c=>`<button type="button" class="chip" data-agc="${c}" aria-pressed="${AG.c===c}">${c}코</button>`).join('')}<span class="cat fmk" style="margin-left:10px">삽화 레벨</span>${[1,10].map(l=>`<button type="button" class="chip" data-agl="${l}" aria-pressed="${AG.lv===l}">Lv${l}</button>`).join('')}</div>
   ${AG.r.map((x,i)=>`<div class="agin"><span class="cat">주옵션 ${i+1}</span><select data-ago="${i}" aria-label="주옵션 ${i+1}">${opts.map(o=>`<option value="${o}"${o===x.o?' selected':''}>${AGN[o]}</option>`).join('')}</select><input type="text" inputmode="decimal" data-agv="${i}" value="${esc(x.v)}" placeholder="예: ${ARTLV1[AG.c][x.o||opts[0]]?((ARTLV1[AG.c][x.o||opts[0]][1])*0.85).toFixed(2):''}" aria-label="수치"><span>%</span></div>`).join('')}
   <div id="agout">${agRes()}</div>`;}
 document.addEventListener('click',e=>{const c=e.target.closest('[data-agc],[data-agl]');if(!c)return;e.preventDefault();if(c.dataset.agc){AG.c=+c.dataset.agc;AG.r.forEach(x=>x.v='');}else AG.lv=+c.dataset.agl;const b=document.getElementById('agbox');if(b)b.innerHTML=agHtml();});
 document.addEventListener('input',e=>{const v=e.target.closest('[data-agv]');if(v){AG.r[+v.dataset.agv].v=v.value;const o=document.getElementById('agout');if(o)o.innerHTML=agRes();}});
 document.addEventListener('change',e=>{const s=e.target.closest('[data-ago]');if(s){AG.r[+s.dataset.ago].o=s.value;const b=document.getElementById('agbox');if(b)b.innerHTML=agHtml();}});
+/* ---- 스크린샷으로 판정: 글자 인식은 이 기기 브라우저 안에서만 해요 (사진은 어디에도 안 올라가요) ---- */
+let OCRW=null;const AGO={st:'',img:'',txt:''};
+function agLoadOcr(){if(window.Tesseract)return Promise.resolve();return new Promise((ok,no)=>{const sc=document.createElement('script');sc.src='/ocr/tesseract.min.js';sc.onload=ok;sc.onerror=()=>no(new Error('글자 인식 도구를 못 불러왔어요'));document.head.appendChild(sc);});}
+async function agPrep(file){const url=URL.createObjectURL(file);const im=await new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=url;});
+  const k=Math.max(1,Math.min(3,1600/Math.max(im.width,1)));const cv=document.createElement('canvas');cv.width=Math.round(im.width*k);cv.height=Math.round(im.height*k);const cx=cv.getContext('2d');cx.drawImage(im,0,0,cv.width,cv.height);
+  const d=cx.getImageData(0,0,cv.width,cv.height),a=d.data;let sum=0;for(let i=0;i<a.length;i+=4){const y=0.299*a[i]+0.587*a[i+1]+0.114*a[i+2];a[i]=a[i+1]=a[i+2]=y;sum+=y;}
+  if(sum/(a.length/4)<128)for(let i=0;i<a.length;i+=4){a[i]=a[i+1]=a[i+2]=255-a[i];}cx.putImageData(d,0,0);return {cv,url};}
+function agParse(txt){const L=txt.split(/\n/).map(x=>x.replace(/\s+/g,'').replace(/[，,]/g,'.'));const all=L.join('\n');
+  const num=x=>{let v=x.replace(/[^\d.]/g,'');if(!v.includes('.')&&v.length>=3)v=v.slice(0,-2)+'.'+v.slice(-2);return parseFloat(v);};
+  const cm=/코스[트드]\D{0,2}([134])/.exec(all);const lm=/(?:Lv|LV|lv|Iv|IV|레벨)\.?(\d{1,2})(?!\d)/.exec(all);
+  const rangeOnly=/~|∼/.test(all)&&!L.some(l=>!/~|∼/.test(l)&&/(회심[률율]|충전효율|속성대미지)\+?\d/.test(l));
+  const opts=[];L.forEach(l=>{if(/~|∼/.test(l))return;const re=/(회심[률율]|오의충전효율|충전효율|속성[대데]미지)[+:]?(\d{1,2}\.\d{2}|\d{3,4})/g;let m;while((m=re.exec(l))){if(/속성회심/.test(l.slice(Math.max(0,m.index-4),m.index+2)))continue;const o=/회심/.test(m[1])?'회심':/효율/.test(m[1])?'오의':'속성';const v=num(m[2]);if(v>0&&v<20)opts.push([o,v]);}});
+  let name='';const nm=/삽화[-—–_~]?(.{2,16})/.exec(L.find(l=>/^삽화[-—–_]/.test(l))||'');if(nm){const raw=nm[1];name=Object.keys(D.artdb).sort((a,b)=>b.length-a.length).find(k=>raw.startsWith(k.replace(/\s+/g,'')))||'';}
+  const ncost=name&&!ARTFIX[name]?(D.artdb[name]||[0])[0]:0;
+  return {cost:cm?+cm[1]:ncost,lv:lm?+lm[1]:0,opts:opts.slice(0,2),rangeOnly,name,fixed:!!ARTFIX[name]};}
+function agFit(P){const tries=[];[P.cost||4,3,1,4].forEach(c=>[P.lv===10?10:1,P.lv===10?1:10].forEach(lv=>tries.push([c,lv])));
+  for(const [c,lv] of tries){if(P.cost&&c!==P.cost)continue;if(P.opts.every(([o,v])=>{const g=agGrade(c,o,v,lv);return g&&!g.bad;}))return [c,lv];}return null;}
+async function agOcr(file){if(!file||!/^image\//.test(file.type)){AGO.st='사진 파일만 넣을 수 있어요';agPaint();return;}
+  AGO.st='📥 글자 인식 도구 받는 중… (처음 한 번만 약 6MB)';agPaint();
+  try{const {cv,url}=await agPrep(file);AGO.img=url;await agLoadOcr();
+    if(!OCRW){OCRW=await Tesseract.createWorker('kor',1,{workerPath:'/ocr/worker.min.js',corePath:'/ocr/',langPath:'/ocr',gzip:false,logger:m=>{if(m.status==='recognizing text'){AGO.st=`🔎 글자 읽는 중… ${Math.round(m.progress*100)}%`;const e=document.getElementById('agost');if(e)e.textContent=AGO.st;}}});}
+    AGO.st='🔎 글자 읽는 중…';agPaint();const {data}=await OCRW.recognize(cv);AGO.txt=data.text||'';const P=agParse(AGO.txt);
+    if(P.fixed){AGO.st=`${P.name}는 고룡 삽화라 수치가 고정이에요. 등급 판정이 필요 없어요.`;agPaint();return;}
+    if(!P.opts.length){AGO.st=P.rangeOnly?'이건 「출현 가능한 효과」(범위) 화면이에요. 내가 가진 삽화의 상세 화면(주옵션 수치가 보이는 화면)을 찍어 주세요.':'주옵션 수치를 못 읽었어요. 주옵션 부분이 크게 보이게 잘라서 다시 넣거나, 아래에 직접 넣어 주세요.';agPaint();return;}
+    if(P.lv&&P.lv!==1&&P.lv!==10){AGO.st=`Lv${P.lv} 삽화예요. 판정은 Lv1이나 Lv10 수치로만 정확해요. 아래 값은 그대로 넣어 뒀으니 참고만 하세요.`;}
+    const fit=agFit(P);if(fit){AG.c=fit[0];AG.lv=fit[1];}else if(P.cost)AG.c=P.cost;
+    AG.r=[0,1].map(i=>P.opts[i]?{o:P.opts[i][0],v:String(P.opts[i][1])}:{o:AG.r[i].o,v:''});
+    if(!(P.lv&&P.lv!==1&&P.lv!==10))AGO.st=`✅ 읽었어요: ${P.name?P.name+' · ':''}${AG.c}코 · Lv${AG.lv} · ${P.opts.map(([o,v])=>AGN[o]+' '+v+'%').join(' · ')} — 틀린 숫자는 아래에서 고쳐 주세요.${fit?'':' (범위에 안 맞는 값이 있어요)'}`;
+    agPaint();}catch(err){AGO.st='글자 인식에 실패했어요: '+(err&&err.message||err)+' · 아래에 직접 넣어 주세요';agPaint();}}
+function agPaint(){const b=document.getElementById('agbox');if(b)b.innerHTML=agHtml();}
+document.addEventListener('change',e=>{const f=e.target.closest('#agfile');if(f&&f.files[0])agOcr(f.files[0]);});
+document.addEventListener('paste',e=>{if(!document.getElementById('agbox'))return;const it=[...(e.clipboardData||{}).items||[]].find(x=>x.type.startsWith('image/'));if(it){e.preventDefault();agOcr(it.getAsFile());}});
+document.addEventListener('dragover',e=>{if(e.target.closest('.agdrop'))e.preventDefault();});
+document.addEventListener('drop',e=>{const z=e.target.closest('.agdrop');if(!z)return;e.preventDefault();const f=e.dataTransfer.files[0];if(f)agOcr(f);});
 function renderArt(){
   clearBar(); document.documentElement.style.setProperty('--vc',{'희귀':'#4a86c5','영웅':'#8b5cc4','전설':'#c9971f'}[artg]||'#c9971f');
   const A=D.art; const q=st.q.trim(); const G=A.grades; const K=A.kushala;

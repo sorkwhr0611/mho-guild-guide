@@ -37,6 +37,9 @@ for (const f of readdirSync(new URL("./src/pwa/", import.meta.url))) copyFileSyn
 writeFileSync(new URL("./public/" + iconsName, import.meta.url), iconsJs);
 mkdirSync(new URL("./public/img/", import.meta.url), { recursive: true });
 for (const f of imgFiles.filter((x) => /\.(jpg|webp)$/.test(x))) copyFileSync(new URL("./src/img/" + f, import.meta.url), new URL("./public/img/" + f, import.meta.url));
+// 삽화 스크린샷 판정용 글자 인식(tesseract.js, Apache-2.0) — 누를 때만 받아요
+mkdirSync(new URL("./public/ocr/", import.meta.url), { recursive: true });
+for (const f of readdirSync(new URL("./src/ocr/", import.meta.url))) copyFileSync(new URL("./src/ocr/" + f, import.meta.url), new URL("./public/ocr/" + f, import.meta.url));
 // 공략 글마다 카톡·디스코드 미리보기용 페이지 (/p/<글 id>) → 열면 사이트의 그 글로 이동
 const SITE_URL = "https://mho-guild-guide.pages.dev";
 const escH = (t) => String(t ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -54,6 +57,6 @@ for (const b of D0.board || []) {
 }
 console.log("share pages", pages);
 // 캐시 규칙 (Cloudflare Pages · Netlify 둘 다 public/_headers 를 읽어요)
-writeFileSync(new URL("./public/_headers", import.meta.url), ["/icons.*", "  Cache-Control: public, max-age=31536000, immutable", "/ic/*", "  Cache-Control: public, max-age=31536000, immutable", "/img/*", "  Cache-Control: public, max-age=604800", ""].join("\n"));
+writeFileSync(new URL("./public/_headers", import.meta.url), ["/icons.*", "  Cache-Control: public, max-age=31536000, immutable", "/ic/*", "  Cache-Control: public, max-age=31536000, immutable", "/img/*", "  Cache-Control: public, max-age=604800", "/ocr/*", "  Cache-Control: public, max-age=2592000", ""].join("\n"));
 console.log("icons", icFiles.size, "files");
 console.log("built public/index.html", (html.length / 1024).toFixed(0) + "KB");
