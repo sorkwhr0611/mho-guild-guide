@@ -90,12 +90,14 @@ return [...new Set(out)].slice(0,6)})()`;
 const { chromium } = require("playwright");
 const br = process.env.CHECK_FAST ? null : await chromium.launch();
 if (br) try {
-  for (const w of [390, 768, 1280, 2300]) {
+  for (const w of [360, 390, 768, 1280, 2300]) {
     const p = await br.newPage({ viewport: { width: w, height: 900 } });
     const errs = []; p.on("pageerror", (e) => errs.push(e.message));
     await p.route(/fonts\.g/, (r) => r.abort());
     await p.route("**/api/**", (r) => r.fulfill({ contentType: "application/json", body: '{"posts":[],"rows":[]}' }));
     await p.goto(`http://localhost:${port}/#home`); await p.waitForTimeout(800);
+    // 360px: 실제 폰 글꼴(IBM Plex)이 더 넓어서, 글자 간격을 넓혀 빡빡한 경우를 흉내 내요
+    if (w === 360) await p.addStyleTag({ content: '*{letter-spacing:.07em!important}' });
     const tabs = await p.evaluate(() => TABS);
     for (const t of tabs) {
       await p.evaluate((t) => go(t), t); await p.waitForTimeout(150);
