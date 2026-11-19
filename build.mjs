@@ -9,6 +9,7 @@ const imgs = (() => { try { return readdirSync(new URL("./src/img/", import.meta
 mkdirSync(new URL("./public/ic/", import.meta.url), { recursive: true });
 const icFiles = new Set();
 const toFile = (uri) => {
+  if (process.env.INLINE_ICONS) return uri; // 미리보기용: 쪼개지 않고 그대로
   const m = /^data:image\/(jpeg|png|webp|gif);base64,(.+)$/.exec(uri || "");
   if (!m) return uri;
   const buf = Buffer.from(m[2], "base64");
