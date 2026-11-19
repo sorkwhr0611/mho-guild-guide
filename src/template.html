@@ -68,6 +68,7 @@ tr.final td{background:var(--final);color:var(--final-ink)}
 .s b{font-variant-numeric:tabular-nums;font-weight:600;margin-left:3px}
 .set{font-size:13px}
 .set span{color:var(--accent);font-weight:600}
+.jnote{margin:6px 0 2px;padding:8px 10px;border-radius:9px;background:var(--accent-soft);border-left:3px solid var(--accent);font-size:14px;white-space:normal}.jnote b{color:var(--accent);margin-right:4px}
 .note{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14.5px;color:var(--muted)}
 .note ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px}
 .note b{color:var(--ink)}
@@ -1364,7 +1365,7 @@ function joinList(){
   if(!JOIN.rows) return '<p class="cat" style="margin:0">불러오는 중…</p>';
   if(!JOIN.rows.length) return '<p class="cat" style="margin:0">아직 신청이 없어요. 첫 신청을 남겨 주세요!</p>';
   const pp=JPP,n=Math.max(1,Math.ceil(JOIN.rows.length/pp));JOIN.page=Math.min(Math.max(1,JOIN.page||1),n);const rows=JOIN.rows.slice((JOIN.page-1)*pp,JOIN.page*pp);
-  return rows.map(r=>`<div class="jitem" data-id="${esc(r.id)}"><div class="jih"><b>${esc(r.nickname)}</b><span>Lv${esc(r.level)} · ${esc(r.time)}</span><span class="jst s${JST.indexOf(r.status)}">${esc(r.status||'확인 중')}</span><em>${fmtT(r.at)}</em></div>${r.main?`<div class="cat">${esc(r.main)}</div>`:''}<p>${esc(r.message)}</p>${JOIN.admin?`<div class="jadm">${r.contact?`<span class="cat">연락처: ${esc(r.contact)}</span>`:''}<select data-act="st">${JST.map(s=>`<option${s===r.status?' selected':''}>${s}</option>`).join('')}</select><button type="button" data-act="nick">✏️ 닉네임 수정</button><button type="button" data-act="del">삭제</button></div>`:''}</div>`).join('')+(n>1?`<nav class="jpg" aria-label="신청 페이지">${Array.from({length:n},(_,i)=>`<button type="button" data-pg="${i+1}"${i+1===JOIN.page?' aria-current="page"':''}>${i+1}</button>`).join('')}</nav>`:'');
+  return rows.map(r=>`<div class="jitem" data-id="${esc(r.id)}"><div class="jih"><b>${esc(r.nickname)}</b><span>Lv${esc(r.level)} · ${esc(r.time)}</span><span class="jst s${JST.indexOf(r.status)}">${esc(r.status||'확인 중')}</span><em>${fmtT(r.at)}</em></div>${r.main?`<div class="cat">${esc(r.main)}</div>`:''}<p>${esc(r.message)}</p>${r.note?`<div class="jnote"><b>💬 길마 답장</b> ${esc(r.note)}</div>`:''}${JOIN.admin?`<div class="jadm">${r.contact?`<span class="cat">연락처: ${esc(r.contact)}</span>`:''}<select data-act="st">${JST.map(s=>`<option${s===r.status?' selected':''}>${s}</option>`).join('')}</select><button type="button" data-act="note">💬 답장${r.note?' 고치기':''}</button><button type="button" data-act="nick">✏️ 닉네임 수정</button><button type="button" data-act="del">삭제</button></div>`:''}</div>`).join('')+(n>1?`<nav class="jpg" aria-label="신청 페이지">${Array.from({length:n},(_,i)=>`<button type="button" data-pg="${i+1}"${i+1===JOIN.page?' aria-current="page"':''}>${i+1}</button>`).join('')}</nav>`:'');
 }
 function paintJoinList(){const el=document.getElementById('jlist');if(!el)return;el.innerHTML=joinList();
   const c=document.getElementById('jcnt'); if(c) c.textContent=JOIN.rows?`${JOIN.rows.length}명`:'';
@@ -1372,6 +1373,7 @@ function paintJoinList(){const el=document.getElementById('jlist');if(!el)return
   el.querySelectorAll('[data-act]').forEach(x=>{const id=x.closest('.jitem').dataset.id;
     if(x.dataset.act==='st') x.onchange=async()=>{x.disabled=true;try{await joinApi('PATCH',{id,status:x.value});const r=JOIN.rows.find(r=>r.id===id);if(r)r.status=x.value;}catch(e){alert('바꾸지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
     if(x.dataset.act==='nick') x.onclick=async()=>{const r=JOIN.rows.find(r=>r.id===id);const v=prompt('바꿀 닉네임을 넣어 주세요 (24자까지)',r?r.nickname:'');if(v===null)return;const nk=v.trim().slice(0,24);if(!nk||(r&&nk===r.nickname))return;try{const j=await joinApi('PATCH',{id,nickname:nk});if(r)r.nickname=(j.row&&j.row.nickname)||nk;}catch(e){alert('바꾸지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
+    if(x.dataset.act==='note') x.onclick=async()=>{const r=JOIN.rows.find(r=>r.id===id);const v=prompt('신청자에게 보일 답장을 적어 주세요 (120자까지, 비우면 지워져요)\n예) 게임 닉네임으로 다시 적어 주세요 / 게임에서 가입 신청 보내 주세요',r&&r.note||'');if(v===null)return;const nt=v.trim().slice(0,120);try{await joinApi('PATCH',{id,note:nt});if(r)r.note=nt;}catch(e){alert('저장하지 못했어요. 관리 비밀번호를 확인해 주세요.');}paintJoinList();};
     if(x.dataset.act==='del') x.onclick=async()=>{if(!confirm('이 신청을 지울까요?'))return;try{await joinApi('DELETE',null,'?id='+encodeURIComponent(id));JOIN.rows=JOIN.rows.filter(r=>r.id!==id);}catch(e){alert('지우지 못했어요.');}paintJoinList();};});}
 async function loadJoin(){if(!onNetlify())return;JOIN.err='';try{const j=await joinApi('GET');JOIN.rows=j.rows||[];JOIN.admin=!!j.admin;if(j.waitlist)JOIN.wait=j.waitlist;if(j.arena)applyArena(j.arena,false);}catch(e){JOIN.err='신청 현황을 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.';}paintJoinList();paintAdm();paintWait();}
 
@@ -1869,7 +1871,7 @@ function renderJoin(){
   <section class="box jform"><h3>가입 신청서</h3>
    <form id="joinf" autocomplete="on">
     <p hidden><label>비워 두세요 <input name="website" tabindex="-1"></label></p>
-    <label class="jf"><span>게임 닉네임 <b>*</b> <small>(연락은 이 닉네임으로 게임 안에서 드려요)</small></span><input name="nickname" required maxlength="24" placeholder="예) 퇴근후한판"></label>
+    <label class="jf"><span>게임 닉네임 <b>*</b> <small>(연락은 이 닉네임으로 게임 안에서 드려요)</small></span><input name="nickname" required maxlength="24" placeholder="예) 퇴근후한판 (실명 말고 게임 닉네임)"></label>
     <div class="jrow">
      <label class="jf"><span>모험 레벨 <b>*</b></span><input name="level" type="number" min="1" max="99" required inputmode="numeric" placeholder="51"></label>
      <label class="jf"><span>주 접속 시간</span><select name="time"><option>평일 저녁</option><option>평일 점심</option><option>주말 위주</option><option>아무 때나</option></select></label>
