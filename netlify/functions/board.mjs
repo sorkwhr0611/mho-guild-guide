@@ -25,6 +25,13 @@ export default async (req) => {
   const isAdmin = key.length > 0 && (envKey ? key === envKey : sha(key) === ADMIN_HASH);
   const url = new URL(req.url);
 
+  // 이사용 백업: 길마만, 저장된 원본을 그대로 내보내요 (GET ?export=1)
+  if (req.method === "GET" && new URL(req.url).searchParams.get("export") === "1") {
+    if (!isAdmin) return json({ error: "forbidden" }, 403);
+    const dumpStore = async (s) => { const { blobs } = await s.list(); return Promise.all(blobs.map(async (b) => ({ key: b.key, value: await s.get(b.key) }))); };
+    return json({ stores: { "guild-board": await dumpStore(store) } });
+  }
+
   if (req.method === "GET") {
     const img = url.searchParams.get("img");
     if (img) {

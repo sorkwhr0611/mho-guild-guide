@@ -18,6 +18,13 @@ export default async (req) => {
 
   const meta = getStore({ name: "guild-meta", consistency: "strong" });
 
+  // 이사용 백업: 길마만, 저장된 원본을 그대로 내보내요 (GET ?export=1)
+  if (req.method === "GET" && new URL(req.url).searchParams.get("export") === "1") {
+    if (!isAdmin) return json({ error: "forbidden" }, 403);
+    const dumpStore = async (s) => { const { blobs } = await s.list(); return Promise.all(blobs.map(async (b) => ({ key: b.key, value: await s.get(b.key) }))); };
+    return json({ stores: { "guild-join": await dumpStore(store),"guild-meta": await dumpStore(meta) } });
+  }
+
   if (req.method === "GET") {
     const url = new URL(req.url);
     if (url.searchParams.get("check") === "admin") return json({ admin: isAdmin });
