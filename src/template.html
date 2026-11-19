@@ -506,6 +506,10 @@ label.calc input,label.calc select{font:inherit;font-size:16px;padding:9px 12px;
 .shunt{margin-top:12px}.shh a{color:inherit;text-decoration:underline dotted}.shr{border-top:1px solid var(--line);padding:8px 0;display:grid;gap:4px}.shh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .fmy{margin-left:auto;display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--muted);cursor:pointer;white-space:nowrap}.fmy input{width:17px;height:17px;accent-color:var(--accent)}
 .fcalc{border:1.5px dashed var(--line);border-radius:12px;padding:10px 12px;margin:8px 0;display:grid;gap:8px}.fch{display:flex;align-items:center;gap:4px 8px;flex-wrap:wrap;min-width:0}.fch small{white-space:normal;min-width:0;flex:1 1 200px}.fch .chip{margin-left:auto}.fct{display:flex;flex-wrap:wrap;gap:6px 12px}.fct .tmat.imp{color:#b45309;font-weight:700}.fcm{font-size:14px}
+.agf,.agin{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}.agin select{font:inherit;padding:6px 8px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}.agin input{font:inherit;width:90px;padding:6px 8px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);text-align:right}
+.agr{border-top:1px solid var(--line);padding:8px 0;display:grid;gap:5px}.agrr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}.agg{background:var(--g);color:#fff;font-weight:800;border-radius:999px;padding:2px 12px}.agw{color:#b45309}
+.agbar{position:relative;height:10px;border-radius:6px;background:linear-gradient(90deg,#8a8a8a33,#4a86c544 66.7%,#8b5cc455 80%,#c9971f77);margin-top:2px}.agbar .agoff{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,#0001 0 4px,transparent 4px 8px);border-radius:6px 0 0 6px}.agbar b{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--muted)}.agbar em{position:absolute;top:-4px;width:6px;height:18px;margin-left:-3px;background:var(--accent);border-radius:3px}
+.agax{display:flex;justify-content:space-between;font-size:11.5px;color:var(--muted)}.shots.in.agex{border:0;padding:0;margin-top:8px;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;overflow:visible}.agex .shot{width:auto;min-width:0;flex:none}.agex .shot img{width:100%;height:auto!important;max-height:none!important;object-fit:contain!important;aspect-ratio:auto!important}
 .tmats{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;margin:2px 0}.tmats em{font-style:normal;font-size:12px;color:var(--muted);min-width:44px}.tmat{display:inline-flex;align-items:center;gap:3px;white-space:nowrap}.tmat img{width:18px;height:18px}
 .tipg{border-bottom:1px dotted #b9a68c}
 .tipg:hover,.tipi:hover{color:var(--accent)}
@@ -2061,6 +2065,24 @@ function artCard(b0,hero){
    ${b.note?`<div class="anote">${esc(b.note)}</div>`:''}
    <div class="asrc">출처: ${esc(b.src)}</div></article>`;
 }
+/* ---- 내 삽화 등급 판정 (게임 안 '출현 가능한 효과' Lv1 범위 기준) ---- */
+const ARTLV1={4:{회심:[1.75,3.51],오의:[1.81,3.62]},3:{오의:[1.67,3.34],속성:[2.44,4.88]},1:{회심:[0.92,1.84],오의:[0.91,1.81],속성:[1.56,3.11]}};
+const AGN={회심:'회심률',오의:'오의 충전 효율',속성:'속성 대미지'};
+const AG={c:4,lv:1,r:[{o:'회심',v:''},{o:'오의',v:''}]};
+function agGrade(c,o,v,lv){const R=(ARTLV1[c]||{})[o];if(!R||!(v>0))return null;const inc=lv===10?((ARTMO[c]||{})[o]||[])[1]||R[1]:0;const b=+(v-inc).toFixed(2);const mx=R[1],mn=R[0];
+  if(b<mn-0.02||b>mx+0.02)return {bad:true,b,mn,mx,inc};const r=b/mx;const g=r>=0.985?3:r>=0.79?2:r>=0.66?1:0;return {b,mn,mx,r,g,inc};}
+function agRes(){const T=[['하','#8a8a8a','더 좋은 게 나오면 바로 바꿔요. 강화 재료는 아끼기'],['중','#4a86c5','임시로 쓰고 상 이상이 나오면 교체'],['상','#8b5cc4','충분히 좋아요. 최상 나오기 전까지 주력'],['최상 · 종결','#c9971f','종결이에요. 강화·채색 몰아 넣어도 돼요']];
+  return AG.r.map(x=>{const v=parseFloat(String(x.v).replace(',','.'));const R=ARTLV1[AG.c][x.o];if(!R)return '';const g=agGrade(AG.c,x.o,v,AG.lv);
+    const bar=`<div class="agbar"><i style="left:0;width:${(R[0]/R[1]*100).toFixed(1)}%" class="agoff"></i>${[0.667,0.8].map(f=>`<b style="left:${f*100}%"></b>`).join('')}${g&&!g.bad?`<em style="left:${Math.min(100,g.r*100).toFixed(1)}%"></em>`:''}</div><div class="agax"><span>${R[0]}%</span><span>중 ${(R[1]*0.667).toFixed(2)}</span><span>상 ${(R[1]*0.8).toFixed(2)}</span><span>최상 ${R[1]}%</span></div>`;
+    const res=!(v>0)?`<span class="cat">숫자를 넣으면 등급이 나와요</span>`:g.bad?`<span class="agw">Lv${AG.lv} ${AGN[x.o]} 범위(${(R[0]+(AG.lv===10?g.inc:0)).toFixed(2)}~${(R[1]+(AG.lv===10?g.inc:0)).toFixed(2)}%) 밖이에요. 코스트·옵션·레벨을 확인해 주세요</span>`:`<span class="agg" style="--g:${T[g.g][1]}">${T[g.g][0]}</span><span>최대치의 <b>${Math.round(g.r*100)}%</b>${AG.lv===10?` (Lv1 환산 ${g.b}%)`:''} · Lv10이면 약 <b>${(g.b+(((ARTMO[AG.c]||{})[x.o]||[])[1]||g.mx)).toFixed(2)}%</b></span><span class="cat">${T[g.g][2]}</span>`;
+    return `<div class="agr"><b>${AGN[x.o]}</b><div class="agrr">${res}</div>${bar}</div>`;}).join('');}
+function agHtml(){const opts=Object.keys(ARTLV1[AG.c]);AG.r.forEach((x,i)=>{if(!opts.includes(x.o))x.o=opts[Math.min(i,opts.length-1)];});
+  return `<div class="agf"><span class="cat fmk">코스트</span>${[4,3,1].map(c=>`<button type="button" class="chip" data-agc="${c}" aria-pressed="${AG.c===c}">${c}코</button>`).join('')}<span class="cat fmk" style="margin-left:10px">삽화 레벨</span>${[1,10].map(l=>`<button type="button" class="chip" data-agl="${l}" aria-pressed="${AG.lv===l}">Lv${l}</button>`).join('')}</div>
+  ${AG.r.map((x,i)=>`<div class="agin"><span class="cat">주옵션 ${i+1}</span><select data-ago="${i}" aria-label="주옵션 ${i+1}">${opts.map(o=>`<option value="${o}"${o===x.o?' selected':''}>${AGN[o]}</option>`).join('')}</select><input type="text" inputmode="decimal" data-agv="${i}" value="${esc(x.v)}" placeholder="예: ${ARTLV1[AG.c][x.o||opts[0]]?((ARTLV1[AG.c][x.o||opts[0]][1])*0.85).toFixed(2):''}" aria-label="수치"><span>%</span></div>`).join('')}
+  <div id="agout">${agRes()}</div>`;}
+document.addEventListener('click',e=>{const c=e.target.closest('[data-agc],[data-agl]');if(!c)return;e.preventDefault();if(c.dataset.agc){AG.c=+c.dataset.agc;AG.r.forEach(x=>x.v='');}else AG.lv=+c.dataset.agl;const b=document.getElementById('agbox');if(b)b.innerHTML=agHtml();});
+document.addEventListener('input',e=>{const v=e.target.closest('[data-agv]');if(v){AG.r[+v.dataset.agv].v=v.value;const o=document.getElementById('agout');if(o)o.innerHTML=agRes();}});
+document.addEventListener('change',e=>{const s=e.target.closest('[data-ago]');if(s){AG.r[+s.dataset.ago].o=s.value;const b=document.getElementById('agbox');if(b)b.innerHTML=agHtml();}});
 function renderArt(){
   clearBar(); document.documentElement.style.setProperty('--vc',{'희귀':'#4a86c5','영웅':'#8b5cc4','전설':'#c9971f'}[artg]||'#c9971f');
   const A=D.art; const q=st.q.trim(); const G=A.grades; const K=A.kushala;
@@ -2073,6 +2095,11 @@ function renderArt(){
   <h2 class="sec">크샬다오라 삽화 <small>S0 시즌 한정</small></h2>
   <div class="c2 eq"><section class="box"><div class="kh">${PHT('삽화-크샬다오라','lg')}<div class="tw" style="flex:1"><table class="nostack ensb"><tbody>${K.facts.map(r=>`<tr><td class="part">${r[0]}</td><td>${esc(r[1])}</td></tr>`).join('')}</tbody></table></div></div></section>
   <section class="box"><h3>어떻게 쓰나</h3><ul>${K.how.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="cat" style="white-space:normal;margin:0">🌪️ ${esc(K.wind)}</p></section></div>
+  <h2 class="sec">🔍 내 삽화 등급 판정 <small>전설 기준 · 카드의 주옵션 수치를 넣으면 하·중·상·최상(종결)을 알려줘요</small></h2>
+  <div class="c2 agjudge"><section class="box"><h3>수치 넣기</h3><div id="agbox">${agHtml()}</div></section>
+  <section class="box"><h3>코스트별 Lv1 범위 <small class="cat">게임 안 「출현 가능한 효과」</small></h3><div class="tw"><table class="nostack ensb agtab"><thead><tr><th>코스트</th><th>회심률</th><th>오의 충전 효율</th><th>속성 대미지</th></tr></thead><tbody>${[4,3,1].map(c=>`<tr><td class="part">${c}코</td>${['회심','오의','속성'].map(o=>{const R=ARTLV1[c][o];return `<td>${R?`${R[0]} ~ <b>${R[1]}</b>%`:'<span class="cat">안 붙음</span>'}</td>`;}).join('')}</tr>`).join('')}</tbody></table></div>
+  <p class="cat gnote">굵은 숫자가 최상(종결) 값이에요. 중 = 최대치의 ⅔ · 상 = 80% 기준으로 나눴어요(등급 경계는 계산값). 크샬다오라·루가 에알다(고룡)는 수치가 고정이라 판정이 필요 없어요. Lv10 판정은 강화로 오르는 양을 빼서 Lv1로 환산한 값이에요.</p>
+  <div class="shots in agex">${['artex_1','artex_2','artex_3'].filter(k=>SHOT[k]).map(k=>`<figure class="shot" data-f="${k}"><img src="${SHOT[k]}" alt="삽화 정보 예시" loading="lazy"></figure>`).join('')}</div></section></div>
   <h2 class="sec">모험가별 추천 <small>메인 조작 / 파티 서브 · 백련의 증표 「수렵 마스터」 이후 기준</small></h2>
   ${gchips}
   <div class="agsel amsel"><span>어떻게 쓰나</span><button type="button" class="amb" data-m="main" aria-pressed="${artm==='main'}"><b>🎮 메인 조작</b><small>내가 직접 플레이 · 크샬/루가 코어</small></button><button type="button" class="amb" data-m="party" aria-pressed="${artm==='party'}"><b>👥 파티 서브</b><small>조작 안 함 · 전용 코어 + 서포트 세트</small></button></div>
@@ -2758,7 +2785,7 @@ function buildSub(){
    '마라두부 공장':['공장 배치','마라두부'],'마라두부 재료 위치':['재료 위치','마라두부'],'마라두부 요리 순서':['요리 순서','마라두부'],
    '출장 채집 시설':['🏭 출장 시설','채집 시설'],
    '맵 100% 파먹기':['맵 100% 파먹기','팁'],'시설 규칙':['시설 규칙','팁'],'채집 장비 세팅':['채집 장비','팁'],
-   '등급별 진행':['등급별 진행','시작'],'크샬다오라 삽화':['크샬다오라','시작'],'모험가별 추천':['모험가별','추천 세팅'],'주인공 추천':['주인공','추천 세팅'],'서브 세팅 · 옵션 규칙':['서브 · 옵션','추천 세팅'],'📊 삽화 코스트별 최대 옵션':['코스트별 최대 옵션','정보'],'삽화 규칙':['삽화 규칙','정보'],'세트 효과 전체':['세트 효과','정보'],'세트별 도감':['세트별 도감','정보'],
+   '등급별 진행':['등급별 진행','시작'],'크샬다오라 삽화':['크샬다오라','시작'],'🔍 내 삽화 등급 판정':['🔍 등급 판정','시작'],'모험가별 추천':['모험가별','추천 세팅'],'주인공 추천':['주인공','추천 세팅'],'서브 세팅 · 옵션 규칙':['서브 · 옵션','추천 세팅'],'📊 삽화 코스트별 최대 옵션':['코스트별 최대 옵션','정보'],'삽화 규칙':['삽화 규칙','정보'],'세트 효과 전체':['세트 효과','정보'],'세트별 도감':['세트별 도감','정보'],
    '모험가별 추천 동반자':['모험가별 추천'],'주인공 무기별 추천':['주인공 추천'],'모험가별 추천 선물':['모험가별 선물'],'인연 포인트 계산':['포인트 계산기'],'선물별 인연 상승량':['선물별 포인트'],
    '특산품':['특산품','소재'],'조합 소재':['조합 소재','소재'],'목재·장비 소재':['목재·장비','소재'],'광석·뼈':['광석·뼈','소재'],'소형 몬스터 소재':['소형 몬스터','소재'],'대형 몬스터 소재 Ⅰ':['대형 몬스터 Ⅰ','소재'],'대형 몬스터 소재 Ⅱ':['대형 몬스터 Ⅱ','소재'],'육성·강화 소재':['육성·강화','소재'],
    '약품':['약품','사용템'],'소모품':['소모품','사용템'],'낚시 미끼':['낚시 미끼','사용템'],'채집 도구':['채집 도구','사용템'],'이너웨어':['이너웨어','사용템'],'인연 선물':['인연 선물','사용템']};
