@@ -68,6 +68,8 @@ tr.final td{background:var(--final);color:var(--final-ink)}
 .s b{font-variant-numeric:tabular-nums;font-weight:600;margin-left:3px}
 .set{font-size:13px}
 .set span{color:var(--accent);font-weight:600}
+.radcd{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;border:1.5px solid var(--accent);background:var(--accent-soft)}.radcd .rci{font-size:26px}.radcd>div{flex:1;display:grid;gap:2px;min-width:0}.radcd b{font-size:16px}.radcd span{font-size:14px;color:var(--muted)}.radcd em{font-style:normal;font-weight:800;color:var(--accent)}
+.chfresh{padding:10px 14px;border-radius:10px;background:var(--final);border:1.5px solid var(--gold);font-weight:700;font-size:14.5px}
 .jnote{margin:6px 0 2px;padding:8px 10px;border-radius:9px;background:var(--accent-soft);border-left:3px solid var(--accent);font-size:14px;white-space:normal}.jnote b{color:var(--accent);margin-right:4px}
 .note{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:14.5px;color:var(--muted)}
 .note ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px}
@@ -2071,7 +2073,8 @@ function matCard(m){
 const shotFig=s=>`<figure class="shot" data-f="${s.f}"><img src="${SHOT[s.f]}" alt="${esc(s.map+' '+s.t)}" loading="lazy"><figcaption><b>${esc(s.map)}</b> · ${esc(s.t)}<br><span>${itemIc(s.y)}</span></figcaption></figure>`;
 document.addEventListener('click',e=>{const f=e.target.closest('figure.shot');if(f){const o=document.createElement('div');o.className='lb';o.innerHTML=`<img src="${SHOT[f.dataset.f]}" alt="">`;o.onclick=()=>o.remove();document.body.appendChild(o);}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.lb').forEach(x=>x.remove());});
-function choreKey(kind){const n=new Date(Date.now()-5*3600e3);if(kind==='d')return 'd'+n.toISOString().slice(0,10);const day=(n.getDay()+6)%7;const m=new Date(n-day*864e5);return 'w'+m.toISOString().slice(0,10);}
+/* 한국 시간 05:00 기준 (UTC+9 → 05시를 0시로 당기면 +4시간) */
+function choreKey(kind){const n=new Date(Date.now()+4*3600e3);if(kind==='d')return 'd'+n.toISOString().slice(0,10);const day=(n.getUTCDay()+6)%7;const m=new Date(n-day*864e5);return 'w'+m.toISOString().slice(0,10);}
 function choreGet(){try{return JSON.parse(localStorage.getItem('mho-chores')||'{}');}catch(_){return {};}}
 /* ---- 공략에서 더 보기 (탭·숙제 → 공략 게시판 글) ---- */
 const RELB={chore:['quest-tips','exchange-must','emergency-season','research-alchemy'],tip:['tips-title','emergency-season','dc-14572'],money:['money-pack-1118','tralli-shop'],
@@ -2089,7 +2092,9 @@ function renderChores(){
   const done=(k,i)=>!!(S[k]&&S[k][i]);
   const list=(arr,k)=>arr.map((c,i)=>`<label class="chore${done(k,i)?' on':''}"><input type="checkbox" data-k="${k}" data-i="${i}" ${done(k,i)?'checked':''}><span class="ci">${c[0]}</span><span class="ct"><b>${esc(c[1])}</b><span>${esc(c[2])}</span></span><span class="cbtns">${CHREL[c[1]]&&(D.board||[]).some(b=>b.id===CHREL[c[1]])?`<button type="button" class="cgo cpost" data-post="${CHREL[c[1]]}">공략 ›</button>`:''}${c[3]?`<button type="button" class="cgo" data-go="${c[3]==='nest'?'mon':c[3]}">보기 ›</button>`:''}</span></label>`).join('');
   const cnt=(arr,k)=>arr.filter((_,i)=>done(k,i)).length;
-  document.getElementById('grid').innerHTML=`<h2 class="sec">매일 숙제 <small>${cnt(C.daily,dk)}/${C.daily.length} 완료 · 매일 05:00 초기화</small></h2>
+  const oldK=Object.keys(S).filter(k=>k!==dk&&k!==wk&&S[k]&&Object.values(S[k]).some(Boolean));const newD=oldK.some(k=>k[0]==='d')&&!S[dk],newW=oldK.some(k=>k[0]==='w')&&!S[wk];
+  const fresh=newD||newW?`<div class="full chfresh">🌅 ${newW?'새 주가 시작됐어요! 월요일 05:00에 주간·매일 숙제 체크가 초기화됐어요.':'새 날이에요! 05:00에 매일 숙제 체크가 초기화됐어요.'}</div>`:'';
+  document.getElementById('grid').innerHTML=fresh+`<h2 class="sec">매일 숙제 <small>${cnt(C.daily,dk)}/${C.daily.length} 완료 · 매일 05:00 초기화</small></h2>
   <section class="box full"><div class="chores">${list(C.daily,dk)}</div></section>
   <h2 class="sec">주간 숙제 <small>${cnt(C.weekly,wk)}/${C.weekly.length} 완료 · 월요일 05:00 초기화</small></h2>
   <section class="box full"><div class="chores">${list(C.weekly,wk)}</div></section>
@@ -2351,7 +2356,7 @@ function renderHome(){
    ['gather','🌶️','마라두부·채집','마라두부 재료 최대 채집 위치 · 4개 맵 출장 시설'],
    ['item','🎒','아이템 도감','아이템 228종 아이콘 · 분류별'],
    ['explore','🗺️','맵 탐색 공략','전망대(별이슬벌레) · 미니게임 9종 · 섬의 보물 · 에어리어 과제'],
-   ['tip','📢','소식','11/13 패치 · 이벤트 일정 · 쿠폰 · 새 방어구'],
+   ['tip','📢','소식',(D.tipx.upd.items[0]?D.tipx.upd.items[0][0]+' '+D.tipx.upd.items[0][1]+' · ':'')+'이벤트 일정 · 쿠폰 · 새 방어구'],
    ['guide','🎮','공략','주인공 쌍검 · 엔쇼우 · 루카 · 번개 헤보 · 시스템 팁'],
    ['money','💰','재화·과금','과금 추천 · 활활 화로 · 에너지 · 제니·루타 코인 수급처'],
    ['chore','📋','숙제 체크리스트','매일·주간 숙제 체크 · 05:00 / 월요일 자동 초기화']];
@@ -2361,7 +2366,15 @@ function renderHome(){
   const live=ev.filter(e=>e[3]&&yr(e[3])<=tdy&&tdy<=yr(e[4])).map(e=>({e,d:Math.round((yr(e[4])-tdy)/864e5)})).sort((x,y)=>x.d-y.d).slice(0,4);
   const GQ=[['⚔️','주인공 쌍검','5속성 장비 · 깨달음 · 동반자',0],['🗡️','엔쇼우 (대검)','열혈 사이클 · 장비 2종 · 삽화',4],['🏹','루카 (활)','저스트 입력 딜사이클 · 깨달음',3],['🔫','번개 헤비보우건','크샬 이벤트용 세팅 · 운용법',2]];
   const GA=D.guild.arena;
-  document.getElementById('grid').innerHTML=`<section class="gbanner"><div class="gbt">🏆</div><div class="gbx"><div class="gbs">직장인수렵단 · ${esc(GA.title)} · ${esc(GA.week)}</div><div class="gbr"><b>${GA.rank}</b><span>위</span></div><div class="gbm">${esc(GA.msg)}</div><div class="gbb"><button type="button" class="gbj" data-go="join">📝 모험단 가입 신청 ›</button><a class="gbj gbk" href="${D.guild.kakao}" target="_blank" rel="noopener">💬 오픈카톡 ›</a></div></div><div class="gbd" aria-hidden="true">${'★'.repeat(3)}</div></section><section id="hguild" class="full hguild" hidden></section><div id="hinstall" class="full hinstall"></div>
+  /* 융광종 교체 카운트다운 (월·금 05:00) */
+  const nowMs=Date.now();const kstMs=v=>{const [d,t]=String(v).split(' ');return Date.parse((d>='10-01'?'2026-':'2027-')+d+'T'+(t||'00:00')+':00+09:00');};
+  const nextSwap=(()=>{for(let i=0;i<8;i++){const k=new Date(nowMs+9*36e5+i*864e5);const w=k.getUTCDay();if(w===1||w===5){const t=Date.UTC(k.getUTCFullYear(),k.getUTCMonth(),k.getUTCDate(),5-9);if(t>nowMs)return {t,w};}}return null;})();
+  const radNow=ev.find(e=>e[0]==='융광종 토벌'&&e[3]&&kstMs(e[3])<=nowMs&&nowMs<=kstMs(e[4])+59e3);
+  const leftTxt=ms=>{const m=Math.max(0,Math.floor(ms/6e4)),d=Math.floor(m/1440),h=Math.floor(m%1440/60),mm=m%60;return d?`${d}일 ${h}시간`:h?`${h}시간 ${mm}분`:`${mm}분`;};
+  const radHtml=nextSwap?`<section class="full radcd"><span class="rci">🔥</span><div><b>${radNow?esc(radNow[2].replace(/^(융광종 )?/,'융광종 '))+' 토벌 중':'이번 융광종 토벌 확인 중'}</b><span>다음 교체 ${nextSwap.w===1?'월':'금'}요일 05:00까지 <em>${leftTxt(nextSwap.t-nowMs)}</em> 남았어요${radNow&&radNow[5]?' · 보상 '+esc(radNow[5]):''}</span></div><button type="button" class="cgo" data-go="tip">일정 ›</button></section>`:'';
+  const NEWP=(D.board||[]).map((b,i)=>({b,i})).sort((x,y)=>String(y.b.date).localeCompare(String(x.b.date))||y.i-x.i).slice(0,4).map(x=>x.b);
+  const CI={'무기·세팅':'⚔️','모험가':'🧭','몬스터·사냥':'🐉','채집·탐색':'🌿','초보·시스템':'🔰','생활·편의':'🏕️'};
+  document.getElementById('grid').innerHTML=radHtml+`<section class="gbanner"><div class="gbt">🏆</div><div class="gbx"><div class="gbs">직장인수렵단 · ${esc(GA.title)} · ${esc(GA.week)}</div><div class="gbr"><b>${GA.rank}</b><span>위</span></div><div class="gbm">${esc(GA.msg)}</div><div class="gbb"><button type="button" class="gbj" data-go="join">📝 모험단 가입 신청 ›</button><a class="gbj gbk" href="${D.guild.kakao}" target="_blank" rel="noopener">💬 오픈카톡 ›</a></div></div><div class="gbd" aria-hidden="true">${'★'.repeat(3)}</div></section><section id="hguild" class="full hguild" hidden></section><div id="hinstall" class="full hinstall"></div>
    <h2 class="sec">오늘 숙제 <small>매일 05:00 초기화</small></h2>
    <div class="homegrid hg4">${homeChores().map(x=>`<button class="hcard sm${x[1].startsWith('시련 원정 주간')?' hot':''}" type="button" data-go="chore"><span class="hi">${x[0]}</span><b>${esc(x[1])}</b><span>${x[4]?`<em class="dd">${esc(x[4].split('|')[0])}</em>${esc(x[4].split('|')[1]||'')}`:esc(x[2])}</span></button>`).join('')}</div>
    <button class="morebtn" type="button" data-go="chore">📋 매일·주간 숙제 전체 체크리스트 ›</button>
@@ -2369,7 +2382,7 @@ function renderHome(){
    <div class="homegrid hg4">${live.map(({e,d})=>`<button class="hcard sm" type="button" data-go="tip"><span class="hi">⏳</span><b>${esc(e[0]==='융광종 토벌'?e[2].replace(/^(융광종 )?/,'융광종 ')+' 토벌':e[2])}</b><span><em class="dd">${d===0?'오늘 종료':'D-'+d} · ~${md(e[4])}</em>${esc(e[5])}</span></button>`).join('')}</div>
    <button class="morebtn" type="button" data-go="tip">📢 최신 업데이트 · 전체 일정 · 쿠폰 ›</button>
    <h2 class="sec">새로 올라온 공략</h2>
-   <div class="homegrid hg4">${GQ.map(g=>`<button class="hcard sm" type="button" data-gs="${g[3]}"><span class="hi">${g[0]}</span><b>${g[1]}</b><span>${g[2]}</span></button>`).join('')}</div>
+   <div class="homegrid hg4">${NEWP.map(b=>`<button class="hcard sm" type="button" data-post="${esc(b.id)}"><span class="hi">${CI[b.cat]||'📋'}</span><b>${esc(b.title)}</b><span><em class="dd">${esc(String(b.date).replace('-','/').replace(/^0/,''))} · ${esc(b.cat)}</em></span></button>`).join('')}</div>
    <button class="morebtn" type="button" data-go="guide">🎮 공략 전체 보기 ›</button>`;
   document.querySelectorAll('[data-gs]').forEach(b=>b.onclick=()=>{go('guide');SUB.guide=+b.dataset.gs;render();});
   document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
