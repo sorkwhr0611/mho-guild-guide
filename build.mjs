@@ -5,10 +5,24 @@ const rd = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
 const data = JSON.stringify(JSON.parse(rd("./src/data.json")));
 // 큰 사진은 src/img/*.jpg 로 따로 두고 public/img/ 로 복사해요 (페이지 용량 줄이기)
 const imgs = (() => { try { return readdirSync(new URL("./src/img/", import.meta.url)).filter((f) => f.endsWith(".jpg")).map((f) => f.slice(0, -4)); } catch { return []; } })();
-// 초상화 아이콘(약 2.4MB)은 따로 캐시되는 파일로 빼요 (내용이 바뀔 때만 이름이 바뀜)
-const iconsJs = "window.__DEF=" + rd("./src/icons.json").trim() + ";";
+// 아이콘·아이템 그림은 한 장씩 public/ic/<해시>.jpg 로 쪼개서, 화면에 보이는 것만 불러와요
+mkdirSync(new URL("./public/ic/", import.meta.url), { recursive: true });
+const icFiles = new Set();
+const toFile = (uri) => {
+  if (process.env.INLINE_ICONS) return uri; // 미리보기용: 쪼개지 않고 그대로
+  const m = /^data:image\/(jpeg|png|webp|gif);base64,(.+)$/.exec(uri || "");
+  if (!m) return uri;
+  const buf = Buffer.from(m[2], "base64");
+  const ext = m[1] === "jpeg" ? "jpg" : m[1];
+  const name = createHash("sha1").update(buf).digest("hex").slice(0, 12) + "." + ext;
+  if (!icFiles.has(name)) { writeFileSync(new URL("./public/ic/" + name, import.meta.url), buf); icFiles.add(name); }
+  return "ic/" + name;
+};
+const splitMap = (obj) => Object.fromEntries(Object.entries(obj).map(([k, v]) => [k, toFile(v)]));
+const iconsJs = "window.__DEF=" + JSON.stringify(splitMap(JSON.parse(rd("./src/icons.json")))) + ";";
 const iconsName = "icons." + createHash("sha1").update(iconsJs).digest("hex").slice(0, 10) + ".js";
 const html = rd("./src/template.html")
+  .replace(/const GI=(\{.*?\});/s, (_, j) => "const GI=" + JSON.stringify(splitMap(JSON.parse(j))) + ";")
   .replace("__ICONSJS__", () => iconsName)
   .replace("__SHOTS__", () => rd("./src/shots.json").trim())
   .replace("__IMGS__", () => JSON.stringify(imgs))
@@ -20,4 +34,5 @@ for (const f of readdirSync(new URL("./src/pwa/", import.meta.url))) copyFileSyn
 writeFileSync(new URL("./public/" + iconsName, import.meta.url), iconsJs);
 mkdirSync(new URL("./public/img/", import.meta.url), { recursive: true });
 for (const f of imgs) copyFileSync(new URL("./src/img/" + f + ".jpg", import.meta.url), new URL("./public/img/" + f + ".jpg", import.meta.url));
+console.log("icons", icFiles.size, "files");
 console.log("built public/index.html", (html.length / 1024).toFixed(0) + "KB");
