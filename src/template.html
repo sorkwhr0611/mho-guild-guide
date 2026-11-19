@@ -510,6 +510,7 @@ label.calc input,label.calc select{font:inherit;font-size:16px;padding:9px 12px;
 .shots.in.agex .shot{border-radius:10px;background:#1b1714}.shots.in.agex .shot img{aspect-ratio:3/4!important;object-fit:cover!important;object-position:top!important;height:auto!important;display:block}
 .agf,.agin{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px}.agin select{font:inherit;padding:6px 8px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}.agin input{font:inherit;width:90px;padding:6px 8px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);text-align:right}
 .agr{border-top:1px solid var(--line);padding:8px 0;display:grid;gap:5px}.agrr{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}.agg{background:var(--g);color:#fff;font-weight:800;border-radius:999px;padding:2px 12px}.agw{color:#b45309}
+.agtab td[class^=agt]{white-space:nowrap}.agtab td.agt3{font-weight:800;color:#a5740f}.agtab td.agt2{color:#7a4fb0;font-weight:700}.agtab td.agt1{color:#3d74b0}.agtab td.agt0{color:var(--muted)}
 .agbar{position:relative;height:10px;border-radius:6px;background:linear-gradient(90deg,#8a8a8a40 0 var(--a),#4a86c550 var(--a) var(--b),#8b5cc455 var(--b) 97%,#c9971f 97%);margin-top:2px}.agbar .agoff{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,#0001 0 4px,transparent 4px 8px);border-radius:6px 0 0 6px}.agbar b{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--muted)}.agbar em{position:absolute;top:-4px;width:6px;height:18px;margin-left:-3px;background:var(--accent);border-radius:3px}
 .agax{position:relative;height:16px;font-size:11.5px;color:var(--muted);margin:0 2px}.agax span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}.agax span:first-child{transform:none}.agax span:last-child{transform:translateX(-100%)}.shots.in.agex{border:0;padding:0;margin-top:8px;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;overflow:visible}.agex .shot{width:auto;min-width:0;flex:none}.agex .shot img{width:100%;height:auto!important;max-height:none!important;object-fit:contain!important;aspect-ratio:auto!important}
 .tmats{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;margin:2px 0}.tmats em{font-style:normal;font-size:12px;color:var(--muted);min-width:44px}.tmat{display:inline-flex;align-items:center;gap:3px;white-space:nowrap}.tmat img{width:18px;height:18px}
@@ -1261,7 +1262,7 @@ const phKey=n=>{let k=String(n).replace(/\*/g,'').replace(/\(.*?\)/g,'').trim();
 const LEGV=['삽화-루가 에알다','삽화-크샬다오라'];
 function PHT(n,cls='',fb){let k=phKey(n);let v=k&&DEF[k];if(!v&&fb&&DEF[fb]){k=fb;v=DEF[fb];cls+=' gen';}return v?`<span class="ph has ${cls}${k.startsWith('삽화-')?' vis':''}${LEGV.includes(k)?' leg':''}"><img src="${v}" alt="${esc(k)}" loading="lazy" decoding="async"></span>`:'';}
 const TIER=r=>r>=11?['전설','t-leg']:r>=9?['영웅','t-epi']:['일반','t-nor'];
-const isRuler=n=>/^(광룡|광영)/.test(String(n));
+const isRuler=n=>/^(광룡|광영|광익)/.test(String(n));
 const PAL=['#c8452c','#2a6fb5','#b68a00','#2a93a8','#6d3fa0','#3f8a4a','#b8501f','#8a5a2b'];
 function mono(k){const r=k.replace(/^융광종\s*/,'');let h=0;for(const c of k)h=(h*31+c.charCodeAt(0))>>>0;const col=PAL[h%PAL.length];
   const rad=k.startsWith('융광종');
@@ -2071,11 +2072,12 @@ function artCard(b0,hero){
 const ARTLV1={4:{회심:[1.75,3.51],오의:[1.81,3.62]},3:{오의:[1.67,3.34],속성:[2.44,4.88]},1:{회심:[0.92,1.84],오의:[0.91,1.81],속성:[1.56,3.11]}};
 const AGN={회심:'회심률',오의:'오의 충전 효율',속성:'속성 대미지'};
 const AG={c:4,lv:1,r:[{o:'회심',v:''},{o:'오의',v:''}]};
+function agVals(c,o){const R=(ARTLV1[c]||{})[o];if(!R)return null;const m=((ARTMO[c]||{})[o]||[])[0];if(m)return {v:[R[0],m[1],m[2],R[1]],calc:[false,false,false,false]};return {v:[R[0],+(R[1]*0.667).toFixed(2),+(R[1]*0.8).toFixed(2),R[1]],calc:[false,true,true,false]};}
 function agGrade(c,o,v,lv){const R=(ARTLV1[c]||{})[o];if(!R||!(v>0))return null;const inc=lv===10?((ARTMO[c]||{})[o]||[])[1]||R[1]:0;const b=+(v-inc).toFixed(2);const mx=R[1],mn=R[0];
-  if(b<mn-0.02||b>mx+0.02)return {bad:true,b,mn,mx,inc};const r=b/mx;const g=r>=0.985?3:r>=0.79?2:r>=0.66?1:0;return {b,mn,mx,r,g,inc};}
+  if(b<mn-0.02||b>mx+0.02)return {bad:true,b,mn,mx,inc};const r=b/mx;const V=agVals(c,o).v;let g=0;V.forEach((x,i)=>{if(Math.abs(b-x)<Math.abs(b-V[g]))g=i;});return {b,mn,mx,r,g,inc};}
 function agRes(){const T=[['하','#8a8a8a','더 좋은 게 나오면 바로 바꿔요. 강화 재료는 아끼기'],['중','#4a86c5','임시로 쓰고 상 이상이 나오면 교체'],['상','#8b5cc4','충분히 좋아요. 최상 나오기 전까지 주력'],['최상 · 종결','#c9971f','종결이에요. 강화·채색 몰아 넣어도 돼요']];
   return AG.r.map(x=>{const v=parseFloat(String(x.v).replace(',','.'));const R=ARTLV1[AG.c][x.o];if(!R)return '';const g=agGrade(AG.c,x.o,v,AG.lv);
-    const pos=v=>Math.max(0,Math.min(100,(v-R[0])/(R[1]-R[0])*100));const t1=R[1]*0.667,t2=R[1]*0.8;
+    const pos=v=>Math.max(0,Math.min(100,(v-R[0])/(R[1]-R[0])*100));const VV=agVals(AG.c,x.o).v;const t1=VV[1],t2=VV[2];
     const bar=`<div class="agbar" style="--a:${pos(t1).toFixed(1)}%;--b:${pos(t2).toFixed(1)}%">${[t1,t2].map(v=>`<b style="left:${pos(v).toFixed(1)}%"></b>`).join('')}${g&&!g.bad?`<em style="left:${pos(g.b).toFixed(1)}%"></em>`:''}</div><div class="agax"><span style="left:0">하 ${R[0]}%</span><span style="left:${pos(t1).toFixed(1)}%">중 ${t1.toFixed(2)}</span><span style="left:${pos(t2).toFixed(1)}%">상 ${t2.toFixed(2)}</span><span style="left:100%">최상 ${R[1]}%</span></div>`;
     const res=!(v>0)?`<span class="cat">숫자를 넣으면 등급이 나와요</span>`:g.bad?`<span class="agw">Lv${AG.lv} ${AGN[x.o]} 범위(${(R[0]+(AG.lv===10?g.inc:0)).toFixed(2)}~${(R[1]+(AG.lv===10?g.inc:0)).toFixed(2)}%) 밖이에요. 코스트·옵션·레벨을 확인해 주세요</span>`:`<span class="agg" style="--g:${T[g.g][1]}">${T[g.g][0]}</span><span>최대치의 <b>${Math.round(g.r*100)}%</b>${AG.lv===10?` (Lv1 환산 ${g.b}%)`:''} · Lv10이면 약 <b>${(g.b+(((ARTMO[AG.c]||{})[x.o]||[])[1]||g.mx)).toFixed(2)}%</b></span><span class="cat">${T[g.g][2]}</span>`;
     return `<div class="agr"><b>${AGN[x.o]}</b><div class="agrr">${res}</div>${bar}</div>`;}).join('');}
@@ -2135,8 +2137,8 @@ function renderArt(){
   <section class="box"><h3>어떻게 쓰나</h3><ul>${K.how.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><p class="cat" style="white-space:normal;margin:0">🌪️ ${esc(K.wind)}</p></section></div>
   <h2 class="sec">🔍 내 삽화 등급 판정 <small>전설 기준 · 카드의 주옵션 수치를 넣으면 하·중·상·최상(종결)을 알려줘요</small></h2>
   <div class="c2 agjudge"><section class="box"><h3>수치 넣기</h3><div id="agbox">${agHtml()}</div></section>
-  <section class="box"><h3>코스트별 Lv1 범위 <small class="cat">게임 안 「출현 가능한 효과」</small></h3><div class="tw"><table class="nostack ensb agtab"><thead><tr><th>코스트</th><th>회심률</th><th>오의 충전 효율</th><th>속성 대미지</th></tr></thead><tbody>${[4,3,1].map(c=>`<tr><td class="part">${c}코</td>${['회심','오의','속성'].map(o=>{const R=ARTLV1[c][o];return `<td>${R?`${R[0]} ~ <b>${R[1]}</b>%`:'<span class="cat">안 붙음</span>'}</td>`;}).join('')}</tr>`).join('')}</tbody></table></div>
-  <p class="cat gnote">굵은 숫자가 최상(종결) 값이에요. 중 = 최대치의 ⅔ · 상 = 80% 기준으로 나눴어요(등급 경계는 계산값). 크샬다오라·루가 에알다(고룡)는 수치가 고정이라 판정이 필요 없어요. Lv10 판정은 강화로 오르는 양을 빼서 Lv1로 환산한 값이에요.</p>
+  <section class="box"><h3>등급별 Lv1 수치표 <small class="cat">전설 · 주옵션 한 줄 · 단위 %</small></h3><div class="tw"><table class="nostack ensb agtab"><thead><tr><th>코스트</th><th>옵션</th><th>하</th><th>중</th><th>상</th><th>최상<br><small>종결</small></th></tr></thead><tbody>${[4,3,1].map(c=>Object.keys(ARTLV1[c]).map((o,ix,arr)=>{const G=agVals(c,o);return `<tr>${ix===0?`<td class="part" rowspan="${arr.length}">${c}코</td>`:''}<td>${AGN[o]}</td>${G.v.map((v,gi)=>`<td class="agt${gi}">${v.toFixed(2)}</td>`).join('')}</tr>`;}).join('')).join('')}</tbody></table></div>
+  <p class="cat gnote">게임 화면엔 「1.75%~3.51%」처럼 물결로 나오지만, 실제로는 이 4단계 수치 중 하나로 붙어요. 하·최상은 게임 화면 수치이고, 중·상은 최대치의 ⅔·80% 비율 값이에요(실제 카드와 0.02 정도 차이가 날 수 있어요 · 확인 중). 판정은 넣은 수치와 가장 가까운 단계로 해요. 크샬다오라·루가 에알다(고룡)는 수치가 고정이라 판정이 필요 없어요. Lv10 판정은 강화로 오르는 양을 빼서 Lv1로 환산한 값이에요.</p>
   <div class="shots in agex">${['artex_1','artex_2','artex_3'].filter(k=>SHOT[k]).map(k=>`<figure class="shot" data-f="${k}"><img src="${SHOT[k]}" alt="삽화 정보 예시" loading="lazy"></figure>`).join('')}</div></section></div>
   <h2 class="sec">모험가별 추천 <small>메인 조작 / 파티 서브 · 백련의 증표 「수렵 마스터」 이후 기준</small></h2>
   ${gchips}
