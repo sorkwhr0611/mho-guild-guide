@@ -503,6 +503,7 @@ label.calc input,label.calc select{font:inherit;font-size:16px;padding:9px 12px;
 #tipbox .tnote{font-size:12px;color:var(--muted);margin-top:6px}
 #tipbox .ph.xs{width:24px;height:24px}
 [data-tip]{cursor:help}
+.tmats{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center;margin:2px 0}.tmats em{font-style:normal;font-size:12px;color:var(--muted);min-width:44px}.tmat{display:inline-flex;align-items:center;gap:3px;white-space:nowrap}.tmat img{width:18px;height:18px}
 .tipg{border-bottom:1px dotted #b9a68c}
 .tipg:hover,.tipi:hover{color:var(--accent)}
 .it2[data-tip]:hover{border-color:var(--accent)}
@@ -1108,7 +1109,9 @@ a{overflow-wrap:anywhere}
 .hgc{font:inherit;text-align:left;display:grid;gap:4px;padding:12px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;min-width:0}.hgc:hover{border-color:var(--accent)}
 .hgc b{font-size:26px;font-family:var(--display);font-weight:400;color:var(--accent)}.hgc b small{font-size:14px;color:var(--muted);font-family:var(--body)}.hgt{white-space:normal!important;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .hgbar{height:8px;border-radius:5px;background:var(--panel);overflow:hidden}.hgbar i{display:block;height:100%;background:#2f8a4a;border-radius:5px}
-.gstat summary{cursor:pointer;font-weight:700;font-size:14.5px;color:var(--muted);padding:6px 0}.gstt td,.gstt th{text-align:center}.gstt td.gan{text-align:left}.gstt tr.gwarn td{color:#c0392b}
+.gstat summary{cursor:pointer;font-weight:700;font-size:14.5px;color:var(--muted);padding:6px 0}.gstt td,.gstt th{text-align:center}.gstt td.gan{text-align:left}.gstt tr.gmiss td{color:#b45309!important;background:#fef3e2}.gstt tr.gwarn td{color:#6b3fa0!important;background:#f1e8fb;font-weight:700}.gk{padding:0 6px;border-radius:6px;font-weight:700}.gk1{color:#b45309;background:#fef3e2}.gk2{color:#6b3fa0;background:#f1e8fb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gstt tr.gmiss td,:root:not([data-theme="light"]) .gk1{color:#ffb86b!important;background:#3a2410}:root:not([data-theme="light"]) .gstt tr.gwarn td,:root:not([data-theme="light"]) .gk2{color:#d5b8ff!important;background:#2c1f3d}}
+:root[data-theme="dark"] .gstt tr.gmiss td,:root[data-theme="dark"] .gk1{color:#ffb86b!important;background:#3a2410}:root[data-theme="dark"] .gstt tr.gwarn td,:root[data-theme="dark"] .gk2{color:#d5b8ff!important;background:#2c1f3d}
 
 .bvid{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}.bvid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.bvlink{display:inline-flex;align-self:flex-start;padding:10px 16px;border-radius:10px;background:var(--accent);color:#fff!important;font-weight:700;text-decoration:none}
 .c2.upd{margin:0;font-size:inherit;color:inherit}.agsel{margin:0!important}#grid>.gbanner{margin:0}
@@ -1305,7 +1308,7 @@ function card(b0){
   const c=`var(${EL[b.elem]||'--neutral'})`;
   const title=b.group==='hero'?`${b.type} · ${b.elem==='범용'?'범용':b.elem+'속성'}`:b.name;
   const route=b.route.map(r=>`${esc(r[1])}(레어도 ${r[0]})`).join(' → ');
-  const rows=b.armor.map(a=>{const c2=A.ch.find(x=>x.part===a[0]);return `<tr class="${c2?'swap':''}"><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px">${PHT(a[1],'ar gear '+aT[1],'부위-'+a[0])}<span><span class="tipg" data-tip="${esc(a[1])}" data-tk="g">${esc(a[1])}</span>${c2?`<em class="was">원래 ${esc(c2.from)} · Lv${c2.need}부터</em>`:''}</span></span></td></tr>`;}).join('');
+  const rows=b.armor.map(a=>{const c2=A.ch.find(x=>x.part===a[0]);return `<tr class="${c2?'swap':''}"><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px" data-tip="${esc(a[1])}" data-tk="g">${PHT(a[1],'ar gear '+aT[1],'부위-'+a[0])}<span><span class="tipg" data-tip="${esc(a[1])}" data-tk="g">${esc(a[1])}</span>${c2?`<em class="was">원래 ${esc(c2.from)} · Lv${c2.need}부터</em>`:''}</span></span></td></tr>`;}).join('');
   const sk=b.skills.map((s,i)=>`<span class="s${i<2?' core':''}" title="${esc(D.skilldesc[s[0]]||EXTRA[s[0]]||'')}">${esc(s[0])}<b>Lv${s[1]}</b></span>`).join('');
   const p=plan(b);
   const rs0=b.route.map(r=>rng(r[0])); const wTop=Math.max(...rs0.map(r=>r[1])); const wReach=Math.min(cap,wTop); const wT=TIER(cap);
@@ -1320,7 +1323,7 @@ function card(b0){
   <div class="chead">${PHT(b.group==='hero'?'주인공':b.name.split(' ')[0],'lg')}<h3>${esc(title)}${b.group==='hero'?'<small>주인공</small>':''}</h3><button type="button" class="cgo simb" data-simb="${SIMB.push(b)-1}">🧮 시뮬에서 열기</button></div>
   <div class="meta"><span class="tag el">${ic(b.elem)}${b.elem}</span>${b.group==='hero'?'':`<span class="tag">${b.type}</span>`}<span class="tag">${b.group==='hero'?(b.stage==='중반'?'중반 세팅':'후반 세팅'):'모험가 전용'}</span>${p.done&&!A.sw&&!A.ch.length?`<span class="tag ok2">Lv${st.lv} 완성</span>`:''}${A.sw||A.ch.length?`<span class="tag sw">Lv${st.lv} 맞춤</span>`:''}</div>
   <table><thead><tr><th>부위</th><th>장비</th></tr></thead><tbody>
-  <tr class="${A.sw?'swap':''}"><td class="part">무기</td><td class="kr"><span class="nm" style="gap:8px">${PHT(b.wkr,'ar gear '+wT[1],(isRuler(b.wkr)?'지배자-'+b.type+'-'+b.elem:'무기-'+b.type))}<span><span class="tipg" data-tip="${esc(b.wkr)}" data-tk="g">${esc(b.wkr)}</span>${A.sw?`<em class="was">원래 ${esc(A.sw.from)} · Lv${A.sw.need}부터${A.sw.isAk?' · 수렵혼옥+철광석으로 제작':''}</em>`:''}</span></span></td></tr>
+  <tr class="${A.sw?'swap':''}"><td class="part">무기</td><td class="kr"><span class="nm" style="gap:8px" data-tip="${esc(b.wkr)}" data-tk="g">${PHT(b.wkr,'ar gear '+wT[1],(isRuler(b.wkr)?'지배자-'+b.type+'-'+b.elem:'무기-'+b.type))}<span><span class="tipg" data-tip="${esc(b.wkr)}" data-tk="g">${esc(b.wkr)}</span>${A.sw?`<em class="was">원래 ${esc(A.sw.from)} · Lv${A.sw.need}부터${A.sw.isAk?' · 수렵혼옥+철광석으로 제작':''}</em>`:''}</span></span></td></tr>
   ${rulerRow}${genRow}
   <tr class="lv"><td class="part">Lv${st.lv}</td><td><div class="fx fxl"><div class="fxi">${p.html}</div></div></td></tr>
   ${rows}</tbody></table>
@@ -1518,7 +1521,7 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
    <div class="gweek"><h3 class="gh3">${md(d)} 길드전 참여 내역</h3>
     <p><b class="ok">참여 ${yes.length}명</b> ${yes.length?yes.map(m=>esc(m.name)).join(', '):'<span class="cat">아직 없어요</span>'}</p>
     <p><b class="gno">미참여 ${no.length}명</b> <span class="gnl">${no.map(m=>esc(m.name)).join(', ')}</span></p></div>
-   <details class="gstat"${GUILD.statOpen?' open':''}><summary>📊 단원별 길드전 참여 통계</summary>${(()=>{const S=attStats().sort((a,b)=>a.rate-b.rate||b.miss-a.miss);return `<p class="cat gnote">참여율 낮은 순이에요. 연속 미참여 2주 이상은 빨갛게 표시돼요.</p><div class="tw"><table class="gatab nostack gstt"><thead><tr><th>단원</th><th>참여</th><th>참여율</th><th>연속 참여</th><th>연속 미참여</th><th>마지막 참여</th></tr></thead><tbody>${S.map(x=>`<tr${x.miss>=2?' class="gwarn"':''}><td class="gan">${esc(x.m.name)}</td><td>${x.on}/${x.tot}</td><td><b>${x.rate}%</b></td><td>${x.streak?x.streak+'주':'–'}</td><td>${x.miss?x.miss+'주':'–'}</td><td>${x.last?md(x.last):'–'}</td></tr>`).join('')}</tbody></table></div>`;})()}</details>
+   <details class="gstat"${GUILD.statOpen?' open':''}><summary>📊 단원별 길드전 참여 통계</summary>${(()=>{const S=attStats().sort((a,b)=>a.rate-b.rate||b.miss-a.miss);return `<p class="cat gnote">참여율 낮은 순이에요. <span class="gk gk1">주황</span> = 지난 길드전 미참여 · <span class="gk gk2">보라</span> = 2주 이상 연속 미참여</p><div class="tw"><table class="gatab nostack gstt"><thead><tr><th>단원</th><th>참여</th><th>참여율</th><th>연속 참여</th><th>연속 미참여</th><th>마지막 참여</th></tr></thead><tbody>${S.map(x=>`<tr${x.miss>=2?' class="gwarn"':x.miss?' class="gmiss"':''}><td class="gan">${esc(x.m.name)}</td><td>${x.on}/${x.tot}</td><td><b>${x.rate}%</b></td><td>${x.streak?x.streak+'주':'–'}</td><td>${x.miss?x.miss+'주':'–'}</td><td>${x.last?md(x.last):'–'}</td></tr>`).join('')}</tbody></table></div>`;})()}</details>
    <details class="ghist"${GUILD.histOpen?' open':''}><summary>📅 최근 길드전 참여 기록 보기 (${hist.length}주)</summary><div class="tw gattw"><table class="gatab nostack"><thead><tr><th>단원</th>${hist.slice().reverse().map(x=>`<th${x===d?' class="cur"':''}>${md(x)}</th>`).join('')}<th>합계</th></tr></thead><tbody>
    ${rows.map(m=>{let c=0;const cells=hist.slice().reverse().map(x=>{if(!gact(m,x))return '<td class="cat">–</td>';const on=(GUILD.att[x]||[]).includes(m.id);if(on)c++;return `<td>${on?'✓':''}</td>`;}).join('');return `<tr><td class="gan">${esc(m.name)}</td>${cells}<td><b>${c}</b></td></tr>`;}).join('')}</tbody></table></div><p class="cat gnote">– = 그 주엔 단원이 아니었어요.</p></details>
    ${GUILD.admin?`<details class="gtools"><summary>⚙️ 관리 도구</summary><div class="gdanger"><b>⚠️ 되돌릴 수 없어요</b><button type="button" id="gattclr">${md(d)} 참여 기록 삭제</button><button type="button" id="gattclrall">모든 주 참여 기록 삭제</button></div></details>`:''}`
@@ -2808,10 +2811,10 @@ function tipGear(raw){const C=D.craft; const n=raw.replace(/\*/g,'').trim(); con
   const ser=ar?ar[0]:n.replace(/(헬름|메일|암|코일|그리브|벨트|페트|앙카|감바)$/,'');
   const key=ser.replace(/^융광종 /,''); const mon=C.series[key]; const rad=ser.startsWith('융광종');
   const ep=Object.entries(C.epi).find(([e,v])=>v[1]===key);
-  const mats=ep?D.items.flatMap(g=>g.n).filter(x=>x.startsWith((rad?'융광종 ':'')+ep[0]+'의 ')&&x.endsWith('Ⅰ')):[];
+  const AI=D.items.flatMap(g=>g.n);const pre=ep?(rad?'융광종 ':'')+ep[0]+'의 ':'';const m1=ep?AI.filter(x=>x.startsWith(pre)&&x.endsWith('Ⅰ')):[];const m2=ep?AI.filter(x=>x.startsWith(pre)&&x.endsWith('Ⅱ')):[];const MT=(mon||'').split('·').map(x=>(C.mat||{})[(rad?'융광종 ':'')+x]).filter(Boolean);const mats=m1.length?m1:m2;const chipM=L=>L.map(m=>`<span class="tmat">${giIcon(m)}${esc(m.replace(pre,''))}</span>`).join('');
   return `<div class="thd">${mon?PHT((rad?'융광종 ':'')+mon.split('·')[0],'xs'):''}<b>${esc(n)}</b></div>
     <div class="tsec"><b>방어구 정보</b><div class="trow">${esc(ser)} 시리즈${mon?` · ${esc((rad?'융광종 ':'')+mon)} 소재`:''}${ar?` · 레어도 ${ar[1]}부터`:''}</div></div>
-    <div class="tsec"><b>만드는 법</b><div class="trow">수렵혼옥 + ${mats.length?mats.map(m=>`${giIcon(m)}${esc(m.replace(/Ⅰ$/,''))}`).join(' · '):(mon?esc(mon)+' 소재':'광석·소형 몬스터 소재')} + 제니</div></div>
+    <div class="tsec"><b>만드는 재료</b>${!mats.length&&MT.length?MT.map(t=>`<div class="tmats">${t.lo?`<em>${t.lo}부터</em>`:''}${t.p.map(m=>`<span class="tmat">${giIcon(m+t.lo)}${esc(m)}${t.lo}</span>`).join('')}</div>`).join('')+`<div class="trow" style="color:var(--muted)">+ 수렵혼옥 + 제니${MT.some(t=>t.lo)?' · 레어도가 오르면 소재 단계(Ⅱ→Ⅴ)도 올라가요':''}</div>`:mats.length?`<div class="trow"><span class="tk">${esc(pre.replace(/의 $/,''))}</span><span>${(m1.length?[['초반',m1]]:[]).concat(m2.length?[['레어도↑',m2]]:[]).map(([t,L])=>`<div class="tmats"><em>${t}</em>${chipM(L)}</div>`).join('')}</span></div><div class="trow" style="color:var(--muted)">+ 수렵혼옥 + 제니</div>`:`<div class="trow">수렵혼옥 + ${mon?esc((rad?'융광종 ':'')+mon)+' 소재':'광석·소형 몬스터 소재'} + 제니</div><div class="trow" style="color:var(--muted)">정확한 소재 이름은 아직 정리 중이에요</div>`}</div>
     ${ub.length?`<div class="tsec"><b>이 공략집에서 쓰는 곳</b><div class="trow">${esc(ub.slice(0,6).join(', '))}${ub.length>6?' 외':''}</div></div>`:''}<div class="tnote">${esc(C.note)}</div>`;}
 const TIPC={};
 function tipFor(el){const k=el.dataset.tip, kind=el.dataset.tk||'i', id=kind+':'+k; if(!(id in TIPC)) TIPC[id]=kind==='g'?tipGear(k):tipItem(k); return TIPC[id];}
