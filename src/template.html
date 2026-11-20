@@ -1871,7 +1871,16 @@ const ARTFIX={'크샬다오라':[['오의',2.92,5.80],['속성',4.27,8.50]],'루
 const ATIER=['하','중','상','최상'];
 function artOptDef(m){const c=(D.artdb[m]||[0])[0];if(ARTFIX[m])return ['속성','오의'];return c===4?['회심','오의']:c===3?['속성','오의']:['회심','회심'];}
 function artVal(m,o,t,lv10){if(ARTFIX[m]){const f=ARTFIX[m].find(x=>x[0]===o);return f?(lv10?f[2]:f[1]):0;}const c=(D.artdb[m]||[0])[0];const G=((ARTGV[c]||{})[o]||[])[t];if(!G)return 0;return artLv(G,lv10?10:1);}
-function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills,AS=D.art.sets;
+function simSanitize(){const A=D.sim.armor,SK=D.sim.skills;
+  if(!Array.isArray(SIM.pick)||SIM.pick.length!==5)SIM.pick=[-1,-1,-1,-1,-1];
+  SIM.pick=SIM.pick.map((x,pi)=>Number.isInteger(x)&&x>=0&&A[x]&&A[x][2]===pi?x:-1);
+  SIM.want=(Array.isArray(SIM.want)?SIM.want:[]).filter(w=>w&&SK[w.n]).map(w=>({n:w.n,t:Math.max(1,Math.min(+w.t||1,simCap(w.n))),main:!!w.main}));
+  SIM.art=(Array.isArray(SIM.art)?SIM.art:[]).filter(x=>Array.isArray(x)&&D.artdb[x[0]]).slice(0,5);
+  if(SIM.open!=null&&!(SIM.open>=-1&&SIM.open<5))SIM.open=-1;}
+function renderSim(){simInit();simSanitize();try{return renderSim0();}catch(err){console.error(err);
+  if(!SIM._reset){SIM._reset=true;SIM.want=[];SIM.pick=[-1,-1,-1,-1,-1];SIM.art=[];SIM.open=-1;SIM.aopen=false;SIM.cmp=null;SIM.q='';SIM.pq='';SIM.aq='';try{localStorage.removeItem('mho-sim');}catch(_){}try{return renderSim0();}catch(e2){console.error(e2);}}
+  document.getElementById('grid').innerHTML=`<section class="box full"><h3>장비 시뮬을 여는 중 문제가 생겼어요</h3><p>저장된 세팅이 예전 데이터라 열리지 않았어요. 아래 버튼으로 초기화하면 다시 쓸 수 있어요.</p><button type="button" class="cgo" onclick="try{localStorage.removeItem('mho-sim')}catch(_){}location.reload()">세팅 초기화하고 다시 열기</button></section>`;}}
+function renderSim0(){clearBar();const A=D.sim.armor,SK=D.sim.skills,AS=D.art.sets;
   SIM.v=SIM.v||{grp:'hero',wt:'대검',el:'전체',fold:false};SIM.alv=SIM.alv??true;SIM.art=(SIM.art||[]).map(x=>{if(x.length>=6)return x;const d=artOptDef(x[0])||['오의','속성'];return [x[0],x[1],d[0],3,d[1],3];});SIM.open=SIM.open??-1;SIM.pq=SIM.pq||'';SIM.art=SIM.art||[];SIM.aopen=SIM.aopen||false;SIM.aq=SIM.aq||'';SIM.hm=SIM.hm??true;SIM.ac=SIM.ac||0;SIM.as=SIM.as||'';SIM.fold=SIM.fold||{};
   const nk=x=>String(x).replace(/[\[\]【】\s]/g,'');const SKN={};Object.keys(SK).forEach(k=>SKN[nk(k)]=k);
   const has=n=>SIM.want.find(w=>w.n===n);
