@@ -3025,7 +3025,8 @@ function itemCard(n){let ov=document.getElementById('icard');const __first=!ov;i
    ${mat?sec('직접 모으기',`<div class="trow">${esc(mat.where)}${mat.need?' · 필요: '+esc(mat.need):''}</div>${(mat.best||[]).map(b=>`<div class="trow"><span class="tk">${esc(b[0])}</span><span>${esc(b[1])}</span><em>${esc(b[2])}</em></div>`).join('')}${mat.buy?`<div class="trow"><span class="tk">구매</span><span>${esc(mat.buy)}</span></div>`:''}`):''}
    ${body}
    ${posts.length?sec('관련 공략',posts.map(b=>`<div class="trow"><a href="#" data-post="${esc(b.id)}">${esc(b.title)}</a></div>`).join('')):''}
-   ${!fac.length&&!mat&&!body&&!posts.length?'<p class="cat">아직 정리된 정보가 없어요(확인 중).</p>':''}
+   ${(()=>{const sm=grp&&grp.c==='소형 몬스터 소재'&&(n.match(/^(.+?)의 /)||[])[1];return !fac.length&&!mat&&!body&&sm&&!/^(몬스터|익룡)$/.test(sm)?sec('얻는 곳',`<div class="trow">${esc(sm)} (소형 몬스터) 사냥 · 갈무리</div>`):'';})()}
+   ${!fac.length&&!mat&&!body&&!posts.length&&!(grp&&grp.c==='소형 몬스터 소재'&&/^(쟈그라스|랑고스타|가쟈우|기르오스|칸타로스|케스토돈)의 /.test(n))?'<p class="cat">아직 정리된 정보가 없어요(확인 중).</p>':''}
    ${fac.length?`<button type="button" class="cgo icgo" data-icgo="${esc(n)}">🌿 채집 탭에서 보기 ›</button>`:''}`;
   ov.hidden=false;ov.querySelectorAll('[data-post]').forEach(a=>a.addEventListener('click',()=>ov.hidden=true));
   const g=ov.querySelector('[data-icgo]');if(g)g.onclick=()=>{ov.hidden=true;GMAT=n;go('gather');const i=[...document.querySelectorAll('nav.subnav button')].findIndex(b=>b.textContent.includes('출장 시설'));if(i>=0)document.querySelectorAll('nav.subnav button')[i].click();};}
@@ -3180,7 +3181,7 @@ function tipGear(raw){const C=D.craft; const n=raw.replace(/\*/g,'').trim(); con
   if(w||/(검|도|창|포|궁|활|해머|랜스|슈터|애로우|보우|해체트|대거|순부|암즈|쇼텔|블레이드|헤드|액스|대포|캐논|파일|퍼니시|배시|어썰트|혼)/.test(base)&&!/(헬름|메일|코일|그리브|벨트)$/.test(base)){
     const st=C.recipe.filter(r=>r[2]==='무기'&&r[0].split(/[ ·(]/).some(k=>k&&base.startsWith(k)));
     const mon=Object.entries(C.series).find(([k])=>base.includes(k));
-    return `<div class="thd"><b>${esc(n)}</b></div>${w?`<div class="tsec"><b>무기 정보</b><div class="trow">${esc(w[0])} · ${esc(w[2])}속성 · 레어도 ${w[3]}부터</div></div>`:''}
+    return `<div class="thd">${PHT(base,'xs',w?'무기-'+w[0]:'')}<b>${esc(n)}</b></div>${w?`<div class="tsec"><b>무기 정보</b><div class="trow">${esc(w[0])} · ${esc(w[2])}속성 · 레어도 ${w[3]}부터</div></div>`:''}
       <div class="tsec"><b>만드는 법</b>${st.length?st.map(r=>`<div class="trow"><span class="tk">${esc(r[0].replace(/^.*?\(/,'(').replace(')',''))}</span>${r[1].map(m=>`${giIcon(m[0])}${esc(m[0])} ×${m[1]}`).join(' + ')}</div>`).join(''):`<div class="trow">수렵혼옥 + ${mon?esc(mon[1])+' 소재':'몬스터 소재'} + 제니 (공방)</div>`}</div>
       ${ub.length?`<div class="tsec"><b>이 공략집에서 쓰는 곳</b><div class="trow">${esc(ub.slice(0,6).join(', '))}${ub.length>6?' 외':''}</div></div>`:''}<div class="tnote">${esc(C.note)}</div>`;}
   const ar=[...(D.armr||[])].sort((a,b)=>b[0].length-a[0].length).find(a=>n.startsWith(a[0]));
@@ -3188,12 +3189,13 @@ function tipGear(raw){const C=D.craft; const n=raw.replace(/\*/g,'').trim(); con
   const key=ser.replace(/^융광종 /,''); const mon=C.series[key]; const rad=ser.startsWith('융광종');
   const ep=Object.entries(C.epi).find(([e,v])=>v[1]===key);
   const AI=D.items.flatMap(g=>g.n);const pre=ep?(rad?'융광종 ':'')+ep[0]+'의 ':'';const m1=ep?AI.filter(x=>x.startsWith(pre)&&x.endsWith('Ⅰ')):[];const m2=ep?AI.filter(x=>x.startsWith(pre)&&x.endsWith('Ⅱ')):[];const MT=(mon||'').split('·').map(x=>(C.mat||{})[(rad?'융광종 ':'')+x]).filter(Boolean);const mats=m1.length?m1:m2;const chipM=L=>L.map(m=>`<span class="tmat">${giIcon(m)}${esc(m.replace(pre,''))}</span>`).join('');
-  return `<div class="thd">${mon?PHT((rad?'융광종 ':'')+mon.split('·')[0],'xs'):''}<b>${esc(n)}</b></div>
+  const PT={헬름:'머리',메일:'몸통',암:'팔',코일:'허리',벨트:'허리',그리브:'다리',팬츠:'다리',페트:'다리'};const pt=Object.keys(PT).find(x=>n.endsWith(x));
+  return `<div class="thd">${DEF[phKey(n)]?PHT(n,'xs'):mon?PHT((rad?'융광종 ':'')+mon.split('·')[0],'xs'):pt?PHT(n,'xs','부위-'+PT[pt]):''}<b>${esc(n)}</b></div>
     <div class="tsec"><b>방어구 정보</b><div class="trow">${esc(ser)} 시리즈${mon?` · ${esc((rad?'융광종 ':'')+mon)} 소재`:''}${ar?` · 레어도 ${ar[1]}부터`:''}</div></div>
     <div class="tsec"><b>만드는 재료</b>${!mats.length&&MT.length?MT.map(t=>`<div class="tmats">${t.lo?`<em>${t.lo}부터</em>`:''}${t.p.map(m=>`<span class="tmat">${giIcon(m+t.lo)}${esc(m)}${t.lo}</span>`).join('')}</div>`).join('')+`<div class="trow" style="color:var(--muted)">+ 수렵혼옥 + 제니${MT.some(t=>t.lo)?' · 레어도가 오르면 소재 단계(Ⅱ→Ⅴ)도 올라가요':''}</div>`:mats.length?`<div class="trow"><span class="tk">${esc(pre.replace(/의 $/,''))}</span><span>${(m1.length?[['초반',m1]]:[]).concat(m2.length?[['레어도↑',m2]]:[]).map(([t,L])=>`<div class="tmats"><em>${t}</em>${chipM(L)}</div>`).join('')}</span></div><div class="trow" style="color:var(--muted)">+ 수렵혼옥 + 제니</div>`:`<div class="trow">수렵혼옥 + ${mon?esc((rad?'융광종 ':'')+mon)+' 소재':'광석·소형 몬스터 소재'} + 제니</div><div class="trow" style="color:var(--muted)">정확한 소재 이름은 아직 정리 중이에요</div>`}</div>
     ${ub.length?`<div class="tsec"><b>이 공략집에서 쓰는 곳</b><div class="trow">${esc(ub.slice(0,6).join(', '))}${ub.length>6?' 외':''}</div></div>`:''}<div class="tnote">${esc(C.note)}</div>`;}
 const TIPC={};
-function tipFor(el){const k=el.dataset.tip, kind=el.dataset.tk||'i', id=kind+':'+k; if(!(id in TIPC)) TIPC[id]=kind==='g'?tipGear(k):tipItem(k); return TIPC[id];}
+function tipFor(el){const k=el.dataset.tip, kind=el.dataset.tk||'i', id=kind+':'+k; if(!(id in TIPC)) TIPC[id]=(kind==='g'?tipGear(k):tipItem(k))||(()=>{const g=(D.items||[]).find(g=>g.n.includes(k));return `<div class="thd">${giIcon(k)}<b>${esc(k)}</b></div><div class="tsec"><b>${g?esc(g.c):'정보'}</b><div class="trow">${D.itemnote&&D.itemnote[k]?esc(D.itemnote[k]):'자세한 정보는 확인 중이에요'}</div></div>`;})(); return TIPC[id];}
 (function(){const box=document.createElement('div');box.id='tipbox';box.hidden=true;document.body.appendChild(box);let cur=null,pinned=false;
   const place=(el)=>{if(!el||!el.isConnected){hide();return;}const r=el.getBoundingClientRect();if(!r.width&&!r.height){hide();return;}box.hidden=false;const bw=box.offsetWidth,bh=box.offsetHeight;let x=r.left,y=r.bottom+8;
     if(x+bw>innerWidth-8)x=innerWidth-bw-8; if(x<8)x=8; if(y+bh>innerHeight-8&&r.top-bh-8>=8)y=r.top-bh-8; if(y+bh>innerHeight-8)y=Math.max(8,innerHeight-bh-8); box.style.left=x+'px';box.style.top=y+'px';};
