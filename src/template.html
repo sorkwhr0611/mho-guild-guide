@@ -1031,7 +1031,7 @@ header .kakao{grid-row:1;grid-column:2}
 .simg3{display:grid;grid-template-columns:minmax(0,330px) minmax(0,1fr) minmax(0,340px);gap:16px;align-items:start}
 .simg3>div{display:grid;gap:16px;min-width:0}
 @media (min-width:821px) and (max-width:1250px){.simg3{align-items:stretch}.simg3 .sc1{grid-template-rows:auto 1fr}.simg3 .sc2{grid-template-rows:1fr}}
-@media (min-width:1251px){.simg3{grid-template-areas:'a b c' 'a d c';grid-template-rows:auto 1fr;align-items:start}.simg3 .sc1{grid-area:a;grid-template-rows:auto 1fr}.simg3 .sc2{grid-area:b;grid-template-rows:1fr}.simg3 .sc3{grid-area:c;align-self:start}.simg3 .sc4{grid-area:d;align-self:start}.sc4 .simsets{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}.sc4 .sskr{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));column-gap:28px}}.simg3 .box{display:grid;gap:10px;align-content:start}.simg3 h3{margin:0}
+@media (min-width:1251px){.simg3{grid-template-areas:'a b c' 'a d d';grid-template-rows:auto 1fr;align-items:start}.simg3 .sc1{grid-area:a;grid-template-rows:auto 1fr}.simg3 .sc2{grid-area:b;grid-template-rows:1fr}.simg3 .sc3{grid-area:c;align-self:start}.simg3 .sc4{grid-area:d;align-self:start}.sc4 .simsets{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}.sc4 .sskr{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));column-gap:28px}}.simg3 .box{display:grid;gap:10px;align-content:start}.simg3 h3{margin:0}
 @media (max-width:1250px){.simg3{grid-template-columns:minmax(0,320px) minmax(0,1fr)}.simg3 .sc3,.simg3 .sc4{align-self:start}}
 @media (max-width:820px){.simg3{grid-template-columns:minmax(0,1fr)}.simg3 .sc3{grid-template-columns:1fr}.simg3 .sc4{grid-column:auto}.simg3 .sc2{order:-1}}
 .sbuild{display:grid;gap:10px}.sbh{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.sbh h3{margin:0}.sbsep{width:1px;align-self:stretch;background:var(--line);margin:0 4px}
@@ -1227,6 +1227,87 @@ section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.
 .agf{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}.agg{display:inline-flex;align-items:center;gap:6px;flex-wrap:nowrap}
 .evtd .esub{display:block;font-size:13.5px;color:var(--ink);opacity:.85;line-height:1.5;margin:1px 0 2px}.evtd .ct b{word-break:keep-all}
 @media (max-width:640px){.chore:not(.evtd):has(.cbtns .cgo){grid-template-columns:22px 34px 1fr;grid-template-areas:'i c t' 'b b b'}.chore:not(.evtd):has(.cbtns .cgo)>input{grid-area:i}.chore:not(.evtd):has(.cbtns .cgo)>.ci{grid-area:c}.chore:not(.evtd):has(.cbtns .cgo)>.ct{grid-area:t}.chore:not(.evtd):has(.cbtns .cgo)>.cbtns{grid-area:b;justify-content:flex-end;margin-top:-2px}.chore .ct span{-webkit-line-clamp:3}.chore .cbtns .cgo{min-height:34px}}
+
+/* 소제목 칩: 한 줄 가로 스크롤 (PC·모바일 공통) */
+nav.subnav{flex-direction:row!important;flex-wrap:nowrap!important;overflow-x:auto!important;overflow-y:hidden!important;align-items:center!important;gap:6px!important;scrollbar-width:none;max-width:100%;min-width:0;padding-right:30px!important;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent)}
+nav.subnav .srow{display:flex!important;flex-direction:row!important;align-items:center!important;flex:none!important;gap:6px!important}
+nav.subnav .srow+.srow{padding-left:10px;border-left:1.5px solid var(--line)}
+nav.subnav .sgl{width:auto!important;text-align:left!important;font-size:11.5px!important;white-space:nowrap;flex:none}
+nav.subnav .subb{display:flex!important;flex-wrap:nowrap!important;gap:6px!important;flex:none!important}
+nav.subnav button{flex:none!important;white-space:nowrap}
+#hsrch{display:none}
+@media (max-width:700px){
+ nav.subnav{position:sticky!important;top:0!important;z-index:7;padding-top:6px!important;padding-bottom:6px!important;margin-bottom:6px!important}
+ nav.subnav button{padding:6px 11px!important;font-size:13px!important;min-height:34px}
+ body.inner header{display:flex;align-items:center;gap:8px}
+ body.inner header .brand{flex:1;min-width:0}
+ body.inner #hsrch{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--gold,#c9971f);background:transparent;color:inherit;font-size:17px;cursor:pointer}
+ body.inner:not(.srch) .gsrch{display:none}
+ body.inner #desc{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;font-size:13px;margin:2px 0 8px;cursor:pointer}
+ body.inner #desc.open{-webkit-line-clamp:unset;display:block}
+ body.inner #desc:not(.open)::after{content:''}
+ #grid>.relb{order:99}
+ body.inner nav.tabs{margin-bottom:6px!important}
+}
+
+.bbt{display:none}
+@media (max-width:700px){
+ .bbat .bbx{display:none}.bbat section.open .bbx{display:block}
+ .bbt{display:block;font:inherit;font-size:13px;font-weight:700;margin:2px 0 0;padding:8px 12px;border-radius:10px;border:1px dashed var(--line);background:transparent;color:var(--accent);cursor:pointer;width:100%;text-align:left}
+ .bbat section.open .bbt{border-style:solid}
+ .bbat .bbtn{font-size:14px}
+ table.blist.stack tr{display:grid!important;grid-template-columns:1fr auto;gap:3px 10px;padding:10px 0!important}
+ table.blist.stack td{padding:0!important;height:auto!important;min-height:0!important}
+ table.blist.stack td:nth-child(1)::before{display:none!important}
+ table.blist.stack td::before{position:static!important;display:inline!important;width:auto!important;margin-right:6px;font-size:11.5px!important}
+ table.blist.stack td:nth-child(1){grid-column:1;grid-row:1}
+ table.blist.stack td:nth-child(5){grid-column:2;grid-row:1;align-self:center;text-align:right}
+ table.blist.stack td:nth-child(2),table.blist.stack td:nth-child(3),table.blist.stack td:nth-child(4){grid-column:1/-1;font-size:13.5px;line-height:1.5}
+ table.blist.stack td:nth-child(2)::before{display:none!important}
+ table.blist.stack td:nth-child(2) br{display:none}
+ table.blist.stack td:nth-child(2){display:flex!important;gap:8px;align-items:center;flex-wrap:wrap}
+ table.blist.stack td:nth-child(5)::before{display:inline!important;content:'티어'!important;font-size:11px!important;color:var(--muted)}
+}
+
+/* 출장 시설: PC는 카드 2~3열 */
+@media (min-width:900px){
+ .fmat .flist,.fworld .flist{grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;padding-top:8px}
+ .fmat .frow,.fworld .frow{border:1px solid var(--line)!important;border-radius:12px;align-content:start;grid-template-rows:auto auto 1fr}
+ .fmat .frow .fshots,.fworld .frow .fshots{grid-template-columns:1fr!important;align-self:end}
+ .fworld .flist{padding:12px}
+}
+.frh .kr{flex:1 1 100%;order:5;min-width:0;font-size:15.5px}.frh .fmy{order:4;margin-left:auto}
+.frow .items{line-height:1.7}
+
+.sinv.empty{min-height:0!important}
+.sinv.empty .sinvh{height:auto!important;min-height:54px!important;align-items:center!important;padding-top:8px!important;padding-bottom:8px!important}
+.sinv.empty .sinvt b{font-size:14px!important;color:var(--ink)!important;opacity:.75}
+#simser,#simld,#simcmp{font:inherit;font-size:14px;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);min-height:38px;max-width:100%}
+
+.tierleg{display:flex!important;flex-wrap:wrap;gap:4px 6px;align-items:center}
+.tierleg .tb{margin:0!important;display:inline-block!important;width:auto!important}#lvinfo>.tb{display:inline-block!important;width:auto!important;margin-left:4px}.tierleg{width:100%;margin-top:4px}
+@media (max-width:700px){
+ .bar{gap:8px!important;padding:12px!important}
+ .bar .row{gap:6px!important}
+ #lvinfo{font-size:13px;line-height:1.5}
+ .tierleg{font-size:12px}
+ .tierleg .tb{font-size:11.5px!important;padding:2px 7px!important}
+ .bar #t,.bar #e{flex-wrap:wrap!important;overflow:visible!important}
+}
+
+.ltip{padding:12px 16px!important}.ltip summary{cursor:pointer;list-style:none}.ltip summary::-webkit-details-marker{display:none}.ltip summary::after{content:' ▾';color:var(--accent)}.ltip[open] summary::after{content:' ▴'}.ltip ul{margin:10px 0 0}
+@media (max-width:700px){.bar .row{flex-wrap:wrap!important}.bar #t,.bar #e{min-width:0;flex:1 1 0;display:flex;gap:6px}#lvrow{display:flex!important;flex-wrap:wrap!important;align-items:center!important;grid-template-columns:none!important}#lvrow #lvinfo{flex-basis:100%!important;order:3;display:block}#lvrow #lv{width:80px}#lvrow .fit{flex-basis:100%;order:4}}
+
+.mxt{width:100%;border-collapse:collapse;table-layout:fixed}.mxt th.mxs{width:44%}
+.mxt th,.mxt td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}
+.mxt th.mxs,.mxt td.mxs,.mxt tr.mxst td:first-child{text-align:left}
+.mxt .mxm{min-width:84px}.mxt .mxm b{display:block;font-size:14px;line-height:1.3;word-break:keep-all}.mxt .mxi{display:block;font-size:20px}.mxt .mprog{display:inline-block;margin-top:2px;font-size:12px;color:var(--accent);font-weight:800}
+.mxt tr.mxst td{font-size:12.5px;color:var(--muted);line-height:1.4}
+.mxt td.mxc input{width:22px;height:22px;accent-color:var(--accent);cursor:pointer}
+.mxt td.mxc label{display:grid;place-items:center;min-height:36px;cursor:pointer}
+.mxt tbody tr:hover{background:color-mix(in srgb,var(--accent) 5%,transparent)}
+.mxshots{margin-top:4px}
+@media (max-width:700px){.mxt th.mxs{width:40%}.mxt tr.mxst td{word-break:keep-all;overflow-wrap:anywhere}.mxt th,.mxt td{padding:7px 4px}.mxt .mxm{min-width:56px}.mxt .mxm b{font-size:11.5px}.mxt td.mxs{font-size:13px;line-height:1.45}.mxt tr.mxst td{font-size:11px}.mxshots{grid-template-columns:1fr 1fr!important}}
 </style>
 </head>
 <body>
@@ -1234,6 +1315,7 @@ section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.
 <div id="moved" hidden><b>📢 공략집 주소가 바뀌었어요!</b> 새 주소: <a href="https://mho-guild-guide.pages.dev">mho-guild-guide.pages.dev</a> · 홈 화면 앱·즐겨찾기도 새 주소로 바꿔 주세요.</div>
 <header>
   <h1 class="brand" id="brand" role="link" tabindex="0" title="홈으로"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-28 32 32)"><rect x="40" y="27" width="16" height="10" rx="3" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="27" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="37" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><rect x="51" y="28" width="7" height="8" fill="#f3ead7"/><ellipse cx="26" cy="32" rx="20" ry="17" fill="#c8542b" stroke="#3a2a1a" stroke-width="2.5"/><ellipse cx="22" cy="26" rx="10" ry="6" fill="#e07a45" opacity=".8"/></g><circle cx="20" cy="33" r="2.6" fill="#3a2a1a"/><circle cx="31" cy="29" r="2.6" fill="#3a2a1a"/><path d="M22 39q4 4 9-1" stroke="#3a2a1a" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="38" r="2.6" fill="#ff9aa2" opacity=".8"/><circle cx="36" cy="33" r="2.6" fill="#ff9aa2" opacity=".8"/><path d="M27 47l-4 3 4 10 4-10z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/><path d="M24 46h6l-3 3z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/></svg><span>직장인수렵단 <em>공략집</em></span></h1>
+  <button type="button" id="hsrch" aria-label="사이트 검색 열기">🔍</button>
   <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · <span class="updd">2026.11.20 업데이트</span></p>
 </header>
 <div class="gsrch" role="search"><input id="gq" type="search" placeholder="🔍 사이트 전체 검색 (예: 고추, 레이기에나, 위협, 헤보)" aria-label="사이트 전체 검색" autocomplete="off"><div id="gqr" hidden></div></div>
@@ -1430,9 +1512,10 @@ const WORLDS=['거목의 벌판','열사 평원','부패의 심연'];
 const MAPS=['거목의 벌판','열사 평원','부패의 심연','찬란한 군도'];
 const lf={w:'전체',c:'전체',pe:'전체',m:'전체',k:'전체',ic:'전체'};
 function lchips(id,list,key){chips(id,list.map(v=>[v,v]),key,lf);}
-function clearBar(){['t','e'].forEach(id=>document.getElementById(id).innerHTML='');document.getElementById('lt').textContent='';document.getElementById('le').textContent='';}
+function tRow(h){const r=document.getElementById('lt');if(r&&r.parentElement){r.parentElement.hidden=!!h;r.parentElement.style.display=h?'none':'';}}
+function clearBar(){tRow(false);['t','e'].forEach(id=>document.getElementById(id).innerHTML='');document.getElementById('lt').textContent='';document.getElementById('le').textContent='';}
 function renderLife(){
-  document.getElementById('lt').textContent='월드'; document.getElementById('le').textContent='분류';
+  tRow(true);lf.w='전체';document.getElementById('lt').textContent='월드'; document.getElementById('le').textContent='분류';
   lchips('t',['전체',...WORLDS,'찬란한 군도'],'w'); lchips('e',['전체','환경생물','수중 생물','효과 있음'],'c');
   const q=st.q.trim().toLowerCase(); let total=0;
   const ws=lf.w==='전체'?[...WORLDS,'찬란한 군도']:[lf.w];
@@ -1451,7 +1534,7 @@ function renderLife(){
    <div><b>지역</b><div class="cat" style="white-space:normal;margin-top:4px;font-size:14px">${I.areas.map(esc).join(' · ')}</div></div>
    <div><b>수집 요소</b><div class="gl" style="margin-top:6px">${I.collect.map(c=>`<span class="stag" style="font-size:14px;padding:4px 10px">${esc(c[0])} ${c[1]}</span>`).join('')}</div><div class="cat" style="white-space:normal;margin-top:4px">채집·요리 탭 "맵 100% 파먹기"에 돋보기로 남은 것 찾는 법이 있어요.</div></div>
    <div class="cat" style="white-space:normal">${esc(I.note)}</div></div></section>`:'';
-  const ltip=(D.lifetips||[]).length?`<section class="box"><h3>🔎 환경생물 찾는 요령 <small class="cat">${esc(D.lifesrc||'')}</small></h3><ul>${D.lifetips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`:'';
+  const ltip=(D.lifetips||[]).length?`<details class="box ltip"><summary><b>🔎 환경생물 찾는 요령</b> <small class="cat">${D.lifetips.length}가지 · ${esc(D.lifesrc||'')}</small></summary><ul>${D.lifetips.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>`:'';
   document.getElementById('grid').innerHTML=`<div class="life">${ltip}${html}${miss}${(html||miss)?'':'<p class="empty">조건에 맞는 생물이 없어요. 필터를 "전체"로 바꾸거나 검색어를 지워 보세요.</p>'}</div>`;
   document.getElementById('n').textContent=lf.w==='전체'?`월드별 합계 ${total}건 (전체 ${D.life.length}종)`:`${total}종`;
 }
@@ -1809,7 +1892,7 @@ function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills,AS
   const cmp=()=>{if(!res.length)return '';const R=res;const W=SIM.want;
     const diffSk=[...new Set(R.flatMap(r=>Object.keys(r.t)))].filter(n=>!has(n)).sort((a,b)=>Math.max(...R.map(r=>r.t[b]||0))-Math.max(...R.map(r=>r.t[a]||0)));
     const row=(h,cells,cls='')=>`<tr class="${cls}"><th>${h}</th>${cells.join('')}</tr>`;
-    return `<div class="scmpw"><h3 class="ssub">추천 조합 비교 <small class="cat">다른 부위·스킬 강조</small></h3><div class="tw"><table class="scmp nostack"><thead><tr><th></th>${R.map((r,i)=>`<th>#${i+1}<small>${r.p.filter(x=>x>=0).length}부위${r.full?' · 달성':''}</small><button type="button" class="cgo" data-use="${i}">적용</button></th>`).join('')}</tr></thead><tbody>
+    return `<div class="scmpw"><h3 class="ssub">② 추천 조합 TOP 5 <small class="cat">메인 만렙 → 적은 부위 순 · 다른 부위는 강조 · 적용 누르면 장비에 끼워져요</small></h3><div class="tw"><table class="scmp nostack"><thead><tr><th></th>${R.map((r,i)=>`<th>#${i+1}<small>${r.p.filter(x=>x>=0).length}부위${r.full?' · 달성':''}</small><button type="button" class="cgo" data-use="${i}">적용</button></th>`).join('')}</tr></thead><tbody>
     <tr class="sg"><td colspan="${R.length+1}">장비</td></tr>${SIMP.map((p,pi)=>{const v=R.map(r=>r.p[pi]);const same=v.every(x=>x===v[0]);return row(p,v.map(x=>`<td class="${same?'':'df'}">${x>=0?esc(A[x][0]):'–'}</td>`));}).join('')}
     ${row('세트 효과',R.map(r=>`<td>${r.sets.map(x=>esc(x.name)).join('<br>')||'–'}</td>`))}
     <tr class="sg"><td colspan="${R.length+1}">고른 스킬</td></tr>${W.map(w=>row(`✓ ${esc(w.n)} <small>/${w.t}</small>`,R.map(r=>{const l=Math.min(r.t[w.n]||0,simCap(w.n));return `<td class="${l>=w.t?'okc':'mc'}">${l}</td>`;}))).join('')}
@@ -1836,8 +1919,7 @@ function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills,AS
      <div class="bcats">${cats.map(c=>`<button type="button" class="chip" data-cat="${esc(c)}" aria-pressed="${c===SIM.cat}">${esc(c)}</button>`).join('')}</div>
      <div class="sskw">${skList}</div>
      <label class="fit"><input type="checkbox" id="simcap"${SIM.lvcap?' checked':''}> 내 레벨(Lv${st.lv}, 레어도 ${capOf(st.lv)})로 만들 수 있는 것만</label></section>
-    <section class="box"><h3>② 추천 조합 TOP 5 <small class="cat">메인 만렙 → 적은 부위 → 다른 스킬 많은 순</small></h3>
-     ${!SIM.want.length?'<p class="cat" style="margin:0">원하는 스킬을 고르면 바로 계산돼요.</p>':res.length?res.map((r,i)=>`<div class="srs2${r.full?' full':''}"><div class="srsh"><b>#${i+1} · ${r.p.filter(x=>x>=0).length}부위</b>${r.full?'<span class="evs on">달성</span>':'<span class="evs soon">일부</span>'}<span style="flex:1"></span><button type="button" class="cgo" data-use="${i}">적용</button></div><div class="sbcs">${r.p.map((x,pi)=>`<span class="stag">${SIMP[pi]}: ${x>=0?esc(A[x][0]):'빈칸'}</span>`).join('')}</div><div class="sbcs">${SIM.want.map(w=>{const l=Math.min(r.t[w.n]||0,simCap(w.n));return `<span class="stag ${l>=w.t?'ok2':'miss'}">${l>=w.t?'✓ ':''}${esc(w.n)} ${l}/${w.t}</span>`;}).join('')}</div></div>`).join(''):'<p class="cat">조건에 맞는 조합이 없어요. 목표 레벨을 낮춰 보세요.</p>'}</section>
+    ${SIM.want.length&&!res.length?'<section class="box"><h3>② 추천 조합</h3><p class="cat" style="margin:0">조건에 맞는 조합이 없어요. 목표 레벨을 낮춰 보세요.</p></section>':''}
    </div>
    <div class="sc2"><section class="box"><div class="sbh"><h3>장비 인벤토리</h3><span style="flex:1"></span><button type="button" class="chip" id="simclr">전체 비우기</button></div>
      <div class="sstat"><div><small>장착</small><b>${SIM.pick.filter(x=>x>=0).length}/5</b></div><div><small>목표 달성</small><b>${met}/${SIM.want.length}</b></div><div><small>세트 효과</small><b>${sets.length}</b></div></div>
@@ -1858,7 +1940,7 @@ function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills,AS
      ${SIM.aopen?`<div class="spick"><input type="search" id="simaq" placeholder="몬스터·세트로 찾기 (예: 작염, 크샬)" value="${esc(SIM.aq)}" autocomplete="off"><div class="safil"><span class="safl">코스트</span>${[0,4,3,1].map(c=>`<button type="button" class="chip" data-acf="${c}" aria-pressed="${SIM.ac===c}">${c?c+'코':'전체'}</button>`).join('')}</div><div class="safil"><span class="safl">세트</span>${['',...ARTSETS].map(x=>`<button type="button" class="chip" data-asf="${esc(x)}" aria-pressed="${SIM.as===x}">${x?esc(x):'전체'}</button>`).join('')}</div>${(()=>{if(!SIM.aq)return '';const all=Object.entries(D.artdb).flatMap(([m,[c,s]])=>s.split('/').map(x=>[m,x,c])).filter(([m,x,c])=>(!SIM.ac||c===SIM.ac)&&(!SIM.as||x===SIM.as)).length;const hid=all-artOpts.length;return hid>0?`<p class="cat aqh">「${esc(SIM.aq)}」 검색 중이라 ${hid}개가 숨겨져 있어요 <button type="button" class="chip" data-aqclr>검색 지우기</button></p>`:'';})()}<div class="spl">${artOpts.map(([m,x,c])=>`<button type="button" class="spo sapo" data-ap="${esc(m)}|${esc(x)}"${cost+c>12||SIM.art.length>=5?' disabled':''}>${PHT('삽화-'+m,'sm')}<b>${esc(m)}</b><small class="cat">${c}코 · ${esc(x)}</small></button>`).join('')||'<p class="cat">맞는 삽화가 없어요.</p>'}</div></div>`:''}
      ${artFx||'<p class="cat" style="margin:0">삽화를 끼우면 세트 효과가 여기 나와요. 같은 세트 2장/4장(1종뿐인 세트는 1장/2장).</p>'}</section>
    </div>
-   <div class="sc4">${cmpHtml}<section class="box"><h3>세팅 결과</h3>
+   <div class="sc4">${res.length?`<section class="box scbox">${cmp()}</section>`:(SIM.want.length?'':'<section class="box scbox"><h3 class="ssub">② 추천 조합 TOP 5</h3><p class="cat" style="margin:0">왼쪽에서 원하는 스킬을 고르면 조합 5개를 찾아서 여기 비교해 줘요.</p></section>')}${cmpHtml}<section class="box"><h3>세팅 결과</h3>
      ${sets.length?`<div class="simsets">${sets.map(x=>`<div class="sset"><b>🔗 ${esc(x.name)}</b> <small class="cat">${esc(x.series)} ${x.need}부위</small><div class="cat">${esc(x.desc)}</div></div>`).join('')}</div>`:''}
      ${(()=>{if(!Object.keys(t).length&&!SIM.art.length)return '';const setN2={};Object.entries(D.artdb).forEach(([m,[c,s2]])=>s2.split('/').forEach(x=>setN2[x]=(setN2[x]||0)+1));const setTx=Object.entries(artT).flatMap(([sn,c])=>{const r=AS.find(x=>x[0]===sn);if(!r)return [];const one=setN2[sn]===1;return [c>=(one?1:2)?r[1]:'',c>=(one?2:4)?r[2]:''].filter(Boolean);});const R=simStatSum(t,SIM.art,SIM.alv,SIM.hm,setTx);const f=v=>+v.toFixed(2);const row=(k,a,b,note)=>(a||b)?`<tr><th>${k}</th><td><b>${a?(typeof a==='number'?'+'+f(a):a):'—'}</b></td><td>${b?'+'+f(b):'—'}</td><td class="cat">${note||''}</td></tr>`:'';
        const EL=['불','물','얼음','번개','용'];const ed=EL.filter(e=>R.edmg[e]).map(e=>row(e+'속성 대미지 %',R.edmg[e][0]+((R.edmg['전체']||[0])[0]),R.edmg[e][1]+((R.edmg['전체']||[0,0])[1]),R.eRad[e]?`융광종 상대면 스킬 몫이 +${R.eRad[e]}%`:'스킬 + 삽화 주옵션·세트')).join('')||row('속성 대미지 %',(R.edmg['전체']||[0])[0],(R.edmg['전체']||[0,0])[1],'삽화 주옵션 + 회심격 등');
@@ -1866,7 +1948,6 @@ function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills,AS
        return `<div class="ssum"><h4>📊 수치 합계 <small class="cat">상시 / 조건부(특정 상황에서만)</small></h4><div class="tw"><table class="nostack ssumt"><thead><tr><th>항목</th><th>상시</th><th>조건부</th><th>메모</th></tr></thead><tbody>${row('회심률 %',R.crit[0],R.crit[1],'스킬 + 삽화 주옵션·세트 · 캐릭터 기본 회심 제외')}${ed}${ea}${row('대미지 %',R.dmg[0],R.dmg[1],'채색 + 조건부 스킬')}${row('속성 회심 대미지 %',R.ecd,0,'채색')}${row('물리 공격력',R.patk,0,'채색')}${row('무기 스킬 대미지 %',R.skill,0,'무기별 스킬 강화')}${row('오의 충전 효율 %',R.ougi,0,'삽화 주옵션')}${row('방어력',R.def,0,'채색')}</tbody></table></div><p class="cat gnote" style="margin:4px 0 0">스킬 설명·삽화·채색 숫자를 단순히 더한 값이에요. 무기·캐릭터 기본 수치와 게임 안 최종 계산식은 빠져 있어요.</p></div>`;})()}
      ${skRows?`<div class="sskr">${skRows}</div>`:'<p class="cat" style="margin:0">장비를 고르면 스킬이 여기 나와요.</p>'}
      <p class="cat gnote">방어구 스킬은 최대 레어도 기준이에요. 자료: ${esc(D.sim.src)} (${esc(D.sim.asof)} 기준).</p></section>
-    ${res.length?`<section class="box">${cmp()}</section>`:''}
    </div></div>`;
   const G=document.getElementById('grid'),$=id=>document.getElementById(id);
   const re=()=>{simSave();const y=scrollY;render();window.scrollTo({top:y});};
@@ -1874,7 +1955,7 @@ function renderSim(){simInit();clearBar();const A=D.sim.armor,SK=D.sim.skills,AS
   G.querySelectorAll('[data-wt]').forEach(b=>b.onclick=()=>{V.wt=b.dataset.wt;re();});
   G.querySelectorAll('[data-el]').forEach(b=>b.onclick=()=>{V.el=b.dataset.el;re();});
   if($('sbfold'))$('sbfold').onclick=()=>{V.fold=!V.fold;re();};
-  G.querySelectorAll('[data-bset]').forEach(b=>b.onclick=()=>{const B=D.builds[+b.dataset.bset];SIM.want=B.skills.map((s,k)=>{const n=SKN[nk(s[0])];return n?{n,t:Math.min(s[1],simCap(n)),main:k===0}:null;}).filter(Boolean);re();});
+  G.querySelectorAll('[data-bset]').forEach(b=>b.onclick=()=>{const B=D.builds[+b.dataset.bset];SIM.want=B.skills.map((s,k)=>{const n=SKN[nk(s[0])];return n?{n,t:Math.min(s[1],simCap(n)),main:k===0}:null;}).filter(Boolean);re();setTimeout(()=>{const t=document.querySelector('.scbox');if(t){const y=t.getBoundingClientRect().top+scrollY-12;window.scrollTo({top:Math.max(0,y),behavior:'smooth'});}toastMsg('✅ '+B.name+' 스킬 '+SIM.want.length+'개로 조합을 찾았어요');},80);});
   G.querySelectorAll('.ssk2').forEach(b=>b.onclick=()=>{const n=b.dataset.n,i=SIM.want.findIndex(w=>w.n===n);if(i>=0)SIM.want.splice(i,1);else SIM.want.push({n,t:simCap(n),main:!SIM.want.length});re();});
   G.querySelectorAll('.sskg').forEach(d=>d.ontoggle=()=>{SIM.fold[d.dataset.g]=d.open;});
   G.querySelectorAll('.swx').forEach(b=>b.onclick=()=>{SIM.want.splice(+b.dataset.k,1);re();});
@@ -2305,6 +2386,7 @@ const CHREL={'연속 조사 사냥*':'tips-title','현상금 챌린지':'bounty-
 function goPost(id){enterTab('guide');st.g='guide';GP=id;save();render();window.scrollTo({top:0});navPush();}
 function relStrip(){const ids=(RELB[st.g]||[]).filter(id=>(D.board||[]).some(b=>b.id===id));if(!ids.length)return;const g=document.getElementById('grid');if(!g||g.querySelector('.relb'))return;
   g.insertAdjacentHTML('afterbegin',`<section class="full relb"><span class="relh">📋 공략에서 더 보기</span>${ids.map((id,k)=>{const b=D.board.find(x=>x.id===id);return `<button type="button" class="relc${k>=3?' relx':''}" data-post="${esc(id)}">${b.yt||b.video?'🎬 ':''}${(b.images||[]).length?'📷 ':''}${esc(b.title.replace(/^🎬\s*/,''))} ›</button>`;}).join('')}${ids.length>3?`<button type="button" class="chip relm" onclick="this.parentNode.classList.add('open');this.remove()">+${ids.length-3}개 더보기</button>`:''}</section>`);}
+document.addEventListener('click',e=>{const t=e.target.closest('.bbt');if(t){const sc=t.closest('section');sc.classList.toggle('open');t.textContent=t.textContent.replace(/[▾▴]$/,sc.classList.contains('open')?'▴':'▾');return;}});
 document.addEventListener('click',e=>{const b=e.target.closest('[data-post]');if(b){e.preventDefault();goPost(b.dataset.post);}});
 function renderChores(){
   clearBar(); const C=D.chores, S=choreGet(), dk=choreKey('d'), wk=choreKey('w');
@@ -2342,7 +2424,7 @@ function renderBuddy(){
   <section class="box full"><div class="tw"><table class="blist"><thead><tr><th style="width:190px">동반자</th><th style="width:110px">타입</th><th style="width:230px">모험가 강화</th><th>코어 패시브</th><th style="width:60px">티어</th></tr></thead><tbody>${listRows}</tbody></table></div></section>
   ${B.battle?`<h2 class="sec">전투 중 동반자 스킬 <small>버튼 누르면 뭘 하나 · 자동 스킬 · 언제 쓰나</small></h2>
   <section class="box full"><ul>${(B.battlecommon||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
-  <div class="c3 eq bbat">${B.list.filter(b=>B.battle[b[0]]).map(b=>{const x=B.battle[b[0]];return `<section class="box"><h3><span class="nm">${BI(b[0])}<span>${esc(b[1])} <small class="tyb ${TCLS[b[3]]}">${esc(b[3])}</small></span></span></h3><p class="bbtn">🎯 ${esc(x.button)}</p><dl class="skl">${x.skills.map((k,i)=>`<dt>${i===0?'버튼(오의)':'자동'} · ${esc(k[0])}</dt><dd>${esc(k[1].replace(/^\[(오의|자동)\]\s*/,''))}</dd>`).join('')}</dl>${x.use?`<p class="cat bbuse">💡 ${esc(x.use)}</p>`:''}</section>`;}).join('')}</div>`:''}
+  <div class="c3 eq bbat">${B.list.filter(b=>B.battle[b[0]]).map(b=>{const x=B.battle[b[0]];return `<section class="box"><h3><span class="nm">${BI(b[0])}<span>${esc(b[1])} <small class="tyb ${TCLS[b[3]]}">${esc(b[3])}</small></span></span></h3><p class="bbtn">🎯 ${esc(x.button)}</p><button type="button" class="bbt">스킬 ${x.skills.length}개${x.use?' · 언제 쓰나':''} 자세히 ▾</button><div class="bbx"><dl class="skl">${x.skills.map((k,i)=>`<dt>${i===0?'버튼(오의)':'자동'} · ${esc(k[0])}</dt><dd>${esc(k[1].replace(/^\[(오의|자동)\]\s*/,''))}</dd>`).join('')}</dl>${x.use?`<p class="cat bbuse">💡 ${esc(x.use)}</p>`:''}</div></section>`;}).join('')}</div>`:''}
   <h2 class="sec">고르는 요령</h2>
   <section class="box full"><ul>${B.notes.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><div class="cat" style="white-space:normal">출처: ${esc(B.src)}</div></section>`;
   document.getElementById('n').textContent='';
@@ -2375,15 +2457,17 @@ function renderMoney(){
 }
 function renderExplore(){
   clearBar(); const X=D.explore; let S={}; try{S=JSON.parse(localStorage.getItem('mho-explore')||'{}');}catch(e){}
-  const mapCards=X.maps.map((m,mi)=>{const done=X.steps.filter((_,si)=>S[mi+'_'+si]).length;return `<section class="box mapc"><h3>${m[1]} ${esc(m[0])} <span class="mprog">${done}/${X.steps.length}</span></h3>
-    <div class="mstat">${m[6]?`<span><b>${m[6]}</b>탐색 장소</span>`:''}<span><b>${m[3]}</b>필드 탐색</span><span><b>${m[4]}</b>섬의 보물</span></div>
-    <div class="cat" style="white-space:normal">해금: ${esc(m[2])}</div>
-    <ul class="mchk">${X.steps.map((s,si)=>`<li><label><input type="checkbox" data-k="${mi}_${si}" ${S[mi+'_'+si]?'checked':''}><span>${esc(s)}</span></label></li>`).join('')}</ul>${m[7]&&SHOT[m[7]]?`<figure class="shot mshot" data-f="${m[7]}"><img src="${SHOT[m[7]]}" alt="${esc(m[0])} 지도 탐색 화면" loading="lazy"><figcaption>게임 지도 → 돋보기 탭 (100% 화면 예시)</figcaption></figure>`:''}</section>`;}).join('');
+  const prog=mi=>X.steps.filter((_,si)=>S[mi+'_'+si]).length;
+  const mapCards=`<section class="box full mxbox"><div class="tw"><table class="mxt nostack"><thead><tr><th class="mxs">할 일</th>${X.maps.map((m,mi)=>`<th class="mxm"><span class="mxi">${m[1]}</span><b>${esc(m[0])}</b><small class="mprog" data-mi="${mi}">${prog(mi)}/${X.steps.length}</small></th>`).join('')}</tr>
+    <tr class="mxst"><td>탐색 장소 · 필드 탐색 · 섬의 보물</td>${X.maps.map(m=>`<td>${m[6]||'–'} · ${m[3]} · ${m[4]}</td>`).join('')}</tr>
+    <tr class="mxst"><td>해금</td>${X.maps.map(m=>`<td>${esc(m[2])}</td>`).join('')}</tr></thead>
+    <tbody class="mchk">${X.steps.map((st_,si)=>`<tr><td class="mxs">${esc(st_)}</td>${X.maps.map((m,mi)=>`<td class="mxc"><label><input type="checkbox" data-k="${mi}_${si}" ${S[mi+'_'+si]?'checked':''} aria-label="${esc(m[0])} · ${esc(st_)}"></label></td>`).join('')}</tr>`).join('')}</tbody></table></div></section>
+  <div class="c4 eq mxshots">${X.maps.filter(m=>m[7]&&SHOT[m[7]]).map(m=>`<figure class="shot mshot" data-f="${m[7]}"><img src="${SHOT[m[7]]}" alt="${esc(m[0])} 지도 탐색 화면" loading="lazy"><figcaption>${m[1]} ${esc(m[0])} · 지도 → 돋보기 탭</figcaption></figure>`).join('')}</div>`;
   const towerRows=X.tower.map(r=>`<tr${r[0]===5||r[0]===7?' class="hl"':''}><td class="part">Lv${r[0]}</td><td><b>${r[1]}</b></td><td>${esc(r[2])}</td></tr>`).join('');
   const gameCards=X.games.map(g=>`<section class="box gcard"><h3>${g[0]} ${esc(g[1])}</h3><div class="gobj">${esc(g[2])}</div><ul>${g[3].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>`).join('');
   document.getElementById('grid').innerHTML=`
   <h2 class="sec">맵별 체크리스트 <small>탐색 장소·필드 탐색·섬의 보물 수는 게임 지도 화면 기준</small></h2>
-  <div class="c4 eq">${mapCards}</div>
+  ${mapCards}
   <div class="cat full" style="white-space:normal">추천 순서: 위 체크리스트 순서대로 하면 이동이 제일 편해요. ${X.extra.map(esc).join(' · ')}</div>
   <h2 class="sec">전망대(길잡이) 레벨 <small>별이슬벌레로 올림</small></h2>
   <div class="c2 eq"><section class="box"><h3>레벨별 필요 별이슬벌레 · 해금</h3><div class="tw"><table class="nostack"><thead><tr><th style="width:60px">레벨</th><th style="width:90px">별이슬벌레</th><th>해금되는 것</th></tr></thead><tbody>${towerRows}</tbody></table></div><ul>${X.towernote.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></section>
@@ -2400,7 +2484,7 @@ function renderExplore(){
   <div class="c2 eq"><section class="box"><h3>에어리어 과제 (에어리어마다)</h3><div class="tw"><table class="nostack"><thead><tr><th>랭크</th><th>루타 코인</th></tr></thead><tbody>${X.area.map(r=>`<tr><td class="part">${r[0]}</td><td><b>${r[1]}</b></td></tr>`).join('')}<tr class="hl"><td class="part">합계</td><td><b>375</b></td></tr></tbody></table></div><div class="cat" style="white-space:normal">필드에서 탐색·사냥하면 과제 포인트가 쌓여요. 미니게임·보물을 깨면 그 맵 탐색도가 올라가요.</div></section>
   <section class="box"><h3>도감 필드 과제 (몬스터마다 4개 × 루타 코인 50)</h3><ol>${X.field.map(x=>`<li>${esc(x)}</li>`).join('')}</ol><div class="tsum">몬스터 1마리당 루타 코인 200</div></section></div>
   <div class="cat full" style="white-space:normal">출처: ${esc(X.src)}</div>`;
-  document.querySelectorAll('.mchk input').forEach(c=>c.onchange=()=>{S[c.dataset.k]=c.checked;try{localStorage.setItem('mho-explore',JSON.stringify(S));}catch(e){}const card=c.closest('.mapc');card.querySelector('.mprog').textContent=`${card.querySelectorAll('input:checked').length}/${X.steps.length}`;});
+  document.querySelectorAll('.mchk input').forEach(c=>c.onchange=()=>{S[c.dataset.k]=c.checked;try{localStorage.setItem('mho-explore',JSON.stringify(S));}catch(e){}const mi=c.dataset.k.split('_')[0];const el=document.querySelector(`.mprog[data-mi="${mi}"]`);if(el)el.textContent=`${prog(+mi)}/${X.steps.length}`;});
   document.getElementById('n').textContent='';
 }
 let GP=null, BCAT='전체', BPG=1, BQ='', BW='전체';
@@ -2670,7 +2754,7 @@ const fkey=(f,r)=>f.map+'|'+f.rows.indexOf(r)+'|'+r[1];
 const facAmt=r=>String(r[2]).split('·').map(x=>/^\s*(.+?)\s+(\d+)(?:\+(\d+))?/.exec(x)).filter(Boolean).map(m=>[m[1].replace(/\*$/,'').trim(),+m[2]+(+m[3]||0)]).filter(([n])=>!/생산량|사진|다른|확인 중/.test(n)&&n.length>1);
 document.addEventListener('change',e=>{const c=e.target.closest('[data-myfac]');if(!c)return;const k=c.dataset.myfac;c.checked?MYFAC.add(k):MYFAC.delete(k);try{localStorage.setItem('mho-myfac',JSON.stringify([...MYFAC]))}catch(_){};const y=scrollY;render();window.scrollTo({top:y});});
 const FMAT=(()=>{const M={};(D.facilities||[]).forEach(f=>f.rows.forEach(r=>String(r[2]).split('·').forEach(x=>{const m=/^\s*(.+?)\s+(\d+)(?:\+(\d+))?/.exec(x);if(!m)return;const n=m[1].replace(/\*$/,'').trim();if(/생산량|사진|다른|확인 중/.test(n)||n.length<2)return;(M[n]=M[n]||[]).push({f,r,amt:+m[2]+(+m[3]||0)});})));return M;})();
-document.addEventListener('click',e=>{const bs=e.target.closest('[data-bset]');if(bs){e.preventDefault();const v=bs.dataset.bset;const k=v.slice(0,v.lastIndexOf('|'));BSEL[k]=+v.slice(v.lastIndexOf('|')+1);const y=scrollY;render();window.scrollTo({top:y});return;}const mo=e.target.closest('[data-fmore]');if(mo){e.preventDefault();GMORE=true;const y=scrollY;render();window.scrollTo({top:y});return;}const my=e.target.closest('[data-fmy]');if(my){e.preventDefault();GMY=!GMY;const y=scrollY;render();window.scrollTo({top:y});return;}const b=e.target.closest('[data-fm]');if(b){e.preventDefault();GMAT=GMAT===b.dataset.fm?'':b.dataset.fm;const y=scrollY;render();window.scrollTo({top:y});return;}const fm=e.target.closest('[data-fmap]');if(fm){e.preventDefault();lf.m=fm.dataset.fmap;if(GMAT&&FMAT[GMAT]&&lf.m!=='전체'&&!FMAT[GMAT].some(o=>o.f.map===lf.m))GMAT='';const y=scrollY;render();window.scrollTo({top:y});return;}const k=e.target.closest('[data-fk]');if(k){e.preventDefault();GKIND=k.dataset.fk;GMAT='';const y=scrollY;render();window.scrollTo({top:y});}});
+document.addEventListener('click',e=>{const bs=e.target.closest('[data-bset]');if(bs&&bs.dataset.bset.includes('|')){e.preventDefault();const v=bs.dataset.bset;const k=v.slice(0,v.lastIndexOf('|'));BSEL[k]=+v.slice(v.lastIndexOf('|')+1);const y=scrollY;render();window.scrollTo({top:y});return;}const mo=e.target.closest('[data-fmore]');if(mo){e.preventDefault();GMORE=true;const y=scrollY;render();window.scrollTo({top:y});return;}const my=e.target.closest('[data-fmy]');if(my){e.preventDefault();GMY=!GMY;const y=scrollY;render();window.scrollTo({top:y});return;}const b=e.target.closest('[data-fm]');if(b){e.preventDefault();GMAT=GMAT===b.dataset.fm?'':b.dataset.fm;const y=scrollY;render();window.scrollTo({top:y});return;}const fm=e.target.closest('[data-fmap]');if(fm){e.preventDefault();lf.m=fm.dataset.fmap;if(GMAT&&FMAT[GMAT]&&lf.m!=='전체'&&!FMAT[GMAT].some(o=>o.f.map===lf.m))GMAT='';const y=scrollY;render();window.scrollTo({top:y});return;}const k=e.target.closest('[data-fk]');if(k){e.preventDefault();GKIND=k.dataset.fk;GMAT='';const y=scrollY;render();window.scrollTo({top:y});}});
 function renderGather(){
   document.getElementById('lt').textContent='맵'; document.getElementById('le').textContent='';
   lchips('t',['전체',...MAPS],'m'); document.getElementById('e').innerHTML='';
@@ -2798,7 +2882,7 @@ function alignEq(){if(!SUBG)return;document.querySelectorAll('#grid .c3.eq:not(.
   cs.forEach(c=>{c.style.display='grid';c.style.gridTemplateRows='subgrid';c.style.gridRow='span '+N;c.style.rowGap=c.dataset.rg==='normal'?'0px':c.dataset.rg;c.style.alignContent='start';c.classList.add('eqsub');});});}
 (()=>{const g=document.getElementById('grid');if(!g)return;let t=0;new MutationObserver(()=>{cancelAnimationFrame(t);t=requestAnimationFrame(alignEq);}).observe(g,{childList:true});})();
 function render(){
-  document.body.classList.toggle('inner',st.g!=='home');
+  tRow(false);document.body.classList.toggle('inner',st.g!=='home');
   requestAnimationFrame(()=>{if(innerWidth<=700&&st.g!=='home'){const a=document.querySelector('nav.tabs button.tab[aria-pressed="true"]');const n=document.getElementById('g');if(a&&n)n.scrollLeft=a.offsetLeft-n.clientWidth/2+a.offsetWidth/2;}});
   if(['guide','tip'].includes(st.g))newsMark(st.g);
   tabs(TABDEF); if(st.g!=='art')document.documentElement.style.setProperty('--vc','#c9971f');
@@ -2821,7 +2905,7 @@ function render(){
   if(st.g==='mon') return renderMon();
   if(st.g==='art') return renderArt();
   if(st.g==='sim') return renderSim();
-  document.getElementById('lt').textContent='무기'; document.getElementById('le').textContent='속성';
+  tRow(true);st.t='전체';document.getElementById('lt').textContent='무기'; document.getElementById('le').textContent='속성';
   const pool=D.builds.filter(b=>b.group===st.g);
   const types=TYPES.filter(t=>pool.some(b=>b.type===t));
   if(st.t!=='전체'&&!types.includes(st.t)) st.t='전체';
@@ -2940,7 +3024,7 @@ function buildSub(){
   if(life){groups=hs.map(h=>[h.closest('.world')]);}
   else{let cur=-1;[...grid.children].forEach(el=>{if(el.matches('h2.sec')){cur++;groups[cur]=[];}if(cur>=0)groups[cur].push(el);});}
   const n=groups.length; let i=SUB[st.g]; if(i==null||i>=n) i=SUB[st.g]=0; if(st.q&&st.q.trim()) i=-1;
-  const show=k=>{groups.forEach((g,j)=>g.forEach(el=>el.classList.toggle('sechide',k!==-1&&j!==k)));sub.querySelectorAll('button[data-i]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===k));};
+  const show=k=>{groups.forEach((g,j)=>g.forEach(el=>el.classList.toggle('sechide',k!==-1&&j!==k)));sub.querySelectorAll('button[data-i]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===k));const a=sub.querySelector('button[aria-pressed="true"]');if(a){const r=a.getBoundingClientRect(),sr=sub.getBoundingClientRect();sub.scrollLeft+=r.left-sr.left-(sr.width-r.width)/2;}};
   const nm=h=>{const c=h.cloneNode(true);c.querySelectorAll('small,.ph').forEach(x=>x.remove());return c.textContent.trim();};
   const cur=TABDEF.find(x=>x[0]===st.g);
   sub.hidden=false;
@@ -2961,6 +3045,9 @@ function buildSub(){
   sub.querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>{SUB[st.g]=+b.dataset.i;show(+b.dataset.i);navPush();const _h=[...grid.querySelectorAll('h2.sec')].find(x=>!x.classList.contains('sechide')&&x.offsetParent)||grid;const top=_h.getBoundingClientRect().top+scrollY-(getComputedStyle(sub).position==='sticky'?sub.offsetHeight:0)-8;if(scrollY>top||top-scrollY>innerHeight*0.4)window.scrollTo({top:Math.max(0,top)});});
   show(i); setStick();
 }
+
+{const hb=document.getElementById('hsrch');if(hb)hb.onclick=e=>{e.stopPropagation();document.body.classList.toggle('srch');if(document.body.classList.contains('srch')){const i=document.getElementById('gq');i&&i.focus();}};
+ const ds=document.getElementById('desc');if(ds)ds.onclick=()=>ds.classList.toggle('open');}
 function setStick(){const sb=document.getElementById('sub');sb.style.top='0px';
   document.documentElement.style.setProperty('--stick',((sb.hidden?0:sb.offsetHeight)+12)+'px');}
 window.addEventListener('resize',setStick);
