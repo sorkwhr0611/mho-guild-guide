@@ -1347,6 +1347,17 @@ header .brand,header .upd{grid-column:1}
 @media (max-width:900px){header{grid-template-columns:minmax(0,1fr)}#hgb{grid-column:1;grid-row:3;margin-top:10px;min-width:0;flex-wrap:wrap}#hgb .hgx{flex:1;min-width:0}#hgb .hgx small{white-space:normal}#hgb .hgbtn{flex-direction:row;margin-left:auto}}
 @media (max-width:700px){body.inner #hgb{display:none}body.inner header{display:flex!important}#hgb{padding:6px 10px;gap:10px}#hgb .hgt{font-size:24px}#hgb .hgx b{font-size:24px}#hgb .hgbtn button,#hgb .hgbtn a{padding:6px 10px;font-size:12.5px}}
 @media (max-width:520px){#hgb .hgbtn{flex-basis:100%;margin-left:0}#hgb .hgbtn>*{flex:1}#hgb .hgx small{white-space:nowrap}}
+
+/* 길드 현황 압축 */
+.hguild{padding:10px 12px!important;gap:8px!important}
+@media (min-width:1101px){.hguild{grid-template-columns:auto minmax(0,1fr);align-items:center;column-gap:14px}.hgh{flex-direction:column;align-items:flex-start!important;gap:2px!important}}
+.hgh b{font-size:15px!important}.hgh .cat{font-size:12px}
+.hgc{padding:7px 12px!important;gap:1px!important;grid-template-columns:1fr auto;align-items:center}
+.hgc>.cat:first-child{grid-column:1/-1;font-size:12px}
+.hgc b{font-size:20px!important;line-height:1.2}
+.hgc .hgbar{grid-column:1/-1;height:6px}
+.hgc>.cat:last-child,.hgc .hgt{grid-column:1/-1;font-size:12px;-webkit-line-clamp:1!important}
+#hgb .hgm{font-size:12.5px;color:#f6ead2;opacity:.92;line-height:1.35;max-width:260px;margin-top:2px}@media (max-width:900px){#hgb .hgm{max-width:none}}
 </style>
 </head>
 <body>
@@ -3106,7 +3117,7 @@ function buildSub(){
 {const sb=document.getElementById('sub');if(sb)sb.addEventListener('wheel',e=>{if(sb.scrollWidth>sb.clientWidth+2&&Math.abs(e.deltaY)>Math.abs(e.deltaX)){const before=sb.scrollLeft;sb.scrollLeft+=e.deltaY;if(sb.scrollLeft!==before)e.preventDefault();}},{passive:false});}
 
 function hgBadge(){const el=document.getElementById('hgb');if(!el||!D.guild||!D.guild.arena)return;const GA=D.guild.arena;
- el.innerHTML=`<span class="hgt" aria-hidden="true">🏆</span><div class="hgx"><small>${esc(GA.title)} · ${esc(GA.week)}</small><b>${GA.rank}<em>위</em></b></div><div class="hgbtn"><button type="button" data-go="join">📝 가입 신청</button><a class="hgk" href="${D.guild.kakao}" target="_blank" rel="noopener">💬 오픈카톡</a></div>`;el.title=GA.msg||'';}
+ el.innerHTML=`<span class="hgt" aria-hidden="true">🏆</span><div class="hgx"><small>${esc(GA.title)} · ${esc(GA.week)}</small><b>${GA.rank}<em>위</em></b>${GA.msg?`<span class="hgm">${esc(GA.msg).replace(/ (\S+)$/,'&nbsp;$1')}</span>`:''}</div><div class="hgbtn"><button type="button" data-go="join">📝 가입 신청</button><a class="hgk" href="${D.guild.kakao}" target="_blank" rel="noopener">💬 오픈카톡</a></div>`;el.title=GA.msg||'';}
 function setStick(){const sb=document.getElementById('sub');sb.style.top='0px';
   document.documentElement.style.setProperty('--stick',((sb.hidden?0:sb.offsetHeight)+12)+'px');}
 window.addEventListener('resize',setStick);
