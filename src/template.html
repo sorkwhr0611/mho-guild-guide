@@ -1329,6 +1329,24 @@ nav.subnav{-webkit-mask-image:none!important;mask-image:none!important;padding-r
 .box:has(#bpNeed) .calcout{margin-top:6px}
 .ssub small{white-space:normal!important;display:block}
 .btsub{display:block;font-size:15px;font-weight:600;color:var(--muted);margin-top:4px;font-family:var(--body)}
+
+/* 헤더 오른쪽 격투장 순위 */
+header{display:grid!important;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;align-items:center}
+header .brand,header .upd{grid-column:1}
+#hgb{grid-column:2;grid-row:1/3;display:flex;align-items:center;gap:14px;padding:8px 14px 8px 12px;border-radius:14px;border:1px solid color-mix(in srgb,var(--gold2,#f3d48a) 45%,transparent);background:rgba(0,0,0,.18);color:#f6ead2}
+#hgb:empty{display:none}
+#hgb .hgt{font-size:30px;line-height:1}
+#hgb .hgx{display:grid;line-height:1.15}
+#hgb .hgx small{font-size:12px;color:#d9c7a3;white-space:nowrap}
+#hgb .hgx b{font-size:30px;color:var(--gold2,#f3d48a);font-weight:800}
+#hgb .hgx b em{font-style:normal;font-size:15px;margin-left:3px;color:#f6ead2}
+#hgb .hgbtn{display:flex;flex-direction:column;gap:6px}
+#hgb .hgbtn button,#hgb .hgbtn a{font:inherit;font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;white-space:nowrap;text-align:center}
+#hgb .hgbtn button{background:#fff3e0;color:#5a3414}
+#hgb .hgbtn a{background:#fee500;color:#191600}
+@media (max-width:900px){header{grid-template-columns:minmax(0,1fr)}#hgb{grid-column:1;grid-row:3;margin-top:10px;min-width:0;flex-wrap:wrap}#hgb .hgx{flex:1;min-width:0}#hgb .hgx small{white-space:normal}#hgb .hgbtn{flex-direction:row;margin-left:auto}}
+@media (max-width:700px){body.inner #hgb{display:none}body.inner header{display:flex!important}#hgb{padding:6px 10px;gap:10px}#hgb .hgt{font-size:24px}#hgb .hgx b{font-size:24px}#hgb .hgbtn button,#hgb .hgbtn a{padding:6px 10px;font-size:12.5px}}
+@media (max-width:520px){#hgb .hgbtn{flex-basis:100%;margin-left:0}#hgb .hgbtn>*{flex:1}#hgb .hgx small{white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -1337,6 +1355,7 @@ nav.subnav{-webkit-mask-image:none!important;mask-image:none!important;padding-r
 <header>
   <h1 class="brand" id="brand" role="link" tabindex="0" title="홈으로"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><g transform="rotate(-28 32 32)"><rect x="40" y="27" width="16" height="10" rx="3" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="27" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><circle cx="56" cy="37" r="5" fill="#f3ead7" stroke="#3a2a1a" stroke-width="2.5"/><rect x="51" y="28" width="7" height="8" fill="#f3ead7"/><ellipse cx="26" cy="32" rx="20" ry="17" fill="#c8542b" stroke="#3a2a1a" stroke-width="2.5"/><ellipse cx="22" cy="26" rx="10" ry="6" fill="#e07a45" opacity=".8"/></g><circle cx="20" cy="33" r="2.6" fill="#3a2a1a"/><circle cx="31" cy="29" r="2.6" fill="#3a2a1a"/><path d="M22 39q4 4 9-1" stroke="#3a2a1a" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="16" cy="38" r="2.6" fill="#ff9aa2" opacity=".8"/><circle cx="36" cy="33" r="2.6" fill="#ff9aa2" opacity=".8"/><path d="M27 47l-4 3 4 10 4-10z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/><path d="M24 46h6l-3 3z" fill="#2a6fb5" stroke="#3a2a1a" stroke-width="2" stroke-linejoin="round"/></svg><span>직장인수렵단 <em>공략집</em></span></h1>
   <button type="button" id="hsrch" aria-label="사이트 검색 열기">🔍</button>
+  <div id="hgb"></div>
   <p class="upd">몬스터헌터 아웃랜더스 모험단 공략 도감 · game8·GameWith·커뮤니티 공략 기준 · <span class="updd">2026.11.20 업데이트</span></p>
 </header>
 <div class="gsrch" role="search"><input id="gq" type="search" placeholder="🔍 사이트 검색 (고추, 레이기에나, 위협…)" aria-label="사이트 전체 검색" autocomplete="off"><div id="gqr" hidden></div></div>
@@ -2726,7 +2745,7 @@ function renderHome(){
    <div class="lvb"><button type="button" class="cgo" data-go="hero">⚔️ Lv${LV} 장비 보기 ›</button><button type="button" class="cgo" data-go="chore">📋 숙제 ›</button></div></section>`;
   /* 마감 시각이 정해진 이벤트 (3일 안에 끝나는 것) 카운트다운 */
   const dlHtml=ev.filter(e=>e[0]!=='융광종 토벌'&&/ \d\d:\d\d$/.test(String(e[4]))&&(!e[3]||kstMs(e[3])<=nowMs)&&kstMs(e[4])+6e4>nowMs&&kstMs(e[4])-nowMs<3*864e5).map(e=>{const end=kstMs(e[4])+(/23:59$/.test(e[4])?6e4:0);const mid=new Date(end+9*36e5).getUTCHours()===0&&new Date(end+9*36e5).getUTCMinutes()===0;const k=new Date(end+9*36e5-(mid?6e4:0));const wd='일월화수목금토'[k.getUTCDay()];const hm=`${String(k.getUTCHours()).padStart(2,'0')}:${String(k.getUTCMinutes()).padStart(2,'0')}`;return `<section class="full radcd dlcd"><span class="rci">🏆</span><div><b>${esc(e[2])}</b><span>${k.getUTCMonth()+1}/${k.getUTCDate()}(${wd}) ${mid?'밤 12시':hm}까지 <em>${leftTxt(end-nowMs)}</em> 남았어요${e[5]?' · 보상 '+esc(e[5]):''}</span></div><button type="button" class="cgo" data-go="tip">일정 ›</button></section>`;}).join('');
-  document.getElementById('grid').innerHTML=radHtml+dlHtml+`<section class="gbanner"><div class="gbt">🏆</div><div class="gbx"><div class="gbs">직장인수렵단 · ${esc(GA.title)} · ${esc(GA.week)}</div><div class="gbr"><b>${GA.rank}</b><span>위</span></div><div class="gbm">${esc(GA.msg).replace(/ (\S+)$/,'&nbsp;$1')}</div><div class="gbb"><button type="button" class="gbj" data-go="join">📝 모험단 가입 신청 ›</button><a class="gbj gbk" href="${D.guild.kakao}" target="_blank" rel="noopener">💬 오픈카톡 ›</a></div></div><div class="gbd" aria-hidden="true">${'★'.repeat(3)}</div></section><section id="hguild" class="full hguild" hidden></section><div id="hinstall" class="full hinstall"></div>
+  document.getElementById('grid').innerHTML=radHtml+dlHtml+`<section id="hguild" class="full hguild" hidden></section><div id="hinstall" class="full hinstall"></div>
    <h2 class="sec">오늘 숙제 <small>매일 05:00 초기화</small></h2>
    <div class="homegrid hg4">${homeChores().map(x=>`<button class="hcard sm${x[1].startsWith('시련 원정 주간')?' hot':''}" type="button" data-go="chore"><span class="hi">${x[0]}</span><b>${esc(x[1])}</b><span>${x[4]?`<em class="dd">${esc(x[4].split('|')[0])}</em>${esc(x[4].split('|')[1]||'')}`:esc(x[2])}</span></button>`).join('')}</div>
    <button class="morebtn" type="button" data-go="chore">📋 매일·주간 숙제 전체 체크리스트 ›</button>
@@ -2916,7 +2935,7 @@ function nwPass(root){const w=document.createTreeWalker(root,NodeFilter.SHOW_TEX
  L.forEach(n=>{const f=document.createDocumentFragment();let last=0;const v=n.nodeValue;v.replace(NWRE,(m,_a,i)=>{if(i>last)f.appendChild(document.createTextNode(v.slice(last,i)));const sp=document.createElement('span');sp.className='nw';sp.textContent=m;f.appendChild(sp);last=i+m.length;return m;});if(last<v.length)f.appendChild(document.createTextNode(v.slice(last)));n.replaceWith(f);});}
 (()=>{const g=document.getElementById('grid');if(!g)return;let t=0;new MutationObserver(()=>{cancelAnimationFrame(t);t=requestAnimationFrame(()=>{alignEq();try{nwPass(g);}catch(_){}});}).observe(g,{childList:true});})();
 function render(){
-  tRow(false);document.body.classList.toggle('inner',st.g!=='home');
+  tRow(false);try{hgBadge();}catch(_){}document.body.classList.toggle('inner',st.g!=='home');
   requestAnimationFrame(()=>{if(innerWidth<=700&&st.g!=='home'){const a=document.querySelector('nav.tabs button.tab[aria-pressed="true"]');const n=document.getElementById('g');if(a&&n)n.scrollLeft=a.offsetLeft-n.clientWidth/2+a.offsetWidth/2;}});
   if(['guide','tip'].includes(st.g))newsMark(st.g);
   tabs(TABDEF); if(st.g!=='art')document.documentElement.style.setProperty('--vc','#c9971f');
@@ -3085,6 +3104,9 @@ function buildSub(){
 {const hb=document.getElementById('hsrch');if(hb)hb.onclick=e=>{e.stopPropagation();document.body.classList.toggle('srch');if(document.body.classList.contains('srch')){const i=document.getElementById('gq');i&&i.focus();}};
  const ds=document.getElementById('desc');if(ds)ds.onclick=()=>ds.classList.toggle('open');}
 {const sb=document.getElementById('sub');if(sb)sb.addEventListener('wheel',e=>{if(sb.scrollWidth>sb.clientWidth+2&&Math.abs(e.deltaY)>Math.abs(e.deltaX)){const before=sb.scrollLeft;sb.scrollLeft+=e.deltaY;if(sb.scrollLeft!==before)e.preventDefault();}},{passive:false});}
+
+function hgBadge(){const el=document.getElementById('hgb');if(!el||!D.guild||!D.guild.arena)return;const GA=D.guild.arena;
+ el.innerHTML=`<span class="hgt" aria-hidden="true">🏆</span><div class="hgx"><small>${esc(GA.title)} · ${esc(GA.week)}</small><b>${GA.rank}<em>위</em></b></div><div class="hgbtn"><button type="button" data-go="join">📝 가입 신청</button><a class="hgk" href="${D.guild.kakao}" target="_blank" rel="noopener">💬 오픈카톡</a></div>`;el.title=GA.msg||'';}
 function setStick(){const sb=document.getElementById('sub');sb.style.top='0px';
   document.documentElement.style.setProperty('--stick',((sb.hidden?0:sb.offsetHeight)+12)+'px');}
 window.addEventListener('resize',setStick);
