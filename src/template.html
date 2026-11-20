@@ -1196,6 +1196,7 @@ section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.
  body.inner header::before,body.inner header::after{display:none!important}
 }
 @media (max-width:600px){.bt b{white-space:normal!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.35}td.part{white-space:normal!important;overflow-wrap:anywhere}}
+.bsets{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:4px 0 8px}.bsets .chip{display:inline-flex;flex-direction:column;align-items:flex-start;gap:0;line-height:1.25;padding:5px 11px;text-align:left}.bsets .chip small{font-size:11.5px;opacity:.75;font-weight:500}
 </style>
 </head>
 <body>
@@ -1353,7 +1354,11 @@ function plan(b){
   const nx=need?`최종(레어도 ${top})은 Lv${need}부터`:`최종(레어도 ${top})이 열리는 레벨은 미확인`;
   return {done:false,html:`<b>${txt}</b><div class="cat" style="white-space:normal">${nx}</div>`};
 }
+const BSEL={};
 function card(b0){
+  const bk=b0.name+'|'+b0.type+'|'+b0.elem;const ALTS=b0.alts&&b0.alts.length?[{label:b0.label||'추천',src:b0.lsrc||''},...b0.alts]:null;const si=Math.min(BSEL[bk]||0,ALTS?ALTS.length-1:0);
+  if(ALTS&&si>0){const a=ALTS[si];b0=Object.assign({},b0,{armor:a.armor,skills:a.skills,sets:a.sets||[],note:a.note||''});}
+  const bsetHtml=ALTS?`<div class="bsets"><span class="cat">세팅 ${ALTS.length}가지</span>${ALTS.map((a,i)=>`<button type="button" class="chip" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}">${esc(a.label)}<small>${esc(a.src)}</small></button>`).join('')}</div>`:'';
   const A=adapt(b0), b=A.b; const cap=capOf(st.lv); const aT=TIER(Math.min(cap,12));
   const c=`var(${EL[b.elem]||'--neutral'})`;
   const title=b.group==='hero'?`${b.type} · ${b.elem==='범용'?'범용':b.elem+'속성'}`:b.name;
@@ -1370,7 +1375,7 @@ function card(b0){
   const rulerRow=`<tr class="final ruler"><td class="part">최종<br><b class="rk">각성 무기</b></td><td><div class="fx fxf"><div class="kr"><span class="nm" style="gap:8px">${PHT(rulerName,'ar gear '+rT[1],'지배자-'+b.type+'-'+b.elem)}<span>${esc(rulerName)} <span class="tb ${rT[1]}">${cap>=9?rT[0]+' · 레어도 '+rReach:'Lv41부터'}</span></span></span></div><div class="route" title="${esc(D.ruler.info+' '+D.ruler.mat+' · '+D.ruler.awk)}">지배자 무기(루가 에알다) · 레어도 9 → 14 · 각성 최대 5칸</div></div></td></tr>`;
   const genRow=`<tr class="final"><td class="part">최종<br><b class="rk">일반 무기</b></td><td><div class="fx fxf"><div class="kr"><span class="nm" style="gap:8px">${PHT(String(gen).split(' · ')[0].replace(/[ⅠⅡⅢⅣⅤ]+$/,''),'ar gear '+wT[1],'무기-'+b.type)}<span>${esc(gen)} <span class="tb ${wT[1]}">${wT[0]}</span></span></span></div><div class="route">${genRoute}</div></div></td></tr>`;
   return `<article class="card" style="--c:${c}" data-at="${aT[1]}">
-  <div class="chead">${PHT(b.group==='hero'?'주인공':b.name.split(' ')[0],'lg')}<h3>${esc(title)}${b.group==='hero'?'<small>주인공</small>':''}</h3><button type="button" class="cgo simb" data-simb="${SIMB.push(b)-1}">🧮 시뮬에서 열기</button></div>
+  <div class="chead">${PHT(b.group==='hero'?'주인공':b.name.split(' ')[0],'lg')}<h3>${esc(title)}${b.group==='hero'?'<small>주인공</small>':''}</h3><button type="button" class="cgo simb" data-simb="${SIMB.push(b)-1}">🧮 시뮬에서 열기</button></div>${bsetHtml}
   <div class="meta"><span class="tag el">${ic(b.elem)}${b.elem}</span>${b.group==='hero'?'':`<span class="tag">${b.type}</span>`}<span class="tag">${b.group==='hero'?(b.stage==='중반'?'중반 세팅':'후반 세팅'):'모험가 전용'}</span>${p.done&&!A.sw&&!A.ch.length?`<span class="tag ok2">Lv${st.lv} 완성</span>`:''}${A.sw||A.ch.length?`<span class="tag sw">Lv${st.lv} 맞춤</span>`:''}</div>
   <table><thead><tr><th>부위</th><th>장비</th></tr></thead><tbody>
   <tr class="${A.sw?'swap':''}"><td class="part">무기</td><td class="kr"><span class="nm" style="gap:8px" data-tip="${esc(b.wkr)}" data-tk="g">${PHT(b.wkr,'ar gear '+wT[1],(isRuler(b.wkr)?'지배자-'+b.type+'-'+b.elem:'무기-'+b.type))}<span><span class="tipg" data-tip="${esc(b.wkr)}" data-tk="g">${esc(b.wkr)}</span>${A.sw?`<em class="was">원래 ${esc(A.sw.from)} · Lv${A.sw.need}부터${A.sw.isAk?' · 수렵혼옥+철광석으로 제작':''}</em>`:''}</span></span></td></tr>
@@ -2632,7 +2637,7 @@ const fkey=(f,r)=>f.map+'|'+f.rows.indexOf(r)+'|'+r[1];
 const facAmt=r=>String(r[2]).split('·').map(x=>/^\s*(.+?)\s+(\d+)(?:\+(\d+))?/.exec(x)).filter(Boolean).map(m=>[m[1].replace(/\*$/,'').trim(),+m[2]+(+m[3]||0)]).filter(([n])=>!/생산량|사진|다른|확인 중/.test(n)&&n.length>1);
 document.addEventListener('change',e=>{const c=e.target.closest('[data-myfac]');if(!c)return;const k=c.dataset.myfac;c.checked?MYFAC.add(k):MYFAC.delete(k);try{localStorage.setItem('mho-myfac',JSON.stringify([...MYFAC]))}catch(_){};const y=scrollY;render();window.scrollTo({top:y});});
 const FMAT=(()=>{const M={};(D.facilities||[]).forEach(f=>f.rows.forEach(r=>String(r[2]).split('·').forEach(x=>{const m=/^\s*(.+?)\s+(\d+)(?:\+(\d+))?/.exec(x);if(!m)return;const n=m[1].replace(/\*$/,'').trim();if(/생산량|사진|다른|확인 중/.test(n)||n.length<2)return;(M[n]=M[n]||[]).push({f,r,amt:+m[2]+(+m[3]||0)});})));return M;})();
-document.addEventListener('click',e=>{const mo=e.target.closest('[data-fmore]');if(mo){e.preventDefault();GMORE=true;const y=scrollY;render();window.scrollTo({top:y});return;}const my=e.target.closest('[data-fmy]');if(my){e.preventDefault();GMY=!GMY;const y=scrollY;render();window.scrollTo({top:y});return;}const b=e.target.closest('[data-fm]');if(b){e.preventDefault();GMAT=GMAT===b.dataset.fm?'':b.dataset.fm;const y=scrollY;render();window.scrollTo({top:y});return;}const fm=e.target.closest('[data-fmap]');if(fm){e.preventDefault();lf.m=fm.dataset.fmap;if(GMAT&&FMAT[GMAT]&&lf.m!=='전체'&&!FMAT[GMAT].some(o=>o.f.map===lf.m))GMAT='';const y=scrollY;render();window.scrollTo({top:y});return;}const k=e.target.closest('[data-fk]');if(k){e.preventDefault();GKIND=k.dataset.fk;GMAT='';const y=scrollY;render();window.scrollTo({top:y});}});
+document.addEventListener('click',e=>{const bs=e.target.closest('[data-bset]');if(bs){e.preventDefault();const v=bs.dataset.bset;const k=v.slice(0,v.lastIndexOf('|'));BSEL[k]=+v.slice(v.lastIndexOf('|')+1);const y=scrollY;render();window.scrollTo({top:y});return;}const mo=e.target.closest('[data-fmore]');if(mo){e.preventDefault();GMORE=true;const y=scrollY;render();window.scrollTo({top:y});return;}const my=e.target.closest('[data-fmy]');if(my){e.preventDefault();GMY=!GMY;const y=scrollY;render();window.scrollTo({top:y});return;}const b=e.target.closest('[data-fm]');if(b){e.preventDefault();GMAT=GMAT===b.dataset.fm?'':b.dataset.fm;const y=scrollY;render();window.scrollTo({top:y});return;}const fm=e.target.closest('[data-fmap]');if(fm){e.preventDefault();lf.m=fm.dataset.fmap;if(GMAT&&FMAT[GMAT]&&lf.m!=='전체'&&!FMAT[GMAT].some(o=>o.f.map===lf.m))GMAT='';const y=scrollY;render();window.scrollTo({top:y});return;}const k=e.target.closest('[data-fk]');if(k){e.preventDefault();GKIND=k.dataset.fk;GMAT='';const y=scrollY;render();window.scrollTo({top:y});}});
 function renderGather(){
   document.getElementById('lt').textContent='맵'; document.getElementById('le').textContent='';
   lchips('t',['전체',...MAPS],'m'); document.getElementById('e').innerHTML='';
