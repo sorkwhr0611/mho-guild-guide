@@ -454,7 +454,7 @@
    "lsrc": "GameWith",
    "alts": [
     {
-     "label": "일반 몬스터 · 방어 반격 · 파쇄",
+     "label": "일반 몬스터 · 저스트 가드 · 파쇄",
      "src": "GameWith",
      "armor": [
       [
@@ -525,7 +525,7 @@
      ]
     },
     {
-     "label": "종반 · 번개속성 방어 반격형",
+     "label": "종반 · 번개속성 저스트 가드형",
      "src": "game8",
      "armor": [
       [
@@ -822,7 +822,7 @@
    "lsrc": "GameWith",
    "alts": [
     {
-     "label": "일반 몬스터 · 회피 강화 · 연기를 띤 칼날",
+     "label": "일반 몬스터 · 회피 강화 · 연기",
      "src": "GameWith",
      "armor": [
       [
@@ -1276,7 +1276,7 @@
    "lsrc": "GameWith · game8",
    "alts": [
     {
-     "label": "일반 몬스터 · 도시락 애호가 · 연기를 띤 칼날",
+     "label": "일반 몬스터 · 도시락 애호가 · 연기",
      "src": "GameWith",
      "armor": [
       [
@@ -1593,7 +1593,7 @@
    "lsrc": "GameWith",
    "alts": [
     {
-     "label": "일반 몬스터 · 연격 강화 · 귀인의 수라",
+     "label": "일반 몬스터 · 연격 · 귀인",
      "src": "GameWith",
      "armor": [
       [
@@ -1971,7 +1971,7 @@
    "lsrc": "GameWith",
    "alts": [
     {
-     "label": "일반 몬스터 · 연격 강화 · 귀인의 수라",
+     "label": "일반 몬스터 · 연격 · 귀인",
      "src": "GameWith",
      "armor": [
       [
@@ -2334,7 +2334,7 @@
    "lsrc": "GameWith",
    "alts": [
     {
-     "label": "일반 몬스터 · 모으기 강화 · 꿰뚫기 (멀티)",
+     "label": "일반 몬스터 · 꿰뚫기 · 모으기 강화 (멀티)",
      "src": "GameWith",
      "armor": [
       [
@@ -2399,7 +2399,7 @@
      "sets": []
     },
     {
-     "label": "일반 몬스터 · 방어 반격 · 꿰뚫기 (솔로)",
+     "label": "일반 몬스터 · 꿰뚫기 · 저스트 가드 (솔로)",
      "src": "GameWith",
      "armor": [
       [
@@ -2470,7 +2470,7 @@
      ]
     },
     {
-     "label": "종반 · 용속성 방어 반격형",
+     "label": "종반 · 용속성 저스트 가드형",
      "src": "game8",
      "armor": [
       [
@@ -3300,7 +3300,7 @@
    "lsrc": "GameWith",
    "alts": [
     {
-     "label": "일반 몬스터 · 연격 강화 · 발리스타탄 강화",
+     "label": "일반 몬스터 · 연격 · 발리스타탄 강화",
      "src": "GameWith",
      "armor": [
       [
@@ -3709,7 +3709,7 @@
    "lsrc": "GameWith",
    "alts": [
     {
-     "label": "일반 몬스터 · 모으기 강사 · 활 스킬 강화",
+     "label": "일반 몬스터 · 모으기 강사 · 활 강화",
      "src": "GameWith · game8",
      "armor": [
       [
@@ -4084,7 +4084,7 @@
    "lsrc": "GameWith · game8",
    "alts": [
     {
-     "label": "일반 몬스터 · 모으기 강사 · 활 스킬 강화",
+     "label": "일반 몬스터 · 모으기 강사 · 활 강화",
      "src": "GameWith",
      "armor": [
       [
