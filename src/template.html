@@ -491,7 +491,7 @@ label.calc input,label.calc select{font:inherit;font-size:16px;padding:9px 12px;
  .brec td:nth-child(3):not(.why)::before{content:'대체';font-size:11.5px;color:var(--muted);margin-right:6px}
  .brec td:nth-child(3):not(.why) .bl{display:inline-flex}}
 
-#tipbox{position:absolute;z-index:50;max-width:min(380px,calc(100vw - 16px));background:#fffdf8;border:1px solid #e2d6c3;border-radius:12px;box-shadow:0 8px 28px rgba(60,40,20,.18);padding:12px 14px;font-size:13.5px;line-height:1.5;color:var(--ink)}
+#tipbox{position:fixed;z-index:50;max-width:min(380px,calc(100vw - 16px));background:#fffdf8;border:1px solid #e2d6c3;border-radius:12px;box-shadow:0 8px 28px rgba(60,40,20,.18);padding:12px 14px;font-size:13.5px;line-height:1.5;color:var(--ink)}
 #tipbox[hidden]{display:none}
 #tipbox .thd{display:flex;align-items:center;gap:8px;font-size:15.5px;margin-bottom:6px}
 #tipbox .thd img.gi,#tipbox img.gi{width:22px;height:22px;border-radius:5px;vertical-align:-6px;margin-right:3px}
@@ -2999,8 +2999,9 @@ function tipGear(raw){const C=D.craft; const n=raw.replace(/\*/g,'').trim(); con
 const TIPC={};
 function tipFor(el){const k=el.dataset.tip, kind=el.dataset.tk||'i', id=kind+':'+k; if(!(id in TIPC)) TIPC[id]=kind==='g'?tipGear(k):tipItem(k); return TIPC[id];}
 (function(){const box=document.createElement('div');box.id='tipbox';box.hidden=true;document.body.appendChild(box);let cur=null,pinned=false;
-  const place=(el)=>{const r=el.getBoundingClientRect();box.hidden=false;const bw=box.offsetWidth,bh=box.offsetHeight;let x=r.left+scrollX,y=r.bottom+scrollY+8;
-    if(x+bw>scrollX+innerWidth-8)x=scrollX+innerWidth-bw-8; if(x<scrollX+8)x=scrollX+8; if(r.bottom+bh+8>innerHeight&&r.top>bh+8)y=r.top+scrollY-bh-8; box.style.left=x+'px';box.style.top=y+'px';};
+  const place=(el)=>{if(!el||!el.isConnected){hide();return;}const r=el.getBoundingClientRect();if(!r.width&&!r.height){hide();return;}box.hidden=false;const bw=box.offsetWidth,bh=box.offsetHeight;let x=r.left,y=r.bottom+8;
+    if(x+bw>innerWidth-8)x=innerWidth-bw-8; if(x<8)x=8; if(y+bh>innerHeight-8&&r.top-bh-8>=8)y=r.top-bh-8; if(y+bh>innerHeight-8)y=Math.max(8,innerHeight-bh-8); box.style.left=x+'px';box.style.top=y+'px';};
+  addEventListener('scroll',()=>{if(cur&&!box.hidden)place(cur);},{passive:true});addEventListener('resize',()=>{if(cur&&!box.hidden)place(cur);});
   const show=el=>{const h=tipFor(el); if(!h){hide();return;} cur=el; box.innerHTML=h; place(el);};
   const hide=()=>{box.hidden=true;cur=null;pinned=false;};
   const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
