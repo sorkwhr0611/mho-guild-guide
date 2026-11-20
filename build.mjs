@@ -52,8 +52,9 @@ const D0 = JSON.parse(data);
 let pages = 0;
 for (const b of D0.board || []) {
   if (!/^[a-z0-9_-]+$/i.test(b.id)) continue;
-  const desc = (b.lines || []).join(" ").replace(/\s+/g, " ").slice(0, 110) + ((b.lines || []).join(" ").length > 110 ? "…" : "");
-  const img = (b.images || []).find((k) => imgs.includes(k));
+  const tl = (b.lines || []).filter((l) => !l.startsWith("@img:")).map((l) => l.replace(/^■ /, ""));
+  const desc = tl.join(" ").replace(/\s+/g, " ").slice(0, 110) + (tl.join(" ").length > 110 ? "…" : "");
+  const img = [...(b.images || []), ...(b.lines || []).filter((l) => l.startsWith("@img:")).map((l) => l.slice(5))].find((k) => imgs.includes(k));
   const ogImg = img ? `${SITE_URL}/img/${img}.jpg` : b.yt ? `https://i.ytimg.com/vi/${b.yt}/hqdefault.jpg` : `${SITE_URL}/icon-512.png`;
   const to = "/#guide/p-" + encodeURIComponent(b.id);
   writeFileSync(new URL(`./public/p/${b.id}.html`, import.meta.url), `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escH(b.title)} · 직장인수렵단 공략집</title><meta name="description" content="${escH(desc)}"><meta property="og:type" content="article"><meta property="og:site_name" content="직장인수렵단 공략집"><meta property="og:title" content="${escH(b.title)}"><meta property="og:description" content="${escH(desc)}"><meta property="og:image" content="${ogImg}"><meta property="og:url" content="${SITE_URL}/p/${b.id}"><meta name="twitter:card" content="${img || b.yt ? "summary_large_image" : "summary"}"><meta http-equiv="refresh" content="0;url=${to}"><link rel="canonical" href="${SITE_URL}${to}"></head><body><script>location.replace(${JSON.stringify(to)})</script><p><a href="${to}">${escH(b.title)} 보러 가기</a></p></body></html>`);
