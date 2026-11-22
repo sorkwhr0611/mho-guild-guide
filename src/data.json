@@ -15867,6 +15867,17 @@
      "11/22",
      "공략 업데이트",
      [
+      "구역 과제 맵별 공략 추가",
+      "칭호 단계별 필요 포인트·보상 (4맵)",
+      "리오레이아 아종 일광욕·푸케 꼬리·환상도롱뇽 사진 요령",
+      "「세이프!」 사진은 건너뛰기 (제스처가 업적 8,000점 보상)"
+     ],
+     "area-tasks"
+    ],
+    [
+     "11/22",
+     "공략 업데이트",
+     [
       "환경생물·물고기 맵별 총정리",
       "찬란한 군도 생물 시간·날씨·크기 채움 · 군도에도 나오는 생물 41종 표시",
       "물고기마다 미끼·연금 포인트 · 희귀 생물마다 잡는 요령 추가",
@@ -25213,6 +25224,59 @@
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17857 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15394 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15498 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19527 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17516 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=10982 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=14998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15254 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19192 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20079 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19493 https://gamewith.ai/monster-hunter-outlanders/ko/endemic-life https://gamewith.ai/monster-hunter-outlanders/ko/articles/fishing-guide https://gamewith.jp/mhoutlanders/560316 https://gamewith.jp/mhoutlanders/588161 https://mhohub.com/ecology/"
+  },
+  {
+   "id": "area-tasks",
+   "cat": [
+    "채집·탐색"
+   ],
+   "title": "구역 과제 맵별 공략 (칭호 단계 · 까다로운 챌린지)",
+   "date": "11-22",
+   "lines": [
+    "■ 한눈에 보기",
+    "지도에서 맵 이름 아래 칭호 줄(예: 원정 개척자 ›)을 누르면 「구역 과제」가 열려요. 탭은 과제 보수 · 탐색 퀘스트 · 챌린지 퀘스트 3개고, 퀘스트를 깨서 모은 포인트로 맵마다 칭호 단계가 올라가요.",
+    "@img:bn_15250_2",
+    "단계와 보상(화면 기준): Ⅴ 원정 개척자 → Ⅵ 새 땅의 선구자(회심 대미지 +1%) → Ⅶ 박식한 현자(받는 대미지 -1%) → 마지막 전설 속 여행자(속성 대미지 +1%). 상단 「스테이터스 보너스」에서 맵 4개 보너스를 합쳐서 볼 수 있어요. 붓 같은 재료도 같이 줘요.",
+    "필요 포인트: 거목 Ⅴ 2,784 · Ⅵ 3,897 · Ⅶ 5,010 · 전설 5,567 / 열사 Ⅴ 2,727 · Ⅵ 3,817 · Ⅶ 4,908 · 전설 5,453 / 부패 Ⅵ 3,671 · Ⅶ 4,720 · 전설 5,244 / 군도 Ⅵ 4,190 · Ⅶ 5,387 · 전설 5,985.",
+    "전설까지 남는 여유 포인트는 거목 443 · 열사 317 · 부패 136 · 군도 385 정도라는 글이 있어요. 부패의 심연은 여유가 거의 없어서 대부분 깨야 하고, 다른 맵은 아래 '건너뛰어도 되는 과제'를 빼고 가도 돼요.",
+    "4맵 구역 과제를 전부 깨면 업적 「에이스 조사원」, 맵 탐색 진행도 100%면 훈장(예: 찬란한 군도 탐색자)을 받아요.",
+    "■ 모든 맵 공통 요령",
+    "사진 과제: 오른쪽 위 메뉴 → 오른쪽 세로줄 3번째 카메라. 카메라 위쪽에 과제 문구가 뜰 때까지 각도를 돌린 뒤 찍어야 인정돼요. 대상(꼬리 등)이 몸에 가리지 않게 대상 뒤쪽에서 제스처를 하세요.",
+    "제스처 사진: 3인칭 카메라를 먼저 켜 두고 → 제스처 → 바로 촬영. 「박스 댄스」는 찬란한 군도 구역 과제 보수로 받아요. 「세이프!」는 업적 포인트 8,000점 보상이에요.",
+    "생태 활동 사진(포식·수면·배설): 수면 무기나 수면 두꺼비로 재운 건 인정이 안 돼요. 체력을 깎아 둥지로 자러 가는 모습을 찍는 게 제일 편해요. 융광종·날개 달린 몬스터는 오래 걸리거나 날아가 버려요.",
+    "「○○의 모든 특수 체형 사냥」: 매일 05:00 필드 몬스터가 바뀔 때 특수 체형·융광종을 다 잡아 두세요. 친구 생태 정보로 필요한 몬스터를 불러와도 돼요. 금관·특수 체형은 둥지 말고 필드에서 봐야 인정돼요.",
+    "「둥지 사냥·익스트림 흔적 누적 조사」: 맵마다 흔적 개수(거목 9 · 열사 14 · 부패 6 · 군도 7)를 다 조사하면 돼요. 지도 돋보기로 남은 걸 찾아요.",
+    "「환경생물 모든 특수 크기 포획」: 희귀 생물은 멀어져도 크기가 안 바뀌어요. 리셋 방법은 공략 「맵별 환경생물·물고기 총정리」 금관 노리기를 보세요.",
+    "글라이딩 챌린지 상급(태풍): 어렵지만 다른 과제보다 포인트 대비 낫다는 의견이 많아요. 솜털까지 직선 말고 상승 기류를 따라가고, 패드·키보드를 연결하면 훨씬 쉬워요.",
+    "■ 거목의 벌판",
+    "플래티넘(전설 속 여행자)까지 순서·사진 위치는 공략 「거목의 벌판 플래티넘 훈장 따기」에 정리돼 있어요.",
+    "챌린지 퀘스트: 리오레이아 모든 특수 체형(150) · 융광종 도스쟈그라스 모든 특수 체형(150) · 네잎클로버모그이 모든 특수 크기(150) · 융광종 대형 몬스터 50마리(200) · 잠든 리오 부부와 제스처 사진(150) · 박스 댄스 + 잘린 푸케푸케 꼬리 사진(150) · 흔적 9개(120) · 생태 활동 사진 3종(100).",
+    "푸케푸케 꼬리 사진: 꼬리를 자르고 꼬리 뒤에서 박스 댄스를 해서 꼬리가 다 보이게 찍으면 깨졌다는 글이 있어요. 잡자마자 바로 가서 찍어도 됐대요. 안 깨진다는 제보도 계속 있어요(확인 중).",
+    "■ 열사 평원",
+    "@img:bn_15250_4",
+    "@img:bn_12539_3",
+    "챌린지 퀘스트: 쥬라토도스 모든 특수 체형(150) · 융광종 디아블로스 모든 특수 체형(150) · 흔적 14개(120) · 큰 어류 30마리 낚기(100) · 생태 활동 사진 3종(100) · 「세이프!」로 영역 다툼 중인 디아블로스·디아블로스 아종과 사진(150) · 「축하해」로 선인장 먹는 디아블로스와 사진(150).",
+    "「세이프!」 사진은 건너뛰세요 — 제스처가 업적 포인트 8,000점 보상인데, 11/13 기준 랭킹 1위가 6,900점이었어요. 열사는 여유 포인트가 있어서 이거 없이도 전설까지 가요.",
+    "@img:bn_12539_2",
+    "큰 어류 30마리: 열사 낚시터 6곳에서 먹보다랑어·도스 물고기 위주로. 전용 미끼로 다른 어종을 먼저 지우면 빨라요.",
+    "탐색 퀘스트 「날개 달린 물고기」 사진은 떠돌이구피가 아니라 갯벌눈물농어예요. 저녁에 물가에서 나와요(광무·먼지바람 저녁에 봤다는 글이 있어요).",
+    "■ 부패의 심연",
+    "@img:bn_15250_6",
+    "챌린지 퀘스트: 라도발킨 모든 특수 체형(100) · 융광종 오도가론 모든 특수 체형(100) · 환상뱀 모든 특수 크기 포획(80) · 흔적 6개(50) 등. 여유 포인트가 136밖에 없어서 거의 다 해야 해요.",
+    "환상뱀(광무 밤)은 희귀 생물이라 크기를 바꾸려면 다 잡거나, 안 나오는 시간·날씨로 바꿔 스폰 지점을 돈 뒤 다시 광무 밤으로 돌려야 해요. 마녀모자모그이(광무 낮·저녁)와 번갈아 돌면 조사 포인트가 덜 들어요.",
+    "필드 관찰 「산성 투구게」 촬영이 날씨·시간을 바꿔도 안 뜨면, 다른 지역을 다녀오거나 재접속하거나 다음 날 다시 해 보세요(버그 의심).",
+    "■ 찬란한 군도",
+    "@img:bn_15250_8",
+    "챌린지 퀘스트: 파오우르무 모든 특수 체형(150) · 융광종 레이기에나 모든 특수 체형(150) · 융광종 대형 몬스터 50마리(200) · 흔적 7개(100) · 가장 낮은 곳에서 일광욕하는 리오레이아 아종 사진(100) 등.",
+    "@img:bn_10671_3",
+    "리오레이아 아종 일광욕: 지도 가운데 소용돌이 안 가장 낮은 섬이 장소예요. 이 리오레이아 아종은 배회 몬스터라 빨간 범위를 날아다니고, 그 섬 근처에서 스폰된 개체만 일광욕하러 가요. 일광욕 전에 날아가기도 해서 운이 필요해요.",
+    "요령: 05:00 리셋 뒤 그 섬에 스폰됐는지 확인 → 없으면 그날은 넘기기. 친구 생태 정보 제공을 전부 리오레이아 아종으로 맞춰 두면 잘 나와요. 스폰 자리가 꽉 차면 안 나오니 필드 몹을 정리하고 다음 날 시도하세요. 카메라를 대고 과제 표시가 뜰 때까지 기다리면 돼요.",
+    "「화려한 댄스」 + 맹렬한 속도로 달리는 환상도롱뇽 사진: 3인칭 카메라를 켠 채 다가가 준비하세요. 도롱뇽이 알아채고 달리기까지 시간이 좀 걸려서 한 번에 되는 편이에요. 벽에 붙은 개체는 가까이 가면 사라져요.",
+    "「결정 포즈」 사진 = 승리 포즈예요(번역 차이). 거품모그이(강풍 낮·저녁)와 같이 찍는 과제예요.",
+    "낚시 특수 크기 과제는 은관·금관 물고기만 쳐서 오래 걸려요(90마리에 6마리 정도였다는 글). 해파리(올리미) 금관은 안 해도 전설까지 가요."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15250 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12539 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16682 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20139 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19878 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12132 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17504 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=14549 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19235 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17808 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12000 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17334 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16263 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15498 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17207 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=10671 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18747 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18819 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=14253 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19938 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19493 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17857"
   }
  ],
  "sim": {
