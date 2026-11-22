@@ -1295,6 +1295,7 @@ nav.subnav button{flex:none!important;white-space:nowrap}
  .bar #t,.bar #e{flex-wrap:wrap!important;overflow:visible!important}
 }
 
+.life .lbait,.life .lhow{font-size:12.5px;margin-top:4px;line-height:1.45;color:var(--muted,#888)}.life .lbait b{color:inherit}.life .szdb{display:block;font-size:11px}.nb{white-space:nowrap}
 .ltip{padding:12px 16px!important}.ltip summary{cursor:pointer;list-style:none}.ltip summary::-webkit-details-marker{display:none}.ltip summary::after{content:' ▾';color:var(--accent)}.ltip[open] summary::after{content:' ▴'}.ltip ul{margin:10px 0 0}
 @media (max-width:700px){.bar .row{flex-wrap:wrap!important}.bar #t,.bar #e{min-width:0;flex:1 1 0;display:flex;gap:6px}#lvrow{display:flex!important;flex-wrap:wrap!important;align-items:center!important;grid-template-columns:none!important}#lvrow #lvinfo{flex-basis:100%!important;order:3;display:block}#lvrow #lv{width:80px}#lvrow .fit{flex-basis:100%;order:4}}
 
@@ -1577,7 +1578,7 @@ function renderLife(){
     const only=rows.filter(x=>x.w.length===1).length;
     return `<section class="world"><h3>${w}<small>${rows.length}종 · 이 월드에만 있는 생물 ${only}종</small></h3><div class="tw"><table>
     <thead><tr><th>이름</th><th>분류</th><th>출현 시간</th><th>어디서 찾나</th><th>사용 효과</th><th>크기(최소~최대)</th></tr></thead><tbody>
-    ${rows.map(x=>`<tr><td class="kr"><span class="nm">${PHT(x.n,'sm')}<span>${esc(x.n)}${IMG(x.n)}${x.w.length===1?'<span class="only">전용</span>':''}</span></span></td><td class="cat${x.c==='환경생물'?' dflt':''}">${esc(x.c)}</td><td${/^(언제든지|—)$/.test(x.t)?' class="dflt"':''}>${esc(x.t)}</td><td class="loc${x.loc?'':' dflt'}">${x.loc?esc(x.loc):'<span class="cat">어디서나 / 설명 없음</span>'}</td><td class="${x.e!=='—'?'fx':'cat dflt'}">${esc(x.e)}</td><td class="num${x.mx==='—'?' dflt':''}">${x.mx==='—'?'—':esc(x.mn)+'~'+esc(x.mx)}</td></tr>`).join('')}
+    ${rows.map(x=>`<tr><td class="kr"><span class="nm">${PHT(x.n,'sm')}<span>${esc(x.n)}${IMG(x.n)}${x.w.length===1?'<span class="only">전용</span>':''}</span></span></td><td class="cat${x.c==='환경생물'?' dflt':''}">${esc(x.c)}</td><td${/^(언제든지|—)$/.test(x.t)?' class="dflt"':''}>${esc(x.t)}</td><td class="loc${x.loc||x.h||x.bait?'':' dflt'}">${x.loc?esc(x.loc):'<span class="cat">어디서나 / 설명 없음</span>'}${x.bait?`<div class="lbait">🎣 미끼 <b>${esc(x.bait)}</b>${x.pt?` · 연금 ${x.pt}P`:''}</div>`:''}${x.h?`<div class="lhow">💡 ${esc(x.h)}</div>`:''}</td><td class="${x.e!=='—'?'fx':'cat dflt'}">${esc(x.e)}</td><td class="num${x.mx==='—'?' dflt':''}">${x.mx==='—'?'—':'<span class="nb">'+esc(x.mn)+'~'+esc(x.mx)+'</span>'+(x.szdb?'<small class="cat szdb">해외 DB</small>':'')}</td></tr>`).join('')}
     </tbody></table></div></section>`;}).join('');
   const I=D.isle; const showIsle=lf.w==='전체'||lf.w==='찬란한 군도';
   const miss=showIsle?`<section class="world"><h3>군도 지역·수집<small>찬란한 군도 · 4번째 맵 · ${esc(I.unlock)}</small></h3><div style="padding:14px 16px;display:grid;gap:12px">
@@ -2220,7 +2221,7 @@ adv:'모험가별 최강 장비예요. "내 레벨"을 넣으면 그 레벨에�
 party:'GameWith 최강 편성 5개(속성별)와 커뮤니티에서 많이 쓰는 편성·운영 팁이에요. 메인 조작 1명 + 서브 3명 구성이에요.',
 mon:'둥지 사냥 과제 용어, 신규 보스 크샬다오라 풍압 대비, 융광종이 일반 몬스터와 뭐가 다른지, 몬스터별 약점 속성(일반 vs 융광종), 융광종 소형 몬스터 위치예요.',
 art:'위에서 내 삽화 단계(희귀·영웅·전설)를 고르면 카드가 그 단계에 맞게 바뀌어요. 전설 단계에선 코스트별 주옵션·부옵션까지, 서브로 쓸 때 바꿀 세트도 같이 보여줘요.',
-life:'4개 맵의 환경생물과 수중 생물이에요(찬란한 군도는 게임 도감에 있는 7종만, 출현 정보는 아직 없어요). 출현 시간·찾는 위치·사용 효과·크기를 월드별로 볼 수 있어요.',
+life:'4개 맵의 환경생물과 물고기예요. 출현 시간·찾는 위치·잡는 요령·미끼·크기를 월드별로 볼 수 있어요.',
 gift:'모험가별로 어떤 인연 선물이 제일 효과적인지 정리했어요. 왼쪽부터 주면 돼요(좋아하는 선물 중 상승량 대 → 중 → 소).',
 item:'게임 아이템 아이콘 목록이에요. 특산품·조합 소재·약품·소모품·미끼·이너웨어·채집 도구를 분류별로 볼 수 있고, 페이지 곳곳의 아이템 이름에도 같은 아이콘이 붙어요.',
 gather:'마라두부 공장(고추·헤븐 베리·섬 진품쌀) 자리와, 출장 채집 시설 위치예요. "출장 시설"에서 맵·종류·재료를 고르면 시설 사진과 나오는 재료가 같이 보여요.'};
@@ -2441,7 +2442,7 @@ const RELB={chore:['quest-tips','exchange-must','dc-19466','research-alchemy'],t
  hero:['final-weapon-type-1118','tips-hero','hero-awaken-box','dc-17691','element-weakness','dc-17611','dc-17436'],adv:['final-adv-1118','tips-adv','dc-17115'],art:['final-art-1118','illust-guidance','dc-16947'],
  sim:['final-armor-1118','tips-hero','gear-filter','dc-10703'],party:['dc-3940','dc-8838'],buddy:['dc-9399','dc-16756'],gift:['quest-tips'],
  mon:['tips-ruler','dc-17400','dc-17575','dc-13921','dc-15624','dc-5164','chichi-master','arena-ruler-swap','dc-5614'],explore:['dc-18142','time-skip','glider-boost','dc-6279','rathian-nest','dc-17881','dc-10137'],
- life:['tips-life','dc-16479','dc-10723','dc-11116','dc-8946','tips-dex'],gather:['dc-16938','dc-19324','white-herb','ore-zeni','survival-trait','dc-10373'],item:['item-shortcut','dc-17987']};
+ life:['life-maps','tips-life','dc-16479','dc-10723','dc-11116','dc-8946','tips-dex'],gather:['dc-16938','dc-19324','white-herb','ore-zeni','survival-trait','dc-10373'],item:['item-shortcut','dc-17987']};
 const CHREL={'연속 조사 사냥*':'tips-title','현상금 챌린지':'bounty-midori','마스터 격투장':'arena-ruler-swap','조사 포인트 연금·교환':'research-alchemy','물자 관리소 구매':'tralli-shop','삽화 필드 사냥':'final-art-1118','둥지 사냥 과제':'dc-14143','시련 원정 (원정의 길)':'tips-hero','시련 원정 주간 리셋':'tips-hero','상점 제니 수령':'exchange-must'};
 function goPost(id){enterTab('guide');st.g='guide';GP=id;save();render();window.scrollTo({top:0});navPush();}
 function relStrip(){const ids=(RELB[st.g]||[]).filter(id=>(D.board||[]).some(b=>b.id===id));if(!ids.length)return;const g=document.getElementById('grid');if(!g||g.querySelector('.relb'))return;
