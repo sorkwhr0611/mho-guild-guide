@@ -15729,6 +15729,20 @@
      "11/22",
      "공략 업데이트",
      [
+      "류노스케 폭식 버그 · 낚시 금관 외",
+      "류노스케: 비전투 중 폭식이면 아무것도 못 해요 (섬광 주의)",
+      "프레야 공식 무빙셋 영상 · 전용 동반자 오의는 수면",
+      "낚시 금관: 전용 미끼로 다른 어종 지우기 · 물고기 리필",
+      "마취 발사 장치 같이 써지는 버그 · 락온 몸통 조준",
+      "회심 70%까지 + 나머지 속성 · 돌격형 vs 교란형",
+      "팬 도구 Scrcpy Launcher (PC 키마·긴급퀘 플래너)"
+     ],
+     "dc-20188"
+    ],
+    [
+     "11/22",
+     "공략 업데이트",
+     [
       "거목 플래티넘 훈장 · 대미지 계산식 외",
       "거목의 벌판 플래티넘 훈장 공략 (사진 13장 · 모그이·시조새 위치)",
       "대미지 계산식: 「주는 대미지 +%」가 제일 효율 좋아요",
@@ -22719,12 +22733,16 @@
     "■ 화면 보는 법 · 헤보가 약하게 느껴질 때",
     "산탄 쓸 때 총알 아래 빨간 바 — 스킬2 특수탄 장전 수예요. 스킬3 난사를 써도 줄지 않아요.",
     "탄은 근접 무기보다 육질 영향을 더 받아서 몸이 단단한 몬스터에겐 딜이 덜 들어가요. 육질이 무른 몬스터에겐 잘 박혀요.",
-    "안쟈나프 같은 수룡종은 다리를 부위 파괴해 넘어뜨리는 역할로 쓰면 파티에 도움이 많이 돼요."
+    "안쟈나프 같은 수룡종은 다리를 부위 파괴해 넘어뜨리는 역할로 쓰면 파티에 도움이 많이 돼요.",
+    "■ 탄 바꾸기 · 특수탄 게이지",
+    "특수탄(스킬2) 버튼을 꾹 누르면 탄종을 바꿀 수 있어요. 다만 바꾼 탄은 탄창이 2발뿐이래요(제보).",
+    "탄마다 특수탄 게이지가 차는 양이 달라요. 통상탄만 쓰면 특수탄 채우는 데 오래 걸려서, 최소한 산탄은 끼우라는 의견이 많아요.",
+    "쥬라토도스·디아블로스처럼 관통탄이 잘 먹히는 몬스터는 특수탄을 아끼고 관통탄만 쏘는 게 오히려 더 셀 수 있대요(제보)."
    ],
    "images": [
     "bx_hbg-ammo_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16580 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19755 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19888 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19867"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16580 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19755 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19888 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19867 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20207 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20219"
   },
   {
    "id": "hbg-newbie",
@@ -23043,17 +23061,21 @@
    "id": "item-shortcut",
    "cat": "생활·편의",
    "title": "포획용 마취 발사 장치 등록하기",
-   "date": "11-02",
+   "date": "11-22",
    "lines": [
     "주머니 → 아래 아이템 등록으로 들어가요.",
     "원하는 칸에 마취 발사 장치를 넣으면 돼요.",
-    "필드에서는 회복약 버튼을 꾹 누르면 등록한 숏컷이 떠서 골라 쓸 수 있어요."
+    "필드에서는 회복약 버튼을 꾹 누르면 등록한 숏컷이 떠서 골라 쓸 수 있어요.",
+    "■ 주의: 마취 발사 장치 버그 (제보)",
+    "둥지 사냥에서 다른 사람이 마취 발사 장치를 쏘면 내 것도 1개씩 같이 써지는 버그가 있어요.",
+    "11/22엔 갖고 있던 60개가 한꺼번에 깔리며 다 써졌다는 제보도 있어요. 수정 전까진 많이 들고 다니지 마세요.",
+    "포획하면 갈무리보다 소재를 더 주고 조사 포인트도 받아요. 꼬리를 잘라 갈무리해야 하면 파티에 미리 말해 두세요."
    ],
    "images": [
     "bd_3802_3",
     "bd_3802_4"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3802"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3802 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20253"
   },
   {
    "id": "hide-helmet",
@@ -23558,7 +23580,7 @@
   {
    "id": "tips-adv",
    "cat": "모험가",
-   "title": "모험가 장비·각인 팁 15가지",
+   "title": "모험가 장비·각인 팁 16가지",
    "date": "11-22",
    "lines": [
     "코어 패시브부터 읽고 스탯을 정해요 — 모험가 정보의 코어 패시브 설명에 그 캐릭터가 원하는 스탯이 다 나와요. 미도리는 회심·속성 회심 대미지, 페페는 물속성 공격, 케레스는 회심 계열이지만 오의 디버프가 걸려 있을 때만 대미지가 올라요.",
@@ -23575,13 +23597,14 @@
     "미도리 「무한의 선율」 저스트 입력 — 리듬게임처럼 원이 나오고, 원이 빨갛게 될 때 누르면 돼요. 판정이 널널하고, 성공하면 「찰나의 간파」·「찰나의 대간파」가 떠요.",
     "동료 동반자는 SSR이면 충분해요 — 직접 조작하지 않는 동료의 동반자는 그냥 SSR 동반자를 끼우면 돼요. 전용 동반자가 아니어도 괜찮고, 브릭스에겐 제압 시간 +15% 동반자를 쓴다는 제보가 있어요.",
     "아케니아 회심 버프는 오의만 파티 전체 — 오의 설명의 회심 증가는 파티 전체에 걸리지만, 코어 패시브의 \"오의 발동 시 추가 회심\"은 아케니아 본인만 받는다는 제보가 있어요(확인 중).",
-    "미도리 회피 7·연기 4 vs 불속 7 — 공략 사이트엔 회피 강화 7 + 연기 4가 최고로 나와요. 발도일섬은 버프 시간이 갱신되지 않아 필살기 3타째에 버프가 꺼지거나 첫 1타에 버프가 안 붙는 문제가 있어서래요. 다만 가만히 맞고 서 있는 몬스터가 많아 회피 발동이 어렵다면, 불속 7 + 연기 4가 더 편하다는 의견도 많아요."
+    "미도리 회피 7·연기 4 vs 불속 7 — 공략 사이트엔 회피 강화 7 + 연기 4가 최고로 나와요. 발도일섬은 버프 시간이 갱신되지 않아 필살기 3타째에 버프가 꺼지거나 첫 1타에 버프가 안 붙는 문제가 있어서래요. 다만 가만히 맞고 서 있는 몬스터가 많아 회피 발동이 어렵다면, 불속 7 + 연기 4가 더 편하다는 의견도 많아요.",
+    "돌격형 vs 교란형 딜은 몬스터 따라 달라요 — 오의 게이지는 몬스터 체력을 깎는 만큼 차요. 약한 몬스터는 오의가 자주 돌아서 오의 뒤 딜이 강한 교란형(예: 케레스 뼈가시)도 돌격형만큼 나와요. 고룡처럼 단단하거나 제약(모험가 대미지 감소 · 체력 증가)이 붙으면 오의가 늦게 차서, 기본 딜이 꾸준한 돌격형이 더 유리해요."
    ],
    "images": [
     "bt_adv_1",
     "bt_adv_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3501 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19709 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19892 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19956 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20044"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3501 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19709 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19892 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19956 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20044 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19301"
   },
   {
    "id": "tips-hero",
@@ -23617,7 +23640,7 @@
     "지배자 무기 각성은 너무 고민 안 해도 돼요 — 최종 강화·각성이 끝나면 제련으로 각성 옵션이 전부 랜덤으로 다시 굴러가요. 지금은 회심이든 속성이든 올리고, 제련에서 잘 뜬 걸 쓰는 게 정답이라는 의견이 많아요. 각성 제련 옵션 5개를 전부 주황(최고 등급)으로 맞추는 '졸업'까지 무리하지 말라는 의견이 많아요 — 시즌이 끝나면 제련 옵션이 사라진다는 말이 있어서예요(확인 중).",
     "각성 되돌리겠다고 분해하지 마세요 — \"1일차로 돌아가면 안 할 짓\"으로 지배자 무기 분해가 꼽혀요. 각성은 제련으로 다시 돌릴 수 있어요.",
     "휘광의 결정을 아껴 쓰세요 — 지배자 무기 강화에 휘광의 결정이 많이 들어가고, 일반 무기도 12레어부터 휘광의 결정이 필요해요. 제니가 많으면 3만 제니 두루마리 퀘스트를 챙기세요.",
-    "두 번째 지배자 무기는 다른 속성으로 — 첫 무기를 불로 만들었다면 두 번째는 용속성처럼 다른 속성으로 만드는 경우가 많아요. 주인공 쌍검 세팅 글에서도 \"지배자 12티어 2개를 쓰라\"고 추천해요. 두 번째 재료를 어느 난이도에서 주는지는 확인 중예요.",
+    "두 번째 지배자 무기는 다른 속성으로 — 첫 무기를 불로 만들었다면 두 번째는 용속성처럼 다른 속성으로 만드는 경우가 많아요. 주인공 쌍검 세팅 글에서도 \"지배자 12티어 2개를 쓰라\"고 추천해요. 헤보라면 제작 용속성·얼음속성 헤보가 약해서 지배자 헤보는 용속성으로 많이 만들어요. 두 번째 재료를 어느 난이도에서 주는지는 확인 중예요.",
     "무기 종류별 신화 각인 차이 — 신화 각인은 대검·태도·해머·헤보·활이 대부분 \"융광종 한정\" 효과라 아쉽고, 차지액스는 조건 없이 강한 각인 2개를 받아서 차액 유저는 차액으로 만드는 게 좋다는 평가예요.",
     "지배자 루가 에알다는 대부분 한 방이에요 — 섬광을 챙겨 2페이즈에 하늘로 오를 때 떨어뜨리고, 정기환을 10개쯤 만들어 가세요. 몬스터가 서브 모험가를 노릴 때가 모으기 공격 타이밍이에요. 쓰러졌다 돌아갈 땐 몬스터가 아직 공격 중인지 보고 들어가세요. 11/20 하향 뒤에도 모으기 기술과 바닥이 갈라지며 오는 공격은 레어 11 풀강 방어구여도 한 방이래요(가호가 터져도 80~90% 닳아요). 낙석은 딜 타임 벌기용이고, 페이즈가 바뀌며 날아오를 땐 섬광이 쉬워요.",
     "지배자 긴급 의뢰는 하루 20번이 천장 — 의뢰서를 하루 20번(전설 2·영웅 4·일반 14) 다 하면 그날 보상을 다 받아요. 60만 제니를 쓰면 약 50만 제니가 돌아와요. 덧입기 15개(3세트)를 다 모으면 전설 보상이 광요 코인 500 + 20만 제니로 바뀌어요.",
@@ -23631,7 +23654,7 @@
     "bt_ruler_1",
     "bt_ruler_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12225 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19882 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19937 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19945 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20128"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12225 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19882 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19937 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19945 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20128 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20195 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20199"
   },
   {
    "id": "tips-life",
@@ -23925,7 +23948,7 @@
    "id": "dc-17691",
    "cat": "무기·세팅",
    "title": "제작 무기 14강엔 휘광의 결정 47개 (단계별 개수 · 분해 회수)",
-   "date": "11-21",
+   "date": "11-22",
    "lines": [
     "제작(일반) 최종 무기를 14강까지 올리는 데 지배자 재료인 휘광의 결정(Radiant Crystal)이 총 47개 들어가요.",
     "강화 단계별 휘광의 결정: 11→12강 12개 · 12→13강 15개 · 13→14강 20개 (합계 47개). 11강까지는 결정 없이 올라가요.",
@@ -23934,13 +23957,15 @@
     "레벨 제한은 무기 상관없이 전부 56으로 같아요.",
     "휘광의 결정은 지배자 무기 강화에도 쓰니, 제작 무기까지 14강할 거면 미리 아껴 두세요.",
     "실수로 다른 무기를 강화했어도, 분해하면 강화에 쓴 결정을 돌려받았다는 제보가 있어요. 일반(제작) 무기는 분해하면 재료가 전부 돌아온다는 정보도 있어요.",
-    "그래서 지배자 무기 2개는 강화·각성 5 상태로 두고, 부족한 속성은 일반 무기 Lv13을 만들어 쓰다가 분해하는 방법이 재료 절약이 된대요. 이렇게 해서 콘텐츠 32단계까지 문제없었다는 후기예요(일본 유저 정보라 확인 중)."
+    "그래서 지배자 무기 2개는 강화·각성 5 상태로 두고, 부족한 속성은 일반 무기 Lv13을 만들어 쓰다가 분해하는 방법이 재료 절약이 된대요. 이렇게 해서 콘텐츠 32단계까지 문제없었다는 후기예요(일본 유저 정보라 확인 중).",
+    "마이 세트에 저장된 무기는 장비 분해 목록에 안 떠요. 세트에서 지운 뒤 분해하세요(제보).",
+    "분해하면 휘광의 결정은 돌려받지만 나머지 재료는 다시 모아야 했다는 제보도 있어요(확인 중)."
    ],
    "images": [
     "bn_16974_1",
     "bn_19284_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17691",
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17691 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20203",
    "wt": "공통"
   },
   {
@@ -24818,11 +24843,16 @@
     "지금 단계에선 회심보다 대미지 보너스를 올리는 게 더 효율이 좋다는 분석이에요.",
     "주인공은 최종 대미지가 곱연산으로 5% 낮게 보정돼요 (1.35배 → 1.2825배).",
     "전설 삽화 옵션이 있어야 의미 있는 차이라, 삽화부터 챙기는 게 먼저예요.",
+    "■ 회심 vs 속성 대미지, 어디까지 올릴까 (11/22 의견)",
+    "회심은 70%쯤부터 효율이 크게 떨어져요. 그래서 회심 70%까지만 맞추고 나머지는 속성 대미지로 채우는 게 제일 좋다는 분석 영상이 있어요.",
+    "융광종 상대로는 속성 대미지를 몰아주는 게 더 세고, 고룡·일반 몬스터는 회심과 속성을 고르게 맞추는 게 더 세다는 의견이 많아요.",
+    "엔쇼우·로드처럼 코어 패시브가 속성 대미지인 모험가도 코어 패시브 증가폭이 생각보다 작아서, 굳이 속성만 몰 필요는 없대요. 기념품 각인은 속성 대미지가 정석이에요.",
+    "아웃랜더스는 속성 각인 덕에 속성을 높게 맞추면 기본 딜이 크게 올라요. 그래서 높아진 속성 딜에 회심이 터지게 해 주는 회심격【속성】이 좋은 평가를 받아요.",
     "■ 영상",
     "대미지 계산 구조와 주인공 보정을 설명하는 영상이에요. 1:1:1 균형 그래프 부분을 보세요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20143 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20146 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15299"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20143 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20146 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15299 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20017 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20213"
   },
   {
    "id": "dc-20165",
@@ -24841,6 +24871,128 @@
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20165"
+  },
+  {
+   "id": "dc-20188",
+   "cat": [
+    "모험가"
+   ],
+   "title": "류노스케 폭식 버그 (비전투 중엔 아무것도 못 해요)",
+   "date": "11-22",
+   "wt": "태도",
+   "lines": [
+    "■ 증상",
+    "류노스케의 폭식 상태는 납도 판정이고, 폭식 중엔 일반 공격을 못 써요. 스킬 1·2·3으로 발도하면서 공격해야 해요.",
+    "그런데 모든 캐릭터는 비전투 + 납도 상태에선 스킬을 못 쓰고, 일반 공격으로 먼저 발도해야 해요.",
+    "그래서 비전투 중에 폭식 상태가 되면 스킬도 일반 공격도 막혀서 앉기·구르기밖에 못 해요.",
+    "@img:bn_20188_1",
+    "■ 자주 생기는 상황",
+    "전투가 시작되기 전에 누가 섬광부터 터뜨리면 전투 진입으로 안 쳐줘서, 섬광이 풀릴 때까지 류노스케는 아무것도 못 해요. 멀티에선 시작하자마자 섬광을 쓰는 사람이 많아요.",
+    "폭식 중에 몬스터가 다른 구역으로 이동하려 해도 비전투로 바뀌어서 못 때려요.",
+    "저스트 회피를 해도 폭식 상태가 그대로 유지돼서 이 상황에선 풀리지 않아요.",
+    "■ 이렇게 하세요",
+    "파티에 류노스케가 있으면 섬광은 전투가 시작된 뒤에 쓰세요.",
+    "빨리먹기 스킬은 폭식의 먹는 모션엔 적용이 안 되는 것 같대요(제보). 회피 공격과 폭식 2스킬을 맞추면 게이지가 계속 차서 먹는 모션을 볼 일이 거의 없어요.",
+    "버그라 수정되면 이 글을 고칠게요(수정 확인 중)."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20188"
+  },
+  {
+   "id": "dc-20220",
+   "cat": [
+    "모험가"
+   ],
+   "title": "프레야 공식 무빙셋 영상 · 전용 동반자 오의는 수면",
+   "date": "11-22",
+   "wt": "대검",
+   "yt": "lbb0fQKdsk8",
+   "lines": [
+    "■ 한눈에 보기",
+    "11/27 해금되는 프레야(불 · 대검 · 교란형)의 공식 무빙셋 영상이에요(해외 공식 채널).",
+    "대검인데 가드가 되고, 회피·점프 동작까지 있어서 움직임이 가벼워요.",
+    "기술 이름과 순서는 프레야 미리보기 글을 같이 보세요. 심화 단계 올리기 → 회전 납도*로 받아내기 → 3단계에서 용파 베기* 흐름을 떠올리며 보면 이해가 쉬워요.",
+    "■ 전용 동반자 오의는 수면",
+    "프레야 전용 동반자의 오의는 수면이에요. 잠재운 뒤 셀프로 수면 큰 공격(수면 참)까지 할 수 있대요.",
+    "■ 키우기 전에 제니 모으기",
+    "모험가 1명을 80레벨 + 각인 전부 + 동반자 만렙까지 올리면 제니가 약 1,200만 든다는 제보가 있어요. 적당히 쓸 정도로만 키워도 500만쯤은 모아 두라는 의견이에요.",
+    "동반자 70 → 80에만 제니가 약 160만 들어요(제보).",
+    "* = 해외판 영문을 옮긴 임시 번역"
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20220 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20232 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20226"
+  },
+  {
+   "id": "dc-20116",
+   "cat": [
+    "채집·탐색"
+   ],
+   "title": "낚시 금관 노리기 (미끼 고르기 · 물고기 다시 채우기)",
+   "date": "11-22",
+   "lines": [
+    "■ 한눈에 보기",
+    "모든 어류의 최대·최소 금관을 모으면 훈장 「낚시 사범」을 받아요(화면 기준 전체 서버 0.01%만 얻었어요).",
+    "@img:bn_20116_2",
+    "■ 미끼 고르기",
+    "풍뎅이 미끼는 모든 어종이 놀람 수치를 같이 써서, 몇 번 던지면 낚시터 물고기가 다 도망가요.",
+    "특정 어종 전용 미끼는 그 어종만 놀람 수치가 쌓여요.",
+    "금관을 노리는 어종이 있으면: 다른 어종 미끼로 나머지 물고기를 먼저 다 낚아 지우고 → 목표 어종 미끼만 던지세요.",
+    "금관인지는 낚기 전엔 알 수 없어서, 보이는 건 다 낚는 게 좋아요.",
+    "@img:bn_20116_1",
+    "■ 물고기 다시 채우기",
+    "멀리 있는 캠프까지 갔다가 시간을 바꾸고 다시 오면 낚시터 물고기가 다시 채워져요.",
+    "탐색 도감 → 수중 생물에서 어종별 포획 최대·최소 크기를 확인할 수 있어요.",
+    "@img:bn_20116_3"
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20116"
+  },
+  {
+   "id": "dc-20212",
+   "cat": [
+    "초보·시스템"
+   ],
+   "title": "락온으로 몸통 조준하기",
+   "date": "11-22",
+   "lines": [
+    "락온 버튼을 꾹 누른 채 방향을 움직이지 않고 떼면 가운데(몸통)가 조준돼요.",
+    "원거리 무기로 고개 든 머리를 노리다 허공을 칠 때 몸통으로 바꾸면 편해요.",
+    "화살·탄은 날아가는 시간이 있어서, 몬스터가 크게 움직이면 몸통을 노려도 빗나갈 수 있어요."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20212"
+  },
+  {
+   "id": "dc-19891",
+   "cat": [
+    "생활·편의"
+   ],
+   "title": "PC 모니터로 키마·패드 플레이 (Scrcpy 런처)",
+   "date": "11-22",
+   "lines": [
+    "■ 한눈에 보기",
+    "안드로이드 폰 화면을 PC 모니터(16:9 전체 화면)에 띄워 키보드+마우스나 엑박·플스 패드로 할 수 있게 해 주는 무료 팬 도구예요(scrcpy 기반). 앱플레이어처럼 PC에 게임을 따로 깔지 않고 폰 성능을 그대로 써요.",
+    "받는 곳: GitHub 「TKay76/ScrcpyLauncher」 Releases. v1.3.0 이상이면 런처 위쪽 [업데이트] 버튼으로 바로 업데이트돼요.",
+    "@img:bn_19166_1",
+    "■ 조작 모드",
+    "키보드+마우스: 기본 프리셋이 들어 있어요(WASD 이동, Shift 질주, 마우스로 시점 회전, 좌·우클릭, 스킬 동시 입력).",
+    "Tab(부위 조준)·G(아이템·헤보 탄 휠)를 꾹 누른 채 마우스를 원하는 방향으로 살짝 움직였다 떼면 바로 골라져요.",
+    "게임패드: PC에 꽂은 패드를 폰이 바로 인식해요. 일반 미러링: 터치·영상 보기용이에요.",
+    "무기별 키 세팅을 저장해 두고 게임 중 Ctrl + F1~F9로 바로 바꿀 수 있어요. [코드 복사]로 내 키 세팅을 한 줄 코드로 나눌 수 있어요.",
+    "■ 긴급 퀘스트 플래너 (Beta · v1.5)",
+    "@img:bn_19891_1",
+    "① 게임에서 퀘스트 창을 열고 긴급 퀘스트를 하나씩 누르며 F8 → 10개 모으는 데 15초쯤 걸려요.",
+    "② [퀘스트 플래너] 탭에 한 번에 같이 깰 수 있는 조합이 많은 순으로 떠요. 포획·토벌 호환, 융광종 = 같은 지역 종족 사냥으로 합산(융광종은 포획 불가)까지 계산해 줘요.",
+    "③ 깬 조합은 [✓ 완료]로 비우고, 새로 받은 퀘스트만 F8로 추가하면 돼요.",
+    "v1.5.3에서 원거리·근접 퀘스트가 한 카드로 묶이던 버그와 둥지 퀘스트가 필드 조합에 섞이던 버그를 고쳤고, 지역마다 실제로 나오는 몬스터만 보여 줘요.",
+    "한국어 Windows 10/11 + 한국어 게임 화면 + 16:9 해상도(1920×1080, 2560×1440) 기준으로 맞춰져 있어요.",
+    "■ 지연이 심할 때",
+    "USB 유선 기준 지연은 20~40ms 정도래요. 1초쯤 밀리면 USB 3.0(파란 단자) 이상이나 USB-C 단자에 꽂고, 코덱 h264 · 10~12Mbps · 「폰 화면 끄기」 해제로 바꿔 보세요.",
+    "채집(F) 중에 시점을 돌리면 그 뒤로 시점이 안 돌아가는 증상이 있어요. 커서 숨김 키를 빠르게 두 번 누르거나 F를 여러 번 누르면 풀린대요(제보).",
+    "폰을 TV에 바로 연결하는 방법은 「폰 화면을 TV로 미러링해서 패드로 하기」 글을 보세요."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19891 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19166"
   }
  ],
  "sim": {
