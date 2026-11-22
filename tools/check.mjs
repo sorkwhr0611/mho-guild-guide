@@ -108,7 +108,7 @@ if (br) try {
     if (w === 390 || w === 1280) for (const b of D.board || []) {
       await p.evaluate((id) => { go("guide"); GP = id; render(); }, b.id); await p.waitForTimeout(120);
       const r = await p.evaluate(CHECK); for (const x of r) F(`[${w}px · 공략 「${b.title}」] ${x}`);
-      const bad = await p.evaluate(async () => { const im = [...document.querySelectorAll("#grid img")]; await Promise.all(im.map((i) => i.decode().catch(() => 0))); return im.filter((i) => !i.naturalWidth).map((i) => i.getAttribute("src")); });
+      const bad = await p.evaluate(async () => { const im = [...document.querySelectorAll("#grid img")]; await Promise.all(im.map((i) => { i.loading = "eager"; return Promise.race([i.decode().catch(() => 0), new Promise((r) => setTimeout(r, 5000))]); })); return im.filter((i) => !i.naturalWidth).map((i) => i.getAttribute("src")); });
       for (const s of bad) F(`[${w}px] 공략 「${b.title}」 사진이 안 열려요: ${s}`);
       for (const e of errs.splice(0)) F(`[${w}px · 공략 「${b.title}」] 스크립트 오류: ${e}`);
     }
