@@ -1010,6 +1010,9 @@ header .kakao{grid-row:1;grid-column:2}
 .groster .wln2,.gadd textarea{width:100%;box-sizing:border-box}
 @media (max-width:600px){.gpc{padding:10px 12px}.gah .jf{min-width:0;flex:1 1 100%}}
 .gteam{display:grid;gap:12px}
+.gchw{position:relative;display:block}.gchpk{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:6px;padding:8px;max-height:280px;overflow:auto;background:var(--panel);border:1.5px solid var(--line);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.18)}.gchpk[hidden]{display:none}
+.gchop{display:flex;align-items:center;gap:6px;font:inherit;font-size:13.5px;font-weight:700;padding:5px 8px;border-radius:9px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;text-align:left;min-width:0}.gchop span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.gchop.on,.gchop:hover{border-color:var(--accent);background:var(--accent-soft)}
+
 .gtc2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.gtcl{display:grid;gap:3px;min-width:0}.gtcl span{font-size:12.5px;color:var(--muted)}
 @media (max-width:600px){.gtc2{grid-template-columns:minmax(0,1fr)}}
 .gsch{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;min-height:30px}.gchm{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;min-width:0}.gchm small{font-size:11px;font-weight:600;color:var(--muted)}.gchm.sub{font-weight:600;color:var(--muted)}
@@ -1867,11 +1870,10 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
     <p class="cat gnote">역할은 한 번만 입력하면 돼요. 길드전에서 주로 쓸 모험가의 유형(<b>돌격형 · 교란형 · 지원형</b>)을 고르세요. 아직 키우는 중이라 보조로 들어갈 거면 교란형이나 지원형을 고르면 돼요. 길마가 이걸 보고 파티를 고정으로 짜 둬요. 못 오는 주에만 <b>${md(up)} 불참</b>을 눌러 주세요.</p>
     <div class="gtf">${nickInput('gtnick')}<select id="gtrole" aria-label="역할">${[['atk','돌격형'],['dis','교란형'],['sup','지원형']].map(([v,l])=>`<option value="${v}"${myR&&(myR.r===v||(v==='atk'&&myR.r==='dps'))?' selected':''}>${l}</option>`).join('')}</select>
 </div>
-    <div class="gtc2"><label class="gtcl"><span>주력 캐릭터</span><input id="gtch" class="gnick" maxlength="40" list="dl_gch" placeholder="적거나 골라요 (예: 미도리 2돌)" value="${esc(myR&&myR.ch||'')}" autocomplete="off"></label>
-    <label class="gtcl"><span>서브 캐릭터</span><input id="gtch2" class="gnick" maxlength="40" list="dl_gch" placeholder="적거나 골라요 (예: 케레스)" value="${esc(myR&&myR.ch2||'')}" autocomplete="off"></label>
-    <datalist id="dl_gch">${GCHARS().map(n=>`<option value="${esc(n)}"></option>`).join('')}</datalist></div>
+    <div class="gtc2"><label class="gtcl"><span>주력 캐릭터</span><span class="gchw"><input id="gtch" class="gnick" maxlength="40" placeholder="눌러서 고르거나 적어요 (예: 미도리 2돌)" value="${esc(myR&&myR.ch||'')}" autocomplete="off"><span class="gchpk" hidden></span></span></label>
+    <label class="gtcl"><span>서브 캐릭터</span><span class="gchw"><input id="gtch2" class="gnick" maxlength="40" placeholder="눌러서 고르거나 적어요 (예: 케레스)" value="${esc(myR&&myR.ch2||'')}" autocomplete="off"><span class="gchpk" hidden></span></span></label></div>
     <div class="gtw"><span class="cat">쓸 수 있는 무기 (여러 개)</span>${GWPN.map(w=>`<button type="button" class="gwb${myR&&(myR.w||[]).includes(w)?' on':''}" data-w="${w}" aria-pressed="${!!(myR&&(myR.w||[]).includes(w))}">${w}</button>`).join('')}</div>
-    <div class="gtb"><button type="button" class="gbtn" id="gtsave">역할 저장</button><button type="button" class="gbtn2" id="gtabs">${md(up)} 불참</button><button type="button" class="gbtn2" id="gtback">불참 취소</button>${myR?'<button type="button" class="gbtn2" id="gtclr">내 역할 지우기</button>':''}</div>
+    <div class="gtb"><button type="button" class="gbtn" id="gtsave">역할 저장</button><button type="button" class="gbtn2" id="gtabs">${md(up)} 불참</button><button type="button" class="gbtn2" id="gtback">불참 취소</button><button type="button" class="gbtn2" id="gtreset">입력 초기화</button>${myR?'<button type="button" class="gbtn2" id="gtclr">내 역할 지우기</button>':''}</div>
     <div class="jmsg" id="gtmsg" role="status">${me?`${esc(me.name)} · ${myR?`지금 역할: ${GROLE[myR.r][0]}${myR.ch?' · 주력 '+esc(myR.ch):''}${myR.ch2?' · 서브 '+esc(myR.ch2):''}`:'아직 역할을 안 적었어요'}${A.has(me.id)?` · ${md(up)} 불참으로 표시됨`:''}`:''}</div></div>
    <div class="gtsum"><span>역할 입력 <b>${withRole.length}</b> / ${live.length}명</span><span class="grole gr-d">돌격형 ${cnt('atk')+cnt('dps')}</span><span class="grole gr-y">교란형 ${cnt('dis')}</span><span class="grole gr-s">지원형 ${cnt('sup')}</span>${cnt('any')?`<span class="grole gr-n">미정 ${cnt('any')}</span>`:''}${A.size?`<span class="gabs">${md(up)} 불참 ${A.size}명</span>`:''}</div>
    ${parties.length?`<div class="gtl">${parties.map(card).join('')}</div>`:`<p class="cat" style="margin:6px 0">아직 짜 둔 파티가 없어요.${GUILD.admin?' 아래 「파티 짜기」에서 자동 편성을 눌러 보세요.':' 역할을 입력해 두면 길마가 파티를 짜요.'}</p>`}
@@ -1884,6 +1886,14 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
   {const ni=$('gtnick');if(ni)ni.oninput=()=>{const v=ni.value.trim();const m=GUILD.roster.find(x=>gnorm(x.name)===gnorm(v));if(!m)return;const r=roles[m.id];
     if(r){$('gtrole').value=r.r==='dps'?'atk':r.r==='any'?'atk':r.r;$('gtch').value=r.ch||'';$('gtch2').value=r.ch2||'';el.querySelectorAll('.gwb').forEach(b=>{const on=(r.w||[]).includes(b.dataset.w);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});}
     msg(`${m.name} · ${r?`지금 역할: ${GROLE[r.r][0]}${r.ch?' · '+r.ch:''}`:'아직 역할을 안 적었어요'}${A.has(m.id)?` · ${md(up)} 불참으로 표시됨`:''}`);};}
+  /* 캐릭터 고르기: 칸을 누르면 전체 목록, 적으면 걸러서 보여줘요 */
+  ['gtch','gtch2'].forEach(id=>{const inp=$(id);if(!inp)return;const pk=inp.parentElement.querySelector('.gchpk');
+    const draw=all=>{const v=inp.value.trim();const L=GCHARS();const f=all||!v||L.includes(v)?L:L.filter(n=>n.includes(v)||v.includes(n));
+      pk.innerHTML=(f.length?f:L).map(n=>`<button type="button" class="gchop${v===n?' on':''}" data-ch="${esc(n)}">${PHT(n,'gci')}<span>${esc(n)}</span></button>`).join('');pk.hidden=false;
+      pk.querySelectorAll('.gchop').forEach(b=>{b.onmousedown=e=>e.preventDefault();b.onclick=()=>{inp.value=b.dataset.ch;pk.hidden=true;inp.focus();};});};
+    inp.onfocus=()=>draw(true);inp.onclick=()=>draw(true);inp.addEventListener('input',()=>draw(false));inp.onblur=()=>setTimeout(()=>{pk.hidden=true;},150);
+    inp.onkeydown=e=>{if(e.key==='Escape')pk.hidden=true;};});
+  if($('gtreset'))$('gtreset').onclick=()=>{['gtnick','gtch','gtch2'].forEach(i=>{if($(i))$(i).value='';});$('gtrole').value='atk';el.querySelectorAll('.gwb').forEach(b=>{b.classList.remove('on');b.setAttribute('aria-pressed',false);});gSet(GNICK,'');msg('입력 칸을 비웠어요. 저장된 역할은 그대로예요.');};
   const send=async(body,ok)=>{const nick=($('gtnick').value||'').trim();if(!nick){msg('게임 닉네임을 적어 주세요.');return;}gSet(GNICK,nick);
     try{const j=await guildApi('POST',Object.assign({nickname:nick},body));GUILD.team=j.team;GUILD.abs=j.abs;paintTeam();msg(ok);}catch(e){msg(gmsg(e));}};
   el.querySelectorAll('.gwb').forEach(b=>b.onclick=()=>{const on=!b.classList.contains('on');b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
