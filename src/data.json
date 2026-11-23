@@ -16763,6 +16763,19 @@
      "11/23",
      "공략 업데이트",
      [
+      "융광종 디아네로(흑디아) 방어구 · 융광 괴력",
+      "새 스킬 융광 괴력: 체력 상한 -5/-10/-60% · 대미지 +3/+6/+9%",
+      "세트 흑각룡의 배수: 체력 61 이하면 피해 +23% (사진 4)",
+      "분해 환불 정리 (혼옥·결정 전부 · 소재 절반) · 슈미르 관통 버프",
+      "현상금 해머 모으기 단계 · 미도리 깨달음 순서 · 마파두부 해금",
+      "추천 장비 GameWith 16시 갱신분 확인 — 바뀐 세트 없어요"
+     ],
+     "dc-20849"
+    ],
+    [
+     "11/23",
+     "공략 업데이트",
+     [
       "라야 운용 · 네르기간테 덧입기 · 마격 보상",
       "라야: 귀인화 → 선무승천 → 선무파공 콤보 정리 (사진 2 · 영상)",
       "덧입기 목록에 네르기간테 무기 덧입기 등장 (네르갈가우지 등)",
@@ -20295,6 +20308,14 @@
      [
       "귀마개",
       "본가의 '귀마개' 스킬. 아웃랜더스에선 방어구 스킬 「포효 내성」이에요."
+     ],
+     [
+      "흑디아 · 디아네로",
+      "흑각룡(디아블로스 아종). 게임 표기는 디아네로예요. 융광종 디아네로 방어구엔 융광 괴력·배수진 세트가 붙어요."
+     ],
+     [
+      "화사",
+      "화사장력. 체력이 낮을 때 대미지가 오르는 몬헌 전통 스킬을 부르는 말이에요. 아웃랜더스에선 흑각룡의 배수(배수진) 세트를 이렇게 불러요."
      ]
     ]
    }
@@ -24126,7 +24147,7 @@
   {
    "id": "bounty-brix",
    "cat": "무기·세팅",
-   "title": "현상금 챌린지: 브릭스 해머 운영",
+   "title": "현상금 챌린지: 해머 운영 (브릭스 · 주인공 · 로드)",
    "date": "11-23",
    "lines": [
     "철벽-선구(시작 시 실드 120) 또는 철벽-위압(실드 100% 초과 시 대미지 +64%) 중 하나를 골라요.",
@@ -24137,10 +24158,15 @@
     "■ 11/23 후기",
     "모험가 해머는 2차지로 머리만 쳐도 현상금 챌린지를 깰 수 있다는 후기가 여러 개예요. 로드 해머는 증기를 모으고 쳐야 해요.",
     "쌍검 증강 중 난무 범위 +100% · 대미지 +50%가 아주 세요. 이것 하나만 잡아도 3라운드까지 몹을 1분 안에 정리했다는 후기가 많아요.",
-    "첫 번째 증강만 신경 써서 고르면 나머지는 적당히 골라도 할 만해요. 태도처럼 첫 증강이 약한 무기라면 해머 모험가로 바꾸는 게 편해요."
+    "첫 번째 증강만 신경 써서 고르면 나머지는 적당히 골라도 할 만해요. 태도처럼 첫 증강이 약한 무기라면 해머 모험가로 바꾸는 게 편해요.",
+    "■ 주인공 해머 · 로드 (11/23)",
+    "주인공 해머는 증강 「끊임없는 연격」만 잡아도 거의 깬다는 후기가 많아요. 딜 증가 카드가 잘 안 나오면 기절 계열을 골라요.",
+    "해머 모으기 단계는 흰색 → 노란색 → 주황색 → 빨간색이에요. 노란색이 평소 쓰는 어퍼컷, 주황색이 모아 내려치기, 빨간색이 모으기 분쇄예요. 보통은 어퍼컷으로 운영하고, 모으기 분쇄에 슈퍼 아머가 붙는 증강을 먹었을 때만 풀차지를 써요.",
+    "로드는 실드 증강과 슈퍼 아머 증강을 꼭 챙겨요. 모션이 느려서 슈퍼 아머가 없으면 많이 끊겨요.",
+    "현상금 디아블로스에게 음폭탄·섬광 벌레를 연속으로 쓰면 땅속으로 숨어서 안 나올 수 있어요(제보)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=4031 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20669"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=4031 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20669 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20782 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20789 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20816 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20796"
   },
   {
    "id": "bounty-greatsword",
@@ -24214,6 +24240,8 @@
     "로드 해머는 '머리만 치는 해머'보다 특수 납도를 계속 쓰는 해머라고 생각하고 운영하라는 조언이 있어요(제보).",
     "단계별 약점 제보: 1단계 얼음·물 · 2단계 불·불 · 3단계 얼음·얼음 · 4단계 불·불(제보). 지난 회차보다 쉽다는 후기가 많아요.",
     "2단계 융광종 쟈그라스가 생각보다 단단해서, 1단계는 주인공 · 2단계는 미도리를 넣는 게 좋았다는 후기예요.",
+    "4단계 융광종 레이기에나를 차지액스로 칠 땐, 넘어뜨리거나 떨어뜨려 다운됐을 때 배 안쪽으로 들어가 왼쪽 날개를 록온하고 오의 초고출력을 쓰면 양 날개가 다 부서진다는 팁이 있어요(제보).",
+    "2단계 융광종 도스쟈그라스가 볼보로스보다 단단해서, 해머로 배를 쳐도 잘 안 터지면 미도리로 바꾸라는 후기가 또 있어요.",
     "■ 1파티 장비를 2파티로 옮기기",
     "1파티를 깨고 2파티를 시작하자마자 나오면, 다음엔 2파티부터 「이어하기」가 돼요. 이때 1파티 캐릭터의 장비를 벗겨 2파티 캐릭터에 끼울 수 있어요.",
     "예: 지배자 불 태도를 1파티 주인공이 쓰고, 2파티에선 미도리에게 옮겨 다시 써요. 여러 명이 확인했지만 막힐 수도 있어요.",
@@ -24231,7 +24259,7 @@
     "bx_arena-ruler-swap_1",
     "bx_arena-ruler-swap_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=8329 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20291 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20277 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20333 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20569 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20564 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20678 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20688 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20705 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20734 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20718 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20743"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=8329 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20291 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20277 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20333 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20569 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20564 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20678 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20688 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20705 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20734 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20718 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20743 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20806 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20774"
   },
   {
    "id": "survival-trait",
@@ -24442,16 +24470,20 @@
   {
    "id": "dc-16756",
    "cat": "무기·세팅",
-   "title": "훈련장에선 동반자 효과가 안 켜져요",
-   "date": "11-18",
+   "title": "동반자 효과 팁 (훈련장 · 슈미르 관통)",
+   "date": "11-23",
    "lines": [
     "훈련장에서는 동반자 효과가 적용되지 않아요.",
     "코지로의 '열파 대미지 후 불속성 대미지 30% 증가'가 적용되지 않는 것을 확인했어요.",
     "'멤버 전원이 주는 대미지 n%' 효과도 적용되지 않아요. 회심률 증가 효과는 아직 확인 안 됐어요.",
-    "훈련장 대미지 실험 결과는 실전과 다를 수 있으니 참고하세요."
+    "훈련장 대미지 실험 결과는 실전과 다를 수 있으니 참고하세요.",
+    "■ 슈미르 「자신」은 모험가예요",
+    "@img:bn_20779_1",
+    "SSR 슈미르 코어 패시브 「관통 대미지를 줬을 때 자신이 주는 번개속성 대미지 +25%」의 '자신'은 아이루가 아니라 데리고 있는 모험가예요(Lv0 기준 · 멤버 전원 대미지 +2%).",
+    "번개속성 대미지만 오르니 번개 관통 세팅일 때 챙기고, 범용으로 쓸 땐 크게 신경 안 써도 돼요. 주인공 활은 첫 평타에 관통이 기본으로 붙어 있어요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16756"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16756 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20779"
   },
   {
    "id": "dc-14572",
@@ -24855,7 +24887,7 @@
   {
    "id": "tips-adv",
    "cat": "모험가",
-   "title": "모험가 장비·각인 팁 18가지",
+   "title": "모험가 장비·각인 팁 19가지",
    "date": "11-23",
    "lines": [
     "처음엔 주인공 + 주력 딜러 1명에 몰아요 — 재화가 모자라서 여러 명을 같이 못 키워요. 격투장은 파티 두 개가 필요하니 1파티·2파티 메인 딜러를 하나씩 정해 키우고, 서포터(브릭스 등)는 장비부터 맞추며 절반쯤 따라 키우면 돼요. 삽화 강화는 엔드 콘텐츠라 나중에 해도 돼요.",
@@ -24875,13 +24907,14 @@
     "아케니아 회심 버프는 오의만 파티 전체 — 오의 설명의 회심 증가는 파티 전체에 걸리지만, 코어 패시브의 \"오의 발동 시 추가 회심\"은 아케니아 본인만 받는다는 제보가 있어요(확인 중).",
     "미도리 회피 7·연기 4 vs 불속 7 — 공략 사이트엔 회피 강화 7 + 연기 4가 최고로 나와요. 발도일섬은 버프 시간이 갱신되지 않아 필살기 3타째에 버프가 꺼지거나 첫 1타에 버프가 안 붙는 문제가 있어서래요. 다만 가만히 맞고 서 있는 몬스터가 많아 회피 발동이 어렵다면, 불속 7 + 연기 4가 더 편하다는 의견도 많아요.",
     "돌격형 vs 교란형 딜은 몬스터 따라 달라요 — 오의 게이지는 몬스터 체력을 깎는 만큼 차요. 약한 몬스터는 오의가 자주 돌아서 오의 뒤 딜이 강한 교란형(예: 케레스 뼈가시)도 돌격형만큼 나와요. 고룡처럼 단단하거나 제약(모험가 대미지 감소 · 체력 증가)이 붙으면 오의가 늦게 차서, 기본 딜이 꾸준한 돌격형이 더 유리해요.",
-    "오의는 처음 동작에만 무적이에요 — 오의를 쓰는 내내 무적인 게 아니라 시작 부분만 무적이고, 미도리의 대간파(찰나의 간파 필살기)는 무적이 아니라 슈퍼 아머라 대미지는 그대로 들어와요(제보). 미도리 찰나의 간파는 한 템포 빠르게 눌러야 잘 터져요."
+    "오의는 처음 동작에만 무적이에요 — 오의를 쓰는 내내 무적인 게 아니라 시작 부분만 무적이고, 미도리의 대간파(찰나의 간파 필살기)는 무적이 아니라 슈퍼 아머라 대미지는 그대로 들어와요(제보). 미도리 찰나의 간파는 한 템포 빠르게 눌러야 잘 터져요.",
+    "미도리 깨달음은 「단풍 · 단풍 · 무한」 — 3돌까지는 이 순서가 무난하다는 의견이 많아요. 「찰나의 여운」은 모션이 빨라져 편하지만 딜 증가가 없어서 4돌 이후나 회피가 정말 어려울 때 고려해요."
    ],
    "images": [
     "bt_adv_1",
     "bt_adv_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3501 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19709 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19892 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19956 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20044 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20652 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20768 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20752"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3501 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19709 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19892 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19956 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20044 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20652 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20768 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20752 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20856"
   },
   {
    "id": "tips-hero",
@@ -25081,14 +25114,15 @@
     "【조사 포인트 교환】 꼭 사기: 인연 선물(주당 약 8천 포인트 수급)",
     "└ 나중에: 의상 상자 99개 같은 실수 구매 주의, 요리/비약용 포인트는 남겨 두세요",
     "【모집권 쓰기】 상시 모집은 300회를 채우면 SSR 확정 1번을 줘서, 그때까진 상시 모집권을 아끼지 말고 쓰자는 의견이 많아요(제보). 한정 픽업 모험가(미도리·로드 등)는 픽업이 끝나면 다음 복각 전까진 상시 모집에서 안 나온다는 제보가 있으니 원하면 픽업 기간(11/27 전) 안에 뽑으세요.",
-    "의상 상자는 천장이 있어요 — 모든 의상 상자는 3번째 상자에서 중복 아닌 부위가 나온다는 제보가 있어요. 한 번에 몰아 사지 말고 하나씩 까 보세요(제보 여러 건)."
+    "의상 상자는 천장이 있어요 — 모든 의상 상자는 3번째 상자에서 중복 아닌 부위가 나온다는 제보가 있어요. 한 번에 몰아 사지 말고 하나씩 까 보세요(제보 여러 건).",
+    "전설 삽화 선택 상자는 삽화집 랭크업 전이라면 먼저 사서 종류별로 하나씩 까요 — 삽화집을 채워 랭크를 올려야 필드·그리기에서 전설 확률이 올라가요(답변 여러 건)."
    ],
    "images": [
     "bn_19388_1",
     "bx_exchange_1",
     "bx_exchange_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13619 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19388 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19720 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20026"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13619 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19388 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19720 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20026 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20851"
   },
   {
    "id": "money-pack-1118",
@@ -25217,7 +25251,7 @@
    "id": "dc-17691",
    "cat": "무기·세팅",
    "title": "제작 무기 14강엔 휘광의 결정 47개 (단계별 개수 · 분해 회수)",
-   "date": "11-22",
+   "date": "11-23",
    "lines": [
     "제작(일반) 최종 무기를 14강까지 올리는 데 지배자 재료인 휘광의 결정(Radiant Crystal)이 총 47개 들어가요.",
     "강화 단계별 휘광의 결정: 11→12강 12개 · 12→13강 15개 · 13→14강 20개 (합계 47개). 11강까지는 결정 없이 올라가요.",
@@ -25228,13 +25262,18 @@
     "실수로 다른 무기를 강화했어도, 분해하면 강화에 쓴 결정을 돌려받았다는 제보가 있어요. 일반(제작) 무기는 분해하면 재료가 전부 돌아온다는 정보도 있어요.",
     "그래서 지배자 무기 2개는 강화·각성 5 상태로 두고, 부족한 속성은 일반 무기 Lv13을 만들어 쓰다가 분해하는 방법이 재료 절약이 된대요. 이렇게 해서 콘텐츠 32단계까지 문제없었다는 후기예요(일본 유저 정보라 확인 중).",
     "마이 세트(프리셋)에 저장된 무기와 지금 장착 중인 무기는 장비 분해 목록에 안 떠요. 장착을 풀고 세트에서 지운 뒤 분해하세요.",
-    "분해하면 휘광의 결정은 돌려받지만 나머지 재료는 다시 모아야 했다는 제보도 있어요(확인 중)."
+    "■ 분해하면 돌려받는 것 (11/23)",
+    "사냥마다 떨어지는 혼옥과 휘석(휘광의 결정)은 전부 돌려받아요. 12강 무기도 분해하면 결정을 그대로 돌려줬다는 답이 여러 개예요.",
+    "제작할 때 들어간 소재는 절반만 돌아와요. 지배자 무기 강화에 쓴 제니는 안 돌아와요.",
+    "그래서 마스터 격투장용 임시 무기를 12강까지 만들어 쓰고 분해해도 결정 손해는 없어요.",
+    "삽화는 프리셋에 넣어 두면 분해 목록엔 보이지만 「장착 중」이라며 안 갈려요. 세트에서 빼고 갈아요.",
+    "안 쓰는 삽화는 다른 삽화 강화 재료로 먹이면 경험치를 약 80% 돌려받는다는 답이 많아요. 10레벨 삽화를 그냥 버리지 마세요."
    ],
    "images": [
     "bn_16974_1",
     "bn_19284_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17691 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20203 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20668",
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17691 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20203 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20668 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20859 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20854 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20861 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20794",
    "wt": "공통"
   },
   {
@@ -25247,7 +25286,7 @@
     "지원형 1명은 필수예요. 아케니아가 우선이고, 없으면 메들린이나 (불속성이면) 류노스케를 넣어요.",
     "교란형은 브릭스 우선, 다음은 페페예요. 라야는 고룡에게 덫이 안 들어가서 비추천이에요.",
     "주인공을 교란형으로 넣으면 오의를 쓸 때 섬광이 걸려요. 주인공이 메인이어도 교란으로 쓰고, 남은 자리는 잘 키운 SSR 돌격형이나 교란형을 하나 더 넣어요.",
-    "시작 전에 마파두부(아직 없으면 대미지 +15% 볶음 요리)는 꼭 먹고, 가능하면 정기환도 챙겨요. 태양 패턴 때 돌을 떨어뜨리면 공짜 딜 타이밍이에요.",
+    "시작 전에 마파두부(아직 없으면 대미지 +15% 볶음 요리)는 꼭 먹고 — 해금할 때만 헤븐베리 75개, 만들 땐 특산쌀·고추·헤븐베리 1개씩 —, 가능하면 정기환도 챙겨요. 태양 패턴 때 돌을 떨어뜨리면 공짜 딜 타이밍이에요.",
     "서포터는 레벨 40 정도에 모험가 장비만 껴도 에알다 정도에선 제 몫을 한대요.",
     "■ 교란형 vs 돌격형 딜 차이",
     "오의 게이지는 몬스터 체력을 깎는 만큼 차요. 약한 몬스터는 오의가 금방금방 돌아서, 오의 뒤 효과가 강한 교란형(예: 케레스 뼈가시)도 돌격형만큼 딜이 나와요.",
@@ -25266,7 +25305,7 @@
     "대검은 상태이상 축적이 아주 높아서, 마비 무기를 든 브릭스는 몇 대만 쳐도 마비가 걸려요. 서포터로 넣을 땐 마비 무기를 들려 주세요(제보)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17575 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20126 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20281 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20274 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20289 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20337 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20412"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17575 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20126 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20281 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20274 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20289 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20337 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20412 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20770"
   },
   {
    "id": "dc-17821",
@@ -26611,6 +26650,38 @@
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20754"
+  },
+  {
+   "id": "dc-20849",
+   "cat": [
+    "무기·세팅"
+   ],
+   "title": "융광종 디아네로(흑디아) 방어구 · 융광 괴력",
+   "date": "11-23",
+   "wt": "공통",
+   "lines": [
+    "■ 한눈에 보기",
+    "희귀도 14 「융광종 디아네로 시리즈」(흑각룡 = 디아블로스 아종의 융광종) 방어구가 생산 목록에 떴어요.",
+    "@img:bn_20812_1",
+    "새 스킬 「융광 괴력」은 체력 상한을 깎는 대신 주는 대미지를 올려 줘요.",
+    "Lv1 체력 상한 -5% · 대미지 +3% / Lv2 체력 상한 -10% · 대미지 +6% / Lv3 체력 상한 -60% · 대미지 +9%.",
+    "세트 효과 「흑각룡의 배수」 2부위: 배수진 +1 — 체력이 61 이하일 때 피해 +23% · 방어력 +50.",
+    "@img:bn_20812_2",
+    "예시: 융광종 디아네로코일 Ⅵ(허리 · 방어력 196) = 융광 괴력 Lv2 · 제압 회복 Lv1 · 통찰 Lv1.",
+    "■ 이렇게 쓰면 돼요",
+    "융광 괴력 Lv3(체력 상한 -60%)를 맞추면 체력이 처음부터 61 이하가 돼서, 일부러 맞지 않아도 세트 효과 피해 +23%가 계속 켜져요. 그래서 대미지 +9%에 +23%가 같이 붙는다는 의견이 많아요.",
+    "Lv2 실측: 마파두부를 먹어 체력 150인 상태에서 장착하니 135로 10% 줄었어요. 먹고 끼든 끼고 먹든 큰 차이는 없대요.",
+    "@img:bn_20849_2",
+    "대신 한 대만 맞아도 위험해요. 저스트 회피·저스트 가드로 안 맞는 모험가나, 실드가 거의 계속 켜져 있는 모험가(아케니아 등)와 잘 맞는다는 의견이에요(제보).",
+    "짜는 법은 허리 고정 + 몸통이나 다리 하나로 세트를 켜고, 남은 세 칸으로 속성 대미지나 무기 스킬을 맞추자는 의견이 나오고 있어요(확인 중). 아직 추천 장비 사이트 세트엔 안 들어갔어요.",
+    "■ 만드는 법",
+    "연속 사냥에서 융광종 디아네로를 한 번이라도 잡으면 생산이 풀린다는 제보예요. 필드에 나오는 건 아니래요.",
+    "해외 데이터 기준으로 팔·허리는 융광종 디아블로스 소재(엄니·꼬리 등)만으로 만들어요. 머리·몸통은 융광종 흑각룡 소재가 필요해요."
+   ],
+   "images": [
+    "bn_20849_1"
+   ],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20849 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20812 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20815 https://mhohub.com/armor/2160118/"
   }
  ],
  "sim": {
