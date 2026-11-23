@@ -1010,6 +1010,15 @@ header .kakao{grid-row:1;grid-column:2}
 .groster .wln2,.gadd textarea{width:100%;box-sizing:border-box}
 @media (max-width:600px){.gpc{padding:10px 12px}.gah .jf{min-width:0;flex:1 1 100%}}
 .gteam{display:grid;gap:12px}
+.gwar{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel)}.gwar summary{cursor:pointer;font-weight:800;font-size:15px}.gwar summary small{font-weight:500;color:var(--muted);font-size:12.5px}
+.gwrl{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:10px;margin:10px 0 6px;align-items:stretch}
+.gwr{display:grid;grid-template-rows:auto 1fr auto;gap:6px;padding:10px 12px;border-radius:10px;background:var(--bg);min-width:0}
+.gwrh{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}.gwrh b{font-size:15px}.gwrm{font-weight:700;font-size:14px}.gwrk{font-size:12.5px;color:var(--muted)}
+.gwre p{margin:0 0 4px;font-size:13.5px;line-height:1.5}.gwrw{font-size:13.5px;line-height:1.5}
+.gtw{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.gtw .cat{width:100%}
+.gwb{font:inherit;font-size:13.5px;font-weight:700;padding:5px 11px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}.gwb.on{background:#c0392b;border-color:#c0392b;color:#fff}
+.gwcov{display:flex;flex-wrap:wrap;gap:4px}.gwc{font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--bg);color:var(--muted);border:1px solid var(--line);white-space:nowrap}.gwc.ok{background:#2c8a4a;border-color:#2c8a4a;color:#fff}
+
 .gtme{display:grid;gap:8px;padding:12px;border-radius:12px;background:var(--bg)}
 .gtf{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.4fr);gap:8px}.gtf select{font:inherit;font-size:15px;padding:8px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink)}
 .gtb{display:flex;flex-wrap:wrap;gap:6px}
@@ -1018,7 +1027,7 @@ header .kakao{grid-row:1;grid-column:2}
 .gr-d{background:#c0392b;color:#fff}.gr-y{background:#f2c200;color:#2b2000}.gr-top{background:#d4a017;color:#2b2000}.gr-s{background:#2a6fb5;color:#fff}.gr-a{background:#7d6b4f;color:#fff}.gr-n{background:var(--bg);color:var(--muted);border-color:var(--line)}
 .gabs,.gabs2{display:inline-block;font-size:11.5px;font-weight:800;padding:1px 8px;border-radius:999px;background:#8a8f94;color:#fff;white-space:nowrap}.gabs2{padding:0 6px}
 .gtl{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:12px;align-items:stretch}
-.gtc{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel);display:grid;grid-template-rows:auto 1fr auto;gap:8px;min-width:0}
+.gtc{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel);display:grid;grid-template-rows:auto 1fr auto auto;gap:8px;min-width:0}
 .gth{display:flex;justify-content:space-between;align-items:center;gap:8px}.gth h3{margin:0;font-size:16px}.gtn{font-size:13px;color:var(--muted);white-space:nowrap}
 .gtname{font:inherit;font-weight:800;font-size:15px;padding:4px 8px;border-radius:8px;border:1.5px solid var(--line);min-width:0;width:9em}
 .gsl{list-style:none;margin:0!important;padding:0!important;display:grid;gap:6px;align-content:start}.gsl>li{margin:0!important;list-style:none}.gsl>li::before{content:none!important}
@@ -1798,11 +1807,25 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
 document.addEventListener('click',async e=>{const b=e.target.closest('.glin');if(!b)return;const k=b.parentElement.querySelector('.glkey').value.trim();if(!k)return;try{localStorage.setItem(ADMK,k)}catch(_){}b.disabled=true;await loadJoin();await loadGuild();b.disabled=false;if(!JOIN.admin)alert('비밀번호가 맞지 않아요.');});
 /* 길드전 고정 파티 */
 const GROLE={atk:['돌격형','gr-d'],dis:['교란형','gr-y'],sup:['지원형','gr-s'],dps:['돌격형','gr-d'],any:['역할 미정','gr-n']};
+const GWPN=['대검','태도','쌍검','랜스','해머','헤비보우건','활','차지액스'];
+const gwRounds=()=>((D.gwar&&D.gwar.rounds)||[]).filter(r=>r.w&&r.w.length);
+const gwHas=(ids,roles,ws)=>ids.some(id=>((roles[id]||{}).w||[]).some(x=>ws.includes(x)));
+function gwarHTML(){const G=D.gwar;if(!G||!G.rounds)return '';
+  const rc=r=>`<article class="gwr"><div class="gwrh"><b>${r.n}라운드</b><span class="gwrm">★${r.star} ${esc(r.mon)}</span><span class="gwrk">약점 ${esc(r.weak)}</span></div>
+    <div class="gwre">${r.env.map(e=>`<p><span class="grole gr-n">${esc(e[0])}</span> ${esc(e[1])}</p>`).join('')}</div>
+    <div class="gwrw">${r.w.length?`<span class="grole gr-y">무기 보너스</span> ${esc(r.wt)}`:'<span class="cat">무기 보너스 없음</span>'}</div></article>`;
+  return `<details class="gwar" open><summary>⚔️ 이번 주 길드전 라운드 <small>${esc(G.asof)} · ${esc(G.src)}</small></summary>
+   <div class="gwrl">${G.rounds.map(rc).join('')}</div>
+   <p class="cat gnote">공통 제한: ${G.limit.map(esc).join(' · ')} · 난이도 ${G.diff.map(d=>`${esc(d[0])}(${esc(d[1])}, 권장 사냥력 ${esc(d[2])})`).join(' / ')}</p>
+   <p class="cat gnote">무기 보너스는 파티에 그 무기를 쓰는 모험가가 한 명만 있어도 전원이 받아요. 아래 역할 입력에서 <b>쓸 수 있는 무기</b>를 골라 두면 파티마다 보너스가 켜지는지 표시돼요.</p></details>`;}
 function gUpSat(){const k=new Date(Date.now()+9*36e5);const sat=GUILD.sat||kstSat();return k.getUTCDay()===6?sat:new Date(new Date(sat+'T00:00:00Z').getTime()+7*864e5).toISOString().slice(0,10);}
 function gTeamAuto(members,roles,size){const L=(...k)=>members.filter(m=>k.includes((roles[m.id]||{}).r));
   const sup=L('sup'),dis=L('dis'),dps=L('atk','dps'),any=L('any');const tot=sup.length+dis.length+dps.length+any.length;const n=Math.max(1,Math.ceil(tot/size));
   const P=Array.from({length:n},(_,i)=>({id:'t'+Date.now().toString(36)+i,name:`${i+1}파티`,leader:null,members:[]}));
-  const room=p=>p.members.length<size;const put=(m,order)=>{const p=order.find(room);if(p)p.members.push(m.id);return !!p;};
+  const room=p=>p.members.length<size;
+  /* 무기 보너스: 그 무기가 아직 없는 파티를 먼저 고르고, 같으면 인원 적은 파티 */
+  const WR=gwRounds();const need=(p,m)=>WR.filter(r=>!gwHas(p.members,roles,r.w)&&((roles[m.id]||{}).w||[]).some(x=>r.w.includes(x))).length;
+  const put=(m,order)=>{const c=order.filter(room);if(!c.length)return false;const best=c.slice().sort((a,b)=>need(b,m)-need(a,m))[0];best.members.push(m.id);return true;};
   /* 길드 랭킹은 상위 5파티 합산이라 1~5파티(주력)를 먼저 채워요 */
   const byFew=()=>{const top=P.slice(0,5).filter(room).sort((a,b)=>a.members.length-b.members.length);return top.length?top:P.slice(5).sort((a,b)=>a.members.length-b.members.length);};
   sup.slice(0,n).forEach((m,i)=>P[i].members.push(m.id));
@@ -1812,8 +1835,8 @@ function gTeamAuto(members,roles,size){const L=(...k)=>members.filter(m=>k.inclu
   P.forEach(p=>{p.leader=p.members.find(id=>['atk','dps'].includes((roles[id]||{}).r))||p.members[0]||null;});
   return P;}
 function teamText(){const T=GUILD.team,up=gUpSat(),A=new Set(GUILD.abs[up]||[]),by=Object.fromEntries(GUILD.roster.map(m=>[m.id,m]));
-  const line=id=>{const m=by[id];if(!m)return '';const r=(T.roles||{})[id];return `${m.name}${r?` (${GROLE[r.r][0]}${r.ch?' · '+r.ch:''})`:''}${A.has(id)?' ❌불참':''}`;};
-  return `⚔️ ${md(up)} 길드전 고정 파티\n`+T.parties.map(p=>`\n[${p.name}] ${p.members.length}/${T.size}명\n`+p.members.map(id=>(id===p.leader?'👑 ':'· ')+line(id)).join('\n')).join('\n')+`\n\n못 오는 주는 공략집 길드 탭 → 고정 파티에서 「불참」을 눌러 주세요.`;}
+  const line=id=>{const m=by[id];if(!m)return '';const r=(T.roles||{})[id];return `${m.name}${r?` (${GROLE[r.r][0]}${r.ch?' · '+r.ch:''}${(r.w||[]).length?' · '+r.w.join('/'):''})`:''}${A.has(id)?' ❌불참':''}`;};
+  return `⚔️ ${md(up)} 길드전 고정 파티\n`+T.parties.map(p=>`\n[${p.name}] ${p.members.length}/${T.size}명\n`+p.members.map(id=>(id===p.leader?'👑 ':'· ')+line(id)).join('\n')+(gwRounds().length?'\n무기 보너스: '+gwRounds().map(r=>`${r.n}R ${r.w.join('/')} ${gwHas(p.members,T.roles||{},r.w)?'✓':'✗'}`).join(' · '):'')).join('\n')+`\n\n못 오는 주는 공략집 길드 탭 → 고정 파티에서 「불참」을 눌러 주세요.`;}
 function paintTeam(){const el=document.getElementById('gteam');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
   const T=GUILD.team||{size:4,roles:{},parties:[]},roles=T.roles||{},up=gUpSat(),A=new Set(GUILD.abs[up]||[]);
   const live=gsort(GUILD.roster.filter(m=>gact(m,up)));const by=Object.fromEntries(GUILD.roster.map(m=>[m.id,m]));
@@ -1826,13 +1849,14 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
   const chip=id=>{const r=roles[id];return r?`<span class="grole ${GROLE[r.r][1]}">${GROLE[r.r][0]}</span>`:'<span class="grole gr-n">역할 미입력</span>';};
   const opts=cur=>`<option value="">— 빼기 —</option>`+parties.map((q,j)=>`<option value="${j}"${j===cur?' selected':''}>${esc(q.name)}</option>`).join('');
   const slot=(p,i,id)=>{if(!id)return `<li class="gslot empty"><span class="gsn">빈자리</span></li>`;const m=by[id],r=roles[id];
-    return `<li class="gslot${A.has(id)?' abs':''}"><span class="gsn">${id===p.leader?'<b class="glead" title="파티장">👑</b>':''}<b>${esc(m.name)}</b>${chip(id)}${A.has(id)?'<span class="gabs">불참</span>':''}</span><small class="gsc">${r&&r.ch?esc(r.ch):'&nbsp;'}</small>${ed?`<span class="gsed"><select data-mv="${esc(id)}" aria-label="파티 옮기기">${opts(i)}</select><button type="button" data-lead="${i}|${esc(id)}"${id===p.leader?' disabled':''}>👑</button></span>`:''}</li>`;};
+    return `<li class="gslot${A.has(id)?' abs':''}"><span class="gsn">${id===p.leader?'<b class="glead" title="파티장">👑</b>':''}<b>${esc(m.name)}</b>${chip(id)}${A.has(id)?'<span class="gabs">불참</span>':''}</span><small class="gsc">${r&&(r.ch||(r.w||[]).length)?esc([r.ch,(r.w||[]).join('·')].filter(Boolean).join(' · ')):'&nbsp;'}</small>${ed?`<span class="gsed"><select data-mv="${esc(id)}" aria-label="파티 옮기기">${opts(i)}</select><button type="button" data-lead="${i}|${esc(id)}"${id===p.leader?' disabled':''}>👑</button></span>`:''}</li>`;};
   const card=(p,i)=>{const n=p.members.length,ab=p.members.filter(id=>A.has(id)).length;const rows=[...p.members,...Array(Math.max(0,size-n)).fill(null)].map(id=>slot(p,i,id)).join('');
-    return `<article class="gtc"><div class="gth">${ed?`<input class="gtname" data-nm="${i}" maxlength="20" value="${esc(p.name)}">`:`<h3>${esc(p.name)}</h3>`}${i<5&&parties.length>5?'<span class="grole gr-top" title="길드 랭킹은 상위 5파티 합산">주력</span>':''}<span class="gtn">${n-ab}/${size}명${ab?` · <b class="gabs2">불참 ${ab}</b>`:''}</span></div><ul class="gsl">${rows}</ul>${ed?`<button type="button" class="gtdel" data-del="${i}">이 파티 지우기</button>`:''}</article>`;};
-  el.innerHTML=`<div class="gtme"><b class="gh3" style="margin:0">🙋 내 역할 · 불참</b>
+    return `<article class="gtc"><div class="gth">${ed?`<input class="gtname" data-nm="${i}" maxlength="20" value="${esc(p.name)}">`:`<h3>${esc(p.name)}</h3>`}${i<5&&parties.length>5?'<span class="grole gr-top" title="길드 랭킹은 상위 5파티 합산">주력</span>':''}<span class="gtn">${n-ab}/${size}명${ab?` · <b class="gabs2">불참 ${ab}</b>`:''}</span></div><ul class="gsl">${rows}</ul>${gwRounds().length?`<div class="gwcov">${gwRounds().map(r=>{const ok=gwHas(p.members,roles,r.w);return `<span class="gwc${ok?' ok':''}">${r.n}R ${r.w.join('/')} ${ok?'✓':'✗'}</span>`;}).join('')}</div>`:''}${ed?`<button type="button" class="gtdel" data-del="${i}">이 파티 지우기</button>`:''}</article>`;};
+  el.innerHTML=gwarHTML()+`<div class="gtme"><b class="gh3" style="margin:0">🙋 내 역할 · 불참</b>
     <p class="cat gnote">역할은 한 번만 입력하면 돼요. 길드전에서 주로 쓸 모험가의 유형(<b>돌격형 · 교란형 · 지원형</b>)을 고르세요. 아직 키우는 중이라 보조로 들어갈 거면 교란형이나 지원형을 고르면 돼요. 길마가 이걸 보고 파티를 고정으로 짜 둬요. 못 오는 주에만 <b>${md(up)} 불참</b>을 눌러 주세요.</p>
     <div class="gtf">${nickInput('gtnick')}<select id="gtrole" aria-label="역할">${[['atk','돌격형'],['dis','교란형'],['sup','지원형']].map(([v,l])=>`<option value="${v}"${myR&&(myR.r===v||(v==='atk'&&myR.r==='dps'))?' selected':''}>${l}</option>`).join('')}</select>
     <input id="gtch" class="gnick" maxlength="40" placeholder="주력 캐릭터 (예: 미도리 2돌 · 불)" value="${esc(myR&&myR.ch||'')}"></div>
+    <div class="gtw"><span class="cat">쓸 수 있는 무기 (여러 개)</span>${GWPN.map(w=>`<button type="button" class="gwb${myR&&(myR.w||[]).includes(w)?' on':''}" data-w="${w}" aria-pressed="${!!(myR&&(myR.w||[]).includes(w))}">${w}</button>`).join('')}</div>
     <div class="gtb"><button type="button" class="gbtn" id="gtsave">역할 저장</button><button type="button" class="gbtn2" id="gtabs">${md(up)} 불참</button><button type="button" class="gbtn2" id="gtback">불참 취소</button>${myR?'<button type="button" class="gbtn2" id="gtclr">내 역할 지우기</button>':''}</div>
     <div class="jmsg" id="gtmsg" role="status">${me?`${esc(me.name)} · ${myR?`지금 역할: ${GROLE[myR.r][0]}${myR.ch?' · '+esc(myR.ch):''}`:'아직 역할을 안 적었어요'}${A.has(me.id)?` · ${md(up)} 불참으로 표시됨`:''}`:''}</div></div>
    <div class="gtsum"><span>역할 입력 <b>${withRole.length}</b> / ${live.length}명</span><span class="grole gr-d">돌격형 ${cnt('atk')+cnt('dps')}</span><span class="grole gr-y">교란형 ${cnt('dis')}</span><span class="grole gr-s">지원형 ${cnt('sup')}</span>${cnt('any')?`<span class="grole gr-n">미정 ${cnt('any')}</span>`:''}${A.size?`<span class="gabs">${md(up)} 불참 ${A.size}명</span>`:''}</div>
@@ -1840,15 +1864,16 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
    ${free.length?`<p class="gfree"><b>파티 없는 단원 ${free.length}명</b> ${free.map(m=>`<span class="gfm">${esc(m.name)} ${chip(m.id)}${GUILD.admin?`<button type="button" class="gfx" data-rmrole="${esc(m.name)}" aria-label="${esc(m.name)} 역할 지우기" title="역할 지우기">✕</button>`:''}${ed?`<select data-mv="${esc(m.id)}" aria-label="파티 넣기"><option value="">파티 고르기</option>${parties.map((q,j)=>`<option value="${j}">${esc(q.name)}</option>`).join('')}</select>`:''}</span>`).join('')}</p>`:''}
    ${GUILD.admin&&noRole.length?`<details class="ggone"><summary>역할 미입력 ${noRole.length}명</summary><p class="cat">${noRole.map(m=>esc(m.name)).join(', ')}</p></details>`:''}
    <div class="gtbar"><button type="button" id="gtkakao"${parties.length?'':' disabled'}>📋 카톡 공유용 파티표 복사</button><span class="cat" id="gtkmsg"></span></div>
-   ${GUILD.admin?(ed?`<div class="gsave"><label class="jf" style="min-width:0"><span>파티 인원</span><select id="gtsize">${[2,3,4,5,6,7,8].map(x=>`<option${x===size?' selected':''}>${x}</option>`).join('')}</select></label><button type="button" id="gtauto">🔀 역할대로 자동 편성</button><button type="button" id="gtadd">＋ 파티 추가</button><span style="flex:1"></span><button type="button" class="pri" id="gtput">✓ 파티 저장</button><button type="button" id="gtcancel">취소</button></div><p class="cat gnote">자동 편성은 지원형과 교란형을 파티마다 한 명씩 먼저 넣고, 돌격형을 고르게 나눈 뒤 남는 자리를 채워요. 길드 랭킹은 모험단마다 상위 5파티 점수 합산이라, 파티가 6개 이상이면 1~5파티(주력)부터 꽉 채워요. 센 돌격형은 1~5파티에 두세요. 파티장은 돌격형 중 한 명으로 정해져요. 단원 옆 칸에서 다른 파티로 옮기고 👑로 파티장을 바꿀 수 있어요.</p>`
+   ${GUILD.admin?(ed?`<div class="gsave"><label class="jf" style="min-width:0"><span>파티 인원</span><select id="gtsize">${[2,3,4,5,6,7,8].map(x=>`<option${x===size?' selected':''}>${x}</option>`).join('')}</select></label><button type="button" id="gtauto">🔀 역할대로 자동 편성</button><button type="button" id="gtadd">＋ 파티 추가</button><span style="flex:1"></span><button type="button" class="pri" id="gtput">✓ 파티 저장</button><button type="button" id="gtcancel">취소</button></div><p class="cat gnote">자동 편성은 지원형과 교란형을 파티마다 한 명씩 먼저 넣고, 돌격형을 고르게 나눈 뒤 남는 자리를 채워요. 이때 이번 주 무기 보너스(예: 활, 대검·랜스)를 쓸 수 있는 사람을 그 무기가 없는 파티에 먼저 넣어요. 길드 랭킹은 모험단마다 상위 5파티 점수 합산이라, 파티가 6개 이상이면 1~5파티(주력)부터 꽉 채워요. 센 돌격형은 1~5파티에 두세요. 파티장은 돌격형 중 한 명으로 정해져요. 단원 옆 칸에서 다른 파티로 옮기고 👑로 파티장을 바꿀 수 있어요.</p>`
      :`<div class="gtbar"><button type="button" id="gtedit">🛠 파티 짜기 (길마)</button></div>`):''}`;
   const $=id=>document.getElementById(id),msg=t=>{const m=$('gtmsg');if(m)m.textContent=t;};
   {const ni=$('gtnick');if(ni)ni.oninput=()=>{const v=ni.value.trim();const m=GUILD.roster.find(x=>gnorm(x.name)===gnorm(v));if(!m)return;const r=roles[m.id];
-    if(r){$('gtrole').value=r.r==='dps'?'atk':r.r==='any'?'atk':r.r;$('gtch').value=r.ch||'';}
+    if(r){$('gtrole').value=r.r==='dps'?'atk':r.r==='any'?'atk':r.r;$('gtch').value=r.ch||'';el.querySelectorAll('.gwb').forEach(b=>{const on=(r.w||[]).includes(b.dataset.w);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});}
     msg(`${m.name} · ${r?`지금 역할: ${GROLE[r.r][0]}${r.ch?' · '+r.ch:''}`:'아직 역할을 안 적었어요'}${A.has(m.id)?` · ${md(up)} 불참으로 표시됨`:''}`);};}
   const send=async(body,ok)=>{const nick=($('gtnick').value||'').trim();if(!nick){msg('게임 닉네임을 적어 주세요.');return;}gSet(GNICK,nick);
     try{const j=await guildApi('POST',Object.assign({nickname:nick},body));GUILD.team=j.team;GUILD.abs=j.abs;paintTeam();msg(ok);}catch(e){msg(gmsg(e));}};
-  $('gtsave').onclick=()=>send({action:'team.role',role:$('gtrole').value,ch:$('gtch').value},'역할을 저장했어요 ✓');
+  el.querySelectorAll('.gwb').forEach(b=>b.onclick=()=>{const on=!b.classList.contains('on');b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
+  $('gtsave').onclick=()=>send({action:'team.role',role:$('gtrole').value,ch:$('gtch').value,w:[...el.querySelectorAll('.gwb.on')].map(b=>b.dataset.w)},'역할을 저장했어요 ✓');
   $('gtabs').onclick=()=>send({action:'team.abs',date:up,on:true},`${md(up)} 불참으로 표시했어요. 파티장이 볼 수 있어요.`);
   $('gtback').onclick=()=>send({action:'team.abs',date:up,on:false},'불참 표시를 지웠어요 ✓');
   if($('gtclr'))$('gtclr').onclick=()=>send({action:'team.role',role:''},'역할을 지웠어요');

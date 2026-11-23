@@ -6,6 +6,7 @@ import { createHash } from "node:crypto";
 const ADMIN_HASH = "af7f1a19a732de19eaae3eff4946ddad736ab5d5f64fdb7a965212a11972e1da";
 const MAX_POLLS = 100, MAX_OPTS = 20, MAX_ROSTER = 300, KEEP_ATT = 26, MAX_PARTIES = 40;
 const ROLES = ["atk", "dis", "sup", "dps", "any"]; // 돌격형 · 교란형 · 지원형 (dps·any는 예전 값)
+const WEAPONS = ["대검", "태도", "쌍검", "랜스", "해머", "헤비보우건", "활", "차지액스"];
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
@@ -205,7 +206,7 @@ export default async (req) => {
     if (r && !ROLES.includes(r)) return err("role");
     const team = await getTeam();
     if (!r) delete team.roles[m.id];
-    else team.roles[m.id] = { r, ch: clip(b.ch, 40), at: Date.now() };
+    else team.roles[m.id] = { r, ch: clip(b.ch, 40), w: [...new Set((Array.isArray(b.w) ? b.w : []).map((x) => clip(x, 10)).filter((x) => WEAPONS.includes(x)))], at: Date.now() };
     team.at = Date.now();
     await store.setJSON("team", team);
     return json({ ok: true, ...(await teamView()), me: m.id });
