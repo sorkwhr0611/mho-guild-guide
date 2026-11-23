@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 // 길마 인증은 join.mjs와 같아요 (x-admin-key, 환경 변수 GUILD_ADMIN_KEY 우선).
 const ADMIN_HASH = "af7f1a19a732de19eaae3eff4946ddad736ab5d5f64fdb7a965212a11972e1da";
 const MAX_POLLS = 100, MAX_OPTS = 20, MAX_ROSTER = 300, KEEP_ATT = 26, MAX_PARTIES = 40;
-const ROLES = ["dps", "sup", "any"];
+const ROLES = ["atk", "dis", "sup", "dps", "any"]; // 돌격형 · 교란형 · 지원형 (dps·any는 예전 값)
 
 const json = (body, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
@@ -57,7 +57,7 @@ export default async (req) => {
   };
   const getAtt = async (d) => (await store.get("att:" + d, { type: "json" })) || { date: d, present: [] };
 
-  // 길드전 고정 파티: 단원별 역할(딜러·서포터) + 길마가 짠 파티 + 주마다 불참 표시
+  // 길드전 고정 파티: 단원별 역할(돌격형·교란형·지원형) + 길마가 짠 파티 + 주마다 불참 표시
   const getTeam = async () => (await store.get("team", { type: "json" })) || { size: 4, roles: {}, parties: [] };
   const getAbs = async (d) => (await store.get("abs:" + d, { type: "json" })) || { date: d, ids: [] };
   const teamWeeks = () => [...new Set([lastSaturday(), nextSaturday()])];
@@ -197,7 +197,7 @@ export default async (req) => {
   }
 
   // ---- 길드전 고정 파티 ----
-  // 내 역할 입력: 단원명부 닉네임으로 누구나 (딜러 dps · 서포터 sup · 아무거나 any, 빈 값이면 지우기)
+  // 내 역할 입력: 단원명부 닉네임으로 누구나 (돌격형 atk · 교란형 dis · 지원형 sup, 빈 값이면 지우기)
   if (act === "team.role") {
     const m = inRoster(b.nickname);
     if (!m || !m.id) return err(norm(b.nickname) ? "not_member" : "nickname");
