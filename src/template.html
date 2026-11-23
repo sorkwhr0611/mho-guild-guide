@@ -1010,6 +1010,11 @@ header .kakao{grid-row:1;grid-column:2}
 .groster .wln2,.gadd textarea{width:100%;box-sizing:border-box}
 @media (max-width:600px){.gpc{padding:10px 12px}.gah .jf{min-width:0;flex:1 1 100%}}
 .gteam{display:grid;gap:12px}
+.gtc2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.gtcl{display:grid;gap:3px;min-width:0}.gtcl span{font-size:12.5px;color:var(--muted)}
+@media (max-width:600px){.gtc2{grid-template-columns:minmax(0,1fr)}}
+.gsch{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;min-height:30px}.gchm{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;min-width:0}.gchm small{font-size:11px;font-weight:600;color:var(--muted)}.gchm.sub{font-weight:600;color:var(--muted)}
+.ph.gci{width:30px!important;height:30px!important;border-radius:50%!important;flex:none;overflow:hidden}.ph.gci img{width:100%;height:100%;object-fit:cover}
+
 .gwar{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel)}.gwar summary{cursor:pointer;font-weight:800;font-size:15px}.gwar summary small{font-weight:500;color:var(--muted);font-size:12.5px}
 .gwrl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0 6px;align-items:stretch}
 @media (max-width:1000px){.gwrl{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:560px){.gwrl{grid-template-columns:minmax(0,1fr)}}
@@ -1032,7 +1037,7 @@ header .kakao{grid-row:1;grid-column:2}
 .gth{display:flex;justify-content:space-between;align-items:center;gap:8px}.gth h3{margin:0;font-size:16px}.gtn{font-size:13px;color:var(--muted);white-space:nowrap}
 .gtname{font:inherit;font-weight:800;font-size:15px;padding:4px 8px;border-radius:8px;border:1.5px solid var(--line);min-width:0;width:9em}
 .gsl{list-style:none;margin:0!important;padding:0!important;display:grid;gap:6px;align-content:start}.gsl>li{margin:0!important;list-style:none}.gsl>li::before{content:none!important}
-.gslot{display:grid;gap:2px;padding:7px 10px;border-radius:9px;background:var(--bg);min-height:46px;box-sizing:border-box;align-content:center}
+.gslot{display:grid;gap:3px;padding:7px 10px;border-radius:9px;background:var(--bg);min-height:96px;box-sizing:border-box;align-content:center}
 .gslot.empty{border:1.5px dashed var(--line);background:none}.gslot.empty .gsn{color:var(--muted);font-size:13px}
 .gslot.abs{opacity:.6}.gslot.abs b{text-decoration:line-through}
 .gsn{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:14.5px;min-width:0}.gsn b{overflow-wrap:anywhere}.glead{font-size:14px}
@@ -1809,6 +1814,9 @@ document.addEventListener('click',async e=>{const b=e.target.closest('.glin');if
 /* 길드전 고정 파티 */
 const GROLE={atk:['돌격형','gr-d'],dis:['교란형','gr-y'],sup:['지원형','gr-s'],dps:['돌격형','gr-d'],any:['역할 미정','gr-n']};
 const GWPN=['대검','태도','쌍검','랜스','해머','헤비보우건','활','차지액스'];
+const GCHARS=()=>['주인공',...new Set([...(D.builds||[]).filter(b=>b.group==='adv').map(b=>b.name),'헤이즈','프레야','스티리아'])];
+const gchKey=t=>{t=String(t||'');return GCHARS().filter(n=>t.includes(n)).sort((a,b)=>t.indexOf(a)-t.indexOf(b))[0]||'';};
+const gchIco=t=>{const k=gchKey(t);return k?PHT(k,'gci'):'';};
 const gwRounds=()=>((D.gwar&&D.gwar.rounds)||[]).filter(r=>r.w&&r.w.length);
 const gwHas=(ids,roles,ws)=>ids.some(id=>((roles[id]||{}).w||[]).some(x=>ws.includes(x)));
 function gwarHTML(){const G=D.gwar;if(!G||!G.rounds)return '';
@@ -1836,7 +1844,7 @@ function gTeamAuto(members,roles,size){const L=(...k)=>members.filter(m=>k.inclu
   P.forEach(p=>{p.leader=p.members.find(id=>['atk','dps'].includes((roles[id]||{}).r))||p.members[0]||null;});
   return P;}
 function teamText(){const T=GUILD.team,up=gUpSat(),A=new Set(GUILD.abs[up]||[]),by=Object.fromEntries(GUILD.roster.map(m=>[m.id,m]));
-  const line=id=>{const m=by[id];if(!m)return '';const r=(T.roles||{})[id];return `${m.name}${r?` (${GROLE[r.r][0]}${r.ch?' · '+r.ch:''}${(r.w||[]).length?' · '+r.w.join('/'):''})`:''}${A.has(id)?' ❌불참':''}`;};
+  const line=id=>{const m=by[id];if(!m)return '';const r=(T.roles||{})[id];return `${m.name}${r?` (${GROLE[r.r][0]}${r.ch?' · 주력 '+r.ch:''}${r.ch2?' · 서브 '+r.ch2:''}${(r.w||[]).length?' · '+r.w.join('/'):''})`:''}${A.has(id)?' ❌불참':''}`;};
   return `⚔️ ${md(up)} 길드전 고정 파티\n`+T.parties.map(p=>`\n[${p.name}] ${p.members.length}/${T.size}명\n`+p.members.map(id=>(id===p.leader?'👑 ':'· ')+line(id)).join('\n')+(gwRounds().length?'\n무기 보너스: '+gwRounds().map(r=>`${r.n}R ${r.w.join('/')} ${gwHas(p.members,T.roles||{},r.w)?'✓':'✗'}`).join(' · '):'')).join('\n')+`\n\n못 오는 주는 공략집 길드 탭 → 고정 파티에서 「불참」을 눌러 주세요.`;}
 function paintTeam(){const el=document.getElementById('gteam');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
   const T=GUILD.team||{size:4,roles:{},parties:[]},roles=T.roles||{},up=gUpSat(),A=new Set(GUILD.abs[up]||[]);
@@ -1850,16 +1858,19 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
   const chip=id=>{const r=roles[id];return r?`<span class="grole ${GROLE[r.r][1]}">${GROLE[r.r][0]}</span>`:'<span class="grole gr-n">역할 미입력</span>';};
   const opts=cur=>`<option value="">— 빼기 —</option>`+parties.map((q,j)=>`<option value="${j}"${j===cur?' selected':''}>${esc(q.name)}</option>`).join('');
   const slot=(p,i,id)=>{if(!id)return `<li class="gslot empty"><span class="gsn">빈자리</span></li>`;const m=by[id],r=roles[id];
-    return `<li class="gslot${A.has(id)?' abs':''}"><span class="gsn">${id===p.leader?'<b class="glead" title="파티장">👑</b>':''}<b>${esc(m.name)}</b>${chip(id)}${A.has(id)?'<span class="gabs">불참</span>':''}</span><small class="gsc">${r&&(r.ch||(r.w||[]).length)?esc([r.ch,(r.w||[]).join('·')].filter(Boolean).join(' · ')):'&nbsp;'}</small>${ed?`<span class="gsed"><select data-mv="${esc(id)}" aria-label="파티 옮기기">${opts(i)}</select><button type="button" data-lead="${i}|${esc(id)}"${id===p.leader?' disabled':''}>👑</button></span>`:''}</li>`;};
+    return `<li class="gslot${A.has(id)?' abs':''}"><span class="gsn">${id===p.leader?'<b class="glead" title="파티장">👑</b>':''}<b>${esc(m.name)}</b>${chip(id)}${A.has(id)?'<span class="gabs">불참</span>':''}</span><span class="gsch">${r&&r.ch?`<span class="gchm">${gchIco(r.ch)}<span><small>주력</small> ${esc(r.ch)}</span></span>`:''}${r&&r.ch2?`<span class="gchm sub">${gchIco(r.ch2)}<span><small>서브</small> ${esc(r.ch2)}</span></span>`:''}${r&&(r.ch||r.ch2)?'':'<small class="cat">캐릭터 미입력</small>'}</span><small class="gsc">${r&&(r.w||[]).length?'무기 '+esc(r.w.join('·')):'&nbsp;'}</small>${ed?`<span class="gsed"><select data-mv="${esc(id)}" aria-label="파티 옮기기">${opts(i)}</select><button type="button" data-lead="${i}|${esc(id)}"${id===p.leader?' disabled':''}>👑</button></span>`:''}</li>`;};
   const card=(p,i)=>{const n=p.members.length,ab=p.members.filter(id=>A.has(id)).length;const rows=[...p.members,...Array(Math.max(0,size-n)).fill(null)].map(id=>slot(p,i,id)).join('');
     return `<article class="gtc"><div class="gth">${ed?`<input class="gtname" data-nm="${i}" maxlength="20" value="${esc(p.name)}">`:`<h3>${esc(p.name)}</h3>`}${i<5&&parties.length>5?'<span class="grole gr-top" title="길드 랭킹은 상위 5파티 합산">주력</span>':''}<span class="gtn">${n-ab}/${size}명${ab?` · <b class="gabs2">불참 ${ab}</b>`:''}</span></div><ul class="gsl">${rows}</ul>${gwRounds().length?`<div class="gwcov">${gwRounds().map(r=>{const ok=gwHas(p.members,roles,r.w);return `<span class="gwc${ok?' ok':''}">${r.n}R ${r.w.join('/')} ${ok?'✓':'✗'}</span>`;}).join('')}</div>`:''}${ed?`<button type="button" class="gtdel" data-del="${i}">이 파티 지우기</button>`:''}</article>`;};
   el.innerHTML=gwarHTML()+`<div class="gtme"><b class="gh3" style="margin:0">🙋 내 역할 · 불참</b>
     <p class="cat gnote">역할은 한 번만 입력하면 돼요. 길드전에서 주로 쓸 모험가의 유형(<b>돌격형 · 교란형 · 지원형</b>)을 고르세요. 아직 키우는 중이라 보조로 들어갈 거면 교란형이나 지원형을 고르면 돼요. 길마가 이걸 보고 파티를 고정으로 짜 둬요. 못 오는 주에만 <b>${md(up)} 불참</b>을 눌러 주세요.</p>
     <div class="gtf">${nickInput('gtnick')}<select id="gtrole" aria-label="역할">${[['atk','돌격형'],['dis','교란형'],['sup','지원형']].map(([v,l])=>`<option value="${v}"${myR&&(myR.r===v||(v==='atk'&&myR.r==='dps'))?' selected':''}>${l}</option>`).join('')}</select>
-    <input id="gtch" class="gnick" maxlength="40" placeholder="주력 캐릭터 (예: 미도리 2돌 · 불)" value="${esc(myR&&myR.ch||'')}"></div>
+</div>
+    <div class="gtc2"><label class="gtcl"><span>주력 캐릭터</span><input id="gtch" class="gnick" maxlength="40" list="dl_gch" placeholder="적거나 골라요 (예: 미도리 2돌)" value="${esc(myR&&myR.ch||'')}" autocomplete="off"></label>
+    <label class="gtcl"><span>서브 캐릭터</span><input id="gtch2" class="gnick" maxlength="40" list="dl_gch" placeholder="적거나 골라요 (예: 케레스)" value="${esc(myR&&myR.ch2||'')}" autocomplete="off"></label>
+    <datalist id="dl_gch">${GCHARS().map(n=>`<option value="${esc(n)}"></option>`).join('')}</datalist></div>
     <div class="gtw"><span class="cat">쓸 수 있는 무기 (여러 개)</span>${GWPN.map(w=>`<button type="button" class="gwb${myR&&(myR.w||[]).includes(w)?' on':''}" data-w="${w}" aria-pressed="${!!(myR&&(myR.w||[]).includes(w))}">${w}</button>`).join('')}</div>
     <div class="gtb"><button type="button" class="gbtn" id="gtsave">역할 저장</button><button type="button" class="gbtn2" id="gtabs">${md(up)} 불참</button><button type="button" class="gbtn2" id="gtback">불참 취소</button>${myR?'<button type="button" class="gbtn2" id="gtclr">내 역할 지우기</button>':''}</div>
-    <div class="jmsg" id="gtmsg" role="status">${me?`${esc(me.name)} · ${myR?`지금 역할: ${GROLE[myR.r][0]}${myR.ch?' · '+esc(myR.ch):''}`:'아직 역할을 안 적었어요'}${A.has(me.id)?` · ${md(up)} 불참으로 표시됨`:''}`:''}</div></div>
+    <div class="jmsg" id="gtmsg" role="status">${me?`${esc(me.name)} · ${myR?`지금 역할: ${GROLE[myR.r][0]}${myR.ch?' · 주력 '+esc(myR.ch):''}${myR.ch2?' · 서브 '+esc(myR.ch2):''}`:'아직 역할을 안 적었어요'}${A.has(me.id)?` · ${md(up)} 불참으로 표시됨`:''}`:''}</div></div>
    <div class="gtsum"><span>역할 입력 <b>${withRole.length}</b> / ${live.length}명</span><span class="grole gr-d">돌격형 ${cnt('atk')+cnt('dps')}</span><span class="grole gr-y">교란형 ${cnt('dis')}</span><span class="grole gr-s">지원형 ${cnt('sup')}</span>${cnt('any')?`<span class="grole gr-n">미정 ${cnt('any')}</span>`:''}${A.size?`<span class="gabs">${md(up)} 불참 ${A.size}명</span>`:''}</div>
    ${parties.length?`<div class="gtl">${parties.map(card).join('')}</div>`:`<p class="cat" style="margin:6px 0">아직 짜 둔 파티가 없어요.${GUILD.admin?' 아래 「파티 짜기」에서 자동 편성을 눌러 보세요.':' 역할을 입력해 두면 길마가 파티를 짜요.'}</p>`}
    ${free.length?`<p class="gfree"><b>파티 없는 단원 ${free.length}명</b> ${free.map(m=>`<span class="gfm">${esc(m.name)} ${chip(m.id)}${GUILD.admin?`<button type="button" class="gfx" data-rmrole="${esc(m.name)}" aria-label="${esc(m.name)} 역할 지우기" title="역할 지우기">✕</button>`:''}${ed?`<select data-mv="${esc(m.id)}" aria-label="파티 넣기"><option value="">파티 고르기</option>${parties.map((q,j)=>`<option value="${j}">${esc(q.name)}</option>`).join('')}</select>`:''}</span>`).join('')}</p>`:''}
@@ -1869,12 +1880,12 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
      :`<div class="gtbar"><button type="button" id="gtedit">🛠 파티 짜기 (길마)</button></div>`):''}`;
   const $=id=>document.getElementById(id),msg=t=>{const m=$('gtmsg');if(m)m.textContent=t;};
   {const ni=$('gtnick');if(ni)ni.oninput=()=>{const v=ni.value.trim();const m=GUILD.roster.find(x=>gnorm(x.name)===gnorm(v));if(!m)return;const r=roles[m.id];
-    if(r){$('gtrole').value=r.r==='dps'?'atk':r.r==='any'?'atk':r.r;$('gtch').value=r.ch||'';el.querySelectorAll('.gwb').forEach(b=>{const on=(r.w||[]).includes(b.dataset.w);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});}
+    if(r){$('gtrole').value=r.r==='dps'?'atk':r.r==='any'?'atk':r.r;$('gtch').value=r.ch||'';$('gtch2').value=r.ch2||'';el.querySelectorAll('.gwb').forEach(b=>{const on=(r.w||[]).includes(b.dataset.w);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});}
     msg(`${m.name} · ${r?`지금 역할: ${GROLE[r.r][0]}${r.ch?' · '+r.ch:''}`:'아직 역할을 안 적었어요'}${A.has(m.id)?` · ${md(up)} 불참으로 표시됨`:''}`);};}
   const send=async(body,ok)=>{const nick=($('gtnick').value||'').trim();if(!nick){msg('게임 닉네임을 적어 주세요.');return;}gSet(GNICK,nick);
     try{const j=await guildApi('POST',Object.assign({nickname:nick},body));GUILD.team=j.team;GUILD.abs=j.abs;paintTeam();msg(ok);}catch(e){msg(gmsg(e));}};
   el.querySelectorAll('.gwb').forEach(b=>b.onclick=()=>{const on=!b.classList.contains('on');b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});
-  $('gtsave').onclick=()=>send({action:'team.role',role:$('gtrole').value,ch:$('gtch').value,w:[...el.querySelectorAll('.gwb.on')].map(b=>b.dataset.w)},'역할을 저장했어요 ✓');
+  $('gtsave').onclick=()=>send({action:'team.role',role:$('gtrole').value,ch:$('gtch').value,ch2:$('gtch2').value,w:[...el.querySelectorAll('.gwb.on')].map(b=>b.dataset.w)},'역할을 저장했어요 ✓');
   $('gtabs').onclick=()=>send({action:'team.abs',date:up,on:true},`${md(up)} 불참으로 표시했어요. 파티장이 볼 수 있어요.`);
   $('gtback').onclick=()=>send({action:'team.abs',date:up,on:false},'불참 표시를 지웠어요 ✓');
   if($('gtclr'))$('gtclr').onclick=()=>send({action:'team.role',role:''},'역할을 지웠어요');

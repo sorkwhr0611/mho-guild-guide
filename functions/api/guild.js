@@ -207,7 +207,7 @@ export async function onRequest({ request: req, env }) {
     if (r && !ROLES.includes(r)) return err("role");
     const team = await getTeam();
     if (!r) delete team.roles[m.id];
-    else team.roles[m.id] = { r, ch: clip(b.ch, 40), w: [...new Set((Array.isArray(b.w) ? b.w : []).map((x) => clip(x, 10)).filter((x) => WEAPONS.includes(x)))], at: Date.now() };
+    else team.roles[m.id] = { r, ch: clip(b.ch, 40), ch2: clip(b.ch2, 40), w: [...new Set((Array.isArray(b.w) ? b.w : []).map((x) => clip(x, 10)).filter((x) => WEAPONS.includes(x)))], at: Date.now() };
     team.at = Date.now();
     await store.setJSON("team", team);
     return json({ ok: true, ...(await teamView()), me: m.id });
