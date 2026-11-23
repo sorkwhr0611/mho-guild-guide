@@ -229,7 +229,7 @@ export async function onRequest({ request: req, env }) {
   if (act === "team.save") {
     if (!isAdmin) return err("forbidden", 403);
     const team = await getTeam();
-    const size = Math.max(2, Math.min(8, parseInt(b.size, 10) || team.size || 4));
+    const size = Math.max(2, Math.min(4, parseInt(b.size, 10) || team.size || 4)); // 게임 파티는 최대 4명
     const ok = new Set(roster.members.filter((m) => !m.to || m.to > lastSaturday()).map((m) => m.id));
     const used = new Set();
     const parties = (Array.isArray(b.parties) ? b.parties : []).slice(0, MAX_PARTIES).map((p, i) => {
