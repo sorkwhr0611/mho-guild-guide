@@ -341,15 +341,15 @@ h2.sec,.world>h3{scroll-margin-top:var(--stick,110px)}
 .grid>.card .meta{min-height:34px;align-content:flex-start}
 .grid>.card tbody td{height:58px;vertical-align:middle}
 .grid>.card tr.final td,.grid>.card tr.lv td{height:auto}
-.fx{display:flex;flex-direction:column;justify-content:center;overflow:hidden}
-.grid>.card .fxf{height:86px}
-.grid>.card .fxl{height:60px}
-.fxf .kr{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.grid>.card .fxf .route{-webkit-line-clamp:1;white-space:nowrap;text-overflow:ellipsis;display:block}
-.fxi{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.fx{display:flex;flex-direction:column;justify-content:center}
+.grid>.card .fxf{min-height:72px}
+.grid>.card .fxl{min-height:48px}
+.fxf .kr{overflow-wrap:anywhere}
+.grid>.card .fxf .route{display:block;white-space:normal}
+.fxi{overflow-wrap:anywhere}
 .grid>.card .fxl{display:flex!important}
 .grid>.card .skills{margin-top:0}
-.grid>.card .route{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.grid>.card .route{display:block}
 tr.swap td{background:color-mix(in srgb,#2a6fb5 8%,var(--panel))}
 em.was{display:block;font-style:normal;font-size:12px;color:var(--muted);font-weight:400;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px}
 .tag.sw{background:#2a6fb5;border-color:#2a6fb5;color:#fff}
@@ -3151,7 +3151,7 @@ function eqCards(){const g=document.getElementById('grid');if(!g)return;
   cs.forEach(c=>c.querySelectorAll('[data-eqh]').forEach(e=>{e.style.removeProperty('margin-bottom');e.style.height='';e.removeAttribute('data-eqh');}));
   const slots=c=>[c.querySelector('.chead'),c.querySelector('.bsets'),c.querySelector('.meta'),...c.querySelectorAll('tbody>tr'),c.querySelector('.skills>.h'),c.querySelector('.skills>.sk'),c.querySelector('.skills>.set'),c.querySelector('.anote')];
   const rows={};cs.forEach(c=>{if(!c.offsetParent)return;const t=Math.round(c.getBoundingClientRect().top+scrollY);(rows[t]=rows[t]||[]).push(c);});
-  const grow=(e,d)=>{e.setAttribute('data-eqh','1');if(e.tagName==='TR'){e.style.height=(e.getBoundingClientRect().height+d)+'px';}else{const cur=parseFloat(e.style.getPropertyValue('margin-bottom'))||parseFloat(getComputedStyle(e).marginBottom)||0;e.style.setProperty('margin-bottom',(cur+d)+'px','important');}};
+  const grow=(e,d)=>{e.setAttribute('data-eqh','1');if(e.tagName==='TR'){const tg=e.getBoundingClientRect().height+d;let h=tg;for(let k=0;k<4;k++){e.style.height=h+'px';const a=e.getBoundingClientRect().height;if(Math.abs(a-tg)<0.5)break;h-=a-tg;}}else{const cur=parseFloat(e.style.getPropertyValue('margin-bottom'))||parseFloat(getComputedStyle(e).marginBottom)||0;e.style.setProperty('margin-bottom',(cur+d)+'px','important');}};
   Object.values(rows).forEach(R=>{if(R.length<2)return;const S=R.map(slots);const n=Math.min(...S.map(x=>x.length));
     for(let i=1;i<n;i++){if(S.some(x=>!x[i]||!x[i-1]))continue;
       const off=()=>S.map((x,k)=>x[i].getBoundingClientRect().top-R[k].getBoundingClientRect().top);
