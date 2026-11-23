@@ -1708,7 +1708,7 @@ function paintAdmBar(){let el=document.getElementById('admbar');if(!el){el=docum
   if($('admx'))$('admx').onclick=()=>{GUILD.admOpen=false;paintAdmBar();};
   const login=async()=>{const k=$('admkey').value.trim();if(!k)return;try{localStorage.setItem(ADMK,k)}catch(_){}$('admgo').disabled=true;await loadJoin();await loadGuild();if(!admOn()){alert('비밀번호가 맞지 않아요.');try{localStorage.removeItem(ADMK)}catch(_){}}else GUILD.admOpen=false;paintAdmBar();};
   if($('admgo')){$('admgo').onclick=login;$('admkey').onkeydown=e=>{if(e.key==='Enter')login();};}
-  if($('admoff'))$('admoff').onclick=async()=>{try{localStorage.removeItem(ADMK)}catch(_){}JOIN.admin=false;JOIN.wedit=false;GUILD.admin=false;GUILD.per=null;GUILD.xls=null;GUILD.xatt=null;await loadJoin();await loadGuild();paintAdmBar();};}
+  if($('admoff'))$('admoff').onclick=async()=>{try{localStorage.removeItem(ADMK)}catch(_){}JOIN.admin=false;JOIN.wedit=false;GUILD.admin=false;GUILD.per=null;GUILD.xls=null;GUILD.xatt=null;GUILD.tdraft=null;await loadJoin();await loadGuild();paintAdmBar();};}
 async function loadGuild(){
   if(!onNetlify()){GUILD.err='local';paintGuild();return;}
   try{const j=await guildApi('GET');Object.assign(GUILD,{loaded:true,err:'',admin:!!j.admin,roster:j.roster||[],polls:j.polls||[],att:j.att||{},sat:j.saturday||kstSat(),team:j.team||{size:4,roles:{},parties:[]},abs:j.abs||{}});if(!GUILD.day)GUILD.day=GUILD.sat;}
@@ -1849,7 +1849,9 @@ function teamText(){const T=GUILD.team,up=gUpSat(),A=new Set(GUILD.abs[up]||[]),
 function paintTeam(){const el=document.getElementById('gteam');if(!el)return;const off=gOff();if(off){el.innerHTML=off;return;}
   const T=GUILD.team||{size:4,roles:{},parties:[]},roles=T.roles||{},up=gUpSat(),A=new Set(GUILD.abs[up]||[]);
   const live=gsort(GUILD.roster.filter(m=>gact(m,up)));const by=Object.fromEntries(GUILD.roster.map(m=>[m.id,m]));
-  const ed=GUILD.admin&&GUILD.tdraft;const D0=ed?GUILD.tdraft:{size:Math.min(4,T.size||4),parties:T.parties||[]};const size=Math.min(4,D0.size||4);
+  if(GUILD.admin&&!GUILD.tdraft)GUILD.tdraft={size:Math.min(4,T.size||4),parties:JSON.parse(JSON.stringify(T.parties||[]))};
+  const ed=GUILD.admin&&GUILD.tdraft;
+  const dirty=ed&&JSON.stringify({s:GUILD.tdraft.size,p:GUILD.tdraft.parties.map(p=>[p.name,p.leader||null,p.members])})!==JSON.stringify({s:Math.min(4,T.size||4),p:(T.parties||[]).map(p=>[p.name,p.leader||null,p.members])});const D0=ed?GUILD.tdraft:{size:Math.min(4,T.size||4),parties:T.parties||[]};const size=Math.min(4,D0.size||4);
   const parties=D0.parties.map(p=>Object.assign({},p,{members:p.members.filter(id=>by[id])}));
   const placed=new Set(parties.flatMap(p=>p.members));
   const withRole=live.filter(m=>roles[m.id]),noRole=live.filter(m=>!roles[m.id]),free=withRole.filter(m=>!placed.has(m.id));
@@ -1876,8 +1878,8 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
    ${free.length?`<p class="gfree"><b>파티 없는 단원 ${free.length}명</b> ${free.map(m=>`<span class="gfm">${esc(m.name)} ${chip(m.id)}${GUILD.admin?`<button type="button" class="gfx" data-rmrole="${esc(m.name)}" aria-label="${esc(m.name)} 역할 지우기" title="역할 지우기">✕</button>`:''}${ed?`<select data-mv="${esc(m.id)}" aria-label="파티 넣기"><option value="">파티 고르기</option>${parties.map((q,j)=>`<option value="${j}">${esc(q.name)}</option>`).join('')}</select>`:''}</span>`).join('')}</p>`:''}
    ${GUILD.admin&&noRole.length?`<details class="ggone"><summary>역할 미입력 ${noRole.length}명</summary><p class="cat">${noRole.map(m=>esc(m.name)).join(', ')}</p></details>`:''}
    <div class="gtbar"><button type="button" id="gtkakao"${parties.length?'':' disabled'}>📋 카톡 공유용 파티표 복사</button><span class="cat" id="gtkmsg"></span></div>
-   ${GUILD.admin?(ed?`<div class="gsave"><label class="jf" style="min-width:0"><span>파티 인원</span><select id="gtsize">${[2,3,4].map(x=>`<option${x===size?' selected':''}>${x}</option>`).join('')}</select></label><button type="button" id="gtauto">🔀 역할대로 자동 편성</button><button type="button" id="gtadd">＋ 파티 추가</button><span style="flex:1"></span><button type="button" class="pri" id="gtput">✓ 파티 저장</button><button type="button" id="gtcancel">취소</button></div><p class="cat gnote">자동 편성은 지원형과 교란형을 파티마다 한 명씩 먼저 넣고, 돌격형을 고르게 나눈 뒤 남는 자리를 채워요. 이때 이번 주 무기 보너스(예: 활, 대검·랜스)를 쓸 수 있는 사람을 그 무기가 없는 파티에 먼저 넣어요. 길드 랭킹은 모험단마다 상위 5파티 점수 합산이라, 파티가 6개 이상이면 1~5파티(주력)부터 꽉 채워요. 센 돌격형은 1~5파티에 두세요. 파티장은 돌격형 중 한 명으로 정해져요. 단원 옆 칸에서 다른 파티로 옮기고 👑로 파티장을 바꿀 수 있어요.</p>`
-     :`<div class="gtbar"><button type="button" id="gtedit">🛠 파티 짜기 (길마)</button></div>`):''}`;
+   ${GUILD.admin?(ed?`<div class="gsave"><label class="jf" style="min-width:0"><span>파티 인원</span><select id="gtsize">${[2,3,4].map(x=>`<option${x===size?' selected':''}>${x}</option>`).join('')}</select></label><button type="button" id="gtauto">🔀 역할대로 자동 편성</button><button type="button" id="gtadd">＋ 파티 추가</button><span style="flex:1"></span><button type="button" class="pri" id="gtput"${dirty?'':' disabled'}>✓ 파티 저장${dirty?' (바뀐 내용 있음)':''}</button>${dirty?'<button type="button" id="gtcancel">되돌리기</button>':''}</div><p class="cat gnote">자동 편성은 지원형과 교란형을 파티마다 한 명씩 먼저 넣고, 돌격형을 고르게 나눈 뒤 남는 자리를 채워요. 이때 이번 주 무기 보너스(예: 활, 대검·랜스)를 쓸 수 있는 사람을 그 무기가 없는 파티에 먼저 넣어요. 길드 랭킹은 모험단마다 상위 5파티 점수 합산이라, 파티가 6개 이상이면 1~5파티(주력)부터 꽉 채워요. 센 돌격형은 1~5파티에 두세요. 파티장은 돌격형 중 한 명으로 정해져요. 단원 옆 칸에서 다른 파티로 옮기고 👑로 파티장을 바꿀 수 있어요.</p>`
+     :''):''}`;
   const $=id=>document.getElementById(id),msg=t=>{const m=$('gtmsg');if(m)m.textContent=t;};
   {const ni=$('gtnick');if(ni)ni.oninput=()=>{const v=ni.value.trim();const m=GUILD.roster.find(x=>gnorm(x.name)===gnorm(v));if(!m)return;const r=roles[m.id];
     if(r){$('gtrole').value=r.r==='dps'?'atk':r.r==='any'?'atk':r.r;$('gtch').value=r.ch||'';$('gtch2').value=r.ch2||'';el.querySelectorAll('.gwb').forEach(b=>{const on=(r.w||[]).includes(b.dataset.w);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);});}
@@ -1893,9 +1895,8 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
   if(!GUILD.admin)return;
   el.querySelectorAll('[data-rmrole]').forEach(b=>b.onclick=async()=>{const n=b.dataset.rmrole;if(!confirm(`${n}의 역할 입력을 지울까요? (파티 없는 단원 목록에서 빠져요)`))return;
     try{const j=await guildApi('POST',{action:'team.role',nickname:n,role:''});GUILD.team=j.team;GUILD.abs=j.abs;}catch(e){alert(gmsg(e));}paintTeam();});
-  if($('gtedit'))$('gtedit').onclick=()=>{GUILD.tdraft={size:T.size||4,parties:JSON.parse(JSON.stringify(T.parties||[]))};paintTeam();};
   if(!ed)return;const dr=GUILD.tdraft;dr.parties=parties;
-  $('gtcancel').onclick=()=>{GUILD.tdraft=null;paintTeam();};
+  if($('gtcancel'))$('gtcancel').onclick=()=>{GUILD.tdraft=null;paintTeam();};
   $('gtsize').onchange=()=>{dr.size=+$('gtsize').value;paintTeam();};
   $('gtadd').onclick=()=>{dr.parties.push({id:'',name:`${dr.parties.length+1}파티`,leader:null,members:[]});paintTeam();};
   $('gtauto').onclick=()=>{if(dr.parties.some(p=>p.members.length)&&!confirm('지금 파티를 지우고 역할대로 새로 짤까요? (저장 전까지는 반영 안 돼요)'))return;dr.parties=gTeamAuto(live,roles,dr.size);paintTeam();};
