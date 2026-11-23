@@ -16971,6 +16971,20 @@
      "11/24",
      "공략 업데이트",
      [
+      "현상금 로드 증강 조합 · 서포터 세팅 예시",
+      "로드: 부위 파괴 → 오의 → 슈퍼 아머 순환 증강 (사진 2)",
+      "마격 3단계 융광 디아 해머 1분 33초 후기 (사진 1)",
+      "서포터 방어구 예시 · 케레스 서브 운영 · 동반자 따봉 의미",
+      "백련 특전 코어 삽화 세트 +1 · 크샬 삽화 얻는 법 (사진 1)",
+      "지배자 무기 순정 분해 · 낮은 난이도 재료 · 대검 태클 뎀감",
+      "추천 장비 GameWith·game8 갱신 없음 — 바뀐 세트 없어요"
+     ],
+     "bounty-brix"
+    ],
+    [
+     "11/24",
+     "공략 업데이트",
+     [
       "융광종 디아네로 무기 3종 · 부위별 스킬",
       "차지액스·활·헤보 용속성 539 · 희귀도 14 (사진 2)",
       "마격 3단계 권장 16,447 · 삽화·동반자도 바꿔 끼기",
@@ -24040,7 +24054,8 @@
     "불은 game8이 루가 에알다 코어, GameWith가 크샬 코어를 추천해요. 부위 파괴를 많이 하면 크샬, 아니면 루가로 고르면 돼요.",
     "game8 루카 예시는 융광종 토비카가치 코어 + 토비카가치 · 파오우르무 · 메르노스 · 쟈그라스(용뢰 4 + 공명/무예 2)예요.",
     "서브옵션 우선순위는 그대로예요: 각 속성 공격력 UP · 오의 충전 효율 > 회심률 · 대미지 > 방어력.",
-    "크샬다오라·루가 에알다 삽화 메인 옵션은 회심이 안 뜨고 오의 충전 효율·속성 대미지만 떠요. 속성 대미지 2개(속속)가 뜨면 멈추는 사람이 많아요(제보)."
+    "크샬다오라·루가 에알다 삽화 메인 옵션은 회심이 안 뜨고 오의 충전 효율·속성 대미지만 떠요. 속성 대미지 2개(속속)가 뜨면 멈추는 사람이 많아요(제보).",
+    "크샬다오라 삽화(강룡의 폭풍 위엄)는 필드 사냥 삽화 선택지에 안 떠요. 시즌 0 상점에서 사거나 연금 합성으로 얻어요(제보). 한 번 10레벨까지 올린 삽화의 1레벨 기본 수치는 지금 수치의 절반쯤이라는 답이 있어요(제보)."
    ],
    "images": [
     "bx_final-art-1118_1",
@@ -24405,7 +24420,8 @@
     "기본 흐름: 발도 공격 → 강모으기(태클로 건너뛰기) → 참모으기. 끊길 것 같으면 진심베기를 선택해요.",
     "빠른 몬스터는 발도·강모으기·저스트 회피 연계로 조금씩 치고, 큰 틈이나 경직 때 참모으기·진심베기를 넣어요.",
     "고룡급 상대로는 태클이 위험하니 대미지 낮은 공격에만 쓰세요.",
-    "주인공 대검 돌파 효과 중에 강모으기 차징 중 태클로 몬스터 공격을 받아치면 바로 진심베기를 쓸 수 있게 해 주는 효과가 있어요. 진심베기를 자주 쓰려면 필수라는 의견이에요(제보)."
+    "주인공 대검 돌파 효과 중에 강모으기 차징 중 태클로 몬스터 공격을 받아치면 바로 진심베기를 쓸 수 있게 해 주는 효과가 있어요. 진심베기를 자주 쓰려면 필수라는 의견이에요(제보).",
+    "태클 중 받는 대미지 감소는 기본 50%, 깨달음을 찍으면 80%라는 제보예요. 크샬다오라 폭풍에 잠깐 닿는 정도는 버티지만, 폭풍 속에서 진심베기까지 쓰면 쓰러질 수 있어요(제보)."
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15555 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19695"
@@ -24432,7 +24448,7 @@
    "id": "bounty-brix",
    "cat": "무기·세팅",
    "title": "현상금 챌린지: 해머 운영 (브릭스 · 주인공 · 로드)",
-   "date": "11-23",
+   "date": "11-24",
    "lines": [
     "철벽-선구(시작 시 실드 120) 또는 철벽-위압(실드 100% 초과 시 대미지 +64%) 중 하나를 골라요.",
     "절단-실드(절단 공격 시 실드 획득)는 꼭 챙겨요.",
@@ -24452,10 +24468,23 @@
     "주인공 해머는 회전(휠윈드) 중 슈퍼 아머 증강이 아주 편해요. 여기에 기절 시 대미지 증가 · 부위 파괴 시 슈퍼 아머 · 실드 계열을 챙기면 무난하게 깨요.",
     "머리를 때릴 때마다 체력이 차고 대미지가 오르는 증강이 뜨면 바로 잡으세요. 기절 쪽 증강을 몰아 주면 첫 기절에 거의 끝난다는 후기도 있어요(제보).",
     "돌리다가 머리에 2모으기(어퍼)를 넣어 기절시키고, 쓰러지면 연타로 마무리하는 흐름이에요.",
-    "로드는 현상금 전용 증강 중 '스팀 모드 중 게이지 소모 없음 · 코어 에너지 자동 상승'이 아주 세요. 깨달음엔 없는 효과라 현상금에서만 써요(제보)."
+    "로드는 현상금 전용 증강 중 '스팀 모드 중 게이지 소모 없음 · 코어 에너지 자동 상승'이 아주 세요. 깨달음엔 없는 효과라 현상금에서만 써요(제보).",
+    "■ 로드 증강 조합: 부위 파괴 → 오의 → 슈퍼 아머 (11/24)",
+    "로드는 기본 상태로는 약하지만, 아래 세 증강이 모이면 갑자기 세져요. 부위 파괴로 오의를 채우고 → 오의로 슈퍼 아머를 켜고 → 슈퍼 아머 동안 부위 파괴가 더 잘 되는 순환이에요.",
+    "@img:bn_21199_1",
+    "브레이크 축적: 부위 파괴 시 오의 충전 +105%. 브레이크 강화: 부위 파괴 효율 +15%.",
+    "증기 증압: 스팀 자세 중엔 증기 에너지를 안 쓰고 코어 에너지가 올라요. 공격을 피하면 증기 에너지 50 · 코어 에너지 50을 얻어요.",
+    "리버스 스윙: 스팀 자세로 공격을 피하면 다음 롤러 모으기 공격의 코어 에너지 축적량 +50%, 증기 에너지도 안 써요.",
+    "@img:bn_21199_2",
+    "오의의 강체: 오의를 쓰면 슈퍼 아머 13초. 강체·속성 약동: 슈퍼 아머 중 1초마다 속성 대미지 +11%(최대 +110%). 강체 부위 파괴: 슈퍼 아머 중 1초마다 부위 파괴 효율 +21%(최대 +210%). 둘 다 슈퍼 아머가 끝나면 초기화돼요.",
+    "해머 증강 기절·강체(기절시킬 때마다 슈퍼 아머 30초) · 회피·기절격(저스트 회피 후 5초간 기절치 +70%)도 슈퍼 아머 유지에 좋아요.",
+    "얼음 약점 몬스터가 나오면 부위 파괴와 슈퍼 아머가 끊기지 않아서, 쿨마다 오의를 쓰는 흐름이 돼요. 슈퍼 아머 중 대미지가 오르는 증강까지 잡으면 더 세져요.",
+    "증강이 모이기 전 초반엔 2차지 평타와 특수 납도로 쳐요. 스킬3 뒤에 이어지는 평타도 세니 빼먹지 마세요(제보).",
+    "로드는 간파만 쓰면 약해요. 일반 모으기 · 롤러 모으기 · 간파를 섞어 쓰다가 각이 나오면 스킬3을 넣어야 딜이 나온다는 의견이 많아요.",
+    "상위 근접 몬스터가 나오는 후반엔 실드·슈퍼 아머 증강을 못 잡으면 많이 힘들어요. 안 풀리면 헤비 보우건 모험가로 가라는 조언도 있어요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=4031 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20669 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20782 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20789 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20816 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20796 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21003 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21007"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=4031 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20669 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20782 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20789 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20816 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20796 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21003 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21007 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21199 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21214"
   },
   {
    "id": "bounty-greatsword",
@@ -24529,6 +24558,8 @@
     "주인공 불 세팅이 있으면 2단계는 케레스 대신 주인공으로 가는 게 더 쉬워요. 미도리 + 주인공이 있으면 지난 회차보다 쉽다는 후기예요.",
     "해머로 3단계 디아블로스를 칠 땐 머리를 노려요. 머리와 몸통이 타격 약점이에요. 약점이 헷갈리면 도감에서 육질 표시를 보면 무기별 약점이 떠요.",
     "로드 해머는 '머리만 치는 해머'보다 특수 납도를 계속 쓰는 해머라고 생각하고 운영하라는 조언이 있어요(제보).",
+    "@img:bn_21192_1",
+    "3단계 융광종 디아블로스를 주인공 해머로 1분 33초에 잡았다는 후기도 있어요. 디아블로스 해머 + 발킨 머리 · 하이메탈 · 기에나 · 체인 · 융광종 안쟈나프 방어구 조합이래요(부위·스킬 확인 중). 4단계까지 올 S 화면도 같이 올라왔어요.",
     "단계별 약점 제보: 1단계 얼음·물 · 2단계 불·불 · 3단계 얼음·얼음 · 4단계 불·불(제보). 지난 회차보다 쉽다는 후기가 많아요.",
     "2단계 융광종 쟈그라스가 생각보다 단단해서, 1단계는 주인공 · 2단계는 미도리를 넣는 게 좋았다는 후기예요.",
     "4단계 융광종 레이기에나를 차지액스로 칠 땐, 넘어뜨리거나 떨어뜨려 다운됐을 때 배 안쪽으로 들어가 왼쪽 날개를 록온하고 오의 초고출력을 쓰면 양 날개가 다 부서진다는 팁이 있어요(제보).",
@@ -24551,7 +24582,7 @@
     "bx_arena-ruler-swap_1",
     "bx_arena-ruler-swap_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=8329 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20291 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20277 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20333 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20569 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20564 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20678 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20688 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20705 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20734 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20718 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20743 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20806 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20774"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=8329 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20291 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20277 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20333 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20569 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20564 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20678 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20688 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20705 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20734 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20718 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20743 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20806 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20774 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21192"
   },
   {
    "id": "survival-trait",
@@ -25214,17 +25245,17 @@
    "id": "tips-hero",
    "cat": "무기·세팅",
    "title": "주인공 장비·각인 팁 13가지",
-   "date": "11-22",
+   "date": "11-24",
    "lines": [
     "주인공 유형(돌격·교란·지원)은 편성에서 바꿔요 — 편성에서 주인공을 고르고 유형 아이콘(교환 표시)을 누르면 바뀌어요. 돌격형 = 부위 파괴 극딜기, 교란형 = 섬광 폭탄, 지원형 = 힐. 브릭스가 없으면 교란형, 있으면 지원형이 무난해요. 유형을 바꾸면 낄 수 있는 동반자도 바뀌니 주의하세요.",
     "무기는 모험가 이름 아래 \"무기 전환\" — 주인공 무기는 모험가 이름 아래 무기 전환을 누르고 오른쪽 무기 아이콘에서 바꿔요. 현상금 챌린지에서도 같은 방법이에요.",
     "속성별 장비 세트를 저장해 두세요 — 주인공은 몬스터마다 무기를 바꿔 끼게 되니까 5속성 세트를 마이 세트로 저장해 두면 파티 초대 받았을 때 바로 불러올 수 있어요.",
     "주인공 각인은 SSR보다 조금 약하게 들어가요 — 설명은 SSR과 같지만 실제로는 5% 낮게(30%) 적용되고, 최종 대미지도 곱연산으로 5% 줄어든다는 측정이 있어요(1.35배 → 약 1.28배).",
     "주인공 코어 패시브는 회심률 비례 — 회심 1%당 대미지 0.25%가 올라서 회심 상한 90%면 +22.5%예요. 속성 대미지가 1000을 넘으면 추가로 올라요. 그래서 각인 다 찍기 전엔 삽화 스탯을 회심 > 속성 > 오의 순으로 챙기라는 의견이 많아요.",
-    "80레벨 회심 각인은 1단계만 재료, 그 뒤는 제니 — 80레벨 핵심 능력치에서 회심 1단계는 각인 재료 9,600개 + 제니(회심 +8%), 2단계부터는 제니만(약 100만) 들어 회심 +11%까지 올라요. 80레벨에 처음 열릴 때 기본으로 회심 +4%가 붙어요.",
+    "80레벨 회심 각인은 1단계만 재료, 그 뒤는 제니 — 80레벨 핵심 능력치에서 회심 1단계는 각인 재료 9,600개 + 제니(회심 +8%), 2단계부터는 제니만(약 100만) 들어 회심 +11%까지 올라요. 80레벨에 처음 열릴 때 기본으로 회심 +4%가 붙어요. 1단계 제니는 50만이에요. 2단계부터 들어가는 제니는 80만~100만으로 제보가 갈려서 확인 중이에요.",
     "주인공 돌파 재료는 \"시련 원정\"에서 — 플레이 가이드 → 장비 보급 → 시련 원정(총 150층). 권장 사냥력보다 높으면 싸우지 않고 바로 보상을 받아요. 층마다 무기별로 1포인트씩 따로 주고, 21층부터는 하루 3회 보충, 초기화 티켓은 매주 월요일 1장이에요.",
     "SSR 아이루는 무기에 맞춰 골라요 — 헤보가 SSR 아이루 5종을 쓸 수 있어 제일 자유로워요. 코지로 = 태도·헤보(열파), 타이쇼 = 대검·태도(피하기), 슈미르 = 활·헤보 관통탄, 크롤라 = 대검·차액·해머·랜스·활(모으기). 나일·스쿠가는 주인공이 못 써요.",
-    "주인공 동반자 고르기 — 돌격형 SSR 동반자는 코지로뿐이라 돌격형 주인공은 코지로(회심 상승)를 많이 써요. 교란형 주인공이면 네가르 추천이 많아요(교란형 SSR 동반자 · 오의가 강함). 대검이면 타이쇼, 얼음 속성 땐 크롤라를 쓰는 사람도 있어요.",
+    "주인공 동반자 고르기 — 돌격형 SSR 동반자는 코지로뿐이라 돌격형 주인공은 코지로(회심 상승)를 많이 써요. 교란형 주인공이면 네가르 추천이 많아요(교란형 SSR 동반자 · 오의가 강함). 대검이면 타이쇼, 얼음 속성 땐 크롤라를 쓰는 사람도 있어요. 동반자 목록의 따봉(추천) 표시는 시스템 추천이라 성능과는 별개예요. 주인공 기본 파트너는 SR이라, 무기 속성에 맞춰 SSR 동반자로 바꿔 끼는 게 좋다는 답이 많아요. 동반자 레벨업 재화가 많이 드니 SSR 동반자 하나를 키워 깡 속성 공격력용으로 써도 돼요(제보).",
     "회심은 70~75%까지만 — 회심이 100%를 넘으면 넘는 만큼은 버려져요. Lv80 회심 각인을 다 찍으면 크샬 + 회심 2·2 삽화로는 넘칠 수 있어요. 장비·각인·무기 각성으로 70~75% 정도 맞추고 나머지는 속성 대미지로 채우라는 의견이 많아요. 코어 패시브의 회심 보너스와 속성(1000 초과) 보너스는 따로 더해진대요.",
     "주인공 깨달음은 65포인트까지 — 시련 원정 보상으로 기본 5포인트 포함 65포인트까지 모여요(이번 시즌 기준). 30짜리 2개 + 5짜리 1개를 끼울 수 있어서 모험가 2돌파와 비슷해요. 65가 되면 시련 원정에서 더 안 줘요. 모험가는 같은 캐릭터를 또 뽑으면 깨달음 포인트 +30, 최대 6돌파(화면 표기 7)예요. 깨달음은 캐릭터 화면 오른쪽 아래 책 아이콘에서 봐요.",
     "유형을 바꿔도 평타 딜은 같아요 — 돌격형·교란형·지원형의 차이는 오의(필살 연계)와 낄 수 있는 동반자예요. 실험할 땐 동반자 레벨을 맞추고 훈련장에서 비교하세요.",
@@ -25241,8 +25272,8 @@
   {
    "id": "tips-ruler",
    "cat": "무기·세팅",
-   "title": "지배자 무기 팁 14가지",
-   "date": "11-23",
+   "title": "지배자 무기 팁 16가지",
+   "date": "11-24",
    "lines": [
     "시즌마다 지배자 몬스터와 무기가 바뀌어요 — 시즌마다 다른 지배자 챌린지 몬스터가 나오고 거기에 맞는 지배자 무기가 있어요. 시즌 0은 루가 에알다예요. 시즌이 끝난 뒤 무기·각성이 어떻게 되는지는 아직 확인 중예요.",
     "지배자 무기 각성은 너무 고민 안 해도 돼요 — 최종 강화·각성이 끝나면 제련으로 각성 옵션이 전부 랜덤으로 다시 굴러가요. 지금은 회심이든 속성이든 올리고, 제련에서 잘 뜬 걸 쓰는 게 정답이라는 의견이 많아요. 각성 제련 옵션 5개를 전부 주황(최고 등급)으로 맞추는 '졸업'까지 무리하지 말라는 의견이 많아요 — 시즌이 끝나면 제련 옵션이 사라진다는 말이 있어서예요(확인 중).",
@@ -25261,7 +25292,9 @@
     "제련 결과는 골라서 적용해요 — 제련하면 왼쪽(기존)과 오른쪽(새 결과)이 같이 뜨고 「그만두기 · 기존 효과 선택 · 제련 결과 적용」 중에 골라요. 잘 뜬 줄은 자물쇠로 잠가 두면 다음 제련에서 빠지지만, 잠근 줄이 많을수록 비용이 올라요(1회 기본 8만 제니). 신화(주황) 옵션이 2개 뜨면 일단 가져와서 잠그고, 나머지 줄에서 회심·속성 금테를 노리는 사람이 많아요.",
     "@img:bn_20707_1",
     "지배자 무기는 최대 2개까지만 만들어요 — 그래서 두 번째 무기 속성을 다들 고민해요. 시즌 상점의 지배자 무기 모양(광영 오트클레르 등)은 덧입기라 개당 광요 코인 1000이고, 시즌 상점은 12/25까지예요.",
-    "헤보 두 번째 지배자 속성 고르기 — 제작 헤보 장전 수 비교 제보: 용 「용골포」 관통 7 · 산탄 7 · 철갑유탄 2 · 참렬탄 2 / 얼음 「로제테스」 관통 11 · 산탄 2 · 철갑유탄 3 · 참렬탄 2. 대부분 지배자 용헤보로 가지만, 얼음 제작 헤보는 산탄이 2발뿐이라 산탄을 쓰고 싶으면 얼음을 지배자로 만드는 선택도 있어요(제보)."
+    "헤보 두 번째 지배자 속성 고르기 — 제작 헤보 장전 수 비교 제보: 용 「용골포」 관통 7 · 산탄 7 · 철갑유탄 2 · 참렬탄 2 / 얼음 「로제테스」 관통 11 · 산탄 2 · 철갑유탄 3 · 참렬탄 2. 대부분 지배자 용헤보로 가지만, 얼음 제작 헤보는 산탄이 2발뿐이라 산탄을 쓰고 싶으면 얼음을 지배자로 만드는 선택도 있어요(제보).",
+    "강화 전이면 분해해도 재료가 돌아와요 — 강화·각인을 안 한 순정 지배자 무기는 분해하면 만들 때 쓴 재료를 돌려받는다는 답이에요. 강화에 쓴 재료는 안 돌아와요. 강화가 열리는 건 한참 뒤(47레벨쯤)라, 첫 무기는 당장 잡아야 할 몬스터 속성으로 골라도 돼요(제보). 루가 에알다 파밍용 불이 무난하고, 다음 지배자 네르기간테를 보고 번개를 고르는 의견도 있어요.",
+    "아래 난이도는 재료가 줄어요 — 지배자 챌린지를 한 번 깼다고 낮은 난이도만 돌면 보상 재료가 덜 나와요. 주간 콘텐츠라 높은 난이도를 계속 트라이하는 게 낫다는 의견이 많아요. 단, 그윽룡 꼬리처럼 난이도와 상관없이 나오는 소재는 보통 난이도 반복이 편해요."
    ],
    "images": [
     "bt_ruler_1",
@@ -25592,7 +25625,8 @@
     "그래서 마스터 격투장용 임시 무기를 12강까지 만들어 쓰고 분해해도 결정 손해는 없어요.",
     "삽화는 프리셋에 넣어 두면 분해 목록엔 보이지만 「장착 중」이라며 안 갈려요. 세트에서 빼고 갈아요.",
     "안 쓰는 삽화는 다른 삽화 강화 재료로 먹이면 경험치를 약 80% 돌려받는다는 답이 많아요. 10레벨 삽화를 그냥 버리지 마세요.",
-    "에알다 무기뿐 아니라 기본 생산 무기 강화에 넣은 에알다 재료도 분해하면 돌려준대요(제보)."
+    "에알다 무기뿐 아니라 기본 생산 무기 강화에 넣은 에알다 재료도 분해하면 돌려준대요(제보).",
+    "일반 무기 강화에 드는 시즌 재료엔 '시즌 한정' 표시가 없어서, 다음 시즌에도 그대로 쓸 수 있을 거라는 답이 많아요(확인 중)."
    ],
    "images": [
     "bn_16974_1",
@@ -26088,7 +26122,7 @@
     "초보·시스템"
    ],
    "title": "백련의 증표 팁 (동반자 레벨 · 삽화 · 각인 버그)",
-   "date": "11-22",
+   "date": "11-24",
    "lines": [
     "긴급 의뢰에 제니를 쓰기 전에 백련의 증표 단계부터 올리라는 팁이에요.",
     "■ 산맥 1 → 2 대미지 버그는 11/22 패치로 수정됐어요",
@@ -26122,7 +26156,11 @@
     "■ 전설 삽화 「강화 10 이상 · 5점 장착」 퀘스트",
     "@img:bn_19873_1",
     "모험가 2·3·4명에게 강화 레벨 10 이상 전설 삽화를 5장씩 끼우는 퀘스트가 있어요.",
-    "안 쓰는 삽화를 재료로 먹여서 레벨을 올려요. 희귀·영웅 등급은 고민 없이 먹여도 돼요. 메인 삽화 작업하고 남은 걸 모으면 한두 장은 10레벨 근처까지 가요. 부족하면 삽화 강화 소재 사냥도 돌아야 해요."
+    "안 쓰는 삽화를 재료로 먹여서 레벨을 올려요. 희귀·영웅 등급은 고민 없이 먹여도 돼요. 메인 삽화 작업하고 남은 걸 모으면 한두 장은 10레벨 근처까지 가요. 부족하면 삽화 강화 소재 사냥도 돌아야 해요.",
+    "■ 사냥력 · 삽화 세트 특전 (11/24)",
+    "백련의 증표 단계를 올려도 사냥력 숫자는 안 오른다는 답이 많아요. 대신 물리·속성 공격력과 대미지 보너스가 붙어요.",
+    "@img:bn_21196_1",
+    "높은 단계 특전으로 「코어 슬롯 삽화의 세트 중첩 수 +1」이 켜져요. 화면에서 크샬다오라 코어 하나로 강룡의 폭풍 위엄 1세트(속성 대미지 +2%)가 켜져 있어요."
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19349 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18407 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18908 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19252 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19693 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19843 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19873 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19842"
@@ -26282,7 +26320,7 @@
     "무기·세팅"
    ],
    "title": "서브 모험가 장비·삽화 간단히 맞추기",
-   "date": "11-23",
+   "date": "11-24",
    "lines": [
     "■ 장비",
     "서브 모험가는 속성 세트 아니면 생존 세트, 둘 중 하나로 맞춰요.",
@@ -26294,6 +26332,7 @@
     "재화가 넉넉하면 속성별로 크샬다오라 코어 + 그 속성 대미지 삽화 4개(크+속4)가 범용(크샬 + 회심·회심)보다 세다는 의견이에요. 불속성은 크샬다오라·루가 에알다 코어 둘 다 써요.",
     "주인공은 범용으로 쓸 거면 삽화 옵션을 회심으로 맞추는 게 무난해요. 주인공 각인 효과가 회심에 비례해 대미지가 올라서예요.",
     "지원형 브릭스·폴리오는 오의 쿨타임이 아주 짧아서 오의 충전 효율을 챙겨 주면 좋아요. 다른 지원형은 삽화를 굳이 안 챙겨도 돼요.",
+    "동료 삽화는 그 모험가 각인의 코어 패시브를 보고, 거기서 올리라는 스탯에 맞춰 줘요. 류노스케·매들린처럼 오의 충전 효율에 비례해 버프가 세지는 모험가는 오의 충전 효율을 챙겨요.",
     "브릭스에는 풍압 무효 삽화를 끼워 주는 방법도 있어요. 귀찮으면 자동 세팅으로도 충분하다는 의견이 많아요.",
     "추천 장비·삽화 표는 「모험가 장비」 탭에 있어요.",
     "■ 서포터 무기·장비 (11/23)",
@@ -26301,10 +26340,16 @@
     "방어구는 속성 7을 맞춘 뒤 남는 칸에 생존 스킬을 넣어요. 매들린은 속성 강화가 필요 없어서 가호 5 · 체력 강화 3으로 맞춘 예시가 있어요(제보).",
     "브릭스는 팔·허리를 얼로이로 바꿔 풍압 무효(풍압 내성 3)를 맞추는 방법이 있어요. 파오우르무 삽화를 끼우면 풍압 내성이 아군 전체에 걸린다는 제보도 있어요(확인 중).",
     "마비 대검 브릭스는 생존 스킬로 맞춰도 되지만, 파티에 번개 모험가가 하나 더 있으면 번개속성 강화를 챙기는 게 좋아요. 같은 속성 2명이면 부위 파괴 +35% 파티 보너스가 켜지고, 코어 패시브는 상시 적용이래요(제보).",
-    "서포터 삽화: 아케니아처럼 오의 가동률이 중요한 서포터는 속성 대미지보다 오의 충전 효율을 챙기자는 의견이 많아요. 아케니아 코어 패시브 회심은 본인만 받는다는 공식 답변이 나와서, 동료 버프용이면 오의를 자주 쓰는 쪽이 이득이에요."
+    "서포터 삽화: 아케니아처럼 오의 가동률이 중요한 서포터는 속성 대미지보다 오의 충전 효율을 챙기자는 의견이 많아요. 아케니아 코어 패시브 회심은 본인만 받는다는 공식 답변이 나와서, 동료 버프용이면 오의를 자주 쓰는 쪽이 이득이에요.",
+    "서포터 방어구 예시(제보): 속성 7 + 꿰뚫기 4(용속성 무기) · 용속성 7 + 체력 강화 3(마비 무기) · 속성 7 + 무기 스킬, 또는 가호 5 + 체력 강화 3. 브릭스는 번개속성 7 + 풍압 내성 3, 류노스케는 도시락 애호가 7 + 연기 4.",
+    "가호 5 + 체력 강화 3 조합은 시뮬레이터에서 두 스킬을 고정해 두고 찾으면 맞는 장비가 나와요. 각인을 어느 정도 했다면 속성 7 + 가호도 괜찮대요.",
+    "■ 케레스를 서브로 쓸 때 (11/24)",
+    "케레스는 회피할 때마다 회피 연계로 제압(경직)을 걸어서 딜 타임을 만들어 줘요. 연계기를 알고 쓰면 서브로도 좋다는 의견이에요.",
+    "다만 제압 효과가 움찔 정도라, 내 무기가 용속성이라 오의 용속성 보너스를 받는 게 아니면 라야·페페·브릭스 중 둘을 데려가는 게 낫다는 의견도 있어요(제보).",
+    "서브 케레스는 회심을 챙기면 오의(뼈가시)가 박힌 몬스터에게 추가 대미지가 세져요. 각인 코어 패시브의 회심 비례 대미지는 오의로 뼈가시가 박힌 몬스터에게만 적용돼요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19627 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20963 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20965 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21018"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19627 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20963 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20965 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21018 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21203"
   },
   {
    "id": "dc-19679",
@@ -26366,7 +26411,8 @@
     "속성은 융광종 상대로만 크게 중요해요. 일반 몬스터(마스터 격투장 등)는 속성 신경 쓰지 말고 제일 센 모험가·장비로 가도 돼요.",
     "그래도 1레벨 넘치는 건 쓸모없는 보조 스킬이 하나 붙은 정도라 큰 손해는 아니에요.",
     "조합 찾기가 귀찮으면 스킬만 고르면 장비를 찾아 주는 팬 제작 시뮬레이터 「SkillWeave」(mhoskillweave.github.io)를 써 보세요. 원하는 스킬·선호 분류를 고르고, 아직 못 만든 장비는 '제외'로 빼면 돼요.",
-    "고른 장비의 스킬 합계는 이 사이트 「추천 빌드」 탭 시뮬레이터로도 확인할 수 있어요."
+    "고른 장비의 스킬 합계는 이 사이트 「추천 빌드」 탭 시뮬레이터로도 확인할 수 있어요.",
+    "11/24 SkillWeave에 무기 비교 탭이 생겼어요. 같은 무기군에 같은 속성 무기가 여러 개일 때 어떤 걸 고를지 비교할 수 있고, 모바일 화면도 좋아졌어요."
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19722 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=10304 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19778"
