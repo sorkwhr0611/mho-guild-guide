@@ -992,7 +992,7 @@ header .kakao{grid-row:1;grid-column:2}
 .gsave{display:flex;flex-wrap:wrap;gap:8px;align-items:center;position:sticky;bottom:8px;z-index:3;background:var(--panel);padding:8px;border:1.5px solid var(--line);border-radius:12px}
 .gsave button{font:inherit;font-size:14px;padding:8px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}.gsave button.pri{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}.gsave button:disabled{opacity:.5;cursor:default}
 .gweek{display:grid;gap:4px;padding:10px 12px;border-radius:10px;background:var(--bg)}.gweek p{margin:0;font-size:14px;line-height:1.6}
-.gatab th.cur{background:var(--accent-soft)}.grm.gone{opacity:.6}.grm small{font-weight:500;font-size:12px}
+.gatab th.cur{background:var(--accent-soft)}.gstt tr.gsg td{text-align:left!important;background:var(--bg)!important;color:var(--ink)!important;font-weight:800;font-size:13px;padding:8px 10px!important}.gsince{font-size:11.5px;font-weight:600;color:var(--muted)}.grm.gone{opacity:.6}.grm small{font-weight:500;font-size:12px}
 .gper{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;width:100%;padding:8px;border:1.5px dashed var(--accent);border-radius:10px}.gper button{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer}.gper button.pri{background:var(--accent);color:#fff;border-color:var(--accent)}
 .gxls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.gxls button{font:inherit;font-size:13.5px;padding:6px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer}
 .gxprev{display:grid;gap:6px;padding:10px 12px;border:1.5px dashed var(--accent);border-radius:10px;font-size:14px}.gxprev .wlbar{display:flex;flex-wrap:wrap;gap:8px}.gxprev .wlbar button{font:inherit;font-size:13.5px;padding:7px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--panel);cursor:pointer}.gxprev .wlbar button.pri{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700}
@@ -1676,10 +1676,10 @@ function guildSections(){return `
   <section class="box full gpoll"><div id="gpnew"></div><div id="gpolls"></div></section>
   <h2 class="sec">길드전 출석부 <small>매주 토요일 길드전 참여 체크</small></h2>
   <section class="box full gatt" id="gatt"></section>
-  <h2 class="sec">길드전 고정 파티 <small>역할은 한 번만 입력 · 매주 같은 파티 · 랭킹은 상위 5파티 합산</small></h2>
-  <section class="box full gteam" id="gteam"></section>
   <h2 class="sec">단원명부 <small>길드전 출석부·투표에 쓰는 이름</small></h2>
-  <section class="box full groster" id="groster"></section>`;}
+  <section class="box full groster" id="groster"></section>
+  <h2 class="sec">길드전 고정 파티 <small>역할은 한 번만 입력 · 매주 같은 파티 · 랭킹은 상위 5파티 합산</small></h2>
+  <section class="box full gteam" id="gteam"></section>`;}
 /* 길마 모드 고정 버튼 (오른쪽 아래) */
 function admOn(){return !!(JOIN.admin||GUILD.admin);}
 function paintAdmBar(){let el=document.getElementById('admbar');if(!el){el=document.createElement('div');el.id='admbar';document.body.appendChild(el);}
@@ -1771,7 +1771,10 @@ function paintAtt(){const el=document.getElementById('gatt');if(!el)return;const
    <div class="gweek"><h3 class="gh3">${md(d)} 길드전 참여 내역</h3>
     <p><b class="ok">참여 ${yes.length}명</b> ${yes.length?yes.map(m=>esc(m.name)).join(', '):'<span class="cat">아직 없어요</span>'}</p>
     <p><b class="gno">미참여 ${no.length}명</b> <span class="gnl">${no.map(m=>esc(m.name)).join(', ')}</span></p></div>
-   <details class="gstat"${GUILD.statOpen?' open':''}><summary>📊 단원별 길드전 참여 통계</summary>${(()=>{const S=attStats().sort((a,b)=>a.rate-b.rate||b.miss-a.miss);return `<p class="cat gnote">참여율 낮은 순이에요. <span class="gk gk1">주황</span> = 지난 길드전 미참여 · <span class="gk gk2">보라</span> = 2주 이상 연속 미참여</p><div class="tw"><table class="gatab nostack gstt"><thead><tr><th>단원</th><th>참여</th><th>참여율</th><th>연속 참여</th><th>연속 미참여</th><th>마지막 참여</th></tr></thead><tbody>${S.map(x=>`<tr${x.miss>=2?' class="gwarn"':x.miss?' class="gmiss"':''}><td class="gan">${esc(x.m.name)}</td><td>${x.on}/${x.tot}</td><td><b>${x.rate}%</b></td><td>${x.streak?x.streak+'주':'–'}</td><td>${x.miss?x.miss+'주':'–'}</td><td>${x.last?md(x.last):'–'}</td></tr>`).join('')}</tbody></table></div>`;})()}</details>
+   <details class="gstat"${GUILD.statOpen?' open':''}><summary>📊 단원별 길드전 참여 통계</summary>${(()=>{const S0=attStats();const tots=[...new Set(S0.map(x=>x.tot))].sort((a,b)=>b-a);const mx=tots[0]||0;
+     const row=x=>`<tr${x.miss>=2?' class="gwarn"':x.miss?' class="gmiss"':''}><td class="gan">${esc(x.m.name)}${x.tot<mx&&x.m.from?` <small class="gsince">${md(x.m.from)}~</small>`:''}</td><td>${x.on}회 / ${x.tot}회</td><td><b>${x.rate}%</b></td><td>${x.streak?x.streak+'주':'–'}</td><td>${x.miss?x.miss+'주':'–'}</td><td>${x.last?md(x.last):'–'}</td></tr>`;
+     return `<p class="cat gnote">단원이었던 길드전 횟수별로 나눠서, 각 묶음 안에서 참여율 낮은 순이에요. <span class="gk gk1">주황</span> = 지난 길드전 미참여 · <span class="gk gk2">보라</span> = 2주 이상 연속 미참여</p><div class="tw"><table class="gatab nostack gstt"><thead><tr><th>단원</th><th>참여 / 단원이었던 길드전</th><th>참여율</th><th>연속 참여</th><th>연속 미참여</th><th>마지막 참여</th></tr></thead><tbody>${tots.map(t=>{const G=S0.filter(x=>x.tot===t).sort((a,b)=>a.rate-b.rate||b.miss-a.miss);
+       return `<tr class="gsg"><td colspan="6">${t===mx?`길드전 ${t}번 모두 단원이었던 사람 · ${G.length}명`:`최근에 들어온 단원 · 길드전 ${t}번 (${G.length}명)`}</td></tr>`+G.map(row).join('');}).join('')}</tbody></table></div>`;})()}</details>
    <details class="ghist"${GUILD.histOpen?' open':''}><summary>📅 최근 길드전 참여 기록 보기 (${hist.length}주)</summary><div class="tw gattw"><table class="gatab nostack"><thead><tr><th>단원</th>${hist.slice().reverse().map(x=>`<th${x===d?' class="cur"':''}>${md(x)}</th>`).join('')}<th>합계</th></tr></thead><tbody>
    ${rows.map(m=>{let c=0;const cells=hist.slice().reverse().map(x=>{if(!gact(m,x))return '<td class="cat">–</td>';const on=(GUILD.att[x]||[]).includes(m.id);if(on)c++;return `<td>${on?'✓':''}</td>`;}).join('');return `<tr><td class="gan">${esc(m.name)}</td>${cells}<td><b>${c}</b></td></tr>`;}).join('')}</tbody></table></div><p class="cat gnote">– = 그 주엔 단원이 아니었어요.</p></details>
    ${GUILD.admin?`<details class="gtools"><summary>⚙️ 관리 도구</summary><div class="gdanger"><b>⚠️ 되돌릴 수 없어요</b><button type="button" id="gattclr">${md(d)} 참여 기록 삭제</button><button type="button" id="gattclrall">모든 주 참여 기록 삭제</button></div></details>`:''}`
