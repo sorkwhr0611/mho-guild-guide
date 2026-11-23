@@ -1011,9 +1011,10 @@ header .kakao{grid-row:1;grid-column:2}
 @media (max-width:600px){.gpc{padding:10px 12px}.gah .jf{min-width:0;flex:1 1 100%}}
 .gteam{display:grid;gap:12px}
 .gwar{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel)}.gwar summary{cursor:pointer;font-weight:800;font-size:15px}.gwar summary small{font-weight:500;color:var(--muted);font-size:12.5px}
-.gwrl{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:10px;margin:10px 0 6px;align-items:stretch}
+.gwrl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0 6px;align-items:stretch}
+@media (max-width:1000px){.gwrl{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:560px){.gwrl{grid-template-columns:minmax(0,1fr)}}
 .gwr{display:grid;grid-template-rows:auto 1fr auto;gap:6px;padding:10px 12px;border-radius:10px;background:var(--bg);min-width:0}
-.gwrh{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}.gwrh b{font-size:15px}.gwrm{font-weight:700;font-size:14px}.gwrk{font-size:12.5px;color:var(--muted)}
+.gwrh{display:grid;gap:2px}.gwrk{font-size:13px;color:var(--muted)}.gwrk b{color:var(--ink)}.gwrm{font-weight:800;font-size:15.5px;line-height:1.35}
 .gwre p{margin:0 0 4px;font-size:13.5px;line-height:1.5}.gwrw{font-size:13.5px;line-height:1.5}
 .gtw{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.gtw .cat{width:100%}
 .gwb{font:inherit;font-size:13.5px;font-weight:700;padding:5px 11px;border-radius:999px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}.gwb.on{background:#c0392b;border-color:#c0392b;color:#fff}
@@ -1811,7 +1812,7 @@ const GWPN=['대검','태도','쌍검','랜스','해머','헤비보우건','활'
 const gwRounds=()=>((D.gwar&&D.gwar.rounds)||[]).filter(r=>r.w&&r.w.length);
 const gwHas=(ids,roles,ws)=>ids.some(id=>((roles[id]||{}).w||[]).some(x=>ws.includes(x)));
 function gwarHTML(){const G=D.gwar;if(!G||!G.rounds)return '';
-  const rc=r=>`<article class="gwr"><div class="gwrh"><b>${r.n}라운드</b><span class="gwrm">★${r.star} ${esc(r.mon)}</span><span class="gwrk">약점 ${esc(r.weak)}</span></div>
+  const rc=r=>`<article class="gwr"><div class="gwrh"><span class="gwrk"><b>${r.n}라운드</b> · 약점 ${esc(r.weak)}</span><span class="gwrm">★${r.star} ${esc(r.mon)}</span></div>
     <div class="gwre">${r.env.map(e=>`<p><span class="grole gr-n">${esc(e[0])}</span> ${esc(e[1])}</p>`).join('')}</div>
     <div class="gwrw">${r.w.length?`<span class="grole gr-y">무기 보너스</span> ${esc(r.wt)}`:'<span class="cat">무기 보너스 없음</span>'}</div></article>`;
   return `<details class="gwar" open><summary>⚔️ 이번 주 길드전 라운드 <small>${esc(G.asof)} · ${esc(G.src)}</small></summary>
