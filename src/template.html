@@ -800,6 +800,7 @@ h2.sec small{font-weight:500;letter-spacing:0}
 
 h2.sec,.box h3,.card h3,.world h3,.hg4 .hcard.sm>b{font-weight:700!important}
 .hg4 .hcard.sm>span:last-child{text-wrap:balance}
+.bsets.bnone{margin:0!important;padding:0!important;border:0!important;background:none!important;min-height:0}
 @media (min-width:701px){.hg4 .hcard.sm:not(.hpost){height:auto!important;min-height:96px;align-content:stretch!important;grid-template-rows:auto 1fr!important}.hg4 .hcard.sm:not(.hpost)>.hi{align-self:center!important}.hg4 .hcard.sm:not(.hpost)>b{align-self:start!important}.hg4 .hcard.sm:not(.hpost)>span:last-child{align-self:end!important}}
 .hg4 .dd{display:block;font-style:normal;font-weight:700;color:var(--accent);font-size:13px}
 
@@ -1525,7 +1526,7 @@ function card(b0){
   if(ALTS&&si>0){const a=ALTS[si];b0=Object.assign({},b0,{armor:a.armor,skills:a.skills,sets:a.sets||[],note:a.note||''});}
   const bsetHtml=ALTS?(()=>{const kind=a=>/^일반 몬스터/.test(a.label)?'일반 몬스터 상대':/^융광종 상대/.test(a.label)?'융광종 상대':'';const nm=a=>a.label.replace(/^(일반 몬스터|융광종 상대) · /,'');
     const gw=ALTS.map((a,i)=>[a,i]).filter(([a])=>kind(a)),ot=ALTS.map((a,i)=>[a,i]).filter(([a])=>!kind(a));
-    return `<div class="bsets"><div class="btabs">${gw.map(([a,i])=>`<button type="button" class="btab" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}"><b>${esc(nm(a))}</b><small>${esc(kind(a))}</small></button>`).join('')}</div><span class="bml" style="font-weight:500">추천 출처: GameWith${gw.some(([a])=>/game8/.test(a.src))?' (일부 game8도 같음)':''}</span>${ot.length?`<div class="bmore"><span class="bml">다른 추천 · 단계별</span><div class="bmc">${ot.map(([a,i])=>`<button type="button" class="chip" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}">${esc(nm(a))} <small>${esc(a.src)}</small></button>`).join('')}</div></div>`:''}</div>`;})():'';
+    return `<div class="bsets"><div class="btabs">${gw.map(([a,i])=>`<button type="button" class="btab" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}"><b>${esc(nm(a))}</b><small>${esc(kind(a))}</small></button>`).join('')}</div><span class="bml" style="font-weight:500">추천 출처: GameWith${gw.some(([a])=>/game8/.test(a.src))?' (일부 game8도 같음)':''}</span>${ot.length?`<div class="bmore"><span class="bml">다른 추천 · 단계별</span><div class="bmc">${ot.map(([a,i])=>`<button type="button" class="chip" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}">${esc(nm(a))} <small>${esc(a.src)}</small></button>`).join('')}</div></div>`:''}</div>`;})():'<div class="bsets bnone"></div>';
   const A=adapt(b0), b=A.b; const cap=capOf(st.lv); const aT=TIER(Math.min(cap,12));
   const c=`var(${EL[b.elem]||'--neutral'})`;
   const title=b.group==='hero'?`${b.type} · ${b.elem==='범용'?'범용':b.elem+'속성'}`:b.name;
@@ -2989,7 +2990,22 @@ function render(){
   const cardsHtml=tys.length>1?tys.map(t=>`<h2 class="sec">${esc(t)} <small>${list.filter(b=>b.type===t).length}개 세팅</small></h2>`+list.filter(b=>b.type===t).map(card).join('')).join(''):list.map(card).join('');
   document.getElementById('grid').innerHTML=list.length?cardsHtml+(st.g==='hero'&&!q?newArmorHtml():''):`<p class="empty">${st.fit?`Lv${st.lv}에서 끝까지 완성되는 세팅이 없어요. 체크를 끄면 지금 올릴 수 있는 단계까지 보여요.`:'조건에 맞는 세팅이 없어요. 필터를 "전체"로 바꾸거나 검색어를 지워 보세요.'}</p>`;
   document.getElementById('n').textContent=st.fit?`${list.length}개 세팅 (전체 ${all}개 중 Lv${st.lv} 완성)`:`${list.length}개 세팅`;
+
+  eqCards();
 }
+// 나란히 놓인 장비 카드끼리 칸 높이를 똑같이 맞춰요 (줄마다 같은 높이)
+function eqCards(){const g=document.getElementById('grid');if(!g)return;
+  const cs=[...g.querySelectorAll('article.card')];
+  cs.forEach(c=>c.querySelectorAll('[data-eqh]').forEach(e=>{e.style.removeProperty('margin-bottom');e.style.height='';e.removeAttribute('data-eqh');}));
+  const slots=c=>[c.querySelector('.chead'),c.querySelector('.bsets'),c.querySelector('.meta'),...c.querySelectorAll('tbody>tr'),c.querySelector('.skills>.h'),c.querySelector('.skills>.sk'),c.querySelector('.skills>.set'),c.querySelector('.anote')];
+  const rows={};cs.forEach(c=>{if(!c.offsetParent)return;const t=Math.round(c.getBoundingClientRect().top+scrollY);(rows[t]=rows[t]||[]).push(c);});
+  const grow=(e,d)=>{e.setAttribute('data-eqh','1');if(e.tagName==='TR'){e.style.height=(e.getBoundingClientRect().height+d)+'px';}else{const cur=parseFloat(e.style.getPropertyValue('margin-bottom'))||parseFloat(getComputedStyle(e).marginBottom)||0;e.style.setProperty('margin-bottom',(cur+d)+'px','important');}};
+  Object.values(rows).forEach(R=>{if(R.length<2)return;const S=R.map(slots);const n=Math.min(...S.map(x=>x.length));
+    for(let i=1;i<n;i++){if(S.some(x=>!x[i]||!x[i-1]))continue;
+      const off=()=>S.map((x,k)=>x[i].getBoundingClientRect().top-R[k].getBoundingClientRect().top);
+      for(let pass=0;pass<5;pass++){const o=off(),mx=Math.max(...o);let moved=false;o.forEach((v,k)=>{if(mx-v>0.5){grow(S[k][i-1],mx-v);moved=true;}});if(!moved)break;}}});}
+{let eqW=0;const g0=document.getElementById('grid');if(g0&&window.ResizeObserver)new ResizeObserver(en=>{const w=Math.round(en[0].contentRect.width);if(w&&w!==eqW){eqW=w;eqCards();}}).observe(g0);}
+{let eqT;addEventListener('resize',()=>{clearTimeout(eqT);eqT=setTimeout(eqCards,150);});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>eqCards());}
 
 function newArmorHtml(){const T=D.tipx;return `<h2 class="sec">최신 방어구 교체 추천 <small>레어도 10~14 신규 방어구</small></h2><section class="box full"><div class="tw"><table class="natab nostack"><thead><tr><th style="width:190px">방어구</th><th style="width:70px">레어도</th><th>핵심 스킬</th><th style="width:240px">이런 세팅에</th><th style="width:250px">바꾸는 법</th></tr></thead><tbody>${T.newarmor.rows.map(r=>`<tr><td><b class="tipg" data-tip="${esc(r[0].split(' ')[0]==='융광종'?r[0].split(' 시리즈')[0]+'메일':r[0])}" data-tk="g">${esc(r[0])}</b></td><td class="part"><span class="mlb">레어도 </span>${esc(r[1])}</td><td><ul class="tight">${r[2].map(x=>`<li>${esc(x)}</li>`).join('')}</ul></td><td>${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join('')}</tbody></table></div><div class="cat" style="white-space:normal">${esc(T.newarmor.note)} 출처: ${esc(T.newarmor.src)}</div></section>`;}
 const SUB={};
