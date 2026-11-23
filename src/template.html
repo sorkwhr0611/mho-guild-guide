@@ -1704,7 +1704,8 @@ function paintGuild(){paintPolls();paintPollNew();paintAtt();paintTeam();paintRo
 function gOff(){if(GUILD.err==='local')return `<p class="cat" style="margin:0">투표·출석부는 공략집 사이트에서 써요 → <a href="${SITE}/#join" target="_blank" rel="noopener">${SITE.replace('https://','')}</a></p>`;
   if(GUILD.err)return '<p class="jmsg err" style="margin:0">길드 정보를 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.</p>';
   if(!GUILD.loaded)return '<p class="cat" style="margin:0">불러오는 중…</p>';return '';}
-function nickInput(id){return `<input class="gnick" id="${id}" maxlength="24" placeholder="내 게임 닉네임" value="${esc(gGet(GNICK,''))}" autocomplete="nickname">`;}
+function nickInput(id){const up=typeof gUpSat==='function'?gUpSat():GUILD.sat;const R=gsort((GUILD.roster||[]).filter(m=>gact(m,up)));
+  return `<input class="gnick" id="${id}" maxlength="24" placeholder="${R.length?'내 게임 닉네임 (적거나 목록에서 고르기)':'내 게임 닉네임'}" value="${esc(gGet(GNICK,''))}" autocomplete="off"${R.length?` list="dl_${id}"`:''}>${R.length?`<datalist id="dl_${id}">${R.map(m=>`<option value="${esc(m.name)}"></option>`).join('')}</datalist>`:''}`;}
 /* 투표 목록 */
 function pollCard(p){const voted=gGet(GVOTED,{})[p.id]||[];const max=Math.max(1,...p.counts);const tot=p.counts.reduce((a,b)=>a+b,0);
   const kind=p.kind==='party'?'<span class="gtag gp">파티 모집</span>':'<span class="gtag gv">길드 투표 · 익명</span>';
@@ -1842,6 +1843,9 @@ function paintTeam(){const el=document.getElementById('gteam');if(!el)return;con
    ${GUILD.admin?(ed?`<div class="gsave"><label class="jf" style="min-width:0"><span>파티 인원</span><select id="gtsize">${[2,3,4,5,6,7,8].map(x=>`<option${x===size?' selected':''}>${x}</option>`).join('')}</select></label><button type="button" id="gtauto">🔀 역할대로 자동 편성</button><button type="button" id="gtadd">＋ 파티 추가</button><span style="flex:1"></span><button type="button" class="pri" id="gtput">✓ 파티 저장</button><button type="button" id="gtcancel">취소</button></div><p class="cat gnote">자동 편성은 지원형과 교란형을 파티마다 한 명씩 먼저 넣고, 돌격형을 고르게 나눈 뒤 남는 자리를 채워요. 길드 랭킹은 모험단마다 상위 5파티 점수 합산이라, 파티가 6개 이상이면 1~5파티(주력)부터 꽉 채워요. 센 돌격형은 1~5파티에 두세요. 파티장은 돌격형 중 한 명으로 정해져요. 단원 옆 칸에서 다른 파티로 옮기고 👑로 파티장을 바꿀 수 있어요.</p>`
      :`<div class="gtbar"><button type="button" id="gtedit">🛠 파티 짜기 (길마)</button></div>`):''}`;
   const $=id=>document.getElementById(id),msg=t=>{const m=$('gtmsg');if(m)m.textContent=t;};
+  {const ni=$('gtnick');if(ni)ni.oninput=()=>{const v=ni.value.trim();const m=GUILD.roster.find(x=>gnorm(x.name)===gnorm(v));if(!m)return;const r=roles[m.id];
+    if(r){$('gtrole').value=r.r==='dps'?'atk':r.r==='any'?'atk':r.r;$('gtch').value=r.ch||'';}
+    msg(`${m.name} · ${r?`지금 역할: ${GROLE[r.r][0]}${r.ch?' · '+r.ch:''}`:'아직 역할을 안 적었어요'}${A.has(m.id)?` · ${md(up)} 불참으로 표시됨`:''}`);};}
   const send=async(body,ok)=>{const nick=($('gtnick').value||'').trim();if(!nick){msg('게임 닉네임을 적어 주세요.');return;}gSet(GNICK,nick);
     try{const j=await guildApi('POST',Object.assign({nickname:nick},body));GUILD.team=j.team;GUILD.abs=j.abs;paintTeam();msg(ok);}catch(e){msg(gmsg(e));}};
   $('gtsave').onclick=()=>send({action:'team.role',role:$('gtrole').value,ch:$('gtch').value},'역할을 저장했어요 ✓');
