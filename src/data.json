@@ -16763,6 +16763,20 @@
      "11/23",
      "공략 업데이트",
      [
+      "라야 운용 · 네르기간테 덧입기 · 마격 보상",
+      "라야: 귀인화 → 선무승천 → 선무파공 콤보 정리 (사진 2 · 영상)",
+      "덧입기 목록에 네르기간테 무기 덧입기 등장 (네르갈가우지 등)",
+      "마스터 격투장 4단계 버프·기록 보상 · 융광 디아는 얼음 관통탄",
+      "지배자 무기 제련 고르기 · 루가 카운터 패턴 · 루카 쉬운 운영",
+      "글라이딩 연타 · 스타팅 vs 클래식 · 필드 몬스터 05:00 교체",
+      "추천 장비 GameWith 14시 갱신분 확인 — 바뀐 세트 없어요"
+     ],
+     "dc-20449"
+    ],
+    [
+     "11/23",
+     "공략 업데이트",
+     [
       "무기 버그 모음 · 차액 각성 · 해머 증강",
       "주인공 무기 버그 모음 (활·해머 차지 풀림·쌍검) + 메일 제보처",
       "차지액스 지배자 각성 「노도의 강습」: 병 다 쓰면 병 2개 충전",
@@ -18002,6 +18016,11 @@
       "체력 1칸 반쯤 깎이면 하늘로 올라 구슬 형태. 불덩이는 보고 피하고, 마지막 내리찍기와 공중 내리찍기는 한 방이라 저스트 회피나 오의로 피해요."
      ],
      [
+      "🛡️",
+      "루가 카운터 패턴",
+      "세로베기 · 돌진 · 붕해(광석 창 내려찍기, 2연 돌진·올려베기 붕해 포함)는 카운터하면 대경직이 나와 꿀패턴이에요. 가로베기는 경직이 짧다는 의견도 있어요. 태도 간파는 땅에 빛나는 주먹을 내리칠 때 말고는 대부분 통하지만 창 패턴엔 쓰지 마세요(제보). 자꾸 죽으면 간파 대신 저스트 회피 + 기인베기로 패요."
+     ],
+     [
       "🗡️",
       "대검으로 지배자 루가",
       "참모아 집착 금지. 섬광으로 경직 → 그때 3차지. 창 찌르기 2~3번은 카운터하면 대경직, 돌 떨구기도 대경직 2회. 타깃이 서브 모험가에게 갔을 때가 참모아 타이밍. 정기환 10개 챙기기."
@@ -18060,6 +18079,10 @@
      [
       "격투장 C등급",
       "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16202"
+     ],
+     [
+      "루가 카운터 패턴",
+      "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20760"
      ]
     ]
    },
@@ -20268,6 +20291,10 @@
      [
       "픽업",
       "특정 모험가가 잘 나오는 기간 한정 모집이에요."
+     ],
+     [
+      "귀마개",
+      "본가의 '귀마개' 스킬. 아웃랜더스에선 방어구 스킬 「포효 내성」이에요."
      ]
     ]
    }
@@ -24173,6 +24200,11 @@
     "2단계 두 마리는 불 약점이라 불 파티가 편해요. 3단계 디아블로스는 주인공 얼음 헤비보우건 관통탄에 잘 녹아요.",
     "@img:bn_20564_1",
     "4단계 권장 사냥력은 스테이지마다 18,033이에요. 두 마리 다 불 약점이라 이번 회차도 사실상 불속성 위주예요.",
+    "@img:bn_20705_1",
+    "4단계에도 불속성 대미지 +20% · 얼음속성 대미지 +20% 버프가 붙어요. 조건은 12분 · 수레 3회 미만 · 포획 금지예요.",
+    "단계마다 기록 보상: C(12분) 루타 코인 300 · B(10분) 50 · A(8분) 150 · S(7분) 200 (B~S는 S0 시즌 코인). C만 받아도 루타 코인 300은 다 받아요.",
+    "3단계 융광종 디아블로스는 얼음 관통탄 헤비보우건으로 몸통을 조준해 쏘면 쉽게 깨진다는 답이 많아요. 주인공 헤보가 없으면 창(랜스) 얼음 세팅도 추천돼요(제보).",
+    "이번 회차는 2파티(2·4단계 두 번째 몬스터)도 융광종이라, 속성 맞는 딜러가 두 명 필요해요. 얼음 딜러가 없으면 3단계가 제일 막혀요.",
     "■ 올 S 클리어 예시 (11/23)",
     "2-1 융광종 볼보로스 = 미도리(명함 · 지배자 무기) / 2-2 융광종 쟈그라스 = 케레스(2돌 · 지배자 무기).",
     "3-1 융광종 디아블로스 = 주인공 얼음 헤비보우건(13강) / 3-2 디아블로스 = 케레스. 3단계 합계 4분 12초.",
@@ -24199,7 +24231,7 @@
     "bx_arena-ruler-swap_1",
     "bx_arena-ruler-swap_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=8329 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20291 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20277 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20333 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20569 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20564 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20678 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20688"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=8329 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20291 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20277 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20333 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20569 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20564 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20678 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20688 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20705 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20734 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20718 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20743"
   },
   {
    "id": "survival-trait",
@@ -24268,15 +24300,19 @@
   {
    "id": "glider-boost",
    "cat": "채집·탐색",
-   "title": "송풍 장치로 최대 높이보다 더 올라가기",
-   "date": "11-09",
+   "title": "글라이딩 더 높이 올라가기 (연타 · 송풍 장치)",
+   "date": "11-23",
    "lines": [
+    "■ 버튼 연타가 꾹 누르기보다 훨씬 높이 올라가요 (11/22)",
+    "글라이딩 중 상승할 때 버튼을 꾹 누르지 말고 연타하면 두 배 넘게 높이 올라가요. 영상 24초부터 연타하는 모습이 나와요.",
+    "송풍 장치로 높은 곳에 가야 하는 글라이딩 챌린지·탐색에서 써 보세요.",
+    "■ 송풍 장치 최대 높이 넘기",
     "송풍 장치를 타고 올라가다 최대 높이에 닿기 직전에 글라이더를 접었다가 다시 펴요.",
     "살짝 튕기는 느낌으로 반복하면 최대치를 넘어서 올라가요.",
     "송풍 장치 높이가 조금 모자란 곳에서 쓰면 좋아요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=9508",
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20003 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=9508",
    "video": "dc"
   },
   {
@@ -24819,8 +24855,8 @@
   {
    "id": "tips-adv",
    "cat": "모험가",
-   "title": "모험가 장비·각인 팁 17가지",
-   "date": "11-22",
+   "title": "모험가 장비·각인 팁 18가지",
+   "date": "11-23",
    "lines": [
     "처음엔 주인공 + 주력 딜러 1명에 몰아요 — 재화가 모자라서 여러 명을 같이 못 키워요. 격투장은 파티 두 개가 필요하니 1파티·2파티 메인 딜러를 하나씩 정해 키우고, 서포터(브릭스 등)는 장비부터 맞추며 절반쯤 따라 키우면 돼요. 삽화 강화는 엔드 콘텐츠라 나중에 해도 돼요.",
     "코어 패시브부터 읽고 스탯을 정해요 — 모험가 정보의 코어 패시브 설명에 그 캐릭터가 원하는 스탯이 다 나와요. 미도리는 회심·속성 회심 대미지, 페페는 물속성 공격, 케레스는 회심 계열이지만 오의 디버프가 걸려 있을 때만 대미지가 올라요.",
@@ -24838,13 +24874,14 @@
     "동료 동반자는 SSR이면 충분해요 — 직접 조작하지 않는 동료의 동반자는 그냥 SSR 동반자를 끼우면 돼요. 전용 동반자가 아니어도 괜찮고, 브릭스에겐 제압 시간 +15% 동반자를 쓴다는 제보가 있어요. 5속성을 다 챙겨 주는 동반자는 없어서, 깡 속성 대미지가 높은(체급 좋은) SSR이면 된대요.",
     "아케니아 회심 버프는 오의만 파티 전체 — 오의 설명의 회심 증가는 파티 전체에 걸리지만, 코어 패시브의 \"오의 발동 시 추가 회심\"은 아케니아 본인만 받는다는 제보가 있어요(확인 중).",
     "미도리 회피 7·연기 4 vs 불속 7 — 공략 사이트엔 회피 강화 7 + 연기 4가 최고로 나와요. 발도일섬은 버프 시간이 갱신되지 않아 필살기 3타째에 버프가 꺼지거나 첫 1타에 버프가 안 붙는 문제가 있어서래요. 다만 가만히 맞고 서 있는 몬스터가 많아 회피 발동이 어렵다면, 불속 7 + 연기 4가 더 편하다는 의견도 많아요.",
-    "돌격형 vs 교란형 딜은 몬스터 따라 달라요 — 오의 게이지는 몬스터 체력을 깎는 만큼 차요. 약한 몬스터는 오의가 자주 돌아서 오의 뒤 딜이 강한 교란형(예: 케레스 뼈가시)도 돌격형만큼 나와요. 고룡처럼 단단하거나 제약(모험가 대미지 감소 · 체력 증가)이 붙으면 오의가 늦게 차서, 기본 딜이 꾸준한 돌격형이 더 유리해요."
+    "돌격형 vs 교란형 딜은 몬스터 따라 달라요 — 오의 게이지는 몬스터 체력을 깎는 만큼 차요. 약한 몬스터는 오의가 자주 돌아서 오의 뒤 딜이 강한 교란형(예: 케레스 뼈가시)도 돌격형만큼 나와요. 고룡처럼 단단하거나 제약(모험가 대미지 감소 · 체력 증가)이 붙으면 오의가 늦게 차서, 기본 딜이 꾸준한 돌격형이 더 유리해요.",
+    "오의는 처음 동작에만 무적이에요 — 오의를 쓰는 내내 무적인 게 아니라 시작 부분만 무적이고, 미도리의 대간파(찰나의 간파 필살기)는 무적이 아니라 슈퍼 아머라 대미지는 그대로 들어와요(제보). 미도리 찰나의 간파는 한 템포 빠르게 눌러야 잘 터져요."
    ],
    "images": [
     "bt_adv_1",
     "bt_adv_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3501 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19709 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19892 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19956 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20044 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20652"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3501 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19709 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19892 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19956 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20044 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20652 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20768 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20752"
   },
   {
    "id": "tips-hero",
@@ -24876,8 +24913,8 @@
   {
    "id": "tips-ruler",
    "cat": "무기·세팅",
-   "title": "지배자 무기 팁 11가지",
-   "date": "11-22",
+   "title": "지배자 무기 팁 13가지",
+   "date": "11-23",
    "lines": [
     "시즌마다 지배자 몬스터와 무기가 바뀌어요 — 시즌마다 다른 지배자 챌린지 몬스터가 나오고 거기에 맞는 지배자 무기가 있어요. 시즌 0은 루가 에알다예요. 시즌이 끝난 뒤 무기·각성이 어떻게 되는지는 아직 확인 중예요.",
     "지배자 무기 각성은 너무 고민 안 해도 돼요 — 최종 강화·각성이 끝나면 제련으로 각성 옵션이 전부 랜덤으로 다시 굴러가요. 지금은 회심이든 속성이든 올리고, 제련에서 잘 뜬 걸 쓰는 게 정답이라는 의견이 많아요. 각성 제련 옵션 5개를 전부 주황(최고 등급)으로 맞추는 '졸업'까지 무리하지 말라는 의견이 많아요 — 시즌이 끝나면 제련 옵션이 사라진다는 말이 있어서예요(확인 중).",
@@ -24892,13 +24929,16 @@
     "신화 제련 고유 옵션은 대부분 융광종 한정 — 해머는 「경천의 일격」(융광종을 기절시키면 주는 대미지 +12%, 30초)과 「대충격」(최적 타이밍까지 모아 융광종에 맞히면 주는 대미지 +9%, 20초)이에요. 차지액스만 \"병 6개를 쓰면 2개 리필\" 효과가 일반 몬스터에게도 적용된대요(대미지 증가는 융광종만, 제보). 차지액스가 아니면 제련 옵션은 회심이나 속성 대미지가 무난해요.",
     "@img:bn_20103_1",
     "루가 에알다 전체 내려찍기 파동은 동반자 변신으로 — 지원형 모험가는 오의 버튼을 위로 스와이프하면 동반자로 변신해요. 변신 중엔 공격을 안 맞는다는 제보가 있어서, 중앙 패턴 뒤 맵 전체 파동이 올 때 미리 변신해 두면 타이밍 맞출 필요 없이 피할 수 있어요(확인 중).",
-    "지배자 의상 상자에서 무기 덧입기는 안 나와요 — 상자 설명에 무기 덧입기 30%라고 적혀 있지만 일반 의상 상자 설명을 옮긴 오류래요. 지배자 무기 덧입기는 시즌 상점에서 백련의 증표 최고 등급이 되면 살 수 있어요."
+    "지배자 의상 상자에서 무기 덧입기는 안 나와요 — 상자 설명에 무기 덧입기 30%라고 적혀 있지만 일반 의상 상자 설명을 옮긴 오류래요. 지배자 무기 덧입기는 시즌 상점에서 백련의 증표 최고 등급이 되면 살 수 있어요.",
+    "제련 결과는 골라서 적용해요 — 제련하면 왼쪽(기존)과 오른쪽(새 결과)이 같이 뜨고 「그만두기 · 기존 효과 선택 · 제련 결과 적용」 중에 골라요. 잘 뜬 줄은 자물쇠로 잠가 두면 다음 제련에서 빠지지만, 잠근 줄이 많을수록 비용이 올라요(1회 기본 8만 제니). 신화(주황) 옵션이 2개 뜨면 일단 가져와서 잠그고, 나머지 줄에서 회심·속성 금테를 노리는 사람이 많아요.",
+    "@img:bn_20707_1",
+    "지배자 무기는 최대 2개까지만 만들어요 — 그래서 두 번째 무기 속성을 다들 고민해요. 시즌 상점의 지배자 무기 모양(광영 오트클레르 등)은 덧입기라 개당 광요 코인 1000이고, 시즌 상점은 12/25까지예요."
    ],
    "images": [
     "bt_ruler_1",
     "bt_ruler_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12225 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19882 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19937 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19945 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20128 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20195 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20199 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20359"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12225 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19882 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19937 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19945 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20128 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20195 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20199 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20359 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20707 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20737 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20751"
   },
   {
    "id": "tips-life",
@@ -24989,7 +25029,7 @@
    "id": "quest-tips",
    "cat": "초보·시스템",
    "title": "일간·주간 숙제 팁 총정리",
-   "date": "11-21",
+   "date": "11-23",
    "lines": [
     "[일간] 모험 제안(일일 활약도 120) — 계정 레벨업과 캐릭터 돌파 조각을 줘요. 120까지 꼭 채우세요.",
     "[일간] 돌파 재료 교환 — 일일 퀘스트에서 주는 만능 깨달음 재화로 상점에서 원하는 SSR 모험가의 깨달음(돌파 재료)을 살 수 있어요. 픽업이 끝난 미도리도 이렇게 천천히 돌파할 수 있어요. 약 30일에 1돌파 정도라는 제보가 있어요(1돌 25장 · 2돌부터 30장, 확인 중). 만능 깨달음 티켓은 기간 제한이 있어요(정확한 기한 확인 중). 상점 → 교환 탭에서 원하는 모험가 깨달음으로 미리 바꿔 두세요. 주인공 깨달음은 교환 목록에 없어요.",
@@ -25012,13 +25052,15 @@
     "[주간] 협동 포인트 — 멀티로 둥지/연속 조사를 클리어하면 회당 100~500을 줘요. 주 최대 12,600, 월요일 05:00 초기화예요. 막판엔 익스트림 별6 도스쟈그라스 반복이 빨라요. 4명이 익스트림 도스 몬스터를 잡으면 한 판에 1분쯤이라 30분이면 주간 한도를 거의 채워요.",
     "[주간] 융광종 토벌 — 상급 챌린지 3개를 켜고 깨세요. 토벌 상점 교환도 잊지 마세요(각인 재료 추천).",
     "[주간] 지배자 챌린지 — 입장권이 넘치지 않게 쓰세요.",
-    "[주간] 모험단 파티 — 주 3회, 점심·저녁 특정 시간에 매칭해 보상을 받아요(최소 이틀 필요).",
+    "[주간] 모험단 파티 — 주 3회, 점심·저녁 특정 시간에 매칭해 보상을 받아요(최소 이틀 필요). 보상은 150점을 채우면 받아요. 한 판에 이기면 80점 · 져도 70점이라 보통 두 판이에요. 모험단 안에서 기다리는 시간 점수(약 50점)와 시음 시간(20~30점)을 챙기면 한 판으로 채워지기도 해요(제보).",
     "[주간] 모험단 격투장 — 토요일 20:15부터 15~20분만 열려요(한국 서버). 개인 달성 보상이 있으니 참가하세요(1인 모험단도 AI 동료로 참가 가능). 기믹·알림 설정은 「모험단 격투장 공략」 글을 보세요.",
     "[주간] 거대 몬스터 격투장-마스터(격주) — 2주마다 초기화돼요. C등급(12분 꽉 채워 클리어)이어도 루타 코인은 다 준다고 해요. 광요 코인 수급처예요.",
-    "[주간] 조사 포인트 교환(연금) — 인연 선물을 살 수 있어요. 요리/비약에도 쓰니 다 쓰지 마세요. 소재 연금은 필요한 소재까지 갈 수 있어 주의하세요."
+    "[주간] 조사 포인트 교환(연금) — 인연 선물을 살 수 있어요. 요리/비약에도 쓰니 다 쓰지 마세요. 소재 연금은 필요한 소재까지 갈 수 있어 주의하세요.",
+    "[일간] 필드 대형 몬스터는 매일 05:00에 바뀌어요 — 익명 의뢰에 필요한 몬스터가 지금 필드에 없으면 친구 찬스(소환)를 쓰거나 다음 날 05:00 이후에 다시 봐요.",
+    "[가끔] 덧입기 상자는 쌓아두지 말고 열어요 — 덧입기를 얻으면 조사 보수로 원생의 명석이 나와요(제보)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13619 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19396 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20039 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20571"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13619 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19396 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20039 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20571 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20758 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20761 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20762"
   },
   {
    "id": "exchange-must",
@@ -25475,8 +25517,8 @@
    "cat": [
     "몬스터·사냥"
    ],
-   "title": "다음 지배자 챌린지는 네르기간테 (11/27~12/17)",
-   "date": "11-20",
+   "title": "다음 지배자 챌린지는 네르기간테 (11/27~12/17) · 무기 덧입기 등장",
+   "date": "11-23",
    "lines": [
     "■ 한눈에 보기",
     "시즌 S0 화면의 지배자 챌린지 세 번째 칸(루가 에알다 → 크샬다오라 다음)에 기간 2026.11.27~12.17이 떴어요.",
@@ -25485,10 +25527,14 @@
     "11/20 오후 화면엔 「14일 13시간 후 오픈」이라고 적혀 있어서, 11/27에 공개되고 도전은 그 뒤에 열릴 수도 있어요. 정확한 오픈 시각은 확인 중이에요.",
     "■ 미리 준비할 것",
     "게임 데이터에 들어온 네르기간테 삽화는 3코스트 · 세트 빙상 · 코어 효과 「얼음속성 무기일 때 얼음 대미지 +15%」(S0 한정)예요. 얻는 법·주옵션 수치는 확인 중이에요.",
-    "보상·난이도·추천 속성은 열리면 바로 정리할게요 (확인 중)."
+    "보상·난이도·추천 속성은 열리면 바로 정리할게요 (확인 중).",
+    "■ 덧입기 목록에 네르기간테 무기가 들어왔어요 (11/23)",
+    "모험가 → 덧입기 → 무기 목록에 네르기간테 무기 덧입기가 무기 종류마다 미획득 상태로 떠요. 예: 네르갈크래시 · 네르갈스윙 · 네르갈가우지(쌍검).",
+    "@img:bn_20739_1",
+    "크샬다오라 때처럼 지배자 챌린지(시련)에서 얻는 덧입기로 보여요. 실제 네르기간테 무기·방어구가 나오는지, 덧입기를 어떻게 얻는지는 아직 확인 중이에요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18396"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18396 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20706 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20739 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20759"
   },
   {
    "id": "dc-18692",
@@ -26471,10 +26517,17 @@
     "질풍의 우레(30포인트): 진뢰선회를 쓸 수 있게 되고, 스킬1로 쓰는 스태미나가 5 줄어요.",
     "주인공 활의 「심신 합일」(연사 화살이 맞을 때마다 스태미나 5 회복)처럼 스태미나를 채워 주는 깨달음은 없어서 아쉽다는 의견도 있어요.",
     "2돌부터 일반 공격이 좋아진다는 평가가 있어요(제보).",
-    "모바일 조작으로는 조금 손이 많이 가는 캐릭터라, 위 순서를 둥지에서 먼저 연습해 보세요."
+    "모바일 조작으로는 조금 손이 많이 가는 캐릭터라, 위 순서를 둥지에서 먼저 연습해 보세요.",
+    "■ 쉬운 버전: 일반 공격 차징으로 버티기 (격대 S 후기)",
+    "@img:bn_20401_1",
+    "1-1로 병을 모으고 2-1로 스태미나를 채우는 정석은 실전에서 어려워요. 2-1도 스태미나가 있어야 나가서 막상 쓰면 까다로워요.",
+    "대신 일반 공격을 꾹 눌러 차징해요. 차징하는 동안 스태미나가 차고, 모으면서 걸을 수 있어 피하기도 쉬워요. 풀차징 직후 쓰는 1-1·3-1은 풀차지 관통으로 나가요.",
+    "순서: 풀차징 → 1-1 → 1-1 반복으로 병 모으기 → 스태미나가 모자라면 회피 각만 보며 다시 일반 공격 차징 → 병이 다 차면 차징으로 스태미나를 채운 뒤 3-1 → 3-1 → 3-1로 딜.",
+    "2스킬은 없다고 생각하고 안 써도 돼요. 저스트 회피 뒤 1스킬 연계가 차징보다 더 좋으니, 회피에 자신 있으면 차징을 건너뛰어도 돼요.",
+    "오의 막타 뒤에도 1스킬 저스트가 나가니 꼭 눌러 주세요. 오도가론의 3연속 할퀴기는 저스트 회피 → 1스킬을 세 번 이어서 받아쳐요. 관통이라 조준은 몸통이면 충분해요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20626 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17115 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20343"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20626 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17115 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20343 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20401"
   },
   {
    "id": "dc-20647",
@@ -26506,6 +26559,58 @@
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20647 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20640 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20635 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20165"
+  },
+  {
+   "id": "dc-20449",
+   "cat": [
+    "모험가"
+   ],
+   "title": "라야 운용 (선무승천 · 선무파공 콤보 · 귀인화)",
+   "date": "11-23",
+   "lines": [
+    "■ 한눈에 보기",
+    "라야는 불 · 쌍검 · 교란형이에요. 공격을 맞힐 때마다 귀인 게이지가 차고, 가득 차면 스킬1로 귀인화(공격력·이동 속도↑ · 밀려나지 않음)에 들어가요.",
+    "SR이라고 딜이 약하지 않아요. 핵심 딜은 공중에서 내려찍는 「선무파공」이에요.",
+    "■ 기술 (게임 안 설명 + 해외 DB)",
+    "스킬2 「선무」: 스태미나를 계속 쓰며 회전베기 연격. 다른 스킬 뒤에 스킬2를 다시 누르면 올려베기가 나가고, 이 올려베기는 공격을 받아쳐요(패리).",
+    "스킬3 「연무」: 회전 돌진 최대 3번. 맞을 때마다 귀인 게이지가 차요. 3번 뒤 일반 공격 → 교차 베기 돌진*(Cross Chain Dance), 일반 공격을 한 번 더 → 「선무승천」.",
+    "「선무승천」(버스트): 회전하며 떠올라 연격 → 내려찍기. 잠깐 슈퍼 아머가 붙어요. 올려베기로 공격을 받아쳤을 때 일반 공격으로도 나가요.",
+    "@img:bn_20449_2",
+    "「선무파공」(필살기): 귀인화 중 선무승천이 약점 부위에 맞으면, 일반 공격이나 스킬3을 눌러 다시 떠올라 내려베기 연격. 이때도 슈퍼 아머라 어느 정도 막 질러도 버텨요.",
+    "오의 「난무」: 춤추며 아로마로 몬스터를 제압하고, 동반자가 구멍 함정을 깔아요.",
+    "■ 이렇게 쓰면 돼요",
+    "① 스킬3 3번 → 일반 공격(강화 평타)을 두 번 반복하면 귀인 게이지가 거의 다 차요.",
+    "② 스킬1로 귀인화 → 스킬3 3번 → 일반 공격 → 일반 공격(선무승천)을 약점에 맞혀요.",
+    "③ 맞았으면 바로 일반 공격이나 스킬3 → 선무파공. 스킬2 회전베기는 스태미나를 많이 먹어서, 끝나면 라야가 비틀거려요. 빈틈일 때만 써요.",
+    "스태미나는 잘 안 모자라고, 귀인 게이지도 공격을 맞히면 차서 평타 위주로 계속 때려도 돼요.",
+    "■ 현상금 챌린지 증강 (불속성 회차 예시)",
+    "@img:bn_20449_1",
+    "선무승천 · 선무파공 대미지를 올려 주는 「바람 걸음」(선무승천·선무파공 스킬 대미지 +25%) · 「스피릿 페더」(귀인화 중 선무승천 뒤 스킬3으로 선무파공 바로 발동) · 「선무 공중 추격」(선무파공 대미지 +100%, 선무 회전 끝나고 일반 공격으로 선무파공)을 골라요.",
+    "슈퍼 아머 · 연격 · 체공이 붙은 동작이라 이런 키워드 증강을 고르면 돼요. 방어 증강만 고르면 딜이 모자라니 딜 증강 위주로 가요.",
+    "주인공이 아닌 모험가는 주황 증강 종류가 많지 않아서, 리롤로 보라색만 띄워도 원하는 조합이 잘 나온다는 후기예요(제보).",
+    "■ 영상",
+    "원문 영상에서 귀인화 → 선무승천 → 선무파공으로 공중에서 계속 내려찍는 흐름을 보세요.",
+    "* = 해외판 영문을 옮긴 임시 번역이에요. 기술 설명은 게임 안 설명과 해외 팬 DB(mhohub) 기준이라 한국판 표기와 조금 다를 수 있어요."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20449 https://mhohub.com/adventurers/raya/",
+   "video": "dc"
+  },
+  {
+   "id": "dc-20754",
+   "cat": [
+    "초보·시스템"
+   ],
+   "title": "조작 방식: 스타팅 vs 클래식",
+   "date": "11-23",
+   "lines": [
+    "처음 시작하면 스타팅과 클래식 중 조작 방식을 골라요. 몬헌이 처음이면 스타팅으로 시작해도 괜찮아요.",
+    "대부분은 클래식을 추천해요. 버튼이 다 나와 있어서 더 직관적이고, 익숙해지면 더 재미있다는 의견이 많아요.",
+    "태도·활만 쓴다면 스타팅도 손해가 거의 없어요. 버튼이 적어 손이 덜 꼬여요.",
+    "무기에 따라 스타팅에서 못 쓰는 동작이 있어요. 예: 차지액스 초고출력(제보). 스타팅으로 하다가 \"이 동작을 따로 쓰고 싶은데\" 싶어지면 그때 클래식으로 바꾸세요."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20754"
   }
  ],
  "sim": {
