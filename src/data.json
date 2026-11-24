@@ -16971,6 +16971,20 @@
      "11/24",
      "공략 업데이트",
      [
+      "융광 앵화 2세트 속성별 세팅 총정리",
+      "불·물·번개·얼음·용 속성 7 + 앵화 조합 · 실착 스킬 표 (사진 6)",
+      "불굴의 의지 Lv1~3 수치 · 훈련장에서도 상시 +22%",
+      "차지액스 장전 강화 7 · 미도리 발도 7 · 해머 범용 + 앵화",
+      "해머 실측 딜 비교 · 디아네로코일은 원종 디아 소재",
+      "마녀모자모그이 위치 7곳 (사진 3) · 아룡종 과제 · 모험단 공훈",
+      "추천 장비: GameWith·game8 14시 갱신분 확인 — 바뀐 세트 없어요"
+     ],
+     "dc-21496"
+    ],
+    [
+     "11/24",
+     "공략 업데이트",
+     [
       "헤이즈 깨달음 6종 · 융광 앵화 실착 세팅",
       "헤이즈 깨달음: 모험단 상점 「헤이즈의 밀서」 다 사면 휘장으로 교환 (사진 3)",
       "뇌인열갑 · 인인잔심 · 귀등롱화 · 철벽환류 · 사교뇌천 · 난무수라 수치 정리",
@@ -25516,10 +25530,11 @@
     "[주간] 거대 몬스터 격투장-마스터(격주) — 2주마다 초기화돼요. C등급(12분 꽉 채워 클리어)이어도 루타 코인은 다 준다고 해요. 광요 코인 수급처예요.",
     "[주간] 조사 포인트 교환(연금) — 인연 선물을 살 수 있어요. 요리/비약에도 쓰니 다 쓰지 마세요. 소재 연금은 필요한 소재까지 갈 수 있어 주의하세요.",
     "[일간] 필드 대형 몬스터는 매일 05:00에 바뀌어요 — 익명 의뢰에 필요한 몬스터가 지금 필드에 없으면 친구 찬스(소환)를 쓰거나 다음 날 05:00 이후에 다시 봐요.",
-    "[가끔] 덧입기 상자는 쌓아두지 말고 열어요 — 덧입기를 얻으면 조사 보수로 원생의 명석이 나와요(제보)."
+    "[가끔] 덧입기 상자는 쌓아두지 말고 열어요 — 덧입기를 얻으면 조사 보수로 원생의 명석이 나와요(제보).",
+    "[주간] 모험단 공훈 쌓기 — 춤추기 보상만으론 주 450 정도가 한계예요. 호화 지급품 · 30명 출석 보상 · 토요일 길드전 참석(개인 점수 750) · 길드 랭킹 보상(300~750)으로 더 쌓는대요(제보)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13619 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19396 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20039 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20571 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20758 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20761 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20762 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20969 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21000"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13619 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19396 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20039 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20571 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20758 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20761 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20762 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20969 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21000 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21438"
   },
   {
    "id": "exchange-must",
@@ -25599,14 +25614,16 @@
    "lines": [
     "긴급 퀘스트의 아룡종 사냥 과제는 기르오스 같은 필드 잡몹을 잡아도 깨져요.",
     "도스기르오스가 소환한 기르오스 말고, 필드에 원래 있는 잡몹이어야 해요.",
+    "도스기르오스와 같이 나온 기르오스를 잡았는데 과제가 올랐다는 제보도 있어요(확인 중). 쟈그라스 · 기르오스처럼 아룡종 잡몹은 총 한 발로 잡혀서 빨라요.",
     "반대로 '융광종 사냥' 조건은 소형 몬스터로는 인정이 안 돼요.",
+    "어룡종 · 비룡종 과제는 잡몹으로 안 됐다는 후기예요(제보).",
     "가스토돈은 초식종, 라피노스는 익룡종, 가쟈우는 물고기라 안 쳐줘요.",
     "아룡종 대형을 다 잡았거나 삽화를 아끼고 싶을 때 써먹어요."
    ],
    "images": [
     "bd_7712_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17030"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17030 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21500"
   },
   {
    "id": "dc-17400",
@@ -26887,6 +26904,10 @@
     "■ 부패의 심연",
     "@img:bx_life-maps_3",
     "환상뱀 — 광무 밤. 이름은 뱀인데 도마뱀처럼 생겼어요. 마녀모자모그이 — 광무 낮·저녁, 서브 퀘스트 「절벽 위의 용기」로 절벽 위 개체를 잡아요.",
+    "마녀모자모그이 위치(부패의 심연): 지도에서 동물 머리뼈 모양으로 표시된 곳 7군데예요. 낮·저녁 + 광무일 때 돌아요.",
+    "@img:bn_21461_1",
+    "@img:bn_21461_2",
+    "@img:bn_21461_3",
     "형광무늬 도마뱀붙이 — 자광무 밤. 산성 투구게 — 잔해 주변에 무리 지어 있어요. 투구게류는 잡거나 쫓아내면 다음 날까지 다시 안 나온다는 제보가 있어요.",
     "비장 메뚜기 — 아주 사나워서 재빨리 피해요. 바짝 붙어서 그물을 쏘세요.",
     "낚시터 4곳. 스타리칸스는 명광의 강바닥 낚시터 2곳에서만, 밤 + 광무에 넣자마자풍뎅이로 낚아요. 체력이 많으니 정교한 낚싯대를 쓰세요.",
@@ -26920,7 +26941,7 @@
     "식당 주문 재료 목록에 「도스글래스파렉스」(고급 특산 소재)가 보이지만 도감엔 아직 없어요. 새 맵이 열리면 잡을 수 있을 것으로 보여요(확인 중)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17857 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15394 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15498 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19527 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17516 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=10982 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=14998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15254 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19192 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20079 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19493 https://gamewith.ai/monster-hunter-outlanders/ko/endemic-life https://gamewith.ai/monster-hunter-outlanders/ko/articles/fishing-guide https://gamewith.jp/mhoutlanders/560316 https://gamewith.jp/mhoutlanders/588161 https://mhohub.com/ecology/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20310"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17857 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15394 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15498 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19527 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17516 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=10982 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=14998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15254 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19192 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20079 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19493 https://gamewith.ai/monster-hunter-outlanders/ko/endemic-life https://gamewith.ai/monster-hunter-outlanders/ko/articles/fishing-guide https://gamewith.jp/mhoutlanders/560316 https://gamewith.jp/mhoutlanders/588161 https://mhohub.com/ecology/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20310 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21461"
   },
   {
    "id": "area-tasks",
@@ -27272,7 +27293,7 @@
    "cat": [
     "몬스터·사냥"
    ],
-   "title": "융광종 리오레이아 아종 도감 · 융광 앵화 2세트 (융광 활성)",
+   "title": "융광종 리오레이아 아종 도감 · 약점 · 잡는 법",
    "date": "11-24",
    "lines": [
     "■ 한눈에 보기",
@@ -27289,50 +27310,14 @@
     "독 장판과 불 장판을 둘 다 깔아서 까다롭다는 반응이 많아요. 장판 위에서 버티지 말고 바로 빠져나오세요.",
     "날아오르면 섬광으로 떨어뜨려요. 브릭스 오의·교란형 주인공 오의도 섬광이라 같이 쓸 수 있어요.",
     "꼬리 독 공격이 핵심 패턴이라 꼬리를 먼저 노려 보는 것도 방법이에요(확인 중). 실제 공략은 나오는 대로 보탤게요.",
-    "■ 융광종 리오하트 방어구 · 융광 활성 (11/24)",
-    "@img:bn_21256_1",
-    "융광종 리오하트 방어구를 머리·몸통 2부위로 맞추면 「융광 활성」이 켜지고 회심격【속성】 3까지 같이 챙길 수 있다는 후기가 있어요(제보).",
-    "융광 활성 Lv1: 융광의 영향으로 주는 대미지 +10%, 30초 지속. 끝나면 30초 동안 대미지 -10%, 스태미나 상한 -50 페널티가 붙어요.",
-    "불굴의 의지 Lv3: 발동 시 대미지 +12%, 그리고 융광 활성의 지속 시간이 사라져요. 그래서 둘을 같이 켜면 페널티 없이 계속 +22%로 유지된대요(버프 창 기준 무제한 · 제보).",
-    "회심격【속성】 Lv3은 회심이 터질 때 속성 대미지 +15%라, 속성 약점을 찌르는 무기와 잘 맞아요.",
-    "체감은 무난한 편이라는 평이에요. 연격처럼 팔·허리·다리 3부위로 Lv7을 채울 수 있는 무기일 때 효율이 나와요.",
-    "머리·몸통 2부위만 입으면 융광 활성이 상시 켜져요. 따로 조건을 맞출 필요 없이 훈련장에 들어가자마자 바로 켜졌다는 확인이 있어요.",
-    "@img:bn_21321_1",
-    "불속성 세팅 예시(스킬 표): 왼쪽 두 칸(머리·몸통)에서 회심격【속성】 2·1 · 불굴의 의지 1·2 · 고압 가드 1·1이 나와 머리·몸통으로 회심격【속성】 3 · 불굴의 의지 3을 채워요. 나머지 부위로 불속성 대미지 UP 7, 융광 활성 1이 켜져요.",
-    "@img:bn_21321_2",
-    "같이 붙는 스킬 효과: 역경 Lv1 = 1회마다 대미지 1.1배 · 방어력 +10 / 고압 가드 Lv2 = 발동 시 방어력 +40 / 제압 회복 Lv1 = 발동 시 체력 5 회복(3초 간격) / 체력 루프 Lv1 = 체력 2 회복(8초에 1번).",
-    "이 세트(속7 + 회심격【속성】3 + 불굴의 의지 3)가 「속성 7 + 무기 스킬 4」보다 딜이 더 나을 것 같다는 반응이에요(비교 확인 중).",
-    "■ 검사 범용 세트로 쓰기",
-    "머리·몸통을 융광종 리오하트로 두고 나머지로 속성 7만 맞추면, 무기만 바꿔 끼워 여러 근접 무기에 같이 쓸 수 있다는 의견이에요. 활은 탄도 강화를 포기하기 어려워서 따로 맞추는 게 낫대요(제보).",
-    "융광종 리오하트 머리·몸통은 사이트 장비 시뮬에 아직 없어서, 추천 장비 표엔 아직 못 넣었어요.",
-    "■ 「융광 앵화」 2세트 실전 후기 (11/24 낮)",
-    "갤에서 「융광 앵화(셋)」라고 부르는 게 이 융광종 리오하트 방어구예요(앵화룡 = 리오레이아 아종).",
-    "@img:bn_21414_1",
-    "대검 물속성 예시: 물속성 대미지 UP 7 + 불굴의 의지 3 + 회심격【속성】 3 + 융광 활성 1이 같이 켜져요. 물속성 대미지 UP 7 = 물속성 공격력 +50 · 물속성 대미지 +28%, 융광종 상대면 +70%예요.",
-    "예전엔 속성 7 + 모으기 강화 6(대미지 +24%, 15초, 시간 갱신 안 됨)을 썼는데, 앵화 2세트는 상시 +22%라 2% 낮은 대신 회심격【속성】 3을 챙기고 버프가 끊기지 않아서 더 편하대요.",
-    "헤비 보우건은 무기 스킬 4가 강력탄·기관용탄 대미지를, 활은 무기 스킬 4가 일반 사격을 안 올려 줘서 보통 속성 7 + 무기 스킬 6을 썼어요. 앵화 2세트는 조건 없이 무기 스킬 6과 비슷한 딜에 보조 스킬까지 붙어서 반응이 좋아요.",
-    "훈련장에서 쳐 보면 순간 대미지는 기존 세팅과 비슷하고, 버프가 비는 순간이 없는 게 장점이에요. 30초가 끝나는 순간 바로 다시 30초로 갱신돼요(제보). 무기만 바꿔 끼우면 돼서 프리셋을 많이 줄일 수 있어요.",
-    "머리·몸통 대신 몸통·팔로 맞춰도 2세트가 돼요. 다른 부위와 겹쳐서 속성 7이 안 나오면 몸통·팔로 바꿔 보세요. 얼음·번개도 속성 7은 꼭 맞추라는 의견이 많아요.",
-    "주의: 융광 활성 +10%는 「속성 대미지」가 아니라 그냥 대미지 증가라서, 캐릭터 정보창 속성 수치가 안 바뀌고 속성 대미지 기준 코어 패시브도 안 올라가요. 속성 대미지는 속성 7과 삽화로만 올릴 수 있어요.",
-    "태도 미도리는 연기 4를 넣으면 회심격【속성】 3이 안 나와서, 불 7 + 앵화 2세트 쪽이 낫다는 의견이 있어요(제보). 헤비 보우건 차지액스처럼 장전 강화를 원하는 무기는 다리를 같이 쓰기 어려워 7 장전 + 4 변형 강화는 안 나온대요.",
-    "방어구가 안 열리면: 조사 수첩에서 해금해야 하고, 헌터 랭크가 모자라 레어도 12가 안 열린 경우가 많아요(제보). 장비 생산 화면에 들어가 보면 이미 열려 있는 경우도 있어요.",
-    "시즌 0 세팅 큰 틀(갤 의견): ① 융광종 흑디아 방어구 + 무기 스킬 7 또는 속성 7(고인물용) ② 융광 앵화 2세트 + 무기 스킬 7 또는 속성 7(무난) ③ 무기 스킬 6이 좋은 무기는 속성 7 + 무기 스킬 6.",
-    "■ 실제 착용 예시 (11/24 · 불 쌍검)",
-    "@img:bx_dc-20915_1",
-    "구성: 광요 주와이외즈-불(14강) + 융광종 리오하트헬름 Ⅵ · 융광종 리오하트메일 Ⅵ · 융광종 레우스암 Ⅵ · 쟈나프코일 Ⅵ · 융광종 레우스그리브 Ⅵ (전부 14강).",
-    "켜지는 스킬: 불속성 대미지 UP 7/7 · 회심격【속성】 3/3 · 불굴의 의지 3/3 · 역경 1/1 · 융광 활성 1/1 · 고압 가드 2/3.",
-    "불굴의 의지(게임 설명): 상태 이상이나 융광 활성 상태가 되면 일정 시간 주는 대미지가 오르고, 융광 활성의 악영향 지속 시간을 줄여요. 역경: 힘이 다할 때마다 일정 시간 대미지·방어력이 올라요(최대 2회).",
-    "체력을 깎는 융광 괴력(배수진) 세팅을 안 쓸 거라면, 이 리오하트 머리·몸통 세팅이 불속성 종결 후보라는 의견이에요(제보)."
+    "■ 융광 앵화 방어구",
+    "이 몬스터로 만드는 융광종 리오하트 방어구(갤에서 「융광 앵화」)의 세트 효과 · 속성별 세팅은 「융광 앵화 2세트 속성별 세팅 총정리」 글로 옮겼어요."
    ],
    "images": [
     "bn_20915_1",
-    "bn_20915_2",
-    "bn_21256_1",
-    "bn_21321_1",
-    "bn_21321_2",
-    "bn_21414_1"
+    "bn_20915_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20915 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21321 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21298 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21338 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21339 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21351 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21353 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21356 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21367 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21370 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21371 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21414 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21422 (11/24 인게임 스크린숏 제보)"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20915"
   },
   {
    "id": "dc-21016",
@@ -27465,6 +27450,83 @@
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21357 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21377 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21335"
+  },
+  {
+   "id": "dc-21496",
+   "cat": [
+    "무기·세팅"
+   ],
+   "title": "융광 앵화 2세트 속성별 세팅 총정리",
+   "date": "11-24",
+   "lines": [
+    "■ 한눈에 보기",
+    "융광종 리오레이아 아종으로 만드는 「융광종 리오하트」 방어구를 갤에서 「융광 앵화」라고 불러요(앵화룡 = 리오레이아 아종). 2부위만 입으면 세트 효과 「앵화룡의 폭주」가 켜져요.",
+    "@img:bn_21496_1",
+    "[2세트] 융광 활성+1 — 주는 대미지 +10%가 30초 가고, 끝나면 30초 동안 대미지 -10% · 스태미나 상한 -50 페널티가 붙어요.",
+    "머리·몸통에 불굴의 의지(1·2) · 회심격【속성】(2·1) · 고압 가드(1·1)가 붙어 있어서, 두 부위만으로 불굴의 의지 3 · 회심격【속성】 3 · 고압 가드 2가 같이 채워져요.",
+    "남은 팔·허리·다리 3부위로 속성 7(또는 무기 스킬 7)을 맞추면 끝이에요. 그래서 같은 속성이면 무기가 달라도 같은 방어구를 낄 수 있는 「속성 범용 세트」가 돼요.",
+    "머리·몸통 대신 몸통·팔처럼 다른 두 부위로 맞춰도 2세트가 돼요. 다른 부위와 겹쳐 속성 7이 안 나오면 조합을 바꿔 보세요.",
+    "■ 스킬 효과 (게임 설명)",
+    "@img:bn_21496_2",
+    "불굴의 의지 — 상태 이상이나 융광 활성 상태가 되면 일정 시간 주는 대미지가 올라요. Lv1 = +3% · 융광 활성 지속 시간 -20% / Lv2 = +6% · -50% / Lv3 = +12% · 융광 활성 지속 시간(페널티)이 사라져요.",
+    "그래서 불굴의 의지 3 + 융광 활성을 같이 켜면 페널티 없이 상시 +22%예요. 버프 창 기준 융광 활성은 무한 지속, 불굴의 의지는 30초가 끝나자마자 다시 걸려요.",
+    "@img:bn_21496_3",
+    "이름에 「융광」이 붙었지만 융광종과는 상관없어요. 훈련장에 들어가자마자 두 버프가 바로 켜졌다는 확인이 여럿 있어요(융광종과 싸울 때만 켜진다는 글도 있었지만, 훈련장 스크린숏 기준으로 상시예요).",
+    "회심격【속성】 — 회심이 터질 때 속성 대미지 +5%(Lv1) → +15%(Lv3). 고압 가드 Lv2 = 발동 시 방어력 +40.",
+    "주의: 융광 활성 +10%는 「속성 대미지」가 아니라 그냥 대미지 증가라서, 캐릭터 정보창 속성 수치가 안 바뀌고 속성 대미지 기준 코어 패시브도 안 올라가요.",
+    "■ 속성별 추천 조합 (앵화 2세트 + 속성 7)",
+    "아래 조합은 실제 착용 스크린숏과 팬 장비 시뮬레이터 SkillWeave 결과를 모은 거예요. 장비 이름 뒤 Ⅳ~Ⅵ 강화 단계는 빼고 적었어요.",
+    "불: 융광종 리오하트헬름 · 융광종 리오하트메일 · 융광종 레우스암 · 쟈나프코일 · 융광종 레우스그리브 → 불속성 대미지 UP 7 · 회심격【속성】 3 · 불굴의 의지 3 · 역경 1 · 고압 가드 2 · 제압 회복 1 · 체력 루프 1.",
+    "@img:bx_dc-20915_1",
+    "불 실착 예시: 광요 주와이외즈-불(쌍검 14강) + 위 방어구 전부 14강. 체력을 깎는 융광 괴력(배수진) 세팅을 안 쓸 거라면 불속성 종결 후보라는 의견이에요.",
+    "@img:bn_21321_2",
+    "같이 붙는 스킬 효과: 역경 Lv1 = 1회마다 대미지 1.1배 · 방어력 +10 / 제압 회복 Lv1 = 발동 시 체력 5 회복(3초 간격) / 체력 루프 Lv1 = 체력 2 회복(8초에 1번).",
+    "물: 융광종 리오하트헬름 · 융광종 리오하트메일 · 융광종 쥬라암 · 치치코일 · 융광종 치치그리브 → 물 7 · 회심격【속성】 3. 회심격 3이 같이 찍혀서 물은 이 조합이 거의 정답이래요.",
+    "@img:bn_21414_1",
+    "대검 물속성 실착: 물속성 대미지 UP 7(물속성 공격력 +50 · 물속성 대미지 +28%, 융광종 상대 +70%) + 불굴의 의지 3 + 회심격【속성】 3 + 융광 활성 1.",
+    "번개: 카가치헬름 · 융광종 리오하트메일 · 융광종 리오하트암 · 융광종 기르오스코일 · 잉곳그리브 → 번개 7 · 회심격【속성】 1 · 두려움 없는 자 2(대미지 +6%) · 통찰 2(회심률 +4%) · 위협 1. 헬름을 리오하트로, 팔을 기르오스암으로 바꾸면 회심격 3 대신 번개 6이 돼요 — 속성 7을 챙기라는 의견이에요.",
+    "얼음: 융광종 기에나헬름 · 융광종 리오하트메일 · 융광종 리오하트암 · 체인벨트 · 하이메탈그리브 → 얼음 7 · 통찰 2 · 회심격【속성】 1 · 가호 1. 허리를 기에나코일로 바꾸면 얼음 6 · 가호 3이에요.",
+    "용: 융광종 리오하트헬름 · 융광종 리오하트메일 · 타로스암 · 디아네로코일 · 본그리브 → 용 7 · 회심격【속성】 3 · 불굴의 의지 3 · 기절 내성 2 · 체력 강화 1 · 파괴왕 1.",
+    "용 다른 조합: 디아네로헬름 · 융광종 리오하트메일 · 융광종 리오하트암 · 디아네로코일 · 본그리브 → 용 7 · 회심격 1 + 디아블로스 아종 2세트 효과(기절 내성 쪽)까지. 자주 맞아서 기절이 잦으면 이쪽도 괜찮대요.",
+    "@img:bn_21496_4",
+    "실착 스킬 표(위 사진): 용 · 얼음 · 번개 · 활 모으기 강사 세팅. 왼쪽 두 칸(머리·몸통)에서 불굴의 의지 · 회심격【속성】 · 고압 가드가 나오고 맨 오른쪽 칸(세트 효과)에서 융광 활성 1이 켜지는 게 보여요.",
+    "@img:bn_21496_5",
+    "SkillWeave 조합 비교(위 사진): 물 · 번개 · 얼음 · 용 조합을 두 개씩 비교한 화면이에요. 노란 칸이 두 조합이 다른 부위예요.",
+    "■ 디아네로코일 (용 세팅) 만드는 법",
+    "디아네로코일은 이름은 디아블로스 아종 허리지만, 재료는 원종 디아블로스 소재(꼬리 갈무리로 얻는 미갑 · 어금니 등)예요. 흑디아가 안 나와도 지금 만들 수 있어요.",
+    "원종 디아블로스 둥지 사냥 6단계(헌터 랭크 55~56쯤 열림 · 확인 중)나, 생태 레벨 10에서 필드에 나오는 높은 등급 디아블로스를 잡으면 돼요. 54랭에선 아직 못 만든다는 후기가 많아요.",
+    "■ 무기 스킬 7 + 앵화 2세트 (범용 세트)",
+    "속성 7 대신 무기 스킬 7을 넣으면 일반 몬스터용 범용 세트가 돼요. 회심격【속성】 3까지 붙어서 「무기 스킬 7 + 무기 스킬 4」보다 낫다는 반응이 많아요.",
+    "@img:bn_21496_6",
+    "차지액스 범용: 융광종 엄부 액셀리온 + 융광종 리오하트헬름 · 융광종 리오하트메일 · 리오하트암 · 리오하트코일 · 융광종 리오하트그리브 → 장전 강화 7 · 불굴의 의지 3 · 회심격【속성】 3 · 융광 활성 1 · 고압 가드 2 · 부활 2 · 사냥꾼의 육감 1 · 체력 강화 1.",
+    "@img:bn_21496_7",
+    "장전 강화 3을 주는 부위가 팔 · 허리 · 다리 중 융광종 리오하트그리브밖에 없어서 리오하트 3부위를 써요. 변형 강화 4 세팅과 비교해 보니 이쪽이 더 셌대요 — 차지액스는 회심격【속성】이 잘 맞아요.",
+    "태도 미도리: 발도일섬 7 + 앵화 2세트 + 회심격【속성】 3도 나와요. 해머도 모으기 강화 7 + 융광 활성 + 불굴의 의지를 같이 붙일 수 있어요.",
+    "헤비 보우건 · 활은 무기 스킬 4가 주력기(강력탄·기관용탄 / 일반 사격)를 안 올려 줘서 보통 속성 7 + 무기 스킬 6을 썼어요. 앵화 2세트는 조건 없이 무기 스킬 6과 비슷한 딜에 보조 스킬까지 붙어서, 헤보 발리스타 4 세팅은 바로 바꿨다는 후기가 많아요.",
+    "활은 탄도 강화를 넣기 어려워서 지금 쓰는 세팅이 더 낫다는 의견도 있어요. 모으기 강사 7 + 탄도 강화 1 + 회심격【속성】 3 조합은 나와요(위 스킬 표 오른쪽 아래).",
+    "■ 해머 실측 비교 (도스쟈그라스 · 불속성)",
+    "@img:bn_21496_8",
+    "같은 해머로 세팅만 바꿔 쳐 본 표본 평균이에요. 「일반」 = 불속 + 위압 · 회심격【속성】 1, 「앵화」 = 불 7 + 앵화 2세트 · 회심격【속성】 3.",
+    "일반 도스쟈그라스 — 일반 세팅 비회심 3,646 / 회심 5,005 · 앵화 세팅 비회심 3,706 / 회심 5,178.",
+    "융광종 도스쟈그라스 — 일반 세팅 15,646 / 21,827 · 앵화 세팅 15,791 / 23,094 · 불 7 + 모으기 강화 6 + 회심격 1: 16,222 / 21,298 · 불 7 + 모으기 강화 5 + 회심격 2: 16,027 / 22,558.",
+    "결론: 비회심 딜은 거의 같고, 회심이 터질 때 차이가 나요. 회심률이 높을수록 앵화(회심격【속성】 3) 쪽이 빛나요. 압도적으로 센 세팅은 없어요. 속성 회심 배율은 기본 1.25에 회심격【속성】 3이면 +0.136 정도 붙는대요(측정값).",
+    "■ 그래서 뭘 입나요",
+    "속성 7은 꼭 지켜요 — 융광종 상대로 속성 7(+70%) 차이가 커서, 속성 7을 깨고 앵화를 넣는 건 비추예요. 용 대검처럼 회심률이 40%대면 「용 7 + 파쇄 4 / 모으기 강화 5」 깡딜이 나을 수 있대요.",
+    "무기 스킬 4가 약한 무기(헤보 발리스타 4 · 차지액스 변형 강화 4 등)는 바로 앵화로 바꿔요. 연기 4처럼 유지가 쉬운 고성능 스킬을 쓰는 태도는 의견이 갈려요 — 미도리는 바꾸는 게 낫다는 쪽과 연기 4 유지 쪽이 반반이에요.",
+    "일반 몬스터는 범용(무기 스킬 7 + 앵화), 융광종은 속성 7 + 앵화로 나누면 무기만 바꿔 끼우면 돼서 프리셋을 많이 아낄 수 있어요. 프리셋이 모자라면 무기군마다 자주 쓰는 속성 2~3개만 정해 두세요.",
+    "추천 장비 표에는 융광종 리오하트가 장비 시뮬에 아직 없어서 못 넣었어요. 들어오는 대로 각 모험가 세트에 추가할게요.",
+    "방어구가 안 열리면: 조사 수첩에서 해금해야 하고, 헌터 랭크가 모자라 레어도 12가 안 열린 경우가 많아요. 장비 생산 화면에 들어가 보면 이미 열려 있는 경우도 있어요.",
+    "시즌 0 세팅 큰 틀(갤 의견): ① 융광종 흑디아 방어구 + 무기 스킬 7 또는 속성 7 ② 융광 앵화 2세트 + 무기 스킬 7 또는 속성 7(무난) ③ 무기 스킬 6이 좋은 무기는 속성 7 + 무기 스킬 6."
+   ],
+   "images": [
+    "bn_21496_1",
+    "bn_21496_4",
+    "bn_21496_5",
+    "bx_dc-20915_1",
+    "bn_21496_6",
+    "bn_21496_8"
+   ],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21449 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21455 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21459 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21463 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21467 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21485 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21486 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21489 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21492 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21493 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21494 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21496 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21511 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21512 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21519 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21451 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21452 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21470 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21473 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21321 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21298 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21338 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21339 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21351 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21353 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21356 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21367 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21370 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21371 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21414 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21422 (11/24 인게임 스크린숏 제보)"
   }
  ],
  "sim": {
