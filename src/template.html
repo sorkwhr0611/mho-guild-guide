@@ -1426,9 +1426,9 @@ header .brand,header .upd{grid-column:1}
   <div class="row" id="lvrow"><span class="lbl">내 레벨</span><input id="lv" type="number" min="1" max="99" inputmode="numeric" aria-label="내 모험 레벨"><span class="lvinfo" id="lvinfo"></span><label class="fit"><input type="checkbox" id="adapt" checked> 내 레벨로 못 끼는 부위는 자동 교체</label><label class="fit"><input type="checkbox" id="fit"> 이 레벨에서 끝까지 완성되는 세팅만</label></div>
   <details class="capd" id="captable"><summary>레벨별 강화 상한표 · 계산 기준 보기</summary>
   <div class="tw" style="margin-top:8px"><table style="max-width:640px"><thead><tr id="caph"></tr></thead><tbody><tr id="capb"></tr></tbody></table></div>
-  <ul><li>위 <b>내 레벨</b> 칸에 레벨을 넣으면 카드마다 그 레벨에서 올릴 수 있는 최대 레어도와 그때의 무기 이름이 나와요. 표에서 주황색 칸이 내 레벨 구간이에요.</li><li>레어도 12가 열리는 레벨은 아직 공략 사이트에 없어요. 그래서 흑강·용골 계열처럼 레어도 12까지 있는 무기는 Lv47 이상이어도 레어도 11까지로 계산해요. Lv16 미만은 레어도 2까지로 계산했어요.</li>
+  <ul><li>위 <b>내 레벨</b> 칸에 레벨을 넣으면 카드마다 그 레벨에서 올릴 수 있는 최대 레어도와 그때의 무기 이름이 나와요. 표에서 주황색 칸이 내 레벨 구간이에요.</li><li>한국 서버 기준으로 일반 무기·방어구 레어도 11은 모험 랭크 49, 레어도 12는 랭크 52에 열려요(지배자 무기는 49에 12, 51에 13). Lv16 미만은 레어도 2까지로 계산했어요.</li>
   <li>방어구 최대 레어도는 세트마다 달라요(예: 광릉룡 9, 융광종 레우스 11, 디아네로 13). 강화 상한은 모험 랭크에 따라 올라가고, Lv52에 레어도 12가 열려요. 방어구는 레어도가 오를 때 스킬이 새로 붙거나 기존 스킬이 강해져요.</li>
-  <li>강화 기능은 스토리 2장 「출발 준비」*를 깨면 열려요. 다른 공략 사이트(GameWith 일본판, 베타 기준)는 레벨 기준이 1~4레벨 정도 달라요(예: 레어도 11은 Lv48). 어느 쪽이든 Lv51은 레어도 11이에요.</li></ul>
+  <li>강화 기능은 스토리 2장 「출발 준비」*를 깨면 열려요. 다른 공략 사이트(GameWith 일본판, 베타 기준)는 레벨 기준이 1~4레벨 정도 달라요(예: 레어도 11은 Lv48). 이 사이트는 한국 서버 실제 해금 레벨에 맞춰요.</li></ul>
 </details>
   <div class="row"><span class="lbl">검색</span><input id="q" type="search" placeholder="장비·스킬·캐릭터·생물 이름 검색" aria-label="검색"><span class="count" id="n"></span><button class="reset" type="button" id="reset" hidden>필터 초기화</button></div>
 </div>
@@ -1487,7 +1487,7 @@ function chips(id,list,key,obj,cls){
 }
 function save(){try{localStorage.setItem('mho-filter',JSON.stringify({lv:st.lv}));}catch(_){} }
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const CAP=[[16,3],[18,4],[21,5],[26,6],[31,7],[34,8],[41,9],[44,10],[47,11],[52,12]];
+const CAP=[[16,3],[18,4],[21,5],[26,6],[31,7],[34,8],[41,9],[44,10],[49,11],[52,12]];
 const capOf=L=>{let r=2;CAP.forEach(c=>{if(L>=c[0])r=c[1];});return r;};
 const lvFor=r=>{if(r<=2)return 1;const c=CAP.find(c=>c[1]>=r);return c?c[0]:null;};
 function rng(s){const n=String(s).split('–').map(Number);return [n[0],n[n.length-1]];}
@@ -1602,7 +1602,7 @@ function capTable(){
   document.getElementById('caph').innerHTML='<th>모험 레벨</th>'+CAP.map(c=>`<th class="${c[1]===cap?'cur':''}">${c[0]}</th>`).join('');
   document.getElementById('capb').innerHTML='<td class="part">최대 레어도</td>'+CAP.map(c=>`<td class="${c[1]===cap?'cur':''}">${c[1]}</td>`).join('');
   const T=TIER(cap);
-  document.getElementById('lvinfo').innerHTML=`→ 무기·방어구 <b>레어도 ${cap}</b>까지 강화 가능 <span class="tb ${T[1]}">${T[0]}</span>${cap<11?` · 다음 단계(레어도 ${cap+1})는 Lv${lvFor(cap+1)}`:''}<span class="tierleg">무기·방어구 색 = 내 레벨 등급 <span class="tb t-nor">일반 ~Lv40 (레어도 ~8)</span><span class="tb t-epi">영웅 Lv41~46 (레어도 9~10)</span><span class="tb t-leg">전설 Lv47~ (레어도 11~)</span></span>`;
+  document.getElementById('lvinfo').innerHTML=`→ 무기·방어구 <b>레어도 ${cap}</b>까지 강화 가능 <span class="tb ${T[1]}">${T[0]}</span>${cap<11?` · 다음 단계(레어도 ${cap+1})는 Lv${lvFor(cap+1)}`:''}<span class="tierleg">무기·방어구 색 = 내 레벨 등급 <span class="tb t-nor">일반 ~Lv40 (레어도 ~8)</span><span class="tb t-epi">영웅 Lv41~48 (레어도 9~10)</span><span class="tb t-leg">전설 Lv49~ (레어도 11~)</span></span>`;
 }
 const WORLDS=['거목의 벌판','열사 평원','부패의 심연'];
 const MAPS=['거목의 벌판','열사 평원','부패의 심연','찬란한 군도'];
