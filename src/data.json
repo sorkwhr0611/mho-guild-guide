@@ -16972,6 +16972,8 @@
      "공략 업데이트",
      [
       "스티리아 공식 액션 영상 · 융광 앵화 2세트 후기",
+      "헤이즈 깨달음 6종 정리 (모험단 상점 밀서) · 사진 3",
+      "융광 앵화(리오하트) 불 세팅 실착 예시 · 사진 1",
       "스티리아 공식 액션 소개 영상 (일본 채널) · 영상 반응",
       "융광 앵화 2세트: 대검 물속 스킬 표 (사진 1) · 몸통·팔 조합 · 코어 패시브엔 영향 없음",
       "현상금 챌린지 쉬운 무기 (쌍검 · 해머 · 헤보 · 랜스) · 이번 순서 (사진 1)",
@@ -27012,22 +27014,35 @@
     "모험가"
    ],
    "title": "헤이즈 운용 · 오의·연계기 정리 (번개 · 쌍검 · 지원형)",
-   "date": "11-23",
+   "date": "11-24",
    "lines": [
     "■ 한눈에 보기",
     "@img:bx_haze-guide_1",
     "SSR · 번개 · 쌍검 · 지원형. 모험단 상점에서 모험단 특별 초대 티켓 30장으로 데려와요.",
     "파티 전원의 회심 화력을 올려 주는 서포터예요. 연계기가 15초 동안 파티 전원 회심률 +15%라 서브로 넣어도 값어치가 커요.",
-    "메인으로 쓸 땐 귀인 강화* 상태를 유지하며 연속 공격을 쏟아붓는 쌍검이에요. 공격을 상쇄로 피하면서 계속 몰아칠 수 있어요.",
+    "메인으로 쓸 땐 귀인 강화 상태를 유지하며 연속 공격을 쏟아붓는 쌍검이에요. 공격을 상쇄로 피하면서 계속 몰아칠 수 있어요.",
     "■ 이렇게 쓰면 돼요",
     "① 전투가 시작되면 스킬1 「귀인화 상태」를 켜요. 공격력·이동 속도가 오르고 움츠리기가 없어져요. 대신 스태미나가 계속 줄어요.",
     "② 귀인화 중 공격을 맞힐 때마다 귀인 게이지가 차요. 일반 공격 마지막 타에서 스킬2 「원무연참」으로, 스킬3 「쌍검잔월」 연속 찌르기 뒤 스킬2로 바로 이어져요. 저스트 회피에도 게이지가 차고, 저스트 회피 뒤 일반 공격은 돌진 회전베기예요.",
-    "③ 게이지가 가득 차면 스킬1을 한 번 더 눌러 귀인 강화*로 바꿔요. 귀인 강화 중엔 일부 스킬이 게이지를 쓰고, 게이지가 다 떨어지면 자동으로 풀려요.",
-    "④ 귀인 강화 중 스킬3 = 필살기 「적아연참*」. 스킬3을 계속 눌러 좌우로 연속 베기를 넣고, 게이지가 떨어지면 마무리 베기가 자동으로 나가요.",
-    "⑤ 적아연참* 중엔 스킬1이 「상쇄」로 바뀌어요. 몬스터 공격에 맞춰 누르면 앞부분 동안 공격을 피하고, 성공하면 상쇄 카운터 베기가 자동으로 나가면서 게이지가 크게 차요. 그 뒤 다시 적아연참*으로 돌아가서 연속 베기를 오래 이어 갈 수 있어요.",
+    "③ 게이지가 가득 차면 스킬1을 한 번 더 눌러 귀인 강화로 바꿔요. 귀인 강화 중엔 일부 스킬이 게이지를 쓰고, 게이지가 다 떨어지면 자동으로 풀려요.",
+    "④ 귀인 강화 중 스킬3 = 필살기 「적아연참」. 스킬3을 계속 눌러 좌우로 연속 베기를 넣고, 게이지가 떨어지면 마무리 베기가 자동으로 나가요.",
+    "⑤ 적아연참 중엔 스킬1이 「상쇄」로 바뀌어요. 몬스터 공격에 맞춰 누르면 앞부분 동안 공격을 피하고, 성공하면 상쇄 카운터 베기가 자동으로 나가면서 게이지가 크게 차요. 그 뒤 다시 적아연참으로 돌아가서 연속 베기를 오래 이어 갈 수 있어요.",
     "⑥ 고유 특성 「사영*」: 연격을 넣을 때마다 1스택, 최대 5스택(주는 대미지 +15%). 맞으면 스택이 전부 사라져서 안 맞는 게 중요해요.",
+    "■ 깨달음 (모험단 상점 「헤이즈의 밀서」)",
+    "@img:bx_haze-guide_4",
+    "모험단 상점의 「헤이즈의 밀서」(모험단 휘장 800, 구매 상한 180)를 다 사서 헤이즈를 데려오면, 그다음부터 모험단 휘장으로 깨달음을 바꿀 수 있어요. 상점 화면에 깨달음 진행도(예: 5/185)가 같이 떠요.",
+    "@img:bx_haze-guide_3",
+    "30포인트 깨달음 6개 + 작은 깨달음 4개(오의 충전 증가 10 · 대미지 증가 10 · 대미지 경감 5 · 조화 5)가 있어요. 칸 3개에 끼우고, 왕관 표시는 메인 조작일 때 · 초록 표시는 메인 조작이 아닐 때 켜지는 깨달음이에요.",
+    "@img:bx_haze-guide_2",
+    "뇌인열갑: 오의 발동 후 몬스터가 받는 번개속성 대미지 +12%, 오의 버프가 끝날 때까지 유지돼요.",
+    "인인잔심: 사냥 표식-적아 지속 시간 +12초.",
+    "귀등롱화: 귀인화 중 귀인화-쌍검잔월의 각 단계 공격이 맞을 때마다 귀인 게이지 +5 추가.",
+    "철벽환류: 귀인 강화 중 공격을 피하거나 저스트 회피가 발동하면 귀인 게이지 +20 추가.",
+    "사교뇌천: 귀인화 중 귀인화-훙아 스킬 대미지 +100%.",
+    "난무수라: 귀인 강화 중 귀인 강화-적아연참이 맞을 때마다 버프 1중첩(최대 20중첩). 중첩당 효과 수치는 확인 중이에요.",
+    "서포터로 쓸 땐 오의 시너지인 뇌인열갑·인인잔심이 먼저 눈에 띄고, 메인으로 쓸 땐 게이지 회전(귀등롱화·철벽환류)과 대미지(사교뇌천·난무수라)가 핵심이에요. 어떤 조합이 제일 센지는 아직 확인 중이에요.",
     "■ 오의 · 연계기",
-    "오의 「홍진의 사냥 표식」: 범위 안 모험가에게 속성 회심 대미지 +6%와 사냥 표식을 붙여요(12초). 그동안 헤이즈가 12번 때리면 표식이 터져 파티 전원 속성 회심 대미지 +25%(최소 8초)가 돼요. 12번을 못 채우면 그냥 사라지니, 오의 뒤엔 귀인화 연속 공격이나 적아연참*으로 타수를 채우세요. 동료가 모여 있을 때 쓰는 게 좋아요.",
+    "오의 「홍진의 사냥 표식」: 범위 안 모험가에게 속성 회심 대미지 +6%와 사냥 표식을 붙여요(12초). 그동안 헤이즈가 12번 때리면 표식이 터져 파티 전원 속성 회심 대미지 +25%(최소 8초)가 돼요. 12번을 못 채우면 그냥 사라지니, 오의 뒤엔 귀인화 연속 공격이나 적아연참으로 타수를 채우세요. 동료가 모여 있을 때 쓰는 게 좋아요.",
     "연계기 「잔월 차지 증가*」: 메인 조작 모험가의 필살기가 맞으면 발동해 추격하고, 파티 전원 오의 게이지 +7(메인은 +11 더), 파티 전원 회심률 +15%(15초). 50초에 한 번이에요.",
     "서바이벌 특성: 밤에 파티 갈무리 속도 +50%.",
     "■ 같이 쓰기",
@@ -27037,7 +27052,7 @@
     "* = 일본판 이름을 옮긴 임시 번역"
    ],
    "images": [],
-   "src": "https://game8.jp/mhoutlanders/833873 https://gamewith.jp/mhoutlanders/583505 https://mhohub.com/adventurers/haze/"
+   "src": "https://game8.jp/mhoutlanders/833873 https://gamewith.jp/mhoutlanders/583505 https://mhohub.com/adventurers/haze/ (11/24 인게임 스크린숏 제보)"
   },
   {
    "id": "dc-20626",
@@ -27292,7 +27307,13 @@
     "주의: 융광 활성 +10%는 「속성 대미지」가 아니라 그냥 대미지 증가라서, 캐릭터 정보창 속성 수치가 안 바뀌고 속성 대미지 기준 코어 패시브도 안 올라가요. 속성 대미지는 속성 7과 삽화로만 올릴 수 있어요.",
     "태도 미도리는 연기 4를 넣으면 회심격【속성】 3이 안 나와서, 불 7 + 앵화 2세트 쪽이 낫다는 의견이 있어요(제보). 헤비 보우건 차지액스처럼 장전 강화를 원하는 무기는 다리를 같이 쓰기 어려워 7 장전 + 4 변형 강화는 안 나온대요.",
     "방어구가 안 열리면: 조사 수첩에서 해금해야 하고, 헌터 랭크가 모자라 레어도 12가 안 열린 경우가 많아요(제보). 장비 생산 화면에 들어가 보면 이미 열려 있는 경우도 있어요.",
-    "시즌 0 세팅 큰 틀(갤 의견): ① 융광종 흑디아 방어구 + 무기 스킬 7 또는 속성 7(고인물용) ② 융광 앵화 2세트 + 무기 스킬 7 또는 속성 7(무난) ③ 무기 스킬 6이 좋은 무기는 속성 7 + 무기 스킬 6."
+    "시즌 0 세팅 큰 틀(갤 의견): ① 융광종 흑디아 방어구 + 무기 스킬 7 또는 속성 7(고인물용) ② 융광 앵화 2세트 + 무기 스킬 7 또는 속성 7(무난) ③ 무기 스킬 6이 좋은 무기는 속성 7 + 무기 스킬 6.",
+    "■ 실제 착용 예시 (11/24 · 불 쌍검)",
+    "@img:bx_dc-20915_1",
+    "구성: 광요 주와이외즈-불(14강) + 융광종 리오하트헬름 Ⅵ · 융광종 리오하트메일 Ⅵ · 융광종 레우스암 Ⅵ · 쟈나프코일 Ⅵ · 융광종 레우스그리브 Ⅵ (전부 14강).",
+    "켜지는 스킬: 불속성 대미지 UP 7/7 · 회심격【속성】 3/3 · 불굴의 의지 3/3 · 역경 1/1 · 융광 활성 1/1 · 고압 가드 2/3.",
+    "불굴의 의지(게임 설명): 상태 이상이나 융광 활성 상태가 되면 일정 시간 주는 대미지가 오르고, 융광 활성의 악영향 지속 시간을 줄여요. 역경: 힘이 다할 때마다 일정 시간 대미지·방어력이 올라요(최대 2회).",
+    "체력을 깎는 융광 괴력(배수진) 세팅을 안 쓸 거라면, 이 리오하트 머리·몸통 세팅이 불속성 종결 후보라는 의견이에요(제보)."
    ],
    "images": [
     "bn_20915_1",
@@ -27302,7 +27323,7 @@
     "bn_21321_2",
     "bn_21414_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20915 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21321 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21298 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21338 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21339 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21351 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21353 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21356 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21367 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21370 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21371 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21414 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21422"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20915 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21321 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21298 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21338 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21339 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21351 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21353 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21356 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21367 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21370 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21371 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21414 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21422 (11/24 인게임 스크린숏 제보)"
   },
   {
    "id": "dc-21016",
