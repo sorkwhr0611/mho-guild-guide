@@ -16971,6 +16971,20 @@
      "11/24",
      "공략 업데이트",
      [
+      "스티리아 공식 액션 영상 · 융광 앵화 2세트 후기",
+      "스티리아 공식 액션 소개 영상 (일본 채널) · 영상 반응",
+      "융광 앵화 2세트: 대검 물속 스킬 표 (사진 1) · 몸통·팔 조합 · 코어 패시브엔 영향 없음",
+      "현상금 챌린지 쉬운 무기 (쌍검 · 해머 · 헤보 · 랜스) · 이번 순서 (사진 1)",
+      "헤보 스킬 순서: 강력탄 → 기관용탄 → 강력탄 · 라야 오의 디버프는 춤만 춰도",
+      "삽화 빨리 모으기 · 긴급퀘 경고 뜨면 멈춰도 돼요 · 원종=융광 무기 같은 경우",
+      "추천 장비: GameWith·game8 11/24 낮 갱신분 확인 — 바뀐 세트 없어요"
+     ],
+     "stylia-preview"
+    ],
+    [
+     "11/24",
+     "공략 업데이트",
+     [
       "융광종 리오하트 머리·몸통 스킬 표 (사진 2)",
       "머리·몸통만 입으면 융광 활성 상시 · 역경·고압 가드 효과",
       "동료 방어구 맞추는 순서 · 서포터 상태이상 무기도 코어 패시브 작동",
@@ -24314,12 +24328,17 @@
     "■ 참렬탄 vs 산탄 · 동반자 (11/24)",
     "강력탄이 충전되면 산탄보다 참렬탄이 기본적으로 더 세요. 산탄은 딱 붙어서 쉬지 않고 쏴야 그만큼 나오니, 참렬탄을 섞는 게 편해요.",
     "얼음 헤비 보우건처럼 참렬탄이 2발뿐인 무기는 장전 손해가 커서 관통탄만 쏘는 게 나아요(제보). 철갑유탄은 머리에 쏴서 기절용으로 써요.",
-    "헤비 보우건 동반자: 불이면 코지로(열파 후 불 대미지), 번개면 슈미르(관통 후 번개 대미지)를 많이 써요. SR 동반자는 성장 재화가 아까워 SSR만 키우라는 의견이 많아요."
+    "헤비 보우건 동반자: 불이면 코지로(열파 후 불 대미지), 번개면 슈미르(관통 후 번개 대미지)를 많이 써요. SR 동반자는 성장 재화가 아까워 SSR만 키우라는 의견이 많아요.",
+    "■ 스킬 순서 다시 정리 (11/24)",
+    "추천 순서: 강력탄(스킬2) → 기관용탄(스킬3) → 강력탄(스킬2) → 일반 사격, 이걸 반복해요.",
+    "스킬3이 맞으면 스킬2 탄 충전이 빨라지지만, 스킬2를 맞혀도 스킬3은 빨라지지 않아요. 스킬3 50발을 다 맞히면 스킬2 탄이 5개쯤 차 있어요.",
+    "스킬2·3은 맞힌 횟수만큼 빨리 차서, 타수가 많은 산탄·관통탄을 쓰면 더 빨리 돌아요.",
+    "통상탄은 저스트 가드에 성공하면 탄창이 바로 꽉 차요. 아무것도 안 누르고 있으면 자동으로 가드해요."
    ],
    "images": [
     "bx_hbg-ammo_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16580 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19755 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19888 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19867 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20207 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20219"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16580 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19755 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19888 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19867 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20207 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20219 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21348"
   },
   {
    "id": "hbg-newbie",
@@ -25289,13 +25308,14 @@
     "오의는 처음 동작에만 무적이에요 — 오의를 쓰는 내내 무적인 게 아니라 시작 부분만 무적이고, 미도리의 대간파(찰나의 간파 필살기)는 무적이 아니라 슈퍼 아머라 대미지는 그대로 들어와요(제보). 미도리 찰나의 간파는 한 템포 빠르게 눌러야 잘 터져요.",
     "미도리 깨달음은 「단풍 · 단풍 · 무한」 — 3돌까지는 이 순서가 무난하다는 의견이 많아요. 「찰나의 여운」은 모션이 빨라져 편하지만 딜 증가가 없어서 4돌 이후나 회피가 정말 어려울 때 고려해요.",
     "미도리 마지막 깨달음은 「섀도우 레기온」 — 「찰나의 여운」(회피 무적 시간 연장 · 저스트 회피 판정 완화)과 고르는 자리인데, 「섀도우 레기온」은 오의를 쓰면 스킬 대미지 +40% · 부위 파괴 효율 +20%예요. 게임 추천 표시도 섀도우 레기온이고 대부분 섀도우를 골라요.",
-    "@img:bn_21179_1"
+    "@img:bn_21179_1",
+    "같은 속성 모험가끼리 맞추는 「공명」 효과는 부위 파괴 효율 쪽이라, 공명 하나 때문에 원하지 않는 모험가를 억지로 넣을 필요는 없다는 의견이 많아요."
    ],
    "images": [
     "bt_adv_1",
     "bt_adv_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3501 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19709 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19892 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19956 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20044 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20652 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20768 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20752 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20856 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20985"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=3501 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19709 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19423 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19892 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19956 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20044 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20652 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20768 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20752 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20856 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20985 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21344"
   },
   {
    "id": "tips-hero",
@@ -25919,9 +25939,9 @@
     "■ 기술",
     "일반 공격 「연사」: 누르면 원거리 화살, 꾹 누르면 최대 4단계까지 모아요. 전주·공명 단계에서 명중마다 게이지 +5, 모으기 +1. 비가 단계에선 모으기 +1만.",
     "스킬1 「왈츠*」(Waltz): 스태미나를 써서 위치를 옮기며 모으기 단계를 유지한 채 정밀 사격(연격 대미지). 이동 중 화살로 베어서 절단 대미지를 주고 몬스터 공격을 패링할 수 있어요. 패링 성공 시 스태미나 50% 돌려받고 그 사격 대미지가 올라요. 게이지: 전주 -3, 비가 -15. 공명 단계에선 「공명 왈츠*」로 바뀌어 게이지 -15.",
-    "스킬2 「스완 스텝*」(Swan Step): 뒤로 돌며 공중으로 떠 에코 애로우을 쏴요(명중 시 게이지 +20). 에코 애로우은 몬스터 부위에 30초 동안 박혀 있고 최대 6개, 새로 박으면 시간이 갱신돼요. 공명 단계에선 「공명 스완 스텝*」으로 2발. 비가 단계에선 못 써요.",
+    "스킬2 「스완 스텝*」(Swan Step): 뒤로 돌며 공중으로 떠 에코 애로우를 쏴요(명중 시 게이지 +20). 에코 애로우은 몬스터 부위에 30초 동안 박혀 있고 최대 6개, 새로 박으면 시간이 갱신돼요. 공명 단계에선 「공명 스완 스텝*」으로 2발. 비가 단계에선 못 써요.",
     "스킬3 「더블 럿츠*」(Double Lutz): 앞으로 돌진(명중 시 게이지 +15, 모으기 +1) 후 공중에서 2연사(연격 대미지). 비가 단계에선 못 써요.",
-    "버스트 「트리플 럿츠*」(Triple Lutz): 공명 단계의 스킬3. 공중 3연사, 마지막 발은 가까이에서 부채꼴로 여러 발(모으기 단계가 높을수록 많아요, 맞은 화살마다 게이지 +10). 마지막 발이 박혀 있는 에코 애로우을 터뜨려 추가 대미지를 줘요. 마지막 발이 맞으면 지원형 동료 스킬이 발동해요.",
+    "버스트 「트리플 럿츠*」(Triple Lutz): 공명 단계의 스킬3. 공중 3연사, 마지막 발은 가까이에서 부채꼴로 여러 발(모으기 단계가 높을수록 많아요, 맞은 화살마다 게이지 +10). 마지막 발이 박혀 있는 에코 애로우를 터뜨려 추가 대미지를 줘요. 마지막 발이 맞으면 지원형 동료 스킬이 발동해요.",
     "회피: 저스트 회피 성공 시 0.5초 무적.",
     "오의 「로열 설루테이션*」(Royal Salutation): 하프 협주곡 연주. 첫 번째 연주에 파티 전원 모든 속성 대미지 +6% 1중첩, 두 번째 연주에 2중첩(최대 3중첩). 연주 시작 때 15초 동안 공명 구간이 20% 넓어져요.",
     "연계기 「공주의 비상*」(Princess's Flight): 연주로 동반자들이 몬스터에게 돌격하고, 스티리아는 공명 단계로 들어가요.",
@@ -25931,13 +25951,18 @@
     "② 공명 진입: 공명 스완 스텝(2발)으로 에코 애로우 채우고 → 트리플 럿츠 마지막 발로 한꺼번에 터뜨리기. 전주 단계의 더블 럿츠로는 안 터져요.",
     "③ 게이지 관리: 트리플 럿츠 ↔ 공명 왈츠 번갈아 쓰기. 연사·트리플 럿츠는 모으기 단계를 올리고, 왈츠·스완 스텝은 유지만 해요.",
     "④ 몬스터 공격은 왈츠로 패링 → 스태미나 회수 + 강화 사격.",
+    "■ 영상 (11/24 공식 액션 소개)",
+    "11/24 공식 일본 유튜브 채널에 스티리아 액션 소개 영상이 올라왔어요. 아래 영상에서 연주 템포가 쌓이며 단계가 바뀌는 모습, 박아 둔 에코 애로우가 다른 기술에 맞아 한꺼번에 공명하는 장면, 오의 하프 연주를 보면 돼요.",
+    "영상 소개글: 얼음속성 특화 모험가. 우아하고 가볍게 활을 다뤄요. 기술로 연주 템포를 올려 지금 프레이즈를 바꾸며 자신을 강화해요. 일부 기술로 에코 애로우를 쏘고, 다른 기술로 공명시켜 대미지를 줘요. 오의로 동료 모험가의 모든 속성 대미지를 올려요.",
+    "영상을 본 반응: 스킬1·2에 저스트 회피 판정이 붙어 있고, 스킬3은 페페처럼 몬스터에 붙었다가 뛰어올라 활을 쏘는 동작이래요. 공중에서 쏘면 뒤로 날아가요(영상 기준 · 확인 중).",
+    "공중 동작이 많아서 체공 세팅, 체공을 밀어 주는 로드(해머)·주인공 해머와 잘 맞을 거라는 의견이 있어요. 전체적으로 메인 딜러보다는 얼음 파티 서포터라는 평이 많아요.",
     "■ 특성",
     "재생 인자*: 오의 충전 효율이 10% 이상이면 넘는 1%마다 스킬2·3 대미지 +5%. 20% 이상이면 추가로 스킬2·3 대미지 +5%, 오의 회복 효과 +20% (1%마다).",
     "물리 특화*: 무속성 또는 상태이상(마비·독·수면·폭파) 무기를 들면 대미지 +30%.",
     "식물학자*: 파티에 있으면 채집할 때 25% 확률로 식물 1개 추가.",
     "■ 깨달음 (모험가 전용)",
     "오프닝 서곡*: 오의 첫 연주 때 필드의 파티 전원 속성 회심 대미지 +20%.",
-    "앙코르 에코*: 스킬1로 패링한 뒤 다음 스킬3 마지막 발이 에코 애로우 1개를 더 박고, 그 에코 애로우이 늦게 한 번 더 공명해 추가 대미지.",
+    "앙코르 에코*: 스킬1로 패링한 뒤 다음 스킬3 마지막 발이 에코 애로우 1개를 더 박고, 그 에코 애로우가 늦게 한 번 더 공명해 추가 대미지.",
     "■ 각성 · 전용 무기",
     "최대 기초 공격력 200. 각성 6단계까지 다 하면 방어력 +490, 속성 대미지 +100 (누적).",
     "전용 무기 「서리깃 멜로디*」: 레이기에나 소재로 만든 은백색 활이에요. 전용 의상 「서리빛 드레스*」.",
@@ -25946,7 +25971,8 @@
     "출시되면 GameWith·game8 추천 장비와 동반자 · 선물 취향(한국어 이름 확인 후)을 추가할게요."
    ],
    "images": [],
-   "src": "https://mhohub.com/adventurers/stylia/"
+   "src": "https://mhohub.com/adventurers/stylia/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21383 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21387 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21389",
+   "yt": "yyHL0WljyJI"
   },
   {
    "id": "dc-18238",
@@ -26294,7 +26320,10 @@
     "남은 날에 다 못 먹을 것 같으면: 상한을 친 뒤에도 의뢰를 더 돌려 천장 스택 20을 채워 두면, 다음 날 첫 전설이 확정이라 하나를 더 확실히 챙길 수 있어요(제보).",
     "천장까지 남은 횟수는 의뢰서 아래 전설 확률로 봐요 — 전설이 안 나올 때마다 확률이 계속 올라가요. 천장 메시지를 놓쳤으면 의뢰서를 사려고 하거나 「의뢰 추적」을 누르면 다시 떠요.",
     "의뢰서를 체크하면 겹치는 조건과 우선 잡을 몬스터를 찾아 주는 팬 제작 플래너도 공유됐어요: splendid-lily-8d235e.netlify.app",
-    "@img:bn_20880_1"
+    "@img:bn_20880_1",
+    "■ 11/24 추가",
+    "긴급 퀘스트 상한 경고 메시지가 뜨면 거기서 멈춰도 돼요. 남은 의뢰는 다음 날로 넘어가요. 인연 아이템 모으자고 제니를 더 쓰긴 아깝다는 의견이에요.",
+    "칭호는 시즌 0 빨간(전설) 의상을 다 모으면 받아요. 초록·주황 의상까지 다 모아야 시즌 코인 500개씩 준대요(제보). 아직 한 번도 안 했다면 11/27까지 칭호는 운이 많이 따라야 해요."
    ],
    "images": [
     "eq1",
@@ -26305,7 +26334,7 @@
     "bn_19428_1",
     "bn_20880_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16742 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19466 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19658 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19428 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19890 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19865 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20579 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20559 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20381"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16742 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19466 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19658 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19428 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19890 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19865 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20579 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20559 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20381 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21334 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21359"
   },
   {
    "id": "dc-19543",
@@ -26539,10 +26568,11 @@
     "■ 강화 재료는 주에 얼마나 모일까",
     "레어 13 일반 제작 무기도 지배자 무기처럼 시즌 강화 재료가 들어가서, 여러 속성 무기를 올리려면 길게 봐야 해요.",
     "지배자 챌린지(패스 3장)로 주에 약 24개, 긴급 퀘스트(익명 의뢰)를 매일 돌면 주에 약 56개가 모여서 합치면 주 80개 정도예요. 긴급 퀘스트를 안 돌면 훨씬 느려요.",
-    "흑디아블로스는 조사 노트 38번에서 해금돼요. 29번은 네르기간테 자리예요(제보)."
+    "흑디아블로스는 조사 노트 38번에서 해금돼요. 29번은 네르기간테 자리예요(제보).",
+    "원종 무기와 융광종 무기 성능이 끝까지 똑같은 경우도 있어요. 예: 안쟈나프 대검(플람엘헤레브)은 원종과 융광종 수치가 같고 예리도만 달라요. 강화하면 예리도까지 같아진다는 제보도 있어요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20004 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20035 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20046 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20049 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20344 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20369"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20004 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20035 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20046 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20049 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20344 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20369 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21368"
   },
   {
    "id": "dc-20054",
@@ -27123,12 +27153,14 @@
     "선무승천 · 선무파공 대미지를 올려 주는 「바람 걸음」(선무승천·선무파공 스킬 대미지 +25%) · 「스피릿 페더」(귀인화 중 선무승천 뒤 스킬3으로 선무파공 바로 발동) · 「선무 공중 추격」(선무파공 대미지 +100%, 선무 회전 끝나고 일반 공격으로 선무파공)을 골라요.",
     "슈퍼 아머 · 연격 · 체공이 붙은 동작이라 이런 키워드 증강을 고르면 돼요. 방어 증강만 고르면 딜이 모자라니 딜 증강 위주로 가요.",
     "주인공이 아닌 모험가는 주황 증강 종류가 많지 않아서, 리롤로 보라색만 띄워도 원하는 조합이 잘 나온다는 후기예요(제보).",
+    "■ 오의 디버프 (11/24)",
+    "라야 오의는 춤춘 뒤 구멍 함정을 까는데, 춤만 춰도 몬스터가 받는 불 대미지 증가가 걸려요. 함정이 안 통하는 루가 에알다 같은 고룡도 움찔하고 디버프가 들어가요(화면에 문구가 떠요).",
     "■ 영상",
     "원문 영상에서 귀인화 → 선무승천 → 선무파공으로 공중에서 계속 내려찍는 흐름을 보세요.",
     "* = 해외판 영문을 옮긴 임시 번역이에요. 기술 설명은 게임 안 설명과 해외 팬 DB(mhohub) 기준이라 한국판 표기와 조금 다를 수 있어요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20449 https://mhohub.com/adventurers/raya/",
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20449 https://mhohub.com/adventurers/raya/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21375",
    "video": "dc"
   },
   {
@@ -27216,7 +27248,7 @@
    "cat": [
     "몬스터·사냥"
    ],
-   "title": "융광종 리오레이아 아종 도감 정보 (용속성 · 머리·꼬리 약점 · 융광 활성)",
+   "title": "융광종 리오레이아 아종 도감 · 융광 앵화 2세트 (융광 활성)",
    "date": "11-24",
    "lines": [
     "■ 한눈에 보기",
@@ -27248,16 +27280,29 @@
     "이 세트(속7 + 회심격【속성】3 + 불굴의 의지 3)가 「속성 7 + 무기 스킬 4」보다 딜이 더 나을 것 같다는 반응이에요(비교 확인 중).",
     "■ 검사 범용 세트로 쓰기",
     "머리·몸통을 융광종 리오하트로 두고 나머지로 속성 7만 맞추면, 무기만 바꿔 끼워 여러 근접 무기에 같이 쓸 수 있다는 의견이에요. 활은 탄도 강화를 포기하기 어려워서 따로 맞추는 게 낫대요(제보).",
-    "융광종 리오하트 머리·몸통은 사이트 장비 시뮬에 아직 없어서, 추천 장비 표엔 아직 못 넣었어요."
+    "융광종 리오하트 머리·몸통은 사이트 장비 시뮬에 아직 없어서, 추천 장비 표엔 아직 못 넣었어요.",
+    "■ 「융광 앵화」 2세트 실전 후기 (11/24 낮)",
+    "갤에서 「융광 앵화(셋)」라고 부르는 게 이 융광종 리오하트 방어구예요(앵화룡 = 리오레이아 아종).",
+    "@img:bn_21414_1",
+    "대검 물속성 예시: 물속성 대미지 UP 7 + 불굴의 의지 3 + 회심격【속성】 3 + 융광 활성 1이 같이 켜져요. 물속성 대미지 UP 7 = 물속성 공격력 +50 · 물속성 대미지 +28%, 융광종 상대면 +70%예요.",
+    "예전엔 속성 7 + 모으기 강화 6(대미지 +24%, 15초, 시간 갱신 안 됨)을 썼는데, 앵화 2세트는 상시 +22%라 2% 낮은 대신 회심격【속성】 3을 챙기고 버프가 끊기지 않아서 더 편하대요.",
+    "헤비 보우건은 무기 스킬 4가 강력탄·기관용탄 대미지를, 활은 무기 스킬 4가 일반 사격을 안 올려 줘서 보통 속성 7 + 무기 스킬 6을 썼어요. 앵화 2세트는 조건 없이 무기 스킬 6과 비슷한 딜에 보조 스킬까지 붙어서 반응이 좋아요.",
+    "훈련장에서 쳐 보면 순간 대미지는 기존 세팅과 비슷하고, 버프가 비는 순간이 없는 게 장점이에요. 30초가 끝나는 순간 바로 다시 30초로 갱신돼요(제보). 무기만 바꿔 끼우면 돼서 프리셋을 많이 줄일 수 있어요.",
+    "머리·몸통 대신 몸통·팔로 맞춰도 2세트가 돼요. 다른 부위와 겹쳐서 속성 7이 안 나오면 몸통·팔로 바꿔 보세요. 얼음·번개도 속성 7은 꼭 맞추라는 의견이 많아요.",
+    "주의: 융광 활성 +10%는 「속성 대미지」가 아니라 그냥 대미지 증가라서, 캐릭터 정보창 속성 수치가 안 바뀌고 속성 대미지 기준 코어 패시브도 안 올라가요. 속성 대미지는 속성 7과 삽화로만 올릴 수 있어요.",
+    "태도 미도리는 연기 4를 넣으면 회심격【속성】 3이 안 나와서, 불 7 + 앵화 2세트 쪽이 낫다는 의견이 있어요(제보). 헤비 보우건 차지액스처럼 장전 강화를 원하는 무기는 다리를 같이 쓰기 어려워 7 장전 + 4 변형 강화는 안 나온대요.",
+    "방어구가 안 열리면: 조사 수첩에서 해금해야 하고, 헌터 랭크가 모자라 레어도 12가 안 열린 경우가 많아요(제보). 장비 생산 화면에 들어가 보면 이미 열려 있는 경우도 있어요.",
+    "시즌 0 세팅 큰 틀(갤 의견): ① 융광종 흑디아 방어구 + 무기 스킬 7 또는 속성 7(고인물용) ② 융광 앵화 2세트 + 무기 스킬 7 또는 속성 7(무난) ③ 무기 스킬 6이 좋은 무기는 속성 7 + 무기 스킬 6."
    ],
    "images": [
     "bn_20915_1",
     "bn_20915_2",
     "bn_21256_1",
     "bn_21321_1",
-    "bn_21321_2"
+    "bn_21321_2",
+    "bn_21414_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20915 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21321 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21298"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20915 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21321 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21298 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21338 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21339 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21351 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21353 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21356 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21367 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21370 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21371 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21414 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21422"
   },
   {
    "id": "dc-21016",
@@ -27347,6 +27392,49 @@
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21284 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21285"
+  },
+  {
+   "id": "dc-21385",
+   "cat": [
+    "몬스터·사냥"
+   ],
+   "title": "현상금 챌린지 쉬운 무기 고르기 (쌍검 · 해머 · 헤보 · 랜스)",
+   "date": "11-24",
+   "lines": [
+    "■ 이번 현상금 순서",
+    "@img:bn_21354_1",
+    "쿠루루야크 → 리오레이아 → 디아블로스 → 융광종 오도가론 → 융광종 디아블로스 5마리예요. 디아블로스에서 시간 제한에 걸려 실패했다는 사람이 많아요.",
+    "■ 쉬운 무기 (후기 모음)",
+    "주인공 쌍검: 귀인화를 켜고 붙어서 난무만 눌러도 깬다는 후기가 많아요. 쌍검 깨달음 중 체력이 차는 쪽 · 슈퍼 아머 · 체력이 서서히 빠지는 대신 딜이 오르는 증강을 찍으면 편해요.",
+    "주인공 해머: 빙속 해머 추천이 많아요. 모으기 2단(어퍼)으로 머리만 치고, 기절 추가 대미지 증강을 챙기면 기절 1사이클에 끝난대요. → 해머 증강은 「현상금 챌린지: 해머 운영」 글 참고.",
+    "주인공 헤비 보우건: 교란형으로 들고 가서 교란형 딜 증가 증강을 뽑으면 무난해요.",
+    "주인공 랜스: 디아블로스 · 오도가론은 가드 후 카운터 찌르기가 아주 잘 들어가요. 넘어지면 돌진 찌르기로 마무리해요.",
+    "로드: 약점 보너스를 받아서 딜 증강을 잘 잡고 안전하게 치면 할 만하지만, 슈퍼 아머 증강이 안 뜨면 많이 끊겨서 주인공 무기로 바꿨다는 후기도 많아요.",
+    "■ 팁",
+    "주인공은 평소 제일 많이 쓰는 무기를 들고 가는 게 제일 쉬워요. 첫 증강만 잘 고르면 나머지는 딜 증강 위주로 골라요."
+   ],
+   "images": [
+    "bn_21354_1"
+   ],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21385 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21354"
+  },
+  {
+   "id": "dc-21357",
+   "cat": [
+    "무기·세팅"
+   ],
+   "title": "삽화 빨리 모으기 · 강화할까 말까",
+   "date": "11-24",
+   "lines": [
+    "■ 삽화 빨리 모으기",
+    "필드 몬스터를 싹 잡기, 시즌 상점 삽화 상자, 융광종 토벌 상점 삽화 상자를 까는 방법이 있어요. 삽화 그리기 한 번에 4개씩 들어와서 3번이면 10개가 넘어요.",
+    "■ 강화할까 말까",
+    "좋은 옵션(속성·회심)이 붙은 삽화면 일단 10레벨까지 강화해서 써도 괜찮다는 의견이에요. 나중에 더 좋은 삽화(쌍극옵 등)가 나오면 그 삽화에 경험치로 먹이면 되니까요(제보).",
+    "채색을 하면 들인 재화를 돌려받기 어려우니, 급한 게 아니면 채색은 확실히 오래 쓸 삽화에만 하세요.",
+    "재화가 빠듯하면 메인 모험가와 주인공 두 명만 먼저 맞추고, 서브는 대충 맞춰 두는 사람이 많아요. 전설 삽화 10레벨은 경험치·제니가 많이 들어요."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21357 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21377 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21335"
   }
  ],
  "sim": {
