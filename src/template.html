@@ -351,6 +351,7 @@ h2.sec,.world>h3{scroll-margin-top:var(--stick,110px)}
 .grid>.card .skills{margin-top:0}
 .grid>.card .route{display:block}
 tr.swap td{background:color-mix(in srgb,#2a6fb5 8%,var(--panel))}
+em.rq{display:block;font-style:normal;font-size:12px;color:var(--muted);font-weight:600;line-height:1.3;white-space:nowrap}
 em.was{display:block;font-style:normal;font-size:12px;color:var(--muted);font-weight:400;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:260px}
 .tag.sw{background:#2a6fb5;border-color:#2a6fb5;color:#fff}
 .brand{display:flex;align-items:center;gap:12px}
@@ -1426,7 +1427,7 @@ header .brand,header .upd{grid-column:1}
   <div class="row" id="lvrow"><span class="lbl">내 레벨</span><input id="lv" type="number" min="1" max="99" inputmode="numeric" aria-label="내 모험 레벨"><span class="lvinfo" id="lvinfo"></span><label class="fit"><input type="checkbox" id="adapt" checked> 내 레벨로 못 끼는 부위는 자동 교체</label><label class="fit"><input type="checkbox" id="fit"> 이 레벨에서 끝까지 완성되는 세팅만</label></div>
   <details class="capd" id="captable"><summary>레벨별 강화 상한표 · 계산 기준 보기</summary>
   <div class="tw" style="margin-top:8px"><table style="max-width:640px"><thead><tr id="caph"></tr></thead><tbody><tr id="capb"></tr></tbody></table></div>
-  <ul><li>위 <b>내 레벨</b> 칸에 레벨을 넣으면 카드마다 그 레벨에서 올릴 수 있는 최대 레어도와 그때의 무기 이름이 나와요. 표에서 주황색 칸이 내 레벨 구간이에요.</li><li>한국 서버 기준으로 일반 무기·방어구 레어도 11은 모험 랭크 49, 레어도 12는 랭크 52에 열려요(지배자 무기는 49에 12, 51에 13). Lv16 미만은 레어도 2까지로 계산했어요.</li>
+  <ul><li>위 <b>내 레벨</b> 칸에 레벨을 넣으면 카드마다 그 레벨에서 올릴 수 있는 최대 레어도와 그때의 무기 이름이 나와요. 표에서 주황색 칸이 내 레벨 구간이에요.</li><li>한국 서버 기준으로 일반 무기·방어구 레어도 11은 모험 랭크 49, 레어도 12는 랭크 52, 레어도 13은 랭크 53, 레어도 14는 랭크 56에 열려요(지배자 무기는 49에 12, 51에 13). 카드의 방어구마다 「희귀도 N · LvX부터」로 처음 만들 수 있는 레벨을 적어 뒀어요. Lv16 미만은 레어도 2까지로 계산했어요.</li>
   <li>방어구 최대 레어도는 세트마다 달라요(예: 광릉룡 9, 융광종 레우스 11, 디아네로 13). 강화 상한은 모험 랭크에 따라 올라가고, Lv52에 레어도 12가 열려요. 방어구는 레어도가 오를 때 스킬이 새로 붙거나 기존 스킬이 강해져요.</li>
   <li>강화 기능은 스토리 2장 「출발 준비」*를 깨면 열려요. 다른 공략 사이트(GameWith 일본판, 베타 기준)는 레벨 기준이 1~4레벨 정도 달라요(예: 레어도 11은 Lv48). 이 사이트는 한국 서버 실제 해금 레벨에 맞춰요.</li></ul>
 </details>
@@ -1487,7 +1488,7 @@ function chips(id,list,key,obj,cls){
 }
 function save(){try{localStorage.setItem('mho-filter',JSON.stringify({lv:st.lv}));}catch(_){} }
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const CAP=[[16,3],[18,4],[21,5],[26,6],[31,7],[34,8],[41,9],[44,10],[49,11],[52,12]];
+const CAP=[[16,3],[18,4],[21,5],[26,6],[31,7],[34,8],[41,9],[44,10],[49,11],[52,12],[53,13],[56,14]];
 const capOf=L=>{let r=2;CAP.forEach(c=>{if(L>=c[0])r=c[1];});return r;};
 const lvFor=r=>{if(r<=2)return 1;const c=CAP.find(c=>c[1]>=r);return c?c[0]:null;};
 function rng(s){const n=String(s).split('–').map(Number);return [n[0],n[n.length-1]];}
@@ -1517,6 +1518,7 @@ function resize(file){return new Promise((res,rej)=>{const fr=new FileReader();f
 
 /* ---- 레벨 맞춤: 무기·방어구 자동 교체 ---- */
 const armR=n=>{const k=String(n).replace(/\*/g,'');const p=D.armr.find(a=>k.startsWith(a[0]));return p?p[1]:1;};
+const rqTag=n=>{if(/^에알다/.test(String(n)))return '';const r=armR(n),L=lvFor(r);return `<em class="rq">희귀도 ${r} · ${L>1?'Lv'+L+'부터':'처음부터'}${st.lv<L?' 🔒':''}</em>`;};
 const CHAIN_FB={'머리':'체인헤드','몸통':'체인베스트','팔':'체인글러브','허리':'체인벨트','다리':'체인팬츠'};
 function chainsFor(type,elem){
   const out=[];
@@ -1573,7 +1575,7 @@ function card(b0){
   const c=`var(${EL[b.elem]||'--neutral'})`;
   const title=b.group==='hero'?`${b.type} · ${b.elem==='범용'?'범용':b.elem+'속성'}`:b.name;
   const route=b.route.map(r=>`${esc(r[1])}(레어도 ${r[0]})`).join(' → ');
-  const rows=b.armor.map(a=>{const c2=A.ch.find(x=>x.part===a[0]);return `<tr class="${c2?'swap':''}"><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px" data-tip="${esc(a[1])}" data-tk="g">${PHT(a[1],'ar gear '+aT[1],'부위-'+a[0])}<span><span class="tipg" data-tip="${esc(a[1])}" data-tk="g">${esc(a[1])}</span>${c2?`<em class="was">원래 ${esc(c2.from)} · Lv${c2.need}부터</em>`:''}</span></span></td></tr>`;}).join('');
+  const rows=b.armor.map(a=>{const c2=A.ch.find(x=>x.part===a[0]);return `<tr class="${c2?'swap':''}"><td class="part">${a[0]}</td><td class="kr"><span class="nm" style="gap:8px" data-tip="${esc(a[1])}" data-tk="g">${PHT(a[1],'ar gear '+aT[1],'부위-'+a[0])}<span><span class="tipg" data-tip="${esc(a[1])}" data-tk="g">${esc(a[1])}</span>${rqTag(a[1])}${c2?`<em class="was">원래 ${esc(c2.from)} · Lv${c2.need}부터</em>`:''}</span></span></td></tr>`;}).join('');
   const sk=b.skills.map((s,i)=>`<span class="s${i<2?' core':''}" title="${esc(D.skilldesc[s[0]]||EXTRA[s[0]]||'')}">${esc(s[0])}<b>Lv${s[1]}</b></span>`).join('');
   const p=plan(b);
   const rs0=b.route.map(r=>rng(r[0])); const wTop=Math.max(...rs0.map(r=>r[1])); const wReach=Math.min(cap,wTop); const wT=TIER(cap);
