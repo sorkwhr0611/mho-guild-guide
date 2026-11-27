@@ -88,7 +88,7 @@ def parse_g8(path):
         else: i+=1
     return out
 
-GW_ADV={'577455':'류노스케','577456':'브릭스','577458':'아케니아','577459':'케레스','577460':'엔쇼우','577461':'루카','577462':'폴리오','577463':'라야','577464':'매들린','577465':'미도리','561564':'페페','583506':'로드'}
+GW_ADV={'577455':'류노스케','577456':'브릭스','577458':'아케니아','577459':'케레스','577460':'엔쇼우','577461':'루카','577462':'폴리오','577463':'라야','577464':'매들린','577465':'미도리','561564':'페페','583506':'로드','586524':'프레야','588284':'스티리아'}
 G8_ADV={'784183':'미도리','784185':'페페','784186':'케레스','784187':'루카','784188':'엔쇼우','784189':'아케니아','784190':'매들린','784193':'라야','784194':'폴리오','808772':'브릭스','808773':'류노스케','833427':'로드'}
 HERO_ORDER=[('헤비보우건',6),('대검',6),('태도',6),('쌍검',6),('랜스',6),('활',6),('차지액스',6),('해머',6)]  # 11/23 20시: 차지액스에도 対通常種(범용) 세트가 생겼어요
 UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/130.0 Safari/537.36'
@@ -112,11 +112,11 @@ if __name__=='__main__':
         i=s.find('最終更新'); up=re.sub(r'<[^>]+>|\s+',' ',s[i:i+120])[:32]
         o,t=parse(f); hi=[k for k,l in enumerate(t) if l.endswith('のおすすめ最強装備')]
         print('== GameWith',n,id,up,'tabs:',t[hi[0]+1:hi[0]+5] if hi else '')
-        for x in o: show('GW',x['armor'],x['skills'],cur_sets(B[n]))
+        for x in o: show('GW',x['armor'],x['skills'],cur_sets(B[n]) if n in B else [])
     for id,n in G8_ADV.items():
         f=get(f'https://game8.jp/mhoutlanders/{id}',f'{out}/g8_{id}.html'); m=re.search(r'dateModified":"([^"]+)',open(f).read())
         print('== game8',n,id,m.group(1) if m else '')
-        for x in parse_g8(f): show('g8 '+x['head'][:14],x['armor'],x['skills'],cur_sets(B[n]))
+        for x in parse_g8(f): show('g8 '+x['head'][:14],x['armor'],x['skills'],cur_sets(B[n]) if n in B else [])
     H={(b['type'],b['elem']):b for b in D['builds'] if b.get('group')=='hero'}
     for pid in ['559642']:
         f=get(f'https://gamewith.jp/mhoutlanders/{pid}',f'{out}/gw_{pid}.html'); s=open(f).read(); i=s.find('最終更新')
