@@ -1576,12 +1576,14 @@ const BSEL={};
 function card(b0){
   const bk=b0.name+'|'+b0.type+'|'+b0.elem;const ALTS=b0.alts&&b0.alts.length?[{label:b0.label||'추천',src:b0.lsrc||'',armor:b0.armor},...b0.alts]:null;
   const lk=a=>st.adapt&&needLv(a.armor)>st.lv?needLv(a.armor):0;
+  const anyOk=ALTS?ALTS.some(a=>!lk(a)):false;const hid=a=>anyOk&&lk(a);const nHid=ALTS?ALTS.filter(hid).length:0;
   let si=ALTS?Math.min(BSEL[bk]===undefined?Math.max(0,ALTS.findIndex(a=>!lk(a))):BSEL[bk],ALTS.length-1):0;
-  const selLock=ALTS&&BSEL[bk]!==undefined?lk(ALTS[si]):0;
+  if(ALTS&&hid(ALTS[si]))si=ALTS.findIndex(a=>!lk(a));
+  const selLock=0;
   if(ALTS&&si>0){const a=ALTS[si];b0=Object.assign({},b0,{armor:a.armor,skills:a.skills,sets:a.sets||[],note:a.note||''});}
   const bsetHtml=ALTS?(()=>{const kind=a=>/^일반 몬스터/.test(a.label)?'일반 몬스터 상대':/^융광종 상대/.test(a.label)?'융광종 상대':/^커뮤니티/.test(a.label)?'커뮤니티 추천':'';const nm=a=>a.label.replace(/^(일반 몬스터|융광종 상대|커뮤니티) · /,'');
-    const gw=ALTS.map((a,i)=>[a,i]).filter(([a])=>kind(a)),ot=ALTS.map((a,i)=>[a,i]).filter(([a])=>!kind(a));
-    return `<div class="bsets"><div class="btabs">${gw.map(([a,i])=>`<button type="button" class="btab${lk(a)?' blk':''}" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}"><b>${esc(nm(a))}</b><small>${esc(kind(a))}${lk(a)?` <span style="white-space:nowrap">· 🔒 Lv${lk(a)}부터</span>`:''}</small></button>`).join('')}</div><span class="bml" style="font-weight:500">추천 출처: GameWith${gw.some(([a])=>/game8/.test(a.src))?' (일부 game8도 같음)':''}${gw.some(([a])=>/^커뮤니티/.test(a.label))?' · 커뮤니티 실착 세팅(사이트 시뮬로 확인)':''}</span>${ot.length?`<div class="bmore"><span class="bml">다른 추천 · 단계별</span><div class="bmc">${ot.map(([a,i])=>`<button type="button" class="chip${lk(a)?' blk':''}" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}">${esc(nm(a))} <small>${esc(a.src)}${lk(a)?` <span style="white-space:nowrap">· 🔒 Lv${lk(a)}부터</span>`:''}</small></button>`).join('')}</div></div>`:''}</div>`;})():'<div class="bsets bnone"></div>';
+    const gw=ALTS.map((a,i)=>[a,i]).filter(([a])=>kind(a)&&!hid(a)),ot=ALTS.map((a,i)=>[a,i]).filter(([a])=>!kind(a)&&!hid(a));
+    return `<div class="bsets">${gw.length?`<div class="btabs">`:''}${gw.map(([a,i])=>`<button type="button" class="btab${lk(a)?' blk':''}" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}"><b>${esc(nm(a))}</b><small>${esc(kind(a))}${lk(a)?` <span style="white-space:nowrap">· 🔒 Lv${lk(a)}부터</span>`:''}</small></button>`).join('')}${gw.length?`</div>`:''}<span class="bml" style="font-weight:500">${gw.length?'추천 출처: GameWith':''}${gw.some(([a])=>/game8/.test(a.src))?' (일부 game8도 같음)':''}${gw.some(([a])=>/^커뮤니티/.test(a.label))?' · 커뮤니티 실착 세팅(사이트 시뮬로 확인)':''}${nHid?`${gw.length?' · ':''}Lv${st.lv}로 못 맞추는 세트 ${nHid}개는 숨겼어요`:''}</span>${ot.length?`<div class="bmore"><span class="bml">다른 추천 · 단계별</span><div class="bmc">${ot.map(([a,i])=>`<button type="button" class="chip${lk(a)?' blk':''}" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}">${esc(nm(a))} <small>${esc(a.src)}${lk(a)?` <span style="white-space:nowrap">· 🔒 Lv${lk(a)}부터</span>`:''}</small></button>`).join('')}</div></div>`:''}</div>`;})():'<div class="bsets bnone"></div>';
   const A=adapt(b0,!!selLock), b=A.b;
   const R=A.ch.length?simSum(b.armor):null; if(R){b.skills=R.skills;b.sets=R.sets;}
   const lost=R?b0.skills.slice(0,3).map(([k,l])=>{const n=(R.skills.find(x=>x[0]===k)||[k,0])[1];return n<l?`${k} Lv${l} → ${n?'Lv'+n:'없음'}`:'';}).filter(Boolean):[]; const cap=capOf(st.lv); const aT=TIER(Math.min(cap,12));
