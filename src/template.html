@@ -320,7 +320,7 @@ figure.shot[data-f="m1"] > img{aspect-ratio:auto;max-height:520px;object-fit:con
 td.kind img.gi{width:20px;height:20px;vertical-align:-5px}
 nav.subnav{position:sticky;z-index:5;background:var(--bg);display:flex;gap:6px;align-items:center;overflow-x:auto;scrollbar-width:none;padding:8px 0;margin-top:-10px;border-bottom:1px solid var(--line)}
 nav.subnav::-webkit-scrollbar{display:none}
-nav.subnav[hidden]{display:none}
+nav.subnav[hidden]{display:none}nav.subnav.subw{margin-top:4px}
 .sublbl{font-size:12px;color:var(--muted);flex:none;margin-right:2px}
 nav.subnav button{font:inherit;font-size:13.5px;flex:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;white-space:nowrap}
 nav.subnav button:hover{border-color:var(--accent);color:var(--accent)}
@@ -3275,6 +3275,8 @@ function gRun(a){const box=document.getElementById('gqr');box.hidden=true;
 function groupsReset(){document.querySelectorAll('#grid .sechide').forEach(e=>e.classList.remove('sechide'));}
 function buildSub(){
   const sub=document.getElementById('sub'), grid=document.getElementById('grid');
+  {const bar=document.querySelector('.bar'),tabs=document.getElementById('g');const w=(st.g==='hero'||st.g==='adv')&&bar&&bar.offsetParent!==null;
+   if(w){if(sub.previousElementSibling!==bar)bar.after(sub);}else if(sub.previousElementSibling!==tabs)tabs.after(sub);sub.classList.toggle('subw',!!w);}
   const life=st.g==='life';
   const hs=life?[...grid.querySelectorAll('.world > h3')]:[...grid.querySelectorAll(':scope > h2.sec')];
   if(hs.length<2||st.g==='home'||st.g==='sim'){sub.hidden=true;sub.innerHTML='';groupsReset();setStick();return;}
@@ -3300,7 +3302,7 @@ function buildSub(){
   hs.forEach(h=>{if(h.dataset&&!h.dataset.short){const m=SM[nm(h)];if(m){h.dataset.short=m[0];if(m[1])h.dataset.grp=m[1];}}});
   const lab=h=>h.dataset&&h.dataset.short?h.dataset.short:nm(h);
   const grps=[];hs.forEach((h,k)=>{const g=(h.dataset&&h.dataset.grp)||'';let o=grps.find(x=>x.g===g);if(!o){o={g,items:[]};grps.push(o);}o.items.push(k);});
-  sub.innerHTML=grps.map((o,gi)=>`<div class="srow">${o.g?`<span class="sgl">${esc(o.g)}</span>`:''}<div class="subb">${o.items.map(k=>`<button type="button" data-i="${k}">${esc(lab(hs[k]))}</button>`).join('')}${gi===grps.length-1?`<button type="button" data-i="-1" class="all">전체 보기</button>`:''}</div></div>`).join('');
+  sub.innerHTML=grps.map((o,gi)=>`<div class="srow">${!o.g&&sub.classList.contains('subw')&&grps.length===1?`<span class="sgl">${st.g==='adv'?'바로 가기':'무기'}</span>`:''}${o.g?`<span class="sgl">${esc(o.g)}</span>`:''}<div class="subb">${o.items.map(k=>`<button type="button" data-i="${k}">${esc(lab(hs[k]))}</button>`).join('')}${gi===grps.length-1?`<button type="button" data-i="-1" class="all">전체 보기</button>`:''}</div></div>`).join('');
   sub.querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>{SUB[st.g]=+b.dataset.i;show(+b.dataset.i);navPush();const _h=[...grid.querySelectorAll('h2.sec')].find(x=>!x.classList.contains('sechide')&&x.offsetParent)||grid;const top=_h.getBoundingClientRect().top+scrollY-(getComputedStyle(sub).position==='sticky'?sub.offsetHeight:0)-8;if(scrollY>top||top-scrollY>innerHeight*0.4)window.scrollTo({top:Math.max(0,top)});});
   show(i); setStick();
 }
