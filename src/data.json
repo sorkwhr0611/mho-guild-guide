@@ -2991,6 +2991,75 @@
       "만악룡의 작열"
      ],
      "note": "강화 전 기준이라 스킬 레벨이 조금 낮을 수 있어요"
+    },
+    {
+     "label": "커뮤니티 · 연격 강화 7 · 귀인의 수라 4",
+     "src": "커뮤니티 실착 (지배자 루가 클리어 · 11/27)",
+     "armor": [
+      [
+       "머리",
+       "융광종 쿠루루헬름"
+      ],
+      [
+       "몸통",
+       "융광종 가론메일"
+      ],
+      [
+       "팔",
+       "융광종 가론암"
+      ],
+      [
+       "허리",
+       "쿠루루코일"
+      ],
+      [
+       "다리",
+       "융광종 쿠루루그리브"
+      ]
+     ],
+     "skills": [
+      [
+       "연격 강화",
+       7
+      ],
+      [
+       "귀인의 수라",
+       4
+      ],
+      [
+       "약점 공격",
+       2
+      ],
+      [
+       "샘솟는 에너지",
+       2
+      ],
+      [
+       "불 내성 강화",
+       2
+      ],
+      [
+       "아이템 전문가",
+       1
+      ],
+      [
+       "체력 루프",
+       1
+      ],
+      [
+       "진심",
+       1
+      ],
+      [
+       "통찰",
+       1
+      ]
+     ],
+     "sets": [
+      "소조의 교묘한 기술",
+      "참조룡의 격동"
+     ],
+     "note": "라야 풀돌로 지배자 루가 에알다를 잡은 세팅이에요(무기 광영 오트클레르·불, 삽화 크샬다오라 코어 + 작염 4)."
     }
    ]
   },
@@ -14243,6 +14312,76 @@
      ],
      "sets": [],
      "note": "스킬 레벨 일부 확인 중 — 융광종 기르오스암은 장비 데이터가 Ⅲ 단계 기준이라, 끝까지 강화하면 연격 강화가 1 더 높을 수 있어요. 융광종 리오하트 장비가 아직 없을 때 쓰는 이전 추천이에요."
+    },
+    {
+     "label": "커뮤니티 · 활 스킬 4 · 탄도 강화",
+     "src": "커뮤니티 실착 (Lv80 · 11/27)",
+     "armor": [
+      [
+       "머리",
+       "푸케푸케헬름"
+      ],
+      [
+       "몸통",
+       "융광종 푸케푸케메일"
+      ],
+      [
+       "팔",
+       "융광종 레우스암"
+      ],
+      [
+       "허리",
+       "쟈나프코일"
+      ],
+      [
+       "다리",
+       "융광종 레우스그리브"
+      ]
+     ],
+     "skills": [
+      [
+       "불속성 대미지 UP",
+       7
+      ],
+      [
+       "활 스킬 강화",
+       4
+      ],
+      [
+       "제압 회복",
+       2
+      ],
+      [
+       "탄도 강화",
+       1
+      ],
+      [
+       "식생 전문가",
+       1
+      ],
+      [
+       "사냥꾼의 육감",
+       1
+      ],
+      [
+       "체력 루프",
+       1
+      ],
+      [
+       "빨리 먹기술",
+       1
+      ],
+      [
+       "역경",
+       1
+      ],
+      [
+       "회심격【속성】",
+       1
+      ]
+     ],
+     "sets": [],
+     "note": "속성 7 · 활 스킬 강화 4 · 탄도 강화 1 세트예요. 앵화(융광 활성)가 빠져 화력은 조금 낮지만 멀리서 쏴도 대미지가 덜 줄어요."
     }
    ]
   },
@@ -14535,6 +14674,76 @@
      ],
      "sets": [],
      "note": "스킬 레벨 일부 확인 중 — 융광종 기르오스암은 장비 데이터가 Ⅲ 단계 기준이라, 끝까지 강화하면 연격 강화가 1 더 높을 수 있어요. 융광종 리오하트 장비가 아직 없을 때 쓰는 이전 추천이에요."
+    },
+    {
+     "label": "커뮤니티 · 활 스킬 4 · 탄도 강화",
+     "src": "커뮤니티 실착 (Lv80 · 11/27)",
+     "armor": [
+      [
+       "머리",
+       "푸케푸케헬름"
+      ],
+      [
+       "몸통",
+       "융광종 푸케푸케메일"
+      ],
+      [
+       "팔",
+       "융광종 쥬라암"
+      ],
+      [
+       "허리",
+       "치치코일"
+      ],
+      [
+       "다리",
+       "융광종 치치그리브"
+      ]
+     ],
+     "skills": [
+      [
+       "물속성 대미지 UP",
+       7
+      ],
+      [
+       "활 스킬 강화",
+       4
+      ],
+      [
+       "사냥꾼의 육감",
+       2
+      ],
+      [
+       "탄도 강화",
+       1
+      ],
+      [
+       "식생 전문가",
+       1
+      ],
+      [
+       "제압 회복",
+       1
+      ],
+      [
+       "체력 회복",
+       1
+      ],
+      [
+       "집요한 추격",
+       1
+      ],
+      [
+       "기절 내성",
+       1
+      ],
+      [
+       "수면 내성",
+       1
+      ]
+     ],
+     "sets": [],
+     "note": "속성 7 · 활 스킬 강화 4 · 탄도 강화 1 세트예요. 앵화(융광 활성)가 빠져 화력은 조금 낮지만 멀리서 쏴도 대미지가 덜 줄어요."
     }
    ]
   },
@@ -14759,6 +14968,82 @@
      ],
      "sets": [],
      "note": "스킬 레벨 일부 확인 중 — 융광종 기르오스암은 장비 데이터가 Ⅲ 단계 기준이라, 끝까지 강화하면 연격 강화가 1 더 높을 수 있어요. 융광종 리오하트 장비가 아직 없을 때 쓰는 이전 추천이에요."
+    },
+    {
+     "label": "커뮤니티 · 활 스킬 4 · 탄도 강화",
+     "src": "커뮤니티 실착 (Lv80 · 11/27)",
+     "armor": [
+      [
+       "머리",
+       "푸케푸케헬름"
+      ],
+      [
+       "몸통",
+       "융광종 기르오스메일"
+      ],
+      [
+       "팔",
+       "융광종 카가치암"
+      ],
+      [
+       "허리",
+       "융광종 기르오스코일"
+      ],
+      [
+       "다리",
+       "잉곳그리브"
+      ]
+     ],
+     "skills": [
+      [
+       "번개속성 대미지 UP",
+       7
+      ],
+      [
+       "활 스킬 강화",
+       4
+      ],
+      [
+       "두려움 없는 자",
+       2
+      ],
+      [
+       "탄도 강화",
+       1
+      ],
+      [
+       "식생 전문가",
+       1
+      ],
+      [
+       "마비 내성",
+       1
+      ],
+      [
+       "번개 내성 강화",
+       1
+      ],
+      [
+       "잠재능력 해방",
+       1
+      ],
+      [
+       "체력 회복",
+       1
+      ],
+      [
+       "방호",
+       1
+      ],
+      [
+       "동반자 강화",
+       1
+      ]
+     ],
+     "sets": [
+      "도스기르오스의 통솔"
+     ],
+     "note": "속성 7 · 활 스킬 강화 4 · 탄도 강화 1 세트예요. 앵화(융광 활성)가 빠져 화력은 조금 낮지만 멀리서 쏴도 대미지가 덜 줄어요."
     }
    ]
   },
@@ -14981,6 +15266,78 @@
      ],
      "sets": [],
      "note": "스킬 레벨 일부 확인 중 — 융광종 기르오스암은 장비 데이터가 Ⅲ 단계 기준이라, 끝까지 강화하면 연격 강화가 1 더 높을 수 있어요. 융광종 리오하트 장비가 아직 없을 때 쓰는 이전 추천이에요."
+    },
+    {
+     "label": "커뮤니티 · 활 스킬 4 · 탄도 강화",
+     "src": "커뮤니티 실착 (Lv80 · 11/27)",
+     "armor": [
+      [
+       "머리",
+       "푸케푸케헬름"
+      ],
+      [
+       "몸통",
+       "하이메탈메일"
+      ],
+      [
+       "팔",
+       "융광종 카가치암"
+      ],
+      [
+       "허리",
+       "체인벨트"
+      ],
+      [
+       "다리",
+       "하이메탈그리브"
+      ]
+     ],
+     "skills": [
+      [
+       "얼음속성 대미지 UP",
+       7
+      ],
+      [
+       "활 스킬 강화",
+       4
+      ],
+      [
+       "잠재능력 해방",
+       2
+      ],
+      [
+       "포효 내성",
+       2
+      ],
+      [
+       "탄도 강화",
+       1
+      ],
+      [
+       "식생 전문가",
+       1
+      ],
+      [
+       "방호",
+       1
+      ],
+      [
+       "번개 내성 강화",
+       1
+      ],
+      [
+       "체력 회복",
+       1
+      ],
+      [
+       "집요한 추격",
+       1
+      ]
+     ],
+     "sets": [
+      "광맥의 정적"
+     ],
+     "note": "속성 7 · 활 스킬 강화 4 · 탄도 강화 1 세트예요. 앵화(융광 활성)가 빠져 화력은 조금 낮지만 멀리서 쏴도 대미지가 덜 줄어요."
     }
    ]
   },
@@ -15272,6 +15629,76 @@
      ],
      "sets": [],
      "note": "스킬 레벨 일부 확인 중 — 융광종 기르오스암은 장비 데이터가 Ⅲ 단계 기준이라, 끝까지 강화하면 연격 강화가 1 더 높을 수 있어요. 융광종 리오하트 장비가 아직 없을 때 쓰는 이전 추천이에요."
+    },
+    {
+     "label": "커뮤니티 · 활 스킬 4 · 탄도 강화",
+     "src": "커뮤니티 실착 (Lv80 · 11/27)",
+     "armor": [
+      [
+       "머리",
+       "푸케푸케헬름"
+      ],
+      [
+       "몸통",
+       "융광종 푸케푸케메일"
+      ],
+      [
+       "팔",
+       "타로스암"
+      ],
+      [
+       "허리",
+       "디아네로코일"
+      ],
+      [
+       "다리",
+       "본그리브"
+      ]
+     ],
+     "skills": [
+      [
+       "용속성 대미지 UP",
+       7
+      ],
+      [
+       "활 스킬 강화",
+       4
+      ],
+      [
+       "기절 내성",
+       2
+      ],
+      [
+       "탄도 강화",
+       1
+      ],
+      [
+       "식생 전문가",
+       1
+      ],
+      [
+       "제압 회복",
+       1
+      ],
+      [
+       "사냥꾼의 육감",
+       1
+      ],
+      [
+       "회심격【속성】",
+       1
+      ],
+      [
+       "체력 강화",
+       1
+      ],
+      [
+       "파괴왕",
+       1
+      ]
+     ],
+     "sets": [],
+     "note": "속성 7 · 활 스킬 강화 4 · 탄도 강화 1 세트예요. 앵화(융광 활성)가 빠져 화력은 조금 낮지만 멀리서 쏴도 대미지가 덜 줄어요."
     }
    ],
    "note": "융광종 리오하트(융광종 리오레이아 아종 · 54랭 연속 조사) 2부위 + 불굴의 의지 3 + 융광 활성으로 페널티 없이 대미지가 올라가요. 회심격【속성】 3이 붙어서 삽화는 회심률 옵션을 먼저 챙기는 게 좋아요(GameWith)."
@@ -24076,8 +24503,30 @@
   ],
   "couponnote": "입력: 위쪽 메뉴 이벤트 센터 → 왼쪽 \"코드 교환\" → 입력 후 교환. 대소문자까지 정확히. 코드는 계정당 1번.",
   "upd": {
-   "asof": "11/27 기준",
+   "asof": "11/28 기준",
    "items": [
+    [
+     "11/28",
+     "공략 업데이트",
+     [
+      "모집 천장 이월 · 상시 300회 지정권",
+      "미도리 특별 모집 기록 → 스티리아로 이어져요",
+      "「120회 이내 확정」 표시 읽는 법 · 픽뚫 때 바뀌는 것"
+     ],
+     "dc-25205"
+    ],
+    [
+     "11/28",
+     "공략 업데이트",
+     [
+      "프레야 콤보표 · 지배자 루가 요령",
+      "프레야: 클래식 콤보표 · 하이퍼 아머 · 코어 패시브 Ⅳ(게임 화면) · 1돌 화염꽃 격류 · 풀돌 19만/48만",
+      "스티리아: 명함 vs 1돌 운용 · 장판 밟기 · 깨달음 순서 · 에코 애로우 버그 제보",
+      "지배자 루가: 요령 · 라야 클리어 영상/세트 · 미도리 1분 59초 세팅",
+      "활 속성별 세트 5개(장비 탭) · 루카 깨달음 순서 · 긴급퀘 천장 · 백련 과제 · 해머 빅뱅"
+     ],
+     "freya-preview"
+    ],
     [
      "11/27",
      "공략 업데이트",
@@ -31565,8 +32014,10 @@
    "id": "final-weapon-type-1118",
    "cat": "무기·세팅",
    "title": "주인공 무기별 최종 세팅 바뀐 점 (11/24 기준)",
-   "date": "11-24",
+   "date": "11-28",
    "lines": [
+    "■ 11/28: 활 커뮤니티 세트 추가",
+    "활 5속성에 「커뮤니티 · 활 스킬 4 · 탄도 강화」 세트(속성 7 · 활 스킬 강화 4 · 탄도 강화 1)를 넣었어요 → 「주인공 활 속성별 세팅」 글. GameWith 주인공 세트(11/27 20:25) · 헤비보우건 세트(11/27 21:36)는 그대로예요.",
     "■ 11/24 저녁: 불·물·용은 앵화 2세트가 메인",
     "GameWith(11/24 20시): 8개 무기 전부 불·물·용 세트가 「융광종 리오하트헬름 · 융광종 리오하트메일 + 속성 7」로 바뀌었어요. 불 = 융광종 레우스암 · 쟈나프코일 · 융광종 레우스그리브, 물 = 융광종 쥬라암 · 치치코일 · 융광종 치치그리브, 용 = 타로스암 · 디아네로코일 · 본그리브.",
     "셋 다 속성 7 · 불굴의 의지 3 · 회심격【속성】 3 · 융광 활성이 켜져요. 번개·얼음은 이전 세트 그대로예요.",
@@ -31602,8 +32053,11 @@
    "id": "final-adv-1118",
    "cat": "모험가",
    "title": "모험가 최종 장비 바뀐 점",
-   "date": "11-27",
+   "date": "11-28",
    "lines": [
+    "■ 11/28: 라야 커뮤니티 세트 추가",
+    "라야: 지배자 루가 에알다 클리어 세팅(융광종 쿠루루헬름 · 융광종 가론메일 · 융광종 가론암 · 쿠루루코일 · 융광종 쿠루루그리브 → 연격 강화 7 · 귀인의 수라 4)을 「커뮤니티」 버튼으로 넣었어요.",
+    "GameWith(11/28 새벽~아침 갱신 포함) · game8 세트는 모두 그대로예요.",
     "■ 11/27 밤: game8 미도리 종반 세트 갱신",
     "미도리(game8 11/27 19시): 종반 세트가 앵화 2세트로 바뀌었어요 — 발도일섬형 = 융광종 리오하트헬름 · 융광종 리오하트메일 · 레이아암 · 융광종 디아블로코일 · 융광종 레이아그리브 → 발도일섬 7 · 회심격【속성】 3 · 불굴의 의지 3. 속성 특화형은 GameWith 불 특화 세트와 같아요.",
     "game8 설명: 융광종이 아닌 몬스터에겐 발도일섬형이, 융광종에겐 불속성 특화가 더 세요. 예전 game8 세트 2개는 「game8 (11/27 이전 추천)」으로 남겨 뒀어요.",
@@ -31980,6 +32434,7 @@
     "도스기르오스처럼 머리가 낮은 몬스터는 처음부터 4차지로 머리만 패도 돼요. 3차지는 땅을 내려찍어서, 머리가 높이 있는 큰 몬스터에겐 2차지 어퍼가 편해요.",
     "구르기로 끊지 않고 끝까지 치면 DPS는 4차지 > 3차지 > 2차지지만 차이는 아주 작아요. 3·4차지는 생각보다 후딜이 짧아서 구르기로 캔슬 안 하는 쪽이 DPS가 더 높았대요.",
     "그래서 모션이 좋고 기절치도 잘 쌓이는 2차지만 계속 써도 충분하다는 의견이 많아요. 융광종 상대로 4차지 1번이 2차지 2번보다 5~6천쯤 더 세다는 측정도 있어요(제보).",
+    "빅뱅 어택 리듬이 의도치 않게 계속 성공해도 괜찮아요 — 마지막 타를 놓쳐 뛰는 시간과 아래에서 2번 더 치는 시간이 비슷한데 2번 더 치는 쪽이 세서, 성공하는 대로 계속 치다가 저스트 회피로 빠지는 게 DPS 이득이래요(제보).",
     "■ 영상",
     "해머로 루가 에알다를 5분에 잡는 솔로 영상(NPC 없음)이에요. 빅뱅 어택 끊는 타이밍과 마지막에 나오는 장비 화면을 보세요."
    ],
@@ -31988,7 +32443,7 @@
     "bd_9416_2",
     "bd_9416_3"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=9416 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19864 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19869 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19913 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20152 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20156 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20145 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20163 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20472 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20447 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20499 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20482 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20639 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20673 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20638 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21748 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=22998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21766",
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=9416 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19864 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19869 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19913 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20152 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20156 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20145 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20163 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20472 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20447 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20499 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20482 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20639 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20673 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20638 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21748 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=22998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21766 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25275",
    "yt": "_v0e4FOuP0Y"
   },
   {
@@ -33370,8 +33825,8 @@
   {
    "id": "dc-17575",
    "cat": "몬스터·사냥",
-   "title": "지배자 막히면 파티 조합부터 맞추기",
-   "date": "11-22",
+   "title": "지배자 루가 에알다 공략 (파티 조합 · 요령 · 라야 영상)",
+   "date": "11-28",
    "lines": [
     "지배자가 안 깨지면 파티 구성부터 맞춰요. 솔로든 봇 파티든 구성에 따라 난이도 차이가 크게 난대요.",
     "지원형 1명은 필수예요. 아케니아가 우선이고, 없으면 메들린이나 (불속성이면) 류노스케를 넣어요.",
@@ -33393,10 +33848,27 @@
     "■ 케레스로 지배자 잡기 (제보)",
     "케레스를 메인으로 쓸 땐 꼬리에 락온을 걸고, 간파 회피 성공 뒤 일반 공격으로 나가는 회전 베기(앞으로 회전하며 뛰어올라 베기)를 반복해요. 케레스가 자동으로 몬스터 뒤쪽을 잡아서 센 공격을 많이 피해 준대요.",
     "간파 회피에서 바로 이어지는 기술이라 쓰기도 어렵지 않아요. 깨달음은 슈퍼아머 · 스킬 대미지 · 필살기 대미지 쪽을 많이 찍어요.",
-    "대검은 상태이상 축적이 아주 높아서, 마비 무기를 든 브릭스는 몇 대만 쳐도 마비가 걸려요. 서포터로 넣을 땐 마비 무기를 들려 주세요(제보)."
+    "대검은 상태이상 축적이 아주 높아서, 마비 무기를 든 브릭스는 몇 대만 쳐도 마비가 걸려요. 서포터로 넣을 땐 마비 무기를 들려 주세요(제보).",
+    "■ 지배자 루가 에알다 요령 (11/28)",
+    "권장 사냥력보다 2,000쯤 낮아도 커버된다는 답이 많아요. 딜은 넉넉하고 한 방에 죽는 게 문제라 생존 위주로 하세요. 이전 난이도와 패턴은 같아서 연습할수록 쉬워져요.",
+    "패링(저스트) 뒤 딜 타임이 크니 그 외 시간엔 회피에 집중해요. 백스텝할 때 따라가지 말고 몬스터가 뭘 하는지 기다려요. 오의는 대경직(다운) 때만 쓰세요.",
+    "미도리는 오의를 아끼고, 저스트 회피 뒤 세로베기 욕심을 참는 게 답이래요.",
+    "주인공 대검: 몸통에 락온, 참 모아베기 대신 진 모아베기 → 베어 넘기기. 맞는 범위에서 벗어나려면 뒷다리 쪽으로 계속 구르며 파고들어요. 가호를 꽉 채우면 할 만해지고, 무기가 11등급이면 시간이 빠듯해요.",
+    "방어구는 레어 12까지 맞추세요 — 한 방에 죽느냐 마느냐가 갈린대요(라야 풀돌 클리어 후기).",
+    "태양 패턴(불 6번 + 내려찍기): 바위를 떨어뜨려도 패턴 자체는 안 끊긴다는 답이 있어요. 루가 바로 아래가 안전지대라는 제보가 있어요(확인 중).",
+    "프레야 오의로 레이저 쏘러 날아오르는 루가를 눕히는 건 안 된대요. 프레야는 선회 납도로 위치 잡기가 쉬워서 넣으면 쉬워졌다는 후기가 많아요.",
+    "■ 라야로 잡기 (영상 · 11/27)",
+    "@img:bn_25144_3",
+    "라야 풀돌 저스펙 클리어 후기예요. 무기 광영 오트클레르·불(14강) + 융광종 쿠루루헬름 · 융광종 가론메일 · 융광종 가론암 · 쿠루루코일 · 융광종 쿠루루그리브(레어 12) → 연격 강화 7 · 귀인의 수라 4(사이트 시뮬 확인). 장비 탭 🧭 모험가 → 라야에도 넣었어요.",
+    "@img:bn_25144_5",
+    "삽화는 크샬다오라 코어 + 작염 4(불속성 대미지 +5% · 육질 좋은 부위 명중 시 불속성 +24%), 동반자는 SR 오사르(오의로 구속 시간 연장).",
+    "아래 영상은 이 세팅으로 지배자 루가 에알다를 잡는 전체 플레이예요. 회피 타이밍과 오의를 언제 쓰는지 보세요."
    ],
-   "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17575 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20126 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20281 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20274 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20289 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20337 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20412 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20770"
+   "images": [
+    "bn_25144_1"
+   ],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17575 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20126 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20281 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20274 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20289 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20337 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20412 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20770 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25144 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25166 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25412 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25351 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25165 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25307",
+   "yt": "uIDC-6vINUo"
   },
   {
    "id": "dc-17821",
@@ -33538,10 +34010,10 @@
     "핵심은 심화를 3단계까지 채운 뒤 강한 파생기를 쓰는 거예요. 3단계는 3초 동안 유지되고, 그동안 안 쓰거나 회피하면 1단계로 떨어져요.",
     "3단계 만드는 법 — ① 모아베기 3단 ② 스킬2 「잦아든 불꽃」 차지 ③ 저스트 가드 → 참 모아베기 ④ 스킬3 「선회 납도」로 공격을 저스트 회피하면 바로 3단계.",
     "스킬3 선회 납도는 대검을 모으는 중이나 납도 중에도 캔슬하고 바로 나가요. 지정한 방향으로 뛰는 동작 전체가 저스트 회피 판정이라 제일 많이 써요. 실패해서 맞아도 깨달음 「위엄의 대관」이 있으면 받는 대미지 -80%예요.",
-    "3단계에서 쓸 기술 — 극 단룡베기(한 방): 슈퍼아머 판정이 있는 것 같아서 몬스터 패턴 사이에 끼워 넣어요. 염무 종식(연타): 몬스터가 넘어지거나 상태이상일 때 써요. 둘 다 참 모아베기와 비슷하거나 더 세요.",
+    "3단계에서 쓸 기술 — 극 단룡베기(한 방): 하이퍼 아머(돌진에도 안 넘어져요)라서 몬스터 패턴 사이에 끼워 넣어요. 염무 종식(연타): 몬스터가 넘어지거나 상태이상일 때 써요. 둘 다 참 모아베기와 비슷하거나 더 세요.",
     "선회 납도 뒤 이어가기 2가지 — 스킬3을 한 번 더 누르면 칼을 360도 돌리는 염무(3 → 3), 일반 공격을 꾹 누르면 뛰어올라 내려찍는 투구깨기예요.",
     "대미지(DPS)는 3 → 3이 가장 높다는 의견이 많아요. 대신 타점이 낮아서 날아다니는 몬스터나 큰 몬스터 머리엔 안 닿아요 → 그럴 땐 투구깨기. 투구깨기는 체공 판정이라 페페 오의(체공 대미지 증가)와도 잘 맞아요.",
-    "스킬2는 심화가 0일 때나 몬스터가 누워 있을 때 단계를 채우는 용도예요. 슈퍼아머가 붙어 있어요.",
+    "스킬2는 심화가 0일 때나 몬스터가 누워 있을 때 단계를 채우는 용도예요. 칼이 땅에 꽂혀 있는 동안만 하이퍼 아머라서, 버틸 때와 안 버틸 때가 있어요.",
     "가드는 거의 안 써도 돼요 — 「스킬2로 3단계 → 스킬3」이나 「스킬3 저스트 회피로 바로 3단계」면 충분해요. 연속 공격 · 여러 번 때리는 패턴엔 스킬3으로 한 번, 가드로 한 번 받아내고 투구깨기로 이어가면 좋아요. 오의 중 저스트 가드하면 공격력 버프 + 극 단룡베기가 나간대요(제보).",
     "쉬운 버전 — 오의를 켰으면 3 → 3만 반복, 오의가 없으면 2 → 3 → 3 반복. 익숙해지면 저스트 회피 · 저스트 가드로 단계를 쌓아요.",
     "■ 오의 「타오르는 영혼」",
@@ -33571,7 +34043,7 @@
     "둘 다 뽑을 거면 기간이 짧은 스티리아(~12/24)를 먼저 뽑으라는 의견이 많아요 (GameWith도 같은 추천). 프레야는 1/22까지예요.",
     "■ 미도리와 메인 비교 · 서브 운용 (플레이 정리)",
     "프레야 메인 사이클: 몬스터가 공격할 때 스킬3(선회 납도)으로 피해서 심화 3단계 → 딜. 몬스터가 누웠거나 상태이상이면 스킬2 차지로 3단계를 만들어 넣어요.",
-    "누워 있을 땐 염무(3 → 3)가 낫고, 곧 공격이 올 것 같으면 극 단룡베기로 끊어요. 극 단룡베기는 슈퍼아머라 패턴 사이에 끼워 넣기 좋아요.",
+    "누워 있을 땐 염무(3 → 3)가 낫고, 곧 공격이 올 것 같으면 극 단룡베기로 끊어요. 극 단룡베기는 하이퍼 아머라 패턴 사이에 끼워 넣기 좋아요.",
     "그래서 몬스터를 일방적으로 때릴 땐 아주 세지만, 패턴이 거친 몬스터일수록 염무 사이클을 못 돌려 누적 딜이 떨어져요. 이건 대검 자체의 특징이에요.",
     "미도리는 저스트 회피할 때마다 연기가 차서 거친 몬스터에게도 붙어 싸울 수 있어요. 그래서 「쉽고 세게」 메인 딜을 하려면 미도리, 프레야는 서브(오의 셔틀)에서 더 빛난다는 의견이 많아요. 메인으로도 충분히 세요.",
     "서브로 두면 오의를 쓴 뒤 알아서 단룡베기까지 이어 써서 후속 딜도 나와요(제보). 메인 모험가가 회피에 성공하면 연계기 디버프(받는 속성 대미지 +15%)도 계속 발라 줘요.",
@@ -33580,7 +34052,7 @@
     "장비 2세트가 올라왔어요. 장비 탭 🧭 모험가 → 프레야에서 세트 탭으로 바꿔 볼 수 있어요.",
     "융광종 상대(불 특화): 융광종 리오하트헬름 · 융광종 리오하트메일 · 융광종 레우스암 · 쟈나프코일 · 융광종 레우스그리브 → 불속성 대미지 UP 7 · 회심격【속성】 3 · 불굴의 의지 3 · 고압 가드 2. 미도리 융광종 세트와 같아요.",
     "일반 몬스터: 융광종 리오하트헬름 · 융광종 리오하트메일 · 발킨암 · 융광종 레우스코일 · 융광종 쟈나프그리브 → 모으기 강화 7 · 불굴의 의지 3 · 회심격【속성】 3. 메인 조작이면 삽화 옵션은 회심률 우선이에요.",
-    "코어 패시브: 불속성 특화 중 불속성 대미지 1%마다 오의 다운 시간 +0.0125초(최대 +0.6초). 그래서 서브로 쓸 때도 불 특화 세트를 그대로 써도 돼요.",
+    "코어 패시브(GameWith 기준 · 게임 속 각인 Ⅳ 수치는 아래 ■ 11/28 참고): 불속성 특화 중 불속성 대미지 1%마다 오의 다운 시간 +0.0125초. 그래서 서브로 쓸 때도 불 특화 세트를 그대로 써도 돼요.",
     "오의 「타오르는 영혼」(GameWith 기준): 치혼 25초 동안 심화 3단계 고정, 오의 충전 효율이 15% 이상이면 불속성 공격 +10%. 치혼 중엔 일반 공격이 바로 참 모아베기라 버튼 하나로도 딜이 나와요.",
     "삽화: 크샬다오라 코어(강룡의 폭풍 위엄) + 작염 4. 서브면 무예 4(오의로 디버프를 걸면 파티 대미지 +6.5%, 60초)나 인도 2(오의 충전 효율 +5%)도 좋아요. 프레야 오의에 무예 4세트가 켜진다는 실험 제보가 있어요(확인 중).",
     "깨달음 고르기: 화력은 「단죄의 업화」(오의 명중 → 받는 대미지 +25%), 서브까지 생각하면 조건 없는 「꺼지지 않는 심화」(불속성 +20% · 제압 +2초), 메인 조작이면 「절대 제압」(선회 납도로 피하면 불속성 +30%, 10초)을 꺼지지 않는 심화와 바꿔 껴요.",
@@ -33588,6 +34060,31 @@
     "미도리 메인 + 프레야 서브: 연계기가 메인 회피 성공 때 나가서 회피가 많은 미도리와 잘 맞아요. 다만 연계기가 몬스터를 경직시켜 미도리 동작을 끊을 수 있어요(40초에 1번) — 연기 게이지를 채운 뒤 회피를 맞추는 식으로 타이밍을 봐요.",
     "동반자: 제르타가 1순위(발도 공격 명중마다 불속성 대미지, 5중첩이면 +18%). 없으면 에이비(마비 오의 · 제압 중 대미지 UP)나 호난자(제압 시간 연장) — 둘 다 SR이라 돌파하기 쉬워요.",
     "기술 배율(GameWith): 염무 종식 665.9% · 극 단룡베기(모으기 3단) 521.6% · 참 모아베기 강타(3단) 493.3% · 염무 회환 322.0% · 단룡베기(3단) 240.9%. 3단계에서 쓰는 염무 종식 · 극 단룡베기가 핵심이에요.",
+    "■ 11/28 추가 정리 (콤보표 · 하이퍼 아머 · 1돌 깨달음)",
+    "@img:bn_25221_1",
+    "코어 패시브(게임 화면 · 사냥 테크닉-Ⅳ): 불속성 특화 중 불속성 대미지 1%마다 오의로 몬스터가 다운되는 시간 +0.0125초, 최대 1.5초 연장. 그리고 프레야 불속성 공격력이 1000을 넘으면 100마다 주는 대미지 +2.5%.",
+    "계산하면 불속성 대미지 120%에서 다운 연장이 최대(1.5초)예요. 그래서 불속성 보너스는 150% 근처까지만 올리고 나머지를 회심 · 스티리아 버프로 채우는 게 낫지 않냐는 의견도 있어요(제보).",
+    "콤보표(클래식 조작 · 2 = 스킬2, 3 = 스킬3, 평 = 일반 공격) — 평타는 거의 안 쓰고 2 · 3과 마무리용 평만 눌러요.",
+    "몬스터가 공격을 안 할 때(3단계를 채워야 할 때): 2 → 3 → 3(염무 종식) 또는 2 → 3 → 평(극 단룡베기). 2를 모으는 중 평을 누르면 어퍼가 나가서 2 → 평 → 3 → 3도 돼요.",
+    "몬스터가 공격할 때: 3으로 저스트 회피 → 3(염무 종식) 또는 → 평(극 단룡베기).",
+    "고르는 법: 몬스터가 가만히 맞아 줄 것 같으면(다운 · 상태이상 극딜) 염무 종식, 곧 공격이 오거나 맞딜 상황이면 극 단룡베기.",
+    "치혼(오의 뒤) 중: 몬스터가 누워 있으면 3을 연타해 염무 종식을 계속 넣고, 일어나면 3 → 평 → 평으로 극 단룡베기를 2번(치혼 중엔 연속으로 한 번 더 나가요).",
+    "하이퍼 아머: 극 단룡베기는 하이퍼 아머라 돌진에도 안 넘어져요. 스킬2는 칼이 땅에 꽂혀 있는 동안만 하이퍼 아머예요. 하이퍼 아머 중엔 받는 대미지가 50% 줄어든대요(제보).",
+    "염무 종식은 하이퍼 아머가 없는 대신 회전 중에 구르기로 끊고 피할 수 있어요. 프리딜 상황에선 염무가 제일 세요.",
+    "연타 공격은 저스트 가드와 스킬3을 번갈아 써서 받아내면 돼요.",
+    "스타팅 조작에서 평타 꾹(바닥 찍고 3단) 뒤 선회 납도가 자동으로 나가는 건 정상이에요. 납도 저스트 회피를 노리며 기다리기보다 바로 공격하는 게 딜이 높아서, 공격이 올 것 같을 때만 노리세요.",
+    "선회 납도 뒤 차징 평타를 이어 가면 미끄러지듯 몬스터 앞으로 붙어서 위치 잡기가 쉬워요. 프레야를 넣고 지배자 루가 에알다가 쉬워졌다는 후기가 많아요.",
+    "1돌 깨달음: 「화염꽃 격류」(염무 · 단룡베기 +20%, 모으기 20% 단축)가 국밥이라는 의견이 많아요. 「위엄의 대관」의 받는 대미지 감소는 쓸모가 적대요. 멀티에서 파티 딜을 올리려면 「단죄의 업화」도 좋아서 깨달음 프리셋을 2개(격류 / 디버프) 만들어 두는 사람도 있어요.",
+    "돌파는 만족의 영역이라는 의견이에요 — 서브면 명함이나 1돌, 메인도 돌파 영향이 크진 않고 모으기 20% 단축이 편의성 체감이 커요.",
+    "장비: 불 7 + 모으기 강화 6이 지금 정배라는 답이 많고, 앵화 2세트(융광 3 · 속성 7)와 차이는 크지 않아요(갈아입기 귀찮아서 앵화를 그대로 쓰는 사람도 많아요). 융광 활성은 융광종이 아니어도 상시로 켜져요. 프레야는 회심이 잘 안 터져서 회심격【속성】은 덤이에요.",
+    "발도일섬 6도 후보예요 — 모으기 강화 6과 대미지 %는 같고 지속이 30초(모으기 15초)라, 스킬3 위주로 치면 발도일섬이 낫지 않냐는 의견이 있어요(확인 중).",
+    "서브로만 쓸 땐: 속성 7은 유지하고(코어 패시브가 불속성 대미지 기준) 남는 칸을 체력 재생 같은 생존 스킬로 채워도 돼요. 서포터는 안 쓰러지는 게 최고래요.",
+    "삽화: 메인이면 오의 충전 효율보다 불속성 대미지 — 프레야는 오의를 쿨마다 돌리는 캐릭터가 아니라 오의 충전 투자는 딜 손해라는 답이에요. 메인 예: 크샬다오라 2세트 + 작염 4.",
+    "@img:bn_25221_0",
+    "풀돌 실측(제보): 위 스테이터스(불속성 보너스 188.4%)로 자기 버프만 두르고 융광종 약점에 19만, 수면참 48만. 스티리아 · 아케니아 · 류노스케 버프까지 받으면 60~70만도 가능해 보인대요.",
+    "마스터 격투장 융광종 레이기에나처럼 높은 부위를 쳐야 하는 상대는 타점이 높은 프레야가 좋다는 반응이 있어요.",
+    "서브 프레야 연계기: 메인이 저스트 회피할 때마다 받는 속성 대미지 증가(방깎)를 걸어서 딜이 쏠쏠하대요. 엔쇼우 「굳은 의지」도 회피 판정이라 연계기가 터진다는 제보가 있어요(확인 중).",
+    "제르타: 이전 펑펑 화로만 사 둔 사람도 제르타를 받았다는 제보와 못 받았다는 제보가 섞여 있어요(확인 중).",
     "■ 11/27 저녁 추가 정리",
     "속성은 무조건 불 — 코어 패시브가 불속성 특화 기준이라 「속성 7」을 먼저 맞추고 나머지를 모으기 · 앵화로 채워요. 다른 속성 무기를 들릴 바엔 그 속성 주인공을 쓰는 게 낫다는 의견이 많아요.",
     "서브(오의 셔틀) 삽화 예: 크샬다오라 코어 + 오의 충전 효율 옵션이 붙은 3코 부위 + 1코 오의 충전 세트 → 오의 충전 효율 약 45%. 인도 세트를 못 맞추면 이렇게 오의 충전만 몰아도 쾌적하대요.",
@@ -33606,7 +34103,7 @@
     "그래도 앵화 2세트는 그대로 추천 — 두 부위만으로 융광 활성(+10%)과 불굴의 의지 3(+12%)이 상시로 켜져서, 무기 스킬 4레벨을 더 챙기는 것보다 이득이라는 계산이 많아요. 회심격【속성】 3은 덤이에요.",
     "불 7을 맞추면서 모으기 강화는 5~6까지 나온대요(확인 중). 선회 납도로도 발도일섬이 발동한다는 제보가 있어요 → 발도일섬 세팅도 후보예요.",
     "쉬운 운용 요약: 평소엔 스킬3(선회 납도)으로 저스트 회피 → 일반 공격 꾹(3단 모으기)을 노리고, 맞을 것 같으면 슈퍼아머 기술로 버텨요. 오의가 차면 강제 다운 + 심화 3단계 고정이니 스킬3을 계속 눌러요.",
-    "오의는 루가 에알다(그윽룡)가 하늘로 올라가려 할 때 써도 그대로 눕는다는 제보가 있어요.",
+    "오의 다운이 안 먹는 때: 대경직이 안 터지는 특수 패턴(예: 루가 에알다가 레이저를 쏘러 날아오를 때)엔 직접 해 보니 안 눕는다는 답이 여러 개예요(예전엔 눕는다는 제보도 있었어요). 몬스터가 누웠다 일어나는 순간에 써도 다운 없이 날아가요 → 확실한 빈틈에 쓰세요.",
     "서브로 상태이상 무기를 쥐여 줘도 프레야는 상태이상이 잘 안 걸린대요 — 같은 마비 · 수면 13강 대검을 브릭스에게 주면 잘 걸리는데, 프레야는 2분 안쪽 전투에서 한 번도 못 봤다는 제보예요. 상태이상 담당은 브릭스가 나아요.",
     "깨달음 「위엄의 대관」의 선회 납도 중 받는 대미지 -80%는 저스트 회피 타이밍을 놓쳤을 때를 위한 보험이에요.",
     "■ 11/27 늦은 밤 추가 (방어구 스킬 효과 · 서포트 삽화)",
@@ -33614,7 +34111,7 @@
     "체공 7 — 속성 공격력 +50 · 체공 공격 대미지 +37%. 파쇄 4 — 몬스터를 움찔시키거나 부위를 파괴하면 대미지 +16% · 속성 공격력 +25, 60초.",
     "집요한 추격 3 — 움찔 · 제압 뒤 대미지 +11%, 15초. 약점 추격 5 — 파괴된 부위를 치면 75% 확률로 25% 추가 대미지. 두려움 없는 자 5 — 체력 게이지에 회색 부분이 있는 동안 +19%.",
     "융광 활성 1 — 대미지 +10% 30초, 끝나면 대미지 -10% · 스태미나 상한 -50(30초). 불굴의 의지 3 — 발동 시 대미지 +12%, 융광 활성의 지속 시간 제한이 사라져요(게임 설명).",
-    "모으기 강화는 극 단룡베기 · 참 모아베기 같은 모으기 공격에 켜져요(훈련장 확인). 다만 켜져 있는 동안 다시 맞혀도 15초가 갱신되지 않아요. 3 → 3(염무)만 돌릴 때도 켜지는지는 확인 중이에요.",
+    "모으기 강화는 극 단룡베기 · 참 모아베기 같은 모으기 공격에 켜져요(훈련장 확인). 다만 켜져 있는 동안 다시 맞혀도 15초가 갱신되지 않아요. 3 → 3(염무)만 돌릴 때도 켜지는지는 확인 중이에요. (훈련장에서 바로 갱신됐다는 제보도 있어 확인 중이에요.)",
     "불 7 + 모으기 강화 6 vs 불 7 + 파쇄 4 — 모으기 강화 6을 고르는 의견이 더 많아요.",
     "앵화(융광종 리오하트)가 아직 없을 때 쓰는 실제 세트(제보): 리오하트헬름 · 레우스메일 · 발킨암 · 융광종 레우스코일 · 융광종 레우스그리브 → 불속성 대미지 UP 7 · 모으기 강화 6 · 체력 루프 1 (사이트 시뮬로 확인했어요).",
     "서브(서포트) 삽화: 코어(첫 칸)는 리오레우스(제압하면 멤버 전원 대미지 +6%, 30초)나 리오레이아 아종(디버프 걸린 몬스터가 받는 대미지 +6%, 30초). 세트는 제압 세트와 인도 2세트(오의 충전)로 의견이 갈려요 — 프레야 오의가 제압을 걸어서 제압 세트를 고르는 사람이 많아요.",
@@ -33684,7 +34181,7 @@
     "예전에 올렸던 공식 3차 CBT 트레일러(일본어, 유튜브 U7Zxw2N6P08)에도 프레야가 나와요."
    ],
    "images": [],
-   "src": "https://www.gacha.gg/monster-hunter-outlanders/characters/freya https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20283 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20320 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23739 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24073 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24042 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24124 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24146 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24001 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24081 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24112 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24062 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24032 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24724 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24604 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24778 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24641 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24616 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24687 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24679 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24779 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24966 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24873 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24812 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24794 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24836 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24959 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24932 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25049 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25087 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25094 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25008 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25088 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25075 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24983 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25106 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25108 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24998",
+   "src": "https://www.gacha.gg/monster-hunter-outlanders/characters/freya https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20283 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20320 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23739 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24073 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24042 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24124 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24146 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24001 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24081 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24112 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24062 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24032 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24724 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24604 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24778 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24641 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24616 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24687 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24679 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24779 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24966 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24873 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24812 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24794 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24836 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24959 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24932 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25049 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25087 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25094 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25008 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25088 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25075 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24983 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25106 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25108 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25363 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25346 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25357 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25270 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25314 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25279 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25206 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25427 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25235 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25162 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25290 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25342 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25394 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25187 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25382 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25135 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25221 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25281 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25337 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25157 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25165 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25307 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25143",
    "yt": "lbb0fQKdsk8"
   },
   {
@@ -33792,6 +34289,17 @@
     "서포터로 쓸 땐 범용이라 어느 파티든 들어가요 — 미도리 · 아케니아 · 브릭스 · 류노스케 파티라면 아케니아 자리에 넣고, 류노스케는 미도리와 같이 두래요(답변).",
     "@img:bn_25077_0",
     "「활활 화로-이스타브」 보상 중에 동반자 1마리를 고르는 칸(나일 · 타이쇼 · 네가르)이 있어요. 아케니아가 있으면 나일을 고르라는 답변이 많아요.",
+    "■ 11/28 추가 (명함 vs 1돌 · 장판 버프 · 제보)",
+    "명함(0돌)은 스킬3을 주딜기로 쓰고 스킬1로 게이지를 조절하는 운용이 맞아요. 빨간 게이지 확산 평타는 1돌 깨달음 「크림슨 바리에이션」이 있어야 세져요.",
+    "1돌 메인 딜: 스킬2로 6발을 박고 → 스킬3으로 터뜨려 빠르게 빨간 게이지 → 평타 · 스킬1로 딜해요.",
+    "확산(샷건) 없이 레조넌스만 유지하면 어렵대요 — 스킬3 후딜이 크고, 게이지 깎느라 스킬1을 쓰다 정작 받아쳐야 할 때 못 써요. 메인이 버거우면 서포터로 두세요.",
+    "깨달음 우선순위(제보): 메인 = 크림슨 바리에이션 → 랩소디, 서포터 = 오버추어 → 글리산도.",
+    "오의 버프는 스티리아가 까는 장판을 밟아야 받아요. 서브 스티리아가 앞으로 와서 깔아 주니, 메인은 장판 위에서 딜하세요.",
+    "헤이즈와 같이 써도 돼요 — 스티리아는 버프, 헤이즈는 디버프라 삽화 효과도 안 겹친다는 답이 있어요(제보).",
+    "버그 제보(확인 중): 박아 둔 에코 애로우가 터지는 대미지가 융광종 속성 육질을 못 받는 것 같대요. 융광 디아블로스 머리에 6스택을 터뜨려도 훈련장과 같은 발당 약 1천이었대요(빨간 게이지 산탄은 발당 약 6천).",
+    "@img:bn_25138_0",
+    "이스타브 받는 활활 화로: 주간 퀘스트에 「모험단의 '모험단 파티'에 1회 참가」가 있어요. 패치 전에 모험단 파티를 3번 다 했어도 이 퀘스트용으로 한 번 더 참가하세요.",
+    "모집 기록: 미도리 특별 모집의 SSR 기록이 스티리아 특별 모집으로 이어져요 → 「특별 모집 천장 이월」 글.",
     "■ 추천 장비 · 삽화 · 파티 (GameWith 11/27)",
     "장비 3세트가 올라왔어요. 장비 탭 🧭 모험가 → 스티리아에서 세트 탭으로 바꿔 볼 수 있어요.",
     "융광종 상대(얼음 특화): 융광종 기에나헬름 · 융광종 기에나메일 · 기에나암 · 푸케푸케코일 · 하이메탈그리브 → 얼음속성 대미지 UP 7 · 모으기 강사 6 · 가호 2. 모으기 강사는 모으기 단계를 유지해야 켜져요.",
@@ -33834,7 +34342,7 @@
     "북쪽 설원의 명문가 외동딸로, 집안의 결정 궁술과 빙상 무용을 합친 '자기만의 춤'을 완성하려고 여행을 떠났어요. 레이기에나의 우아하면서도 치명적인 날갯짓에서 영감을 얻어요."
    ],
    "images": [],
-   "src": "https://mhohub.com/adventurers/stylia/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21383 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21387 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21389 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23043 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21795 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23730 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24161 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24012 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24134 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24072 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24067 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24026 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24668 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24703 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24732 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24775 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24741 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24646 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24631 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24341 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24691 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24952 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24538 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24929 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24922 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24903 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24885 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24920 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24797 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25093 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25057 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25024 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25003 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25076 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25077",
+   "src": "https://mhohub.com/adventurers/stylia/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21383 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21387 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21389 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23043 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21795 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23730 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24161 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24012 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24134 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24072 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24067 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24026 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24668 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24703 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24732 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24775 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24741 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24646 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24631 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24341 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24691 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24952 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24538 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24929 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24922 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24903 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24885 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24920 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24797 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25093 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25057 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25024 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25003 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25076 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25285 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25181 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25287 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24969 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25436 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25138 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25373",
    "yt": "1Sv9BR1aIqc"
   },
   {
@@ -34174,10 +34682,12 @@
     "■ 사냥력 · 삽화 세트 특전 (11/24)",
     "백련의 증표 단계를 올려도 사냥력 숫자는 안 오른다는 답이 많아요. 대신 물리·속성 공격력과 대미지 보너스가 붙어요.",
     "@img:bn_21196_1",
-    "높은 단계 특전으로 「코어 슬롯 삽화의 세트 중첩 수 +1」이 켜져요. 화면에서 크샬다오라 코어 하나로 강룡의 폭풍 위엄 1세트(속성 대미지 +2%)가 켜져 있어요."
+    "높은 단계 특전으로 「코어 슬롯 삽화의 세트 중첩 수 +1」이 켜져요. 화면에서 크샬다오라 코어 하나로 강룡의 폭풍 위엄 1세트(속성 대미지 +2%)가 켜져 있어요.",
+    "■ 높은 단계 과제 (11/28)",
+    "산맥 다음 단계로 올라가면 「마스터 격투장 올 S」, 「노란(전설) 삽화 4세트 풀강」 같은 과제가 생겨요. 삽화 레벨업 재료를 미리 모아 두세요. 그중 할 만한 것만 깨도 돼요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19349 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18407 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18908 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19252 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19693 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19843 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19873 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19842"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19349 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18407 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18908 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19252 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19693 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19843 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19873 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19842 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25387"
   },
   {
    "id": "dc-19401",
@@ -34243,7 +34753,10 @@
     "■ 11/24 추가",
     "긴급 퀘스트 상한 경고 메시지가 뜨면 거기서 멈춰도 돼요. 남은 의뢰는 다음 날로 넘어가요. 인연 아이템 모으자고 제니를 더 쓰긴 아깝다는 의견이에요.",
     "칭호는 시즌 0 빨간(전설) 의상을 다 모으면 받아요. 초록·주황 의상까지 다 모아야 시즌 코인 500개씩 준대요(제보). 아직 한 번도 안 했다면 11/27까지 칭호는 운이 많이 따라야 해요.",
-    "어룡종 등 「원거리 무기로 잡기」 조건이 붙은 긴급 퀘스트는 무기를 꼭 확인하세요. 실수로 근접 무기로 잡으면 필드나 친구창에 그 몬스터가 다시 나올 때까지 못 해요. 하나 놓쳐도 천장 채우는 데는 문제없대요."
+    "어룡종 등 「원거리 무기로 잡기」 조건이 붙은 긴급 퀘스트는 무기를 꼭 확인하세요. 실수로 근접 무기로 잡으면 필드나 친구창에 그 몬스터가 다시 나올 때까지 못 해요. 하나 놓쳐도 천장 채우는 데는 문제없대요.",
+    "■ 11/28 · 후반 긴급 퀘스트",
+    "후반으로 바뀐 뒤에도 천장은 같다는 답이 많아요 — 전설은 20판마다 1개 확정, 하루 2개라 최대 40판이에요. 30판 넘게 돌아도 안 끝나면 운이 나쁜 거래요.",
+    "11/27 업데이트 날엔 낮 12시에 의뢰 보상 횟수가 한 번 더 초기화돼서 그날 2번 몫을 돌 수 있었대요(제보)."
    ],
    "images": [
     "eq1",
@@ -34254,7 +34767,7 @@
     "bn_19428_1",
     "bn_20880_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16742 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19466 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19658 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19428 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19890 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19865 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20579 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20559 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20381 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21334 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21359 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21533"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16742 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19466 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19658 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19428 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19890 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19865 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20579 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20559 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20381 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21334 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21359 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21533 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25327 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25348"
   },
   {
    "id": "dc-19543",
@@ -34380,10 +34893,14 @@
     "주인공 1.7만 + 미도리 1.6만(헌터 랭크 55)이면 S를 무난히 받는다는 답이 있어요.",
     "서포터는 자주 쓰는 아케니아·브릭스만 1만~1.5만, 나머지는 Lv60에 모험가 장비만 입혀 둬도 된다는 의견이 많아요. 아케니아 1.1만 · 브릭스 1.0만 · 나머지 서포터 0.6~0.7만(Lv60)으로 지배자 무기를 돌려 써서 올 S를 받은 후기도 있어요.",
     "뉴비라면 당분간 메인 딜러 1명만 키워도 돼요. 마스터 격투장이 2파티를 요구해서 결국 두 번째 딜러는 필요하고, 나머지는 Lv60 + 모험가 장비로 버티다가 자꾸 쓰러지면 Lv70까지만 올리고 각인은 미뤄요. 장비 맞추기는 시간만 들고 다른 재화는 안 들어요.",
-    "브릭스(11/27 후기): 마비 무기 + 번개속성 대미지 UP 7 + 풍압 내성 3, 메인 삽화는 파오우르무 조합이 많아요. 코어 특성 때문에 속성 7은 챙기고, 풍압이 은근 도움이 된대요. 마비 · 번개 세팅을 프리셋 2개로 나눠 쓰는 사람도 있어요."
+    "브릭스(11/27 후기): 마비 무기 + 번개속성 대미지 UP 7 + 풍압 내성 3, 메인 삽화는 파오우르무 조합이 많아요. 코어 특성 때문에 속성 7은 챙기고, 풍압이 은근 도움이 된대요. 마비 · 번개 세팅을 프리셋 2개로 나눠 쓰는 사람도 있어요.",
+    "■ 동료 장비 그대로 둬도 될까? (11/28)",
+    "동료의 기본 장비는 내가 해금한 희귀도에 맞춰 자동으로 성장해서, 자꾸 쓰러지기 전까진 그대로 둬도 최소한의 생존 · 딜은 나온대요(답변). 무기만 마비 · 수면으로 만들어 줘도 좋아요.",
+    "주인공과 2파티에서 쓸 메인 조작 모험가만 딜 장비를 제대로 맞추고, 나머지는 생존 장비나 상태이상 무기로 충분해요. 2파티 메인은 이미 키운 SSR로 쓰세요.",
+    "아케니아 서브: 허리가 용속성 3이라 용속성 세트를 범용으로 많이 써요. 서포터면 장비를 크게 바꿀 필요는 없어요(답변)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19627 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20963 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20965 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21018 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21203 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21296 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21322 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21315 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21299 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=22166"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19627 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20963 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20965 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21018 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21183 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21203 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21296 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21322 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21315 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21299 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=22166 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25216 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25320"
   },
   {
    "id": "dc-19679",
@@ -34817,10 +35334,12 @@
     "금관·은관은 일정 횟수마다 보장되는 천장 같은 게 있다는 제보가 있어요(최대·최소 금은 4종이 대략 15~18마리마다 하나). 운이 나쁘면 100마리를 넘기기도 해요.",
     "■ 아직 못 잡는 물고기",
     "@img:bn_18109_1",
-    "식당 주문 재료 목록에 「도스글래스파렉스」(고급 특산 소재)가 보이지만 도감엔 아직 없어요. 새 맵이 열리면 잡을 수 있을 것으로 보여요(확인 중)."
+    "식당 주문 재료 목록에 「도스글래스파렉스」(고급 특산 소재)가 보이지만 도감엔 아직 없어요. 새 맵이 열리면 잡을 수 있을 것으로 보여요(확인 중).",
+    "■ 희귀 환경생물이 안 나올 때 (11/28 · 제보)",
+    "리젠 조건은 운이에요. 시간대 · 날씨를 바꿔 가며 계속 돌리세요 — 예: 낮 뇌우 → 저녁 뇌우 → 밤 맑음 순으로. 금관을 거의 다 따는 데 조사 포인트 2만쯤 들었대요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17857 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15394 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15498 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19527 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17516 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=10982 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=14998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15254 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19192 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20079 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19493 https://gamewith.ai/monster-hunter-outlanders/ko/endemic-life https://gamewith.ai/monster-hunter-outlanders/ko/articles/fishing-guide https://gamewith.jp/mhoutlanders/560316 https://gamewith.jp/mhoutlanders/588161 https://mhohub.com/ecology/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20310 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21461"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17857 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15394 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15498 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19527 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17516 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=11029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=10982 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=14998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15254 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17852 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19192 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16109 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20079 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19493 https://gamewith.ai/monster-hunter-outlanders/ko/endemic-life https://gamewith.ai/monster-hunter-outlanders/ko/articles/fishing-guide https://gamewith.jp/mhoutlanders/560316 https://gamewith.jp/mhoutlanders/588161 https://mhohub.com/ecology/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20310 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21461 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25422"
   },
   {
    "id": "area-tasks",
@@ -35019,10 +35538,13 @@
     "「질풍의 우레」(스킬1 스태미나 -5)는 4돌파에 넣는 사람과 5~6번째로 미루는 사람이 갈려요. 강주약을 먹으면 스태미나 부족이 많이 메워져서 후순위로 둬도 된다는 의견이 많아요.",
     "질풍을 찍으면 딜이 확 오르진 않지만, 스태미나 = 전류병이라 딜 사이클과 회피 각이 편해져요. 3돌파 세 개를 빼고 넣기는 애매하대요.",
     "풀 깨달음이면 「오의 → 병 충전 → 병 다 쓰기 → 오의 쿨 돌아옴」 사이클이 돌아서, 1스킬을 무한으로 쓸 필요가 줄어요. 동료·멀티의 오의 충전 효과를 받으면 오의가 더 빨리 차요(제보).",
-    "3돌 깨달음 질문(11/24)에도 「스태미나 감소(질풍의 우레)는 꼭 넣으라」는 답이 2개 달렸어요. 스태미나가 모자라다 싶으면 하나를 질풍의 우레로 바꾸세요."
+    "3돌 깨달음 질문(11/24)에도 「스태미나 감소(질풍의 우레)는 꼭 넣으라」는 답이 2개 달렸어요. 스태미나가 모자라다 싶으면 하나를 질풍의 우레로 바꾸세요.",
+    "■ 4돌까지 깨달음 순서 (11/28 · 제보)",
+    "달리는 뇌전 → 전광 부스트 → 경뢰의 집념 → 뇌신의 계약까지가 4돌 필수, 다음 질풍의 우레(스태미나), 마지막 무지개 화살(오의 대미지). 2돌이면 달리는 뇌전 · 전광 부스트.",
+    "루카를 진지하게 메인 딜러로 키울 때만 4돌을 추천해요. 같은 재화로 아케니아 1돌을 할 수 있다면 아케니아가 낫다는 답이에요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20626 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17115 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20343 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20401 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21269"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20626 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17115 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20343 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20401 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21269 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25302"
   },
   {
    "id": "dc-20647",
@@ -35090,10 +35612,11 @@
     "라야 오의는 춤춘 뒤 구멍 함정을 까는데, 춤만 춰도 몬스터가 받는 불 대미지 증가가 걸려요. 함정이 안 통하는 루가 에알다 같은 고룡도 움찔하고 디버프가 들어가요(화면에 문구가 떠요).",
     "■ 영상",
     "원문 영상에서 귀인화 → 선무승천 → 선무파공으로 공중에서 계속 내려찍는 흐름을 보세요.",
-    "* = 해외판 영문을 옮긴 임시 번역이에요. 기술 설명은 게임 안 설명과 해외 팬 DB(mhohub) 기준이라 한국판 표기와 조금 다를 수 있어요."
+    "* = 해외판 영문을 옮긴 임시 번역이에요. 기술 설명은 게임 안 설명과 해외 팬 DB(mhohub) 기준이라 한국판 표기와 조금 다를 수 있어요.",
+    "라야로 지배자 루가 에알다를 잡은 세팅 · 영상은 「지배자 루가 에알다 공략」 글에 있어요. 저스트 회피 때마다 강제 경직을 줘서 딜 타임을 벌어 준다는 평도 있어요(제보)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20449 https://mhohub.com/adventurers/raya/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21375",
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20449 https://mhohub.com/adventurers/raya/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21375 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25144 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25267",
    "video": "dc"
   },
   {
@@ -35473,7 +35996,7 @@
    "wt": "태도",
    "video": "dc",
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=22405 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=22817",
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=22405 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=22817 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25304",
    "lines": [
     "■ 한눈에 보기",
     "태도는 연기 게이지를 모아 코팅(칼날 색)을 쌓아 치는 무기예요. 코팅은 하양 → 노랑 → 빨강 3단계이고, 높을수록 공격력이 세져요.",
@@ -35491,6 +36014,7 @@
     "투구깨기 뒤 갑옷 베기를 쓸 수 있는 시간이 생각보다 넉넉해요. 기다려 보면서 감을 익혀 보세요.",
     "연속 공격은 2~3연속까지 구르기 → 간파로 받아치고, 더 길면 그냥 빠져나오는 걸 추천해요.",
     "깨달음은 「잔심 연기」와 「연기 방출」 평가가 좋아요.",
+    "「연기 집중」 효과: 연기 게이지를 쓰면 융광종에게 주는 대미지 +9%. 마스터 격투장 · 융광종 위주면 좋고, 고룡 · 일반 몬스터 상대론 아쉬워요(답변).",
     "■ 영상",
     "융광종 오도가론을 잡는 태도 영상이에요. 코팅을 쌓은 뒤 내딛어 베기 → 기인 베기 2번으로 빠르게 다음 단계로 올리는 장면과 간파 타이밍을 보세요.",
     "장비 세팅은 「태도 세팅 정리 · 발도일섬 발동 조건」 글을 보세요."
@@ -35673,26 +36197,42 @@
     "삽화(답변): 코어는 그윽룡(루가 에알다), 나머지는 불속성 대미지 3 + 회심 2처럼 회심 옵션을 우선으로 맞춰요. 불 4세트 + 크샬다오라 코어로 쓰는 사람도 있어요.",
     "지배자 무기 각성: 불속성 · 물리 공격력 · 회심 옵션을 주라는 답변이에요.",
     "파티: 류노스케는 미도리 스킬3에 맞춰 연계기를 넣어서 미도리와 세트로 써요. 서포터 자리엔 아케니아 · 스티리아 · 프레야 등을 넣어요.",
-    "버튼 하나하나 설명은 「태도 기본 운용」 글도 같이 보세요."
+    "버튼 하나하나 설명은 「태도 기본 운용」 글도 같이 보세요.",
+    "■ 지배자 1분 59초 기록 (11/28)",
+    "@img:bn_25333_0",
+    "미도리 메인 · 아케니아 1돌 · 프레야 명함 파티로 지배자 루가 에알다 1분 59초(패드 없이)예요.",
+    "@img:bn_25333_1",
+    "스테이터스: 사냥력 17,212 · 회심률 96.4% · 불속성 공격력 1,233 · 속성 회심 대미지 30.2% · 불속성 보너스 88.0%. 삽화 주옵션은 불 · 물리 · 회심 · 회심 · 회심(답변) — 미도리는 회심을 끝까지 올리는 쪽이에요.",
+    "아케니아 자리에 스티리아나 브릭스를 넣으면 기록이 더 줄 거라는 반응이에요.",
+    "미도리 + 프레야: 미도리 저스트 회피가 잦아서 서브 프레야 연계기(받는 속성 대미지 증가)가 잘 걸려요. 운용이 쉬워서 삽화 파밍 · 긴급 퀘스트 반복엔 미도리가 제일 편하다는 평이에요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25018 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25009 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24399 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25072 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25110 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25034"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25018 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25009 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24399 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25072 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25110 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25333 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25297 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25442"
   },
   {
    "id": "dc-25024",
    "cat": [
     "무기·세팅"
    ],
-   "title": "활은 탄도 강화 1 챙기기 (헤보 산탄은 불필요)",
-   "date": "11-27",
+   "title": "주인공 활 속성별 세팅 · 탄도 강화 1 챙기기",
+   "date": "11-28",
    "lines": [
     "활은 평타 · 필살기가 관통 판정이고 연사 딜 비중이 커서 탄도 강화가 있으면 좋아요. 스킬1 스텝을 밟다 보면 생각보다 적정 거리 밖으로 잘 나가요.",
     "모으기 강사가 6에서 5로 내려가더라도 탄도 강화 1은 챙기라는 의견이 많아요. 없으면 거리 맞추느라 계속 신경 쓰인대요. 스티리아도 같아요.",
     "헤비보우건은 산탄 · 확산 · 강사가 붙어 쏴도 대미지가 줄지 않아서 굳이 필요 없어요. 관통탄 위주면 챙겨요. 헤보는 저스트 가드 · 구르기로 적정 거리를 바로 맞추기 쉬워요.",
-    "융광종 상대로 활도 앵화 2세트(융광 활성 · 불굴의 의지 · 회심격【속성】)가 세다는 의견이 많아요. 탄도 강화가 빠지는 것만 감안하세요."
+    "융광종 상대로 활도 앵화 2세트(융광 활성 · 불굴의 의지 · 회심격【속성】)가 세다는 의견이 많아요. 탄도 강화가 빠지는 것만 감안하세요.",
+    "■ 속성별 세팅 (속성 7 · 활 스킬 강화 4 · 탄도 강화 1)",
+    "@img:bn_25263_0",
+    "Lv80 유저 실착 세트예요(스킬은 사이트 시뮬로 확인). 장비 탭 주인공 → 활에 「커뮤니티 · 활 스킬 4 · 탄도 강화」 세트로도 넣었어요.",
+    "불: 푸케푸케헬름 · 융광종 푸케푸케메일 · 융광종 레우스암 · 쟈나프코일 · 융광종 레우스그리브 → 사냥꾼의 육감 · 회심격【속성】 · 역경도 1씩 붙어요. 사냥꾼의 육감은 섬광벌레 · 함정 같은 필드 기믹을 쓰면 120초 대미지 증가예요.",
+    "얼음: 푸케푸케헬름 · 하이메탈메일 · 융광종 카가치암 · 체인벨트 · 하이메탈그리브 → 집요한 추격 1(움찔 · 제압 뒤 15초 대미지 증가) · 포효 내성 2.",
+    "물: 푸케푸케헬름 · 융광종 푸케푸케메일 · 융광종 쥬라암 · 치치코일 · 융광종 치치그리브 → 사냥꾼의 육감 2(120초 대미지 +8%) · 집요한 추격 1.",
+    "번개: 푸케푸케헬름 · 융광종 기르오스메일 · 융광종 카가치암 · 융광종 기르오스코일 · 잉곳그리브 → 두려움 없는 자 2 · 동반자 강화 1.",
+    "용: 푸케푸케헬름 · 융광종 푸케푸케메일 · 타로스암 · 디아네로코일 · 본그리브 → 사냥꾼의 육감 · 회심격【속성】 · 파괴왕 1씩. 무기는 로제스 애로우 대신 용속성이 높은 흑강의 활을 썼대요.",
+    "앵화(융광 활성) 세트가 딜은 더 세요. 거리를 맞추며 다 넣을 자신이 있으면 앵화, 멀리서 편하게 쏘려면 이 세트예요 — 탄도 강화가 있으면 멀어져도 회색 대미지가 안 뜬대요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25024 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24814"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25024 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24814 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25263"
   },
   {
    "id": "dc-25059",
@@ -35709,6 +36249,24 @@
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25059"
+  },
+  {
+   "id": "dc-25205",
+   "cat": [
+    "초보·시스템"
+   ],
+   "title": "특별 모집 천장 이월 (미도리 → 스티리아)",
+   "date": "11-28",
+   "lines": [
+    "@img:bn_25205_0",
+    "미도리 특별 모집에서 남은 SSR 기록(천장)은 스티리아 특별 모집 「눈 녹는 마음」으로 그대로 이어져요. 특별 모집은 특별 모집끼리, 페스티벌 모집은 페스티벌 모집끼리 이어져요(프레야 페스티벌 모집은 특별 모집과 안 이어져요).",
+    "오른쪽 「SSR 획득까지 최대 n번」은 이월된 기록 기준이라, 이번 회차에서 뽑은 횟수와 달라요.",
+    "왼쪽 「120회 이내에 이번 회차 SSR이 반드시 등장!(1회 한정)」은 이번 픽업 모험가 확정 표시예요. 중간에 다른 SSR이 나오면(픽뚫) SSR 기록만 초기화되고 이 표시는 남아요. 이번 회차에서 120번을 채우거나 스티리아가 나오면 사라져요.",
+    "그래서 「120번 뽑았는데 안 나왔다」면 대부분 이월된 횟수를 같이 센 거예요. 정확한 횟수는 「모집 규칙」의 모집 기록에서 이번 회차만 세어 보세요.",
+    "상시 모집은 300회를 채우면 SSR 지정권을 줘요. 지정권을 아직 못 받았으면 상시 모집권으로 300회를 채우고, 받았으면 순회 모집을 기다리는 사람이 많아요(11/28 기준 순회 모집은 없어요 · 제보)."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25205 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25373 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25349"
   }
  ],
  "sim": {
