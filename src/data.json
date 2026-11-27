@@ -5974,7 +5974,7 @@
    "name": "주인공",
    "type": "대검",
    "elem": "불",
-   "stage": "중반",
+   "stage": "후반",
    "group": "hero",
    "wkr": "융광종 레드윙",
    "route": [
@@ -6270,7 +6270,7 @@
    "name": "주인공",
    "type": "대검",
    "elem": "물",
-   "stage": "중반",
+   "stage": "후반",
    "group": "hero",
    "wkr": "융광종 워터골렘",
    "route": [
@@ -6566,7 +6566,7 @@
    "name": "주인공",
    "type": "대검",
    "elem": "얼음",
-   "stage": "중반",
+   "stage": "후반",
    "group": "hero",
    "wkr": "프로스트블레이즈",
    "route": [
@@ -6858,7 +6858,7 @@
    "name": "주인공",
    "type": "대검",
    "elem": "번개",
-   "stage": "중반",
+   "stage": "후반",
    "group": "hero",
    "wkr": "융광종 라이트닝퍼니시",
    "route": [
@@ -7148,7 +7148,7 @@
    "name": "주인공",
    "type": "대검",
    "elem": "용",
-   "stage": "중반",
+   "stage": "후반",
    "group": "hero",
    "wkr": "흑강의대검",
    "route": [
