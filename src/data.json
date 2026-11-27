@@ -933,7 +933,7 @@
     "앵화룡의 폭주"
    ],
    "label": "융광종 상대 · 불속성 특화 · 앵화 2세트",
-   "lsrc": "GameWith · 커뮤니티",
+   "lsrc": "GameWith · game8 · 커뮤니티",
    "alts": [
     {
      "label": "앵화 없이 · 불속성 특화",
@@ -1066,6 +1066,74 @@
      "note": "몬스터를 가리지 않는 범용 세트예요. 회피 강화 7에 불굴의 의지 3 · 회심격【속성】 3을 같이 챙겨요."
     },
     {
+     "label": "종반 · 발도일섬 7 · 앵화 2세트",
+     "src": "game8",
+     "armor": [
+      [
+       "머리",
+       "융광종 리오하트헬름"
+      ],
+      [
+       "몸통",
+       "융광종 리오하트메일"
+      ],
+      [
+       "팔",
+       "레이아암"
+      ],
+      [
+       "허리",
+       "융광종 디아블로코일"
+      ],
+      [
+       "다리",
+       "융광종 레이아그리브"
+      ]
+     ],
+     "skills": [
+      [
+       "발도일섬",
+       7
+      ],
+      [
+       "회심격【속성】",
+       3
+      ],
+      [
+       "불굴의 의지",
+       3
+      ],
+      [
+       "고압 가드",
+       2
+      ],
+      [
+       "식생 전문가",
+       2
+      ],
+      [
+       "집요한 추격",
+       1
+      ],
+      [
+       "진동 내성",
+       1
+      ],
+      [
+       "사냥꾼의 육감",
+       1
+      ],
+      [
+       "융광 활성",
+       1
+      ]
+     ],
+     "sets": [
+      "앵화룡의 폭주"
+     ],
+     "note": "융광종이 아닌 몬스터(일반 · 고룡)에 강한 범용 세트예요. 미도리 스킬3이 발도 공격이라 스킬3을 자주 쓰면 발도일섬 대미지 증가가 유지돼요. 융광종엔 불속성 특화 세트가 더 세요(game8)."
+    },
+    {
      "label": "앵화 없이 · 일반 몬스터 · 회피 강화 · 발도일섬",
      "src": "GameWith (11/26 이전 추천)",
      "armor": [
@@ -1129,7 +1197,7 @@
     },
     {
      "label": "종반 · 발도일섬형",
-     "src": "game8",
+     "src": "game8 (11/27 이전 추천)",
      "armor": [
       [
        "머리",
@@ -1201,11 +1269,11 @@
      "sets": [
       "자화룡의 강건한 몸"
      ],
-     "note": ""
+     "note": "game8가 11/27에 앵화 2세트로 바꾸기 전 추천이에요. 융광종 리오하트 장비가 아직 없을 때 쓰세요."
     },
     {
      "label": "종반 · 불속성 특화",
-     "src": "game8",
+     "src": "game8 (11/27 이전 추천)",
      "armor": [
       [
        "머리",
@@ -1271,7 +1339,7 @@
       ]
      ],
      "sets": [],
-     "note": ""
+     "note": "game8가 11/27에 앵화 2세트로 바꾸기 전 추천이에요. 융광종 리오하트 장비가 아직 없을 때 쓰세요."
     },
     {
      "label": "중반 (레어 5~7)",
@@ -24012,6 +24080,18 @@
    "items": [
     [
      "11/27",
+     "공략 업데이트",
+     [
+      "프레야 풀돌 세팅 · 스티리아 쉬운 사이클",
+      "프레야: 풀돌 14강 실제 세팅(사진) · 수면참 53만 · 회심보다 속성",
+      "스티리아: 1돌 쉬운 사이클 · 빨간 게이지 주의 · 돌파 옵션 버그 제보",
+      "미도리: game8 종반 세트가 발도일섬 7 앵화 2세트로 바뀜",
+      "리오레이아 머리 격추 과제 · 융광종 토벌 티켓 · 케레스 용 앵화 · 동료 동반자 오의"
+     ],
+     "freya-preview"
+    ],
+    [
+     "11/27",
      "쿠폰",
      [
       "새 쿠폰 MHOHAPPYNO1",
@@ -31512,6 +31592,10 @@
    "title": "모험가 최종 장비 바뀐 점",
    "date": "11-27",
    "lines": [
+    "■ 11/27 밤: game8 미도리 종반 세트 갱신",
+    "미도리(game8 11/27 19시): 종반 세트가 앵화 2세트로 바뀌었어요 — 발도일섬형 = 융광종 리오하트헬름 · 융광종 리오하트메일 · 레이아암 · 융광종 디아블로코일 · 융광종 레이아그리브 → 발도일섬 7 · 회심격【속성】 3 · 불굴의 의지 3. 속성 특화형은 GameWith 불 특화 세트와 같아요.",
+    "game8 설명: 융광종이 아닌 몬스터에겐 발도일섬형이, 융광종에겐 불속성 특화가 더 세요. 예전 game8 세트 2개는 「game8 (11/27 이전 추천)」으로 남겨 뒀어요.",
+    "다른 모험가의 GameWith(류노스케 · 케레스 · 엔쇼우 · 매들린 · 페페 · 프레야 · 스티리아 19시대 갱신 포함) · game8 세트는 그대로예요.",
     "■ 11/27 저녁: 프레야 · 스티리아 장비 추가 (GameWith)",
     "프레야: 융광종 상대 = 미도리와 같은 불 특화 앵화 2세트(불 7 · 회심격【속성】 3 · 불굴의 의지 3), 일반 몬스터 = 모으기 강화 7 앵화 2세트(발킨암 · 융광종 레우스코일 · 융광종 쟈나프그리브).",
     "스티리아: 융광종 상대 = 얼음 7 · 모으기 강사 6(융광종 기에나 2부위 · 기에나암 · 푸케푸케코일 · 하이메탈그리브), 서포트 특화 = 얼음 7 · 연격 3 · 체력 강화 2, 일반 몬스터 = 모으기 강사 7 앵화 2세트.",
@@ -32358,10 +32442,11 @@
     "■ 슈미르 「자신」은 모험가예요",
     "@img:bn_20779_1",
     "SSR 슈미르 코어 패시브 「관통 대미지를 줬을 때 자신이 주는 번개속성 대미지 +25%」의 '자신'은 아이루가 아니라 데리고 있는 모험가예요(Lv0 기준 · 멤버 전원 대미지 +2%).",
-    "번개속성 대미지만 오르니 번개 관통 세팅일 때 챙기고, 범용으로 쓸 땐 크게 신경 안 써도 돼요. 주인공 활은 첫 평타에 관통이 기본으로 붙어 있어요."
+    "번개속성 대미지만 오르니 번개 관통 세팅일 때 챙기고, 범용으로 쓸 땐 크게 신경 안 써도 돼요. 주인공 활은 첫 평타에 관통이 기본으로 붙어 있어요.",
+    "동료(직접 조작하지 않는 모험가)의 동반자는 패시브 효과는 발동하지만 오의는 쓰지 않는 것 같다는 의견이 많아요(확인 중)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16756 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20779"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=16756 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20779 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24948"
   },
   {
    "id": "dc-14572",
@@ -32930,14 +33015,19 @@
     "「현기증 상태로 만들어 1회 격추」(둥지 사냥 과제)는 하늘을 날 때 섬광을 맞히면 돼요. 현기증 = 섬광에 맞은 상태예요.",
     "「포식 중단시키기」 미션은 몬스터가 동료를 덮쳐 물고 있을 때 섬광을 맞히면 돼요. 섬광탄, 브릭스 오의, 교란형 주인공 오의 모두 돼요(제보).",
     "섬광탄, 섬광을 터뜨리는 환경생물, 브릭스 오의를 써요. 주인공을 교란형으로 바꾸면 주인공 오의도 섬광이에요.",
-    "삽화집 19레벨인데 지도에서 몬스터를 누르면 '영웅 등급까지 획득 가능'으로 뜨는 건 표기 오류예요. 전설도 그대로 나와요."
+    "삽화집 19레벨인데 지도에서 몬스터를 누르면 '영웅 등급까지 획득 가능'으로 뜨는 건 표기 오류예요. 전설도 그대로 나와요.",
+    "■ 리오레이아 「머리 격추」 과제",
+    "@img:bn_24874_0",
+    "리오레이아 도감 과제(둥지 사냥 난이도 Ⅳ) 「머리 부위를 공격해서 타겟을 격추한다」는 날고 있을 때 머리를 부위 파괴하면 깨져요. 그냥 때리면 잠깐 날았다가 착지만 해서 안 깨져요.",
+    "머리 부위 파괴를 1/4쯤 남겨 두었다가, 서머솔트(꼬리 돌려차기)로 떠오를 때 머리를 락온해서 깨요.",
+    "머리를 거의 다 깨 둔 상태에서 날아오르면 오의(돌격형)를 맞히는 것도 방법이에요. 헤비보우건으로 머리를 노리거나 해머로 기절시키는 방법도 있어요."
    ],
    "images": [
     "bt_dex_1",
     "bt_dex_2",
     "bn_20906_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=2363 , https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=5441 , https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19228 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19683 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19662 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19776 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19733"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=2363 , https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=5441 , https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19228 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19683 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19662 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19776 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19733 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24874"
   },
   {
    "id": "tips-title",
@@ -33490,6 +33580,19 @@
     "낙석 + 수면참: 동반자 오의로 재운 뒤 낙석을 떨어뜨리고 큰 기술을 넣으면 딜이 아주 커요. 같은 상황에서 미도리 3스킬 3타가 1만 9천대라면 프레야는 3만대가 떴대요(제보).",
     "브릭스 vs 프레야(서브 교란형 비교): 브릭스는 섬광 현기증 동안 받는 대미지 +32% · 오의가 자주 차고 마비 · 수면 무기와 잘 맞아요. 대신 섬광은 4번째부터 잘 안 먹고 융광종 치치야크에겐 안 통해요. 프레야는 오의 강제 다운 + 「단죄의 업화」 받는 대미지 +25% + 연계기 속성 받피증 +15%. 둘 다 좋아서 몬스터 따라 바꿔 쓰자는 의견이 많아요.",
     "모험가는 상태이상 무기를 들어도 같은 속성 공명이 켜진대요(주인공만 상태이상 무기면 공명이 꺼져요 · 제보). 그래서 브릭스에게 마비 대검을 들려도 번개 공명이 유지돼요.",
+    "■ 11/27 밤 추가 정리 (풀돌 세팅 · 회심보다 속성)",
+    "@img:bn_24779_0",
+    "풀돌 · 풀각인 프레야 실제 세팅이에요: 무기 융광종 레드윙Ⅵ(14강) + 융광종 리오하트헬름 · 융광종 리오하트메일 · 융광종 레우스암 · 쟈나프코일 · 융광종 레우스그리브(모두 14강) — 장비 탭의 「융광종 상대 · 불속성 특화 · 앵화 2세트」와 같아요.",
+    "스테이터스: 물리 공격력 1,565 · 불속성 공격력 1,314 · 회심률 36.7% · 속성 회심 대미지 31.1% · 불속성 보너스 147.5% · 오의 충전 효율 18.2%.",
+    "이 세팅에 동료 류노스케 · 스티리아 · 아케니아 버프를 다 받고 수면참을 넣으니 한 방에 53만 대미지가 나왔대요(제보). 앞에서 한 번 찍지 않고 바로 최대 배율 모아베기를 날릴 수 있어서 수면참이 특히 커요.",
+    "지배자 무기가 아니어도 14강 제작 무기면 차이가 크지 않다는 의견이에요 — 지배자 무기가 센 건 혼자 14강이라서래요.",
+    "회심 vs 속성: 코어 패시브가 불속성 대미지 기준이라 회심보다 속성(불 7 · 삽화 불속성 대미지)을 먼저 챙기라는 의견이 많아요. 회심 패시브가 없는 모험가는 회심을 올려도 효율이 낮대요.",
+    "그래도 앵화 2세트는 그대로 추천 — 두 부위만으로 융광 활성(+10%)과 불굴의 의지 3(+12%)이 상시로 켜져서, 무기 스킬 4레벨을 더 챙기는 것보다 이득이라는 계산이 많아요. 회심격【속성】 3은 덤이에요.",
+    "불 7을 맞추면서 모으기 강화는 5~6까지 나온대요(확인 중). 선회 납도로도 발도일섬이 발동한다는 제보가 있어요 → 발도일섬 세팅도 후보예요.",
+    "쉬운 운용 요약: 평소엔 스킬3(선회 납도)으로 저스트 회피 → 일반 공격 꾹(3단 모으기)을 노리고, 맞을 것 같으면 슈퍼아머 기술로 버텨요. 오의가 차면 강제 다운 + 심화 3단계 고정이니 스킬3을 계속 눌러요.",
+    "오의는 루가 에알다(그윽룡)가 하늘로 올라가려 할 때 써도 그대로 눕는다는 제보가 있어요.",
+    "서브로 상태이상 무기를 쥐여 줘도 프레야는 상태이상이 잘 안 걸린대요 — 같은 마비 · 수면 13강 대검을 브릭스에게 주면 잘 걸리는데, 프레야는 2분 안쪽 전투에서 한 번도 못 봤다는 제보예요. 상태이상 담당은 브릭스가 나아요.",
+    "깨달음 「위엄의 대관」의 선회 납도 중 받는 대미지 -80%는 저스트 회피 타이밍을 놓쳤을 때를 위한 보험이에요.",
     "■ 이벤트 퀘스트 빨리 깨기",
     "@img:bn_24687_0",
     "「검을 든 자의 시련」 시련 퀘스트: 페스티벌 모집 1회 · 프레야 체험 이벤트 클리어 · 「불속성 특화 모험가를 메인 조작해 몬스터 2마리 / 5마리 토벌」 같은 과제로 용염 코인을 모아요.",
@@ -33552,7 +33655,7 @@
     "예전에 올렸던 공식 3차 CBT 트레일러(일본어, 유튜브 U7Zxw2N6P08)에도 프레야가 나와요."
    ],
    "images": [],
-   "src": "https://www.gacha.gg/monster-hunter-outlanders/characters/freya https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20283 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20320 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23739 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24073 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24042 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24124 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24146 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24001 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24081 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24112 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24062 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24032 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24724 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24604 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24778 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24641 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24616 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24687 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24679",
+   "src": "https://www.gacha.gg/monster-hunter-outlanders/characters/freya https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20283 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20320 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23739 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24073 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24042 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24124 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24146 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24001 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24081 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24112 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24062 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24032 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24724 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24604 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24778 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24641 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24616 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24687 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24679 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24779 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24966 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24873 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24812 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24794 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24836 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24959 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24932",
    "yt": "lbb0fQKdsk8"
   },
   {
@@ -33636,6 +33739,15 @@
     "파티 예(제보): 메인 스티리아 + 브릭스(섬광 · 현기증 받는 피해 증가) + 프레야(오의 다운 · 연계기 속성 받피증) + 아케니아(회심 버프). 공명을 원하면 주인공을 얼음 무기 교란형으로 넣어요.",
     "현상금 챌린지 출격 목록에도 스티리아가 「기간 한정」으로 바로 들어왔어요. 현상금 챌린지를 아직 안 했다면 스티리아로 해 보세요.",
     "영상: 융광종 디아블로스 1분대 플레이 영상은 아래 출처 링크(24668 · 24732번 글)에서 볼 수 있어요. 엘레지 상태 평타 확산 대미지를 보면 돼요.",
+    "■ 11/27 밤 추가 정리 (쉬운 사이클 · 주의점)",
+    "1돌 쉬운 사이클(이벤트 격투대회 2분 32초 · 랭킹 상위와 비슷한 사이클이래요): ① 스킬2를 연달아 써서 에코 애로우를 박고 스킬3으로 터뜨려 빨간 게이지(엘레지)를 켜요 ② 일반 공격을 계속 눌러요 ③ 맞을 것 같으면 스킬1(왈츠)로 피해요. 간단한데 세고 생각보다 안전하대요.",
+    "빨간 게이지 동안엔 스킬2 · 3이 막혀요. 스킬1 + 일반 공격으로 게이지를 깎으면 다시 풀려요 → 다시 ①부터.",
+    "스킬3은 게이지를 많이 채워요. 빨간 게이지에 들어가기 싫으면 스킬1로 조금 깎고 스킬3을 쓰세요(레조넌스 유지형). 확산 딜(크림슨 바리에이션)형이면 일부러 빨간 게이지로 들어가요.",
+    "1돌 깨달음은 「크림슨 바리에이션」(빨간 게이지 확산 딜)을 고르는 의견이 많아요. 확산 평타만 칠 거면 탄도 강화로 멀리서 쏴도 되지 않냐는 의견도 있어요.",
+    "주의(지배자 루가 에알다 후기): 스킬1을 너무 자주 쓰면 레조넌스 진입이 늦어요. 레조넌스 전엔 스킬2가 1스택만 쌓여서, 중간중간 섞는 정도로 써요. 스킬3은 생각보다 가까이 붙어야 맞고, 뛰어오르기 전까지는 슈퍼아머가 아니에요.",
+    "회피하면 모으기 단계가 풀려요. 이스타브 효과(모으기 최대 단계로 명중)를 위해 다시 모아 쏴야 하냐는 고민이 많은데, 평타 · 스킬3 명중으로도 모으기가 올라서 따로 안 모아도 된다는 의견이 있어요(확인 중).",
+    "버그 제보(11/27): 돌파 옵션의 속성 회심 대미지가 +20%인데 실제로는 +36%(17.5% → 53.5%)로 들어가고, 연계기의 속성 회심 대미지 +30%는 버프 창에 안 뜬대요. 나중에 수정될 수 있어요.",
+    "파티 예(제보): 스티리아 · 아케니아 · 프레야 + 딜러 1명. 번개 딜러면 아케니아 대신 헤이즈를 넣어도 돼요.",
     "■ 추천 장비 · 삽화 · 파티 (GameWith 11/27)",
     "장비 3세트가 올라왔어요. 장비 탭 🧭 모험가 → 스티리아에서 세트 탭으로 바꿔 볼 수 있어요.",
     "융광종 상대(얼음 특화): 융광종 기에나헬름 · 융광종 기에나메일 · 기에나암 · 푸케푸케코일 · 하이메탈그리브 → 얼음속성 대미지 UP 7 · 모으기 강사 6 · 가호 2. 모으기 강사는 모으기 단계를 유지해야 켜져요.",
@@ -33678,7 +33790,7 @@
     "북쪽 설원의 명문가 외동딸로, 집안의 결정 궁술과 빙상 무용을 합친 '자기만의 춤'을 완성하려고 여행을 떠났어요. 레이기에나의 우아하면서도 치명적인 날갯짓에서 영감을 얻어요."
    ],
    "images": [],
-   "src": "https://mhohub.com/adventurers/stylia/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21383 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21387 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21389 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23043 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21795 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23730 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24161 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24012 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24134 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24072 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24067 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24026 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24668 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24703 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24732 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24775 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24741 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24646 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24631 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24341 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24691",
+   "src": "https://mhohub.com/adventurers/stylia/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21383 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21387 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21389 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23043 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21795 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23730 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24161 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24012 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24134 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24072 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24067 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24026 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24668 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24703 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24732 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24775 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24741 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24646 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24631 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24341 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24691 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24952 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24538 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24929 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24922 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24903 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24885 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24920 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24797",
    "yt": "1Sv9BR1aIqc"
   },
   {
@@ -33747,6 +33859,7 @@
     "약점 속성은 번개, 약점 무기는 타격(해머)이에요. 메인 조작 보너스(+50%)는 주인공(대검 장비 시)·루카·브릭스예요.",
     "융광 부위는 머리예요. 독액을 가득 품은 머리를 써서 돌진해요. 번개속성 타격 대미지로 머리를 치면 광폭 상태가 풀려요.",
     "그래서 번개 해머(주인공·브릭스)로 머리를 노리는 게 정석이에요. 브릭스는 번개 7 + 내성 정도만 맞춰도 잡을 만하다는 의견이 있어요(제보).",
+    "헤비보우건이면 번개 헤보(융광종 토비카가치 소재)를 들고 산탄 · 참렬탄을 머리에 집중하라는 제보가 있어요.",
     "■ 필드에도 나와요: 융광종 푸케푸케 (11/24)",
     "@img:bn_21281_1",
     "부패의 심연 「붉은 이끼 골짜기」에 융광종 푸케푸케(★11 · 특수 체형)가 출몰해요. 지도 화면 권장 사냥력은 9,772예요.",
@@ -33755,6 +33868,7 @@
     "금관은 두 종류예요 — 금관 가운데 보석이 빨강이면 최소 금관, 파랑이면 최대 금관이에요. 최대 금관을 잡으면 최소 금관 과제는 안 깨져요.",
     "■ 첫 클리어 보수",
     "각 난이도를 처음 깰 땐 '융광종 토벌 티켓'을 쓰지 않고 첫 클리어 보수를 받아요.",
+    "티켓은 보수를 받을 때만 써요 — 도전하거나 실패해서는 안 줄고, 보수를 받을 때 티켓을 쓸지 고를 수 있대요. 가장 높은 난이도 하나만 깨 두면 돼요.",
     "안 깬 낮은 난이도가 있어도 더 높은 난이도를 깨면 그 아래 난이도들의 첫 클리어 보수도 같이 받아요. 그래서 갈 수 있는 제일 높은 난이도로 바로 도전하면 돼요.",
     "난이도 10(상급 챌린지 켬)은 권장 사냥력 13,516, 첫 클리어 보수 5,500 + 900이에요.",
     "난이도 10은 깨도 빠른 토벌이 안 열린다는 제보가 있어요(확인 중).",
@@ -33781,7 +33895,7 @@
     "bn_18067_1",
     "bn_18067_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18692 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19764 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20978 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21281"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=18692 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19764 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20978 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21281 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24941 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24883"
   },
   {
    "id": "dc-18811",
@@ -35262,6 +35376,7 @@
     "번개: 카가치헬름 · 융광종 리오하트메일 · 융광종 리오하트암 · 융광종 기르오스코일 · 잉곳그리브 → 번개 7 · 회심격【속성】 1 · 두려움 없는 자 2(대미지 +6%) · 통찰 2(회심률 +4%) · 위협 1. 헬름을 리오하트로, 팔을 기르오스암으로 바꾸면 회심격 3 대신 번개 6이 돼요 — 속성 7을 챙기라는 의견이에요.",
     "얼음: 융광종 기에나헬름 · 융광종 리오하트메일 · 융광종 리오하트암 · 체인벨트 · 하이메탈그리브 → 얼음 7 · 통찰 2 · 회심격【속성】 1 · 가호 1. 허리를 기에나코일로 바꾸면 얼음 6 · 가호 3이에요.",
     "용: 융광종 리오하트헬름 · 융광종 리오하트메일 · 타로스암 · 디아네로코일 · 본그리브 → 용 7 · 회심격【속성】 3 · 불굴의 의지 3 · 기절 내성 2 · 체력 강화 1 · 파괴왕 1.",
+    "케레스(용): 앵화 2세트 + 용 7 + 남은 칸은 연격 강화로 채우면 돼요. 불굴의 의지는 꼭 3이어야 융광 활성 페널티가 완전히 사라져요.",
     "용 다른 조합: 디아네로헬름 · 융광종 리오하트메일 · 융광종 리오하트암 · 디아네로코일 · 본그리브 → 용 7 · 회심격 1 + 디아블로스 아종 2세트 효과(기절 내성 쪽)까지. 자주 맞아서 기절이 잦으면 이쪽도 괜찮대요.",
     "@img:bn_21496_4",
     "실착 스킬 표(위 사진): 용 · 얼음 · 번개 · 활 모으기 강사 세팅. 왼쪽 두 칸(머리·몸통)에서 불굴의 의지 · 회심격【속성】 · 고압 가드가 나오고 맨 오른쪽 칸(세트 효과)에서 융광 활성 1이 켜지는 게 보여요.",
@@ -35301,7 +35416,7 @@
     "bn_21496_5",
     "bx_dc-20915_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21449 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21455 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21459 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21463 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21467 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21485 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21486 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21489 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21492 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21493 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21494 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21496 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21511 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21512 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21519 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21451 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21452 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21470 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21473 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21321 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21298 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21338 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21339 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21351 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21353 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21356 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21367 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21370 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21371 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21414 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21422 (11/24 인게임 스크린숏 제보) https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21528 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21566 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21567 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21571 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21572 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21589 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21590 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21595 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21618 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21638 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21646 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21661 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21664 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21670 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21677 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21703 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21712 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21728 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21544 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21587"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21449 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21455 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21459 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21463 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21467 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21485 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21486 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21489 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21492 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21493 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21494 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21496 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21511 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21512 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21519 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21451 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21452 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21470 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21473 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21321 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21298 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21338 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21339 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21351 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21353 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21356 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21367 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21370 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21371 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21414 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21422 (11/24 인게임 스크린숏 제보) https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21528 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21566 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21567 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21571 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21572 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21589 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21590 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21595 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21618 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21638 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21646 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21661 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21664 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21670 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21677 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21703 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21712 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21728 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21544 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21587 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24896"
   },
   {
    "id": "dc-22405",
