@@ -1242,7 +1242,7 @@ section.box>*{min-width:0}.gdiff .cat,.gdiff span{white-space:normal}.gtop .jf,.
  body.inner header::before,body.inner header::after{display:none!important}
 }
 @media (max-width:600px){.bt b{white-space:normal!important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.35}td.part{white-space:normal!important;overflow-wrap:anywhere}}
-.bsets{display:grid;gap:10px;padding:12px 18px 6px}.btabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:0;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}.btab{font:inherit;padding:9px 10px;border:0;background:var(--panel);color:var(--ink);cursor:pointer;display:grid;gap:2px;text-align:center;line-height:1.3;min-width:0}.btab b{font-size:14.5px;word-break:keep-all}.btab+.btab{border-left:1.5px solid var(--line)}.btab small{font-size:12px;color:var(--muted);font-weight:500}.btab[aria-pressed="true"]{background:var(--accent)}.btab[aria-pressed="true"] b,.btab[aria-pressed="true"] small{color:#fff}.bmore{display:grid;gap:6px}.bml{font-size:12.5px;font-weight:700;color:var(--muted)}.bmc{display:flex;flex-wrap:wrap;gap:6px}.bmc .chip{font-size:13px;padding:5px 11px}.bmc .chip small{font-size:11.5px;opacity:.7;margin-left:2px}
+.bsets{display:grid;gap:10px;padding:12px 18px 6px}.btabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:0;border:1.5px solid var(--line);border-radius:12px;overflow:hidden}.btab{font:inherit;padding:9px 10px;border:0;background:var(--panel);color:var(--ink);cursor:pointer;display:grid;gap:2px;text-align:center;line-height:1.3;min-width:0}.btab b{font-size:14.5px;word-break:keep-all}.btab+.btab{border-left:1.5px solid var(--line)}.btab small{font-size:12px;color:var(--muted);font-weight:500}.btab[aria-pressed="true"]{background:var(--accent)}.btab[aria-pressed="true"] b,.btab[aria-pressed="true"] small{color:#fff}.bmore{display:grid;gap:6px}.bml{font-size:12.5px;font-weight:700;color:var(--muted)}.bmc{display:flex;flex-wrap:wrap;gap:6px}.bmc .chip{font-size:13px;padding:5px 11px}.bmc .chip small{font-size:11.5px;opacity:.7;margin-left:2px}.btab.blk:not([aria-pressed="true"]) b{opacity:.55}.bmc .chip.blk:not([aria-pressed="true"]){opacity:.65}
 
 /* 2026-11-20 전체 다듬기 */
 #navpill button{width:40px;height:36px;font-size:18px}
@@ -1520,6 +1520,9 @@ function resize(file){return new Promise((res,rej)=>{const fr=new FileReader();f
 /* ---- 레벨 맞춤: 무기·방어구 자동 교체 ---- */
 const armR=n=>{const k=String(n).replace(/\*/g,'');const p=D.armr.find(a=>k.startsWith(a[0]));return p?p[1]:1;};
 const rqTag=n=>{if(/^에알다/.test(String(n)))return '';const r=armR(n),L=lvFor(r);return `<em class="rq">희귀도 ${r} · ${L>1?'Lv'+L+'부터':'처음부터'}${st.lv<L?' 🔒':''}</em>`;};
+const PIDX={'머리':0,'몸통':1,'팔':2,'허리':3,'다리':4};
+const needLv=armor=>Math.max(1,...armor.map(a=>/^에알다/.test(a[1])?1:(lvFor(armR(a[1]))||99)));
+function simSum(armor){const t={},ser={},sets=[];armor.forEach(([p,n])=>{const a=D.sim.armor.find(x=>x[0]===n);if(!a)return;a[5].forEach(([k,l])=>t[k]=(t[k]||0)+l);ser[a[1]]=(ser[a[1]]||0)+1;});Object.entries(D.sim.sets).forEach(([k,v])=>{if((ser[k]||0)>=v[1]){t[v[2][0]]=(t[v[2][0]]||0)+v[2][1];sets.push(v[0]);}});return {skills:Object.entries(t).sort((a,b)=>b[1]-a[1]),sets};}
 const CHAIN_FB={'머리':'체인헤드','몸통':'체인베스트','팔':'체인글러브','허리':'체인벨트','다리':'체인팬츠'};
 function chainsFor(type,elem){
   const out=[];
@@ -1529,7 +1532,7 @@ function chainsFor(type,elem){
   out.push({wkr:ak,route:[['1–10',ak]],final:ak+' · 레어도 10',lv51:'',start:1,top:10,src:'a'});
   return out;
 }
-function adapt(b){
+function adapt(b,keepArmor){
   const cap=capOf(st.lv); if(!st.adapt) return {b,sw:null,ch:[]};
   const rs=b.route.map(r=>rng(r[0])); const start=Math.min(...rs.map(r=>r[0]));
   let nb=b, sw=null;
@@ -1538,10 +1541,14 @@ function adapt(b){
     if(c){nb=Object.assign({},b,{wkr:c.wkr,route:c.route,final:c.final,lv51:c.lv51});sw={from:b.wkr,need:lvFor(start),isAk:c.src==='a'};}
   }
   const ch=[];
+  if(keepArmor) return {b:nb,sw,ch};
+  const W={};(b.skills||[]).forEach((x,i)=>{W[x[0]]=[x[1],i<1?4:i<2?3:i<3?2:1];});
+  const cur={};const add=n=>{const x=D.sim.armor.find(y=>y[0]===n);if(x)x[5].forEach(([k,l])=>cur[k]=(cur[k]||0)+l);};
+  b.armor.forEach(a=>{if(armR(a[1])<=cap)add(a[1]);});
   const armor=b.armor.map(a=>{const r=armR(a[1]); if(r<=cap) return a;
-    const cand=[];D.builds.forEach(x=>x.armor.forEach(y=>{if(y[0]===a[0]&&armR(y[1])<=cap)cand.push([y[1],armR(y[1]),x.elem===b.elem?1:0,x.type===b.type?1:0]);}));
-    cand.sort((p,q)=>q[1]-p[1]||q[2]-p[2]||q[3]-p[3]);
-    const rep=cand.length?cand[0][0]:CHAIN_FB[a[0]];
+    const cand=D.sim.armor.filter(x=>x[2]===PIDX[a[0]]&&armR(x[0])<=cap).map(x=>[x[0],x[5].reduce((t,[k,l])=>t+(W[k]?Math.min(l,Math.max(0,W[k][0]-(cur[k]||0)))*W[k][1]:0),0),armR(x[0])]);
+    cand.sort((p,q)=>q[1]-p[1]||q[2]-p[2]);
+    const rep=cand.length?cand[0][0]:CHAIN_FB[a[0]];add(rep);
     ch.push({part:a[0],from:a[1],to:rep,need:lvFor(r)});return [a[0],rep];});
   nb=Object.assign({},nb,{armor});
   return {b:nb,sw,ch};
@@ -1567,12 +1574,17 @@ function plan(b){
 }
 const BSEL={};
 function card(b0){
-  const bk=b0.name+'|'+b0.type+'|'+b0.elem;const ALTS=b0.alts&&b0.alts.length?[{label:b0.label||'추천',src:b0.lsrc||''},...b0.alts]:null;const si=Math.min(BSEL[bk]||0,ALTS?ALTS.length-1:0);
+  const bk=b0.name+'|'+b0.type+'|'+b0.elem;const ALTS=b0.alts&&b0.alts.length?[{label:b0.label||'추천',src:b0.lsrc||'',armor:b0.armor},...b0.alts]:null;
+  const lk=a=>st.adapt&&needLv(a.armor)>st.lv?needLv(a.armor):0;
+  let si=ALTS?Math.min(BSEL[bk]===undefined?Math.max(0,ALTS.findIndex(a=>!lk(a))):BSEL[bk],ALTS.length-1):0;
+  const selLock=ALTS&&BSEL[bk]!==undefined?lk(ALTS[si]):0;
   if(ALTS&&si>0){const a=ALTS[si];b0=Object.assign({},b0,{armor:a.armor,skills:a.skills,sets:a.sets||[],note:a.note||''});}
   const bsetHtml=ALTS?(()=>{const kind=a=>/^일반 몬스터/.test(a.label)?'일반 몬스터 상대':/^융광종 상대/.test(a.label)?'융광종 상대':/^커뮤니티/.test(a.label)?'커뮤니티 추천':'';const nm=a=>a.label.replace(/^(일반 몬스터|융광종 상대|커뮤니티) · /,'');
     const gw=ALTS.map((a,i)=>[a,i]).filter(([a])=>kind(a)),ot=ALTS.map((a,i)=>[a,i]).filter(([a])=>!kind(a));
-    return `<div class="bsets"><div class="btabs">${gw.map(([a,i])=>`<button type="button" class="btab" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}"><b>${esc(nm(a))}</b><small>${esc(kind(a))}</small></button>`).join('')}</div><span class="bml" style="font-weight:500">추천 출처: GameWith${gw.some(([a])=>/game8/.test(a.src))?' (일부 game8도 같음)':''}${gw.some(([a])=>/^커뮤니티/.test(a.label))?' · 커뮤니티 실착 세팅(사이트 시뮬로 확인)':''}</span>${ot.length?`<div class="bmore"><span class="bml">다른 추천 · 단계별</span><div class="bmc">${ot.map(([a,i])=>`<button type="button" class="chip" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}">${esc(nm(a))} <small>${esc(a.src)}</small></button>`).join('')}</div></div>`:''}</div>`;})():'<div class="bsets bnone"></div>';
-  const A=adapt(b0), b=A.b; const cap=capOf(st.lv); const aT=TIER(Math.min(cap,12));
+    return `<div class="bsets"><div class="btabs">${gw.map(([a,i])=>`<button type="button" class="btab${lk(a)?' blk':''}" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}"><b>${esc(nm(a))}</b><small>${esc(kind(a))}${lk(a)?` <span style="white-space:nowrap">· 🔒 Lv${lk(a)}부터</span>`:''}</small></button>`).join('')}</div><span class="bml" style="font-weight:500">추천 출처: GameWith${gw.some(([a])=>/game8/.test(a.src))?' (일부 game8도 같음)':''}${gw.some(([a])=>/^커뮤니티/.test(a.label))?' · 커뮤니티 실착 세팅(사이트 시뮬로 확인)':''}</span>${ot.length?`<div class="bmore"><span class="bml">다른 추천 · 단계별</span><div class="bmc">${ot.map(([a,i])=>`<button type="button" class="chip${lk(a)?' blk':''}" data-bset="${esc(bk)}|${i}" aria-pressed="${i===si}">${esc(nm(a))} <small>${esc(a.src)}${lk(a)?` <span style="white-space:nowrap">· 🔒 Lv${lk(a)}부터</span>`:''}</small></button>`).join('')}</div></div>`:''}</div>`;})():'<div class="bsets bnone"></div>';
+  const A=adapt(b0,!!selLock), b=A.b;
+  const R=A.ch.length?simSum(b.armor):null; if(R){b.skills=R.skills;b.sets=R.sets;}
+  const lost=R?b0.skills.slice(0,3).map(([k,l])=>{const n=(R.skills.find(x=>x[0]===k)||[k,0])[1];return n<l?`${k} Lv${l} → ${n?'Lv'+n:'없음'}`:'';}).filter(Boolean):[]; const cap=capOf(st.lv); const aT=TIER(Math.min(cap,12));
   const c=`var(${EL[b.elem]||'--neutral'})`;
   const title=b.group==='hero'?`${b.type} · ${b.elem==='범용'?'범용':b.elem+'속성'}`:b.name;
   const route=b.route.map(r=>`${esc(r[1])}(레어도 ${r[0]})`).join(' → ');
@@ -1595,7 +1607,7 @@ function card(b0){
   ${rulerRow}${genRow}
   <tr class="lv"><td class="part">Lv${st.lv}</td><td><div class="fx fxl"><div class="fxi">${p.html}</div></div></td></tr>
   ${rows}</tbody></table>
-  <div class="skills"><div class="h">${(A.sw||A.ch.length)?`Lv${st.lv} 맞춤으로 ${A.ch.length+(A.sw?1:0)}부위 교체됨 · 아래는 원래 세팅 기준 스킬이라 일부 달라져요`:'장비를 다 맞추면 발동하는 스킬'}</div><div class="sk">${sk}</div>
+  <div class="skills"><div class="h">${selLock?`🔒 이 세트는 Lv${selLock}부터 맞출 수 있어요 · 아래는 다 맞췄을 때 스킬이에요`:A.ch.length?`Lv${st.lv} 맞춤으로 방어구 ${A.ch.length}부위 교체 · 바뀐 장비로 다시 계산한 스킬이에요`:A.sw?`Lv${st.lv} 맞춤으로 무기만 교체 · 방어구 스킬은 그대로예요`:'장비를 다 맞추면 발동하는 스킬'}</div>${lost.length?`<div class="h" style="color:var(--warn,#b45309)">원래 세트보다 줄어든 스킬: ${lost.map(esc).join(' · ')}</div>`:''}<div class="sk">${sk}</div>
   ${b.sets.length?`<div class="set">세트 스킬: <span>${b.sets.map(esc).join(', ')}</span></div>`:''}</div>
   ${b.note?`<div class="anote">💬 ${esc(b.note)}</div>`:''}
 </article>`;
