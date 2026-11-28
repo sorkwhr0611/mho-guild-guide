@@ -24577,6 +24577,18 @@
      "11/28",
      "공략 업데이트",
      [
+      "DPS 랭킹 설정 · 융광화 2회차 · 현상금",
+      "설정 → 기능: 사냥 중 DPS 랭킹 · 몰입 모드 새 글(게임 화면)",
+      "현상금 융광종 디아블로스 요령 · 융광화 2회차 음폭탄 면역 · 토비카가치 활공 격추",
+      "프레야 실제 딜 수치 · 협동 공격 대기 중 오의 다운 안 됨 · 1돌 고민 정리",
+      "스티리아 서브 자리 · 주인공 대검 사이클 · 시즌 삽화 돌려쓰기 · 휘광 · 루카 질풍의 우레"
+     ],
+     "dc-25731"
+    ],
+    [
+     "11/28",
+     "공략 업데이트",
+     [
       "프레야 서포터 운용 · 스티리아 궁합",
       "프레야: 오의 충전 서포터 세팅 · 다리 파괴 → 오의로 다운 연장 · 스티리아+류노스케",
       "스티리아: 3돌 딜 예시 · 회심 메인(미도리·주인공·케레스)과 궁합 · 체공 중 오의 꺼짐",
@@ -32618,10 +32630,15 @@
     "빠른 몬스터는 발도·강모으기·저스트 회피 연계로 조금씩 치고, 큰 틈이나 경직 때 참모으기·진심베기를 넣어요.",
     "고룡급 상대로는 태클이 위험하니 대미지 낮은 공격에만 쓰세요.",
     "주인공 대검 돌파 효과 중에 강모으기 차징 중 태클로 몬스터 공격을 받아치면 바로 진심베기를 쓸 수 있게 해 주는 효과가 있어요. 진심베기를 자주 쓰려면 필수라는 의견이에요(제보).",
-    "태클 중 받는 대미지 감소는 기본 50%, 깨달음을 찍으면 80%라는 제보예요. 크샬다오라 폭풍에 잠깐 닿는 정도는 버티지만, 폭풍 속에서 진심베기까지 쓰면 쓰러질 수 있어요(제보)."
+    "태클 중 받는 대미지 감소는 기본 50%, 깨달음을 찍으면 80%라는 제보예요. 크샬다오라 폭풍에 잠깐 닿는 정도는 버티지만, 폭풍 속에서 진심베기까지 쓰면 쓰러질 수 있어요(제보).",
+    "■ 주인공 대검 사이클 (11/28 답변)",
+    "@img:bn_25724_1",
+    "평소엔 스킬3 또는 평타 → 회피 → 납도로 간을 봐요. 틈이 보이면 스킬2 → 평타 → 스킬2 → 참모으기.",
+    "참모으기 중에 맞을 것 같으면 참모으기 대신 진심베기로 끊어요. 손에 덜 익었으면 태클 → 태클 → 진심베기만 반복해도 얼추 돼요 — 핵심은 태클로 몬스터 공격을 받아치며 다운을 안 당하는 거예요.",
+    "회피 뒤 평타는 길게 모으지 말고 바로 치고 빠지는 게 나아요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15555 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19695"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=15555 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19695 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25724"
   },
   {
    "id": "bounty-midori",
@@ -33045,17 +33062,23 @@
   {
    "id": "dc-13921",
    "cat": "몬스터·사냥",
-   "title": "융광종 디아블로스 찾기와 잠행 대처",
+   "title": "융광종 디아블로스 · 둥지 과제 요령 (잠행 · 활공 격추)",
    "date": "11-15",
    "lines": [
     "융광종 디아블로스는 열사 평원 중앙 사막 쪽에서 필드에 ??? 표시로 떠 있는 걸 발견했어요.",
     "둥지 퀘스트의 '잠행 중인 타겟 끌어내기'는 주변의 파랗게 빛나는 벌레를 쓰면 돼요.",
-    "디아블로스가 땅속으로 들어가면 그 벌레가 활성화되고, 이때 누르면 음폭탄처럼 터져서 끌어낼 수 있어요."
+    "디아블로스가 땅속으로 들어가면 그 벌레가 활성화되고, 이때 누르면 음폭탄처럼 터져서 끌어낼 수 있어요.",
+    "■ 융광화 2번째부터 달라져요 (11/28)",
+    "처음 융광화 때는 들어가자마자 음폭탄으로 끌어낼 수 있었는데, 두 번째 융광화부터는 음폭탄에 면역이고 패턴도 더 거칠어졌다는 후기가 여럿이에요. 2번째 융광화가 오면 끌어내기보다 피하면서 기다려요.",
+    "융광종 디아블로스한테 긴급 회피를 너무 일찍 쓰면 뒤이어 떨어지는 운석에 맞기 쉬워요. 돌진을 본 뒤에 피하세요.",
+    "■ 둥지 과제: 글라이딩 중인 타겟 1회 격추 (토비카가치)",
+    "토비카가치가 나무를 타고 올라갈 때가 아니라, 나무에서 떨어지며 활공해 내려올 때(팔 벌린 자세) 맞혀야 인정돼요(답변 여러 개).",
+    "브릭스 섬광을 준비해 두었다가 활공 순간에 쏘면 쉬워요."
    ],
    "images": [
     "bn_13921_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13921"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=13921 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25730 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25676"
   },
   {
    "id": "dc-15624",
@@ -33525,13 +33548,14 @@
     "제련(옵션 리롤)은 재화가 많이 들어요. 토벌 랭킹을 노리는 게 아니면 제련보다 서브 모험가를 키워 마스터 격투장 보상(주 루타 코인)을 챙기는 게 낫다는 의견이 많아요.",
     "분해하면 뭐가 돌아오나 — 만들 때 쓴 시즌 재화는 돌아오지만 제니 · 각성 주재료 · 제련(옵션 돌리기)에 쓴 건 안 돌아와요. 장비 중이거나 장비 세트에 들어 있으면 분해 목록에 안 떠요(제보).",
     "각성 옵션 고르기 한 줄 정리 — 고를 수 있는 건 회심률 · 속성 대미지 · 오의 충전 효율 3가지예요. 이 게임 회심은 1.25배이고, 회심률은 물리 · 속성 대미지 둘 다에 적용돼요. 속성 대미지 증가는 물리와 따로 계산돼요. 그래서 잘 모르겠으면 회심률, 코어 패시브 · 각인에 회심이 있는 모험가(주인공 · 미도리)면 회심률, 아니면 속성 대미지가 무난해요. 오의 충전은 아깝다는 의견이 많아요. 어차피 제련에서 다시 굴릴 수 있어요.",
-    "두 번째 지배자 무기 추천(11/27) — 불 태도(미도리 · 프레야용) 다음으로는 용 헤보가 무난하고, 긴급 의뢰용 원거리 무기 하나쯤 있으면 편해요. 스티리아를 3돌 이상 키울 거면 얼음 활도 좋아요. 결국 자기가 재밌는 무기로 고르라는 의견이 많아요."
+    "두 번째 지배자 무기 추천(11/27) — 불 태도(미도리 · 프레야용) 다음으로는 용 헤보가 무난하고, 긴급 의뢰용 원거리 무기 하나쯤 있으면 편해요. 스티리아를 3돌 이상 키울 거면 얼음 활도 좋아요. 결국 자기가 재밌는 무기로 고르라는 의견이 많아요.",
+    "휘광의 결정은 일반 제작 무기 강화에도 들어가요(11/28) — 지배자 무기를 끝까지 강화하면 일반 무기보다 휘광을 더 많이 먹어요. 휘광이 모자라면 지배자 하나 + 일반 무기 하나로 버티다 스펙이 딸릴 때 지배자로 바꾸거나, 처음부터 지배자 두 개를 키우는 것 중 고르면 돼요. 속성은 골고루 만드는 걸 추천하는 답이 많아요."
    ],
    "images": [
     "bt_ruler_1",
     "bt_ruler_2"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12225 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19882 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19937 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19945 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20128 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20195 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20199 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20359 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20707 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20737 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21320 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21631 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21579 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21576 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21600 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21573 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24736 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24625 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24741"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=12225 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19882 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19937 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=19945 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20128 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20195 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20199 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20359 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20707 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20737 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21320 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21631 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21579 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21576 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21600 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21573 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24736 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24625 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24741 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25735"
   },
   {
    "id": "tips-life",
@@ -34180,6 +34204,13 @@
     "미도리 메인 + 프레야 서브: 연계기가 메인 회피 성공 때 나가서 회피가 많은 미도리와 잘 맞아요. 다만 연계기가 몬스터를 경직시켜 미도리 동작을 끊을 수 있어요(40초에 1번) — 연기 게이지를 채운 뒤 회피를 맞추는 식으로 타이밍을 봐요.",
     "동반자: 제르타가 1순위(발도 공격 명중마다 불속성 대미지, 5중첩이면 +18%). 없으면 에이비(마비 오의 · 제압 중 대미지 UP)나 호난자(제압 시간 연장) — 둘 다 SR이라 돌파하기 쉬워요.",
     "기술 배율(GameWith): 염무 종식 665.9% · 극 단룡베기(모으기 3단) 521.6% · 참 모아베기 강타(3단) 493.3% · 염무 회환 322.0% · 단룡베기(3단) 240.9%. 3단계에서 쓰는 염무 종식 · 극 단룡베기가 핵심이에요.",
+    "■ 11/28 오후 추가 (딜 수치 · 협동 공격 주의)",
+    "풀돌 · 각성 100% 프레야로 융광종 레이기에나를 잡을 때 한 타 평균 15만~25만, 불 약점 · 약점 부위 · 수면참 · 회심이 다 겹치면 64만까지 떴대요(장비: 앵화 · 불속성 7 · 회심격【속성】 3).",
+    "실제 극딜 때는 극 단룡베기보다 배율이 높은 염무(3 → 3, 네 바퀴 · 한 바퀴 10만 안팎)를 돌려요. 다만 염무 종식은 슈퍼 아머가 없어서 몬스터가 누워 있을 때만 쓰고, 평소엔 극 단룡베기로 찍어요.",
+    "풀각 미도리와 풀각 프레야로 연속 조사를 돌려 보면 DPS는 미도리가 조금 더 높았대요. 큰 차이는 아니라 대검 · 태도 취향으로 고르면 돼요.",
+    "멀티에서 협동 공격이 대기 중일 때는 오의를 써도 몬스터가 안 넘어진다는 제보예요. 오의 다운을 노리면 협동 공격을 먼저 정리하고 써요.",
+    "1돌 고민(답변 여러 개): 프레야는 명함으로도 메인 · 서포터 둘 다 쓸 만하고, 1돌은 딜 · 오의 지속 · 차징 편의 중 하나가 좋아지는 정도예요. 스티리아는 1돌을 해야 메인으로 쓸 수 있어서, 한쪽만 돌파하면 스티리아 쪽이 쓰임새가 넓어진다는 의견이 많아요.",
+    "불 약점 몬스터 상대로 프레야 명함 vs 주인공 2돌이면 프레야가 낫다는 답이 많고, 주인공이 헤비 보우건이면 주인공이 낫다는 답도 있어요.",
     "■ 11/28 낮 추가 (서포터 오의 셔틀 · 파티)",
     "서포터로 제대로 굴리려면: 삽화 옵션과 4세트 효과를 오의 충전 효율로 맞추고, 류노스케 · 스티리아를 같이 넣어요. 둘의 연계기가 오의 게이지를 채워 줘서(스티리아 연계기 = 멤버 전원 오의 게이지 +11) 오의가 밀리지 않고 돌아요(제보).",
     "다운 연장 요령: 처음에 다리를 부위 파괴해서 다운시키고, 몬스터가 일어나는 순간 프레야 오의로 다시 눕혀요. 그러면 아주 오래 누워 있대요(제보).",
@@ -34309,7 +34340,7 @@
     "예전에 올렸던 공식 3차 CBT 트레일러(일본어, 유튜브 U7Zxw2N6P08)에도 프레야가 나와요."
    ],
    "images": [],
-   "src": "https://www.gacha.gg/monster-hunter-outlanders/characters/freya https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20283 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20320 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23739 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24073 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24042 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24124 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24146 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24001 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24081 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24112 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24062 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24032 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24724 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24604 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24778 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24641 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24616 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24687 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24679 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24779 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24966 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24873 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24812 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24794 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24836 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24959 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24932 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25049 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25087 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25094 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25008 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25088 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25075 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24983 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25106 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25108 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25363 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25346 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25357 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25270 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25314 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25279 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25206 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25427 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25235 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25162 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25290 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25342 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25394 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25187 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25382 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25135 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25221 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25281 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25337 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25157 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25165 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25307 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25143 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25597 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25630 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25552 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25551 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25624 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25640",
+   "src": "https://www.gacha.gg/monster-hunter-outlanders/characters/freya https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20301 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20283 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20320 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23739 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24073 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24042 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24124 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24146 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24001 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24081 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24112 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24062 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24032 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24724 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24604 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24778 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24660 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24641 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24644 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24616 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24657 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24687 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24679 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24779 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24966 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24873 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24812 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24794 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24836 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24959 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24932 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25049 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25087 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25094 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25008 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25088 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25075 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24983 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25106 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25108 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24998 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25363 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25346 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25357 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25270 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25314 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25279 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25206 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25427 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25235 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25162 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25290 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25342 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25394 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25187 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25382 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25135 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25221 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25281 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25337 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25157 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25165 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25307 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25312 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25143 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25597 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25630 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25552 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25551 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25624 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25640 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25697 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25711 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25723",
    "yt": "lbb0fQKdsk8"
   },
   {
@@ -34417,6 +34448,10 @@
     "서포터로 쓸 땐 범용이라 어느 파티든 들어가요 — 미도리 · 아케니아 · 브릭스 · 류노스케 파티라면 아케니아 자리에 넣고, 류노스케는 미도리와 같이 두래요(답변).",
     "@img:bn_25077_0",
     "「활활 화로-이스타브」 보상 중에 동반자 1마리를 고르는 칸(나일 · 타이쇼 · 네가르)이 있어요. 아케니아가 있으면 나일을 고르라는 답변이 많아요.",
+    "■ 11/28 오후 추가 (서브 자리 · 파티)",
+    "서브로 넣을 때는 페페 자리에 넣거나, 아케니아 대신 넣어 딜을 올리는 답이 많아요. 마비가 빠지면 안정성은 떨어지니, 다른 서포터에게 마비 · 수면 무기를 들려 메우면 돼요.",
+    "미도리 · 프레야 · 스티리아 + 한 자리: 프레야가 잘 쓰러지면 아케니아, 제압 유지가 좋으면 류노스케 · 브릭스를 넣어요. 스티리아는 있어야 버프가 안 끊긴대요.",
+    "진짜 서포터로만 쓸 거면 방어구를 가호 붙은 걸로 맞추고 레벨은 적게 올려도 된다는 답이 있어요(제보). 체력 · 방어력이 낮아 익스트림에선 먼저 쓰러지기 쉬우니 가호 · 체력 스킬을 챙겨요.",
     "■ 11/28 낮 추가 (딜 예시 · 서포터 궁합)",
     "@img:bn_25575_1",
     "딜 예시(3돌 · 사냥력 약 1.5만): 융광종 디아블로스 평상시에 모으기 4단계 4타가 한 발에 6천~8천씩 떠요. 오의를 안 쓴 상태라 2돌과 비슷할 거래요(제보).",
@@ -34483,7 +34518,7 @@
     "서포터 돌파 순서는 오버추어(오의 회심) → 글리산도(오의 속성 대미지 +50%)라는 답이 다시 나왔어요. 메인이 1돌부터 확산을 쓰면 동반자 패시브를 제대로 못 받는다는 의견도 있어요(제보)."
    ],
    "images": [],
-   "src": "https://mhohub.com/adventurers/stylia/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21383 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21387 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21389 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23043 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21795 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23730 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24161 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24012 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24134 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24072 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24067 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24026 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24668 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24703 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24732 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24775 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24741 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24646 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24631 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24341 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24691 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24952 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24538 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24929 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24922 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24903 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24885 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24920 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24797 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25093 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25057 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25024 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25003 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25076 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25285 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25181 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25287 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24969 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25436 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25138 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25373 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25483 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25481 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25478 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25575 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25619 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25565 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25591 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25617 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25535",
+   "src": "https://mhohub.com/adventurers/stylia/ https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21383 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21387 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21389 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21680 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23173 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23043 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21795 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23730 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24161 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24012 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24134 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24141 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24072 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24067 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24026 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24612 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24642 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24668 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24703 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24732 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24775 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24751 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24689 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24741 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24646 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24631 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24341 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24691 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24952 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24538 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24929 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24922 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24903 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24885 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24920 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24797 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25093 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25057 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25024 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25045 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25029 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25003 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25027 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25076 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25034 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25077 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25285 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25181 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25287 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25256 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=24969 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25436 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25138 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25373 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25483 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25481 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25478 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25575 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25619 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25565 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25591 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25617 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25535 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25719 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25671 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25686",
    "yt": "1Sv9BR1aIqc"
   },
   {
@@ -35689,10 +35724,11 @@
     "3돌 깨달음 질문(11/24)에도 「스태미나 감소(질풍의 우레)는 꼭 넣으라」는 답이 2개 달렸어요. 스태미나가 모자라다 싶으면 하나를 질풍의 우레로 바꾸세요.",
     "■ 4돌까지 깨달음 순서 (11/28 · 제보)",
     "달리는 뇌전 → 전광 부스트 → 경뢰의 집념 → 뇌신의 계약까지가 4돌 필수, 다음 질풍의 우레(스태미나), 마지막 무지개 화살(오의 대미지). 2돌이면 달리는 뇌전 · 전광 부스트.",
-    "루카를 진지하게 메인 딜러로 키울 때만 4돌을 추천해요. 같은 재화로 아케니아 1돌을 할 수 있다면 아케니아가 낫다는 답이에요."
+    "루카를 진지하게 메인 딜러로 키울 때만 4돌을 추천해요. 같은 재화로 아케니아 1돌을 할 수 있다면 아케니아가 낫다는 답이에요.",
+    "11/28에도 「질풍의 우레(스태미나 -5)를 찍으니 사이클이 아예 달라져 강주약 없이도 쾌적하다」는 후기가 나왔어요. 딜만 보면 4돌까지 미뤄도 되지만 운영이 편해져서 2돌부터 찍자는 의견, 블레이드를 더 자주 쓰게 돼 결국 딜도 오른다는 의견이 있어요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20626 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17115 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20343 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20401 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21269 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25302"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20626 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=17115 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20343 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=20401 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21269 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25302 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25709"
   },
   {
    "id": "dc-20647",
@@ -35997,12 +36033,17 @@
     "해머 예시: 모으기 중 슈퍼 아머 · 부위 파괴 시 보호막 · 체력 30% 이하 딜 증가.",
     "한 번 쓰러지면 바로 실패이고 다시 하기가 없어서 티켓만 날아가요. 안 써 본 모험가·무기로 들어갔다가 미끄러졌다는 후기가 많으니, 손에 익은 무기로 가요.",
     "류노스케는 폭식(고기 먹는) 시간이 길어서 현상금엔 비추라는 의견이 여럿이에요. 헤보만으로 매주 깬다는 후기도 있어요.",
-    "시즌 보상 마감까지 시간이 남아서, 한 주에 못 채워도 너무 조급해하지 않아도 돼요."
+    "시즌 보상 마감까지 시간이 남아서, 한 주에 못 채워도 너무 조급해하지 않아도 돼요.",
+    "■ 11/28 추가 — 융광종 디아블로스 · 최적 모으기",
+    "마지막 융광종 디아블로스가 제일 막혀요. 주인공 헤비 보우건 관통탄으로 몸통을 조준하고 계속 쏘라는 답, 주인공 쌍검 난무 두 방이면 융광종 오도가론 · 디아블로스가 녹는다는 답이 여러 개예요.",
+    "태도로 체력이 깎일수록 딜이 오르는 증강을 뽑아 쉽게 깼다는 후기도 있어요. 증강 고를 때 무료 다시 고르기를 몇 번 써서 좋은 걸 노려요.",
+    "스티리아는 「제일 쉽고 빠르다」는 후기와 「손에 안 익어 시간 초과」 후기가 갈려요. 쓴다면 체력 30% 관련 증강 위주로 고르고, 오의가 붙은 증강 중 예열 상태에서 확산 공격이 나가는 걸 잡으면 딜이 나온대요(제보).",
+    "증강 설명의 「최적의 타이밍 모으기 공격」은 모으기를 끝까지(오버차지) 끌지 말고 3단계에서 바로 쏘는 걸 말한다는 답이 있어요(제보 · 확인 중)."
    ],
    "images": [
     "bn_21354_1"
    ],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21385 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21354 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21526 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23585 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23601 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23575"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21385 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21354 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21606 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21526 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23585 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23601 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=23575 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25683 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25658 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25745"
   },
   {
    "id": "dc-21357",
@@ -36021,10 +36062,15 @@
     "■ 11/24 추가",
     "삽화 그리기 횟수는 몬스터를 잡고 「삽화 그리기」가 뜨는 순간 차감돼요. 그리기를 안 눌러도 줄어드니, 필요한 삽화를 노릴 땐 그리기 횟수를 계산하면서 잡으세요(설명에 적혀 있어요).",
     "내 필드 몬스터를 다 잡았으면 친구창에서 친구가 올려 둔 몬스터를 내 필드로 불러와 잡을 수 있어요. 이 몬스터도 확률로 삽화를 줘요.",
-    "친구 몬스터를 잡으면 협동 포인트가 쌓여요. 상점 → 교환 → 협동 탭에서 루가 덧입기나 재화로 바꿔요."
+    "친구 몬스터를 잡으면 협동 포인트가 쌓여요. 상점 → 교환 → 협동 탭에서 루가 덧입기나 재화로 바꿔요.",
+    "■ 11/28 추가 (시즌 삽화 · 전설 미만)",
+    "크샬다오라 같은 시즌 삽화는 여러 개 다 키우지 말고, 좋은 거 하나만 강화 · 채색해서 모험가끼리 돌려 쓰라는 답이 많아요.",
+    "전설 미만 삽화는 백련의 증표 과제(삽화 육성)가 뜰 때 바로 채워 주는 용도로 쓰고 치워요.",
+    "상 · 중 옵션 삽화도 백련의 증표를 뚫을 만큼만 강화해 두고, 옵션이 별로면 재료로 써요. 같은 옵션 두 줄 · 쌍극옵은 잠가 두는 사람이 많아요.",
+    "10레벨 삽화는 합성 재료보다 레벨업 재료로 넣는 게 낫다는 제보가 있어요(다른 삽화가 8레벨까지 오른대요 · 확인 중)."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21357 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21377 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21335 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21548 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21545"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21357 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21377 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21335 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21548 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=21545 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25655 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25647 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25685"
   },
   {
    "id": "dc-21496",
@@ -36483,10 +36529,12 @@
     "교란형 · 지원형은 대충 키워도 1인분을 하지만, 돌격형은 서브로 넣어도 제대로 키워야 딜이 나와요.",
     "서브 프레야는 모으기 중에 맞고 쉽게 쓰러져서 오의 전에 눕는다는 후기가 있어요. 프레야 서브는 주인공 해머와 잘 맞는다는 의견도 있어요.",
     "같은 모험가라도 메인과 서브는 세팅이 달라요 — 깨달음 · 삽화 · 각인 효과를 보고 장비 세트를 2~3개 만들어 두래요(답변).",
-    "서포터 스티리아 돌파는 오의 회심(오버추어) → 오의 속성 대미지 +50%(글리산도) 순서를 추천하는 답이 있어요."
+    "서포터 스티리아 돌파는 오의 회심(오버추어) → 오의 속성 대미지 +50%(글리산도) 순서를 추천하는 답이 있어요.",
+    "■ 상태이상 서포터 3명 (11/28)",
+    "브릭스에게 수면 무기, 나머지 서포터 두 명에게 마비 무기를 들리면 마비가 빠르면 10초, 늦어도 30초 안에 걸려서 거의 프리딜만 한다는 후기예요. 고룡처럼 내성이 높은 몬스터에겐 덜 통할 수 있어요."
    ],
    "images": [],
-   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25499 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25533 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25393 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25457 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25470 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25504 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25481"
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25499 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25533 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25393 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25457 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25470 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25504 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25507 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25481 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25651 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25671"
   },
   {
    "id": "dc-25485",
@@ -36515,6 +36563,27 @@
    ],
    "images": [],
    "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25485"
+  },
+  {
+   "id": "dc-25731",
+   "cat": [
+    "생활·편의"
+   ],
+   "title": "설정 → 기능: DPS 랭킹 · 몰입 모드",
+   "date": "11-28",
+   "lines": [
+    "■ 어디 있어요",
+    "@img:bn_25731_1",
+    "설정 → 기능 탭에 사냥 화면을 바꾸는 스위치가 모여 있어요. 몬스터 체력 표시(켜기/끄기 · 위치 중앙/왼쪽 정렬), 사냥 중 DPS 랭킹, 몰입 모드, 몬스터 행동 힌트, 사냥 중 미니 지도 숨기기, 클래식 모드 스킬 힌트 등이 있어요.",
+    "■ 사냥 중 DPS 랭킹",
+    "켜 두면 사냥하면서 파티 딜 순위를 볼 수 있어요. 솔로에서 동료(AI)들 딜 지분이 궁금하면 이걸 켜 보라는 답이 있어요(솔로에서도 보이는지는 확인 중).",
+    "■ 몰입 모드",
+    "켜면 몬스터 체력 바가 크게 보이고, 화면 아래에 있던 내 캐릭터 UI가 전투에 들어가면 다른 몬헌처럼 왼쪽 위로 옮겨가요. 화면 가운데 UI가 대부분 구석으로 빠져서 화면이 넓어져요(답변 2개).",
+    "■ 같이 보면 좋은 설정",
+    "몬스터 체력 표시를 켜면 남은 체력을 숫자 대신 바로 볼 수 있어 오의 · 극딜 타이밍 잡기가 쉬워요. 클래식 조작이면 「클래식 모드 스킬 힌트」를 켜 두면 콤보 입력이 화면에 떠요."
+   ],
+   "images": [],
+   "src": "https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25731 https://gall.dcinside.com/mgallery/board/view/?id=mhmobile&no=25705"
   }
  ],
  "sim": {
